@@ -157,5 +157,6 @@ $RECYCLE.BIN/
 *.zip
 *.xlsx
 img/
+Chromedriver
 
 # End of https://www.gitignore.io/api/python,windows,jupyternotebooks
