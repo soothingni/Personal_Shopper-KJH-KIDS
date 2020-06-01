@@ -7,7 +7,7 @@
 <body>
 <font size="50" color="#adff2f">PERSONAL SHOPPER</font><br>
 {% if user.is_authenticated %}
-안녕하세요 {{user.username}}님
+안녕하세요 {{user.username}}님<br>
 <a href ='logout'>log out</a><br>
 {% else %}
 <a href ='login'>sign in</a><br>
