@@ -1,8 +1,12 @@
 <style>
     .lookbook {
-        background-color: #FBFADB;
-        margin: 200px 0 0 0;
+        background-color: #F0E0FF;
+        margin: 100px 0 0 0;
         padding : 150px 0px 50px 0px;
+    }
+    
+    .lookbook_message{
+        padding: 0 0 0 100px;
     }
     
     ul > li {
@@ -21,7 +25,7 @@
     }
     
     .carousel{
-        background-color: #FAEDAB
+        background-color: #fff
     }
     
     td {
@@ -35,7 +39,7 @@
                     }
     
     header {
-    background-color: #d9e8f3
+    background-color: #fff
     }
     
 </style>
@@ -52,6 +56,10 @@ main
 
 <!--SECTION1: LOOKBOOK-->
 <div class="lookbook"> 
+    <div class="lookbook_message">
+         <h2> your very own </h2> <br>
+        <h2>  style assistant </h2>
+    </div>
     <center>
         <ul id="scroller">
             {% for star in  stars %}
@@ -134,7 +142,8 @@ main
 <script type="text/javascript">
 (function($) {
     $(function() { //on DOM ready 
-        $("#scroller").simplyScroll();
+        $("#scroller").simplyScroll({
+        });
     });
  })(jQuery);
 </script>

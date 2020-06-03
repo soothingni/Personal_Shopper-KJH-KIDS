@@ -1446,7 +1446,7 @@ textarea:focus {
   -o-transition: all .5s ease-in-out 0s;
   transition: all .5s ease-in-out 0s; }
   .btn-hover a:hover {
-    border: 1px solid #a749ff;
+    border: 1px solid #b9d23e;
     color: #fff; }
   .btn-hover a::before, .btn-hover a::after {
     content: '';
@@ -1463,7 +1463,7 @@ textarea:focus {
     width: 0;
     left: auto;
     right: 0;
-    background: #a749ff; }
+    background: #78d2dc; }
   .btn-hover a:hover::after {
     width: 100%;
     left: 0;

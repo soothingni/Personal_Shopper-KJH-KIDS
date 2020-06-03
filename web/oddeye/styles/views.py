@@ -1,23 +1,18 @@
 from django.shortcuts import render
+import os
 
 # Create your views here.
-def home(req):
-    return render(req, 'step1/home.html')
-
 def main(req):
-    stars = ['iu', 'irene', 'hyuna']
+    stars = ['iu', 'irene', 'hyuna', 'yerin', 'sunmi', 'jennie']
     thumbnails = os.listdir('static/step1/star_thumbnails')
-    context = {"stars": stars, "thumbnails": thumbnails, "length": len(thumbnails)}
-    return render(req, 'step1/main.html', context)
 
-def aboutus(req):
-    return render(req, 'step1/aboutus.html')
+    context = {"stars": stars, "thumbnails": thumbnails, "thumb_range": range(4, len(thumbnails), 4)}
 
-def stars(req):
-    return render(req, 'step1/stars.html')
+    return render(req, 'styles/main.html', context)
 
-def StarsView(req):
-    return render(req, 'step1/stars.html')
+def main2(req):
+    return render(req, 'styles/main2.html')
 
-def goods(req):
-    return render(req, 'step1/goods.html')
+
+def StylesList(req):
+    return render(req, 'styles/list.html')
