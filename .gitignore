@@ -156,7 +156,8 @@ $RECYCLE.BIN/
 *.key
 *.zip
 *.xlsx
-.h5
+*.h5
+model/img_moved2/
 img/
 Chromedriver
 
