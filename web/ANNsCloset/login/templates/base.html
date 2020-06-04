@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<font size="50" color="#adff2f">PERSONAL SHOPPER</font><br>
+{% if user.is_authenticated %}
+안녕하세요 {{user.username}}님<br>
+<a href ='logout'>log out</a><br>
+{% else %}
+<a href ='login'>sign in</a><br>
+<a href="signup">sign up</a><br>
+{% endif %}
+{% block content %}
+{% endblock %}
+</body>
+</html>
