@@ -1,0 +1,8 @@
+[I 16:59:36.216 NotebookApp] Serving notebooks from local directory: /root/Personal_Shopper-KJH-KIDS/web/oddeye
+[I 16:59:36.216 NotebookApp] The Jupyter Notebook is running at:
+[I 16:59:36.216 NotebookApp] http://ip-172-31-40-147:8893/
+[I 16:59:36.216 NotebookApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+[W 16:59:36.219 NotebookApp] No web browser found: could not locate runnable browser.
+[I 17:00:01.841 NotebookApp] 302 GET / (222.107.238.15) 0.56ms
+[I 17:00:01.847 NotebookApp] 302 GET /tree? (222.107.238.15) 0.56ms
+[I 17:00:04.571 NotebookApp] 302 POST /login?next=%2Ftree%3F (222.107.238.15) 1.08ms

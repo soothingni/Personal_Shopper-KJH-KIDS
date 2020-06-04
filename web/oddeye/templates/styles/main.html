@@ -1,0 +1,175 @@
+<style>
+    .lookbook {
+        background-color: #FBFADB;
+        margin: 0px 0 0 0;
+        padding : 10px 0px 50px 0px;
+    }
+
+    .slider-content-7 {
+        padding: 100px 0 0 0;
+        position: relative;
+    }
+    
+    .ul > li {
+        position: relative; top: -100px;
+    }
+    
+    .bottom {
+        width: 200;
+    }
+    
+    #star_carousel {
+      position: relative;
+      margin: auto;
+      padding : 50px 50px 100px 50px;
+    }
+    
+    .carousel{
+        background-color: #FAEDAB;
+    }
+    
+    td {
+        width: 150px;
+    }
+    
+    .circular--square {
+        border-radius: 3000px;
+        width: 130px;
+        height: 130px;
+        justify-content: center;
+        align-items: center;
+                    }
+    
+    header {
+    background-color: #d9e8f3
+    }
+    
+</style>
+
+{% extends "base.html" %}
+
+{% block title %}
+main
+{% endblock title %}
+
+{% load static %}
+
+{% block content %}
+
+<!--SECTION1: LOOKBOOK-->
+<div class="lookbook"> 
+ <div class="slider-area">
+    <div class="slider-active owl-carousel nav-style-1">
+            <div class="container">
+                        <div class="slider-content-7 slider-animated-1">
+                            <h3 class="animated"> 당신만의 </h3>
+                            <h1 class="animated"> 스타일 어시스턴트 <br> odd eye </h1>
+                            <div class="slider-btn-9 btn-hover">
+                                <a class="animated" href="aboutus"> 더 알아보기 </a>
+                            </div>
+                </div>
+            </div>
+    </div>
+</div>
+    <center>
+        <ul id="scroller">
+            {% for star in  stars %}
+            <li class="bottom">
+                <a href="styles/details/{{star}} "><img src= '{% static "" %}step1/{{star}}.png' ></a>
+            </li>
+            {% endfor %} 
+        </ul>
+      </center>
+</div>
+
+<!--SECTION2: STAR CAROUSEL-->
+<div id="star_carousel" class="carousel slide" data-ride="carousel">
+    <center>
+        <h3> star carousel </h3> 
+        
+          <ol class="carousel-indicators">
+            <li data-target="#star_carousel" data-slide-to="0" class="active"></li>
+            <li data-target="#star_carousel" data-slide-to="1"></li>
+            <li data-target="#star_carousel" data-slide-to="2"></li>
+          </ol>
+      <div class="carousel-inner">
+         
+        <div class="carousel-item active">
+            <table class="d-block w-30">
+                <tr>
+                    {% for thumbnail in thumbnails|slice:"0:4" %}
+                    <td> 
+                        <a href="{% url 'styles:styles' %}">
+                            <img  class="circular--square" src='{% static "" %}step1/star_thumbnails/{{thumbnail}}'>
+                         </a> 
+                    </td>
+                    {% endfor %}
+                </tr>
+            </table>
+        </div>
+          
+    {% for i in thumb_range %}
+            <div class="carousel-item">
+                <table class="d-block w-30">
+                    <tr>
+                        {% for thumbnail in thumbnails|slice:"i:i+4" %}
+                        <td> 
+                            <a href="{% url 'styles:styles' %}">
+                                <img  class="circular--square" src='{% static "" %}step1/star_thumbnails/{{thumbnail}}'>
+                             </a> 
+                        </td>
+                        {% endfor %}
+                    </tr>
+                </table>
+            </div>
+    {% endfor %}
+
+          
+      </div>
+      <a class="carousel-control-prev" href="#star_carousel" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#star_carousel" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </center>
+</div>
+{% endblock %}
+
+{% block jsfooter %}
+
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js"></script>
+
+<script type="text/javascript" src="{% static 'js/jquery.simplyscroll.js' %}"></script>
+
+<link rel="stylesheet" href="{% static 'css/jquery.simplyscroll.css' %}" media="all" type="text/css">
+
+
+
+<script type="text/javascript">
+(function($) {
+    $(function() { //on DOM ready 
+        $("#scroller").simplyScroll({
+        speed: 3
+            });
+    });
+ })(jQuery);
+</script>
+
+
+
+<script type="text/javascript">
+    
+    $('#star_carousel').carousel({
+  interval: 1500;
+    });
+    
+</script>
+
+{% endblock jsfooter %}
+
+
+
