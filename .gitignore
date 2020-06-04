@@ -158,7 +158,6 @@ $RECYCLE.BIN/
 *.xlsx
 *.h5
 model/img_moved2/
-img/
 Chromedriver
 
 # End of https://www.gitignore.io/api/python,windows,jupyternotebooks
