@@ -55,6 +55,9 @@ main
 {% load static %}
 
 {% block content %}
+{% load define %}
+
+{% define "4" as four %}
 
 <!--SECTION1: LOOKBOOK-->
 <div class="lookbook">
@@ -62,7 +65,7 @@ main
     <div class="slider-active owl-carousel nav-style-1">
             <div class="container">
                         <div class="slider-content-7 slider-animated-1">
-                            <h3 class="animated"> 당신만의 </h3>
+                            <h3 class="animated"> {{four}} </h3>
                             <h1 class="animated"> 스타일 어시스턴트 <br> odd eye </h1>
                             <div class="slider-btn-9 btn-hover">
                                 <a class="animated" href="aboutus"> 더 알아보기 </a>

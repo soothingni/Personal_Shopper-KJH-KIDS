@@ -6,9 +6,10 @@ Products List
 {% block content%}
 
 <style>
-    .styles_list .default-img{border-radius: 1000px;}
-    .styles_list .hover-img{border-radius: 1000px;}
+    .products_list .default-img{border-radius: 1000px;}
+    .products_list .hover-img{border-radius: 1000px;}
     .modal-dialog{margin: 2% auto ;}
+    .products_list .item {float: left; width: 30%; margin-left:10px; margin-right:10px;}
 </style>
 
 
@@ -355,7 +356,7 @@ Products List
                     </div>
 
                     <div class="row" style="margin:50px 0">
-                        <div id="star_carousel" class="col carousel slide styles_list" data-ride="carousel">
+                        <div id="star_carousel" class="col carousel slide products_list" data-ride="carousel">
                             <div class="row">
                                 <ol class="carousel-indicators">
                                     <li data-target="#star_carousel" data-slide-to="0" class="active"></li>
@@ -365,7 +366,7 @@ Products List
                             </div>
                             <div class="container-fluid carousel-inner">
                                 <div class="row carousel-item active">
-                                    <div class="col-xl-4 col-md-6 col-lg-6 col-sm-6">
+                                    <div class="item">
                                         <div class="product-wrap mb-25 scroll-zoom" data-sr-id="1" style="; visibility: visible;  -webkit-transform: translateY(0) scale(1); opacity: 1;transform: translateY(0) scale(1); opacity: 1;-webkit-transition: -webkit-transform 0.8s cubic-bezier(0.6, 0.2, 0.1, 1) 0s, opacity 0.8s cubic-bezier(0.6, 0.2, 0.1, 1) 0s; transition: transform 0.8s cubic-bezier(0.6, 0.2, 0.1, 1) 0s, opacity 0.8s cubic-bezier(0.6, 0.2, 0.1, 1) 0s; ">
                                             <div class="product-img">
                                                 <a href="/styles/detail/">
@@ -390,7 +391,7 @@ Products List
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-xl-4 col-md-6 col-lg-6 col-sm-6">
+                                    <div class="item">
                                         <div class="product-wrap mb-25 scroll-zoom" data-sr-id="2" style="; visibility: visible;  -webkit-transform: translateY(0) scale(1); opacity: 1;transform: translateY(0) scale(1); opacity: 1;-webkit-transition: -webkit-transform 0.8s cubic-bezier(0.6, 0.2, 0.1, 1) 0s, opacity 0.8s cubic-bezier(0.6, 0.2, 0.1, 1) 0s; transition: transform 0.8s cubic-bezier(0.6, 0.2, 0.1, 1) 0s, opacity 0.8s cubic-bezier(0.6, 0.2, 0.1, 1) 0s; ">
                                             <div class="product-img">
                                                 <a href="single-product.html">
@@ -415,7 +416,7 @@ Products List
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-xl-4 col-md-6 col-lg-6 col-sm-6">
+                                    <div class="item">
                                         <div class="product-wrap mb-25 scroll-zoom" data-sr-id="3" style="; visibility: visible;  -webkit-transform: translateY(0) scale(1); opacity: 1;transform: translateY(0) scale(1); opacity: 1;-webkit-transition: -webkit-transform 0.8s cubic-bezier(0.6, 0.2, 0.1, 1) 0s, opacity 0.8s cubic-bezier(0.6, 0.2, 0.1, 1) 0s; transition: transform 0.8s cubic-bezier(0.6, 0.2, 0.1, 1) 0s, opacity 0.8s cubic-bezier(0.6, 0.2, 0.1, 1) 0s; ">
                                             <div class="product-img">
                                                 <a href="#">
@@ -443,7 +444,7 @@ Products List
                                 </div>
 
                                 <div class="row carousel-item">
-                                    <div class="col-xl-4 col-md-6 col-lg-6 col-sm-6">
+                                    <div class="item">
                                         <div class="product-wrap mb-25 scroll-zoom" data-sr-id="1" style="; visibility: visible;  -webkit-transform: translateY(0) scale(1); opacity: 1;transform: translateY(0) scale(1); opacity: 1;-webkit-transition: -webkit-transform 0.8s cubic-bezier(0.6, 0.2, 0.1, 1) 0s, opacity 0.8s cubic-bezier(0.6, 0.2, 0.1, 1) 0s; transition: transform 0.8s cubic-bezier(0.6, 0.2, 0.1, 1) 0s, opacity 0.8s cubic-bezier(0.6, 0.2, 0.1, 1) 0s; ">
                                             <div class="product-img">
                                                 <a href="/styles/detail/">
@@ -468,7 +469,7 @@ Products List
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-xl-4 col-md-6 col-lg-6 col-sm-6">
+                                    <div class="item">
                                         <div class="product-wrap mb-25 scroll-zoom" data-sr-id="2" style="; visibility: visible;  -webkit-transform: translateY(0) scale(1); opacity: 1;transform: translateY(0) scale(1); opacity: 1;-webkit-transition: -webkit-transform 0.8s cubic-bezier(0.6, 0.2, 0.1, 1) 0s, opacity 0.8s cubic-bezier(0.6, 0.2, 0.1, 1) 0s; transition: transform 0.8s cubic-bezier(0.6, 0.2, 0.1, 1) 0s, opacity 0.8s cubic-bezier(0.6, 0.2, 0.1, 1) 0s; ">
                                             <div class="product-img">
                                                 <a href="single-product.html">
@@ -493,7 +494,7 @@ Products List
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-xl-4 col-md-6 col-lg-6 col-sm-6">
+                                    <div class="item">
                                         <div class="product-wrap mb-25 scroll-zoom" data-sr-id="3" style="; visibility: visible;  -webkit-transform: translateY(0) scale(1); opacity: 1;transform: translateY(0) scale(1); opacity: 1;-webkit-transition: -webkit-transform 0.8s cubic-bezier(0.6, 0.2, 0.1, 1) 0s, opacity 0.8s cubic-bezier(0.6, 0.2, 0.1, 1) 0s; transition: transform 0.8s cubic-bezier(0.6, 0.2, 0.1, 1) 0s, opacity 0.8s cubic-bezier(0.6, 0.2, 0.1, 1) 0s; ">
                                             <div class="product-img">
                                                 <a href="#">
@@ -520,6 +521,18 @@ Products List
                                     </div>
                                 </div>
                             </div>
+
+
+                            <a class="carousel-control-prev" href="#star_carousel" role="button" data-slide="prev">
+                              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                              <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#star_carousel" role="button" data-slide="next">
+                              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                              <span class="sr-only">Next</span>
+                            </a>
+
+
                         </div>
                     </div>
 

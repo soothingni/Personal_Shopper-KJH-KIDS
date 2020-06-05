@@ -1,7 +1,88 @@
 <style>
     .circular--square {
         border-radius: 1000px;
-                    }
+    }
+    
+    .product-area i {
+        margin:11.05px 0 11.05px 0;
+    }
+    
+    #selected_thumbnail {
+    width: 300px;
+    }
+    
+    .owl-carousel {
+        position: relative;
+        width: 440 !important;
+        height: 440;
+        margin: 50 0 100 0 ;
+    }
+    
+    @media only screen and (min-width: 768px) {
+        .owl-stage {
+            transform: none !important;
+            width: 440 !important;
+        }
+
+        .owl-carousel .owl-stage-outer {
+            width: 110%;
+            overflow: visible !important;
+        }
+
+        .owl-carousel .owl-item img {
+            width: 200 !important;
+            display: inline-grid;
+            float: none;
+        }
+    }
+    #style_carousel img{
+        width:200px
+    }
+    #style_carousel .style-wrap {
+        float: left; width: 50%; margin:20px auto 20px auto;
+    }
+
+    .icons {
+		position: relative;
+
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		margin: 0 2.3rem 0 0;
+		width: 1.25rem;
+		height: 2.6rem;
+
+		i {
+			position: absolute;
+			top: 0;
+			left: 0;
+
+			display: block;
+		}
+		.icon-default {
+            transition: opacity .3s, transform .3s;
+		}
+
+		.icon-hover {
+            transition: opacity .3s, transform .3s;
+			transform: rotate(-180deg) scale(.5);
+			opacity: 0;
+		}
+	}
+
+	&:hover {
+		transform: scale(1.2);
+    	box-shadow:  20px 15px rgba(0,0,0,0.15);
+		.icon-hover {
+			transform: rotate(0deg) scale(1);
+			opacity: 1;
+		}
+		.icon-default {
+			transform: rotate(180deg) scale(.5);
+			opacity: 0;
+		}
+	}
 </style>
 
 {% extends "base.html" %}
@@ -14,84 +95,117 @@ style-detail
 
 {% block content %}
 
-<div class="shop-area pt-100 pb-100">
-    <div class="container">
-        
+<div class="container">
+    <div class="shop-area pt-100 pb-100 row">
         <!-- 선택된 이미지 크게 -->
-        <div class="selected" >
-        <h2>{{star}}</h2>
-        <div class="row" >
-            <div class="col-lg-6 col-md-6">
-                <div class="product-details dec-img-wrap">
-                    <img  class="circular--square" src='{% static "" %}step1/star_thumbnails/{{star}}.png'>
+        <div class="col"></div>
+        <div class="selected col-lg-4" >
+            <h2>{{star}}</h2>
+            <div class="row" >
+                <div class="col-lg-6 col-md-6">
+                    <div id="selected_thumbnail" class="product-details dec-img-wrap">
+                        <img class="circular--square" src='{% static "" %}step1/star_thumbnails/{{star}}.png'>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-6 col-md-6">
-                <div class="product-details-content ml-70"> 
-                    <div class="pro-details-quality">
-                        <div class="pro-details-wishlist">
-                            <a href="#">
-                                <div class=icons>
-                                <i class="fa fa-heart-o icon-default fa-lg"></i>
-                                <i class="fa fa-heart icon-hover fa-lg"></i>
-                                </div>
-                            </a>
+            <div class="row">
+                <div class="col">
+                    <div class="product-details-content ml-70">
+                        <div class="pro-details-quality">
+                            <div class="pro-details-wishlist">
+                                <a href="#">
+                                    <div class=icons>
+                                        <i class="fa fa-heart-o icon-default fa-lg"></i>
+                                        <i class="fa fa-heart icon-hover fa-lg"></i>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="pro-details-meta">
+                            <span>TAGS :</span>
+                            <ul>
+                                <li><a href="#"> #오늘은</a></li>
+                                <li><a href="#"> #꼭</a></li>
+                                <li><a href="#"> #공부한다</a></li>
+                            </ul>
+                        </div>
+                        <div class="pro-details-social">
+                            <ul>
+                                <li><a href="#"><i class="fa fa-facebook fa-lg"></i></a></li>
+                                <li><a href="#"><i class="fa fa-instagram fa-lg"></i></a></li>
+                                <li><a href="#"><i class="fa fa-pinterest-p fa-lg"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter fa-lg"></i></a></li>
+                            </ul>
                         </div>
                     </div>
-                    <div class="pro-details-meta">
-                        <span>TAGS :</span>
-                        <ul>
-                            <li><a href="#"> #오늘은</a></li>
-                            <li><a href="#"> #꼭</a></li>
-                            <li><a href="#"> #공부한다</a></li>
-                        </ul>
-                    </div>
-                    <div class="pro-details-social">
-                        <ul>
-                            <li><a href="#"><i class="fa fa-facebook fa-lg"></i></a></li>
-                            <li><a href="#"><i class="fa fa-instagram fa-lg"></i></a></li>
-                            <li><a href="#"><i class="fa fa-pinterest-p fa-lg"></i></a></li>
-                            <li><a href="#"><i class="fa fa-twitter fa-lg"></i></a></li>
-                        </ul>
-                    </div>
                 </div>
             </div>
         </div>
-            </div>
-        
-            
-            <!--나머지 이미지 캐로셀-->
-        <div class="thumb_carousel" >
-        <div class="row">
-            <div class="col-lg-12 col-md-12">
-                <div class="product-details-slider-active nav-style-1 owl-carousel">
-                    <div class="dec-img-wrap">
-                        <a class="img-popup" href="assets/img/product-details/product-detalis-bl1.jpg"><img  class="circular--square" src='{% static "" %}step1/star_thumbnails/{{star}}.png'></a>
-                    </div>
-                    <div class="dec-img-wrap">
-                        <a class="img-popup" href="assets/img/product-details/product-detalis-bl2.jpg"><img  class="circular--square" src='{% static "" %}step1/star_thumbnails/{{star}}.png'></a>
-                    </div>
-                    <div class="dec-img-wrap">
-                        <a class="img-popup" href="assets/img/product-details/product-detalis-bl5.jpg"><img  class="circular--square" src='{% static "" %}step1/star_thumbnails/{{star}}.png'></a>
-                    </div>
-                    <div class="dec-img-wrap">
-                        <a class="img-popup" href="assets/img/product-details/product-detalis-bl3.jpg"><img  class="circular--square" src='{% static "" %}step1/star_thumbnails/{{star}}.png'></a>
-                    </div>
-                </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+        <div class="col"></div>
 
-    
-    
+        <!--나머지 이미지 캐로셀22test22222-->
+        <div id="style_carousel" class="carousel slide col-lg-6" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li data-target="#style_carousel" data-slide-to="0" class="active"></li>
+                <li data-target="#style_carousel" data-slide-to="1"></li>
+                <li data-target="#style_carousel" data-slide-to="2"></li>
+            </ol>
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="style-wrap">
+                        <a href="#"><img class="circular--square" src='{% static "" %}step1/star_thumbnails/{{star}}.png'></a>
+                    </div>
+                    <div class="style-wrap">
+                        <a href="#"><img class="circular--square" src='{% static "" %}step1/star_thumbnails/{{star}}.png'></a>
+                    </div>
+                    <div class="style-wrap">
+                        <a href="#"><img class="circular--square" src='{% static "" %}step1/star_thumbnails/{{star}}.png'></a>
+                    </div>
+                    <div class="style-wrap">
+                        <a href="#"><img class="circular--square" src='{% static "" %}step1/star_thumbnails/{{star}}.png'></a>
+                    </div>
+                </div>
+
+
+                <div class="carousel-item">
+                    <div class="style-wrap">
+                        <a href="#"><img class="circular--square" src='{% static "" %}step1/star_thumbnails/{{star}}.png'></a>
+                    </div>
+                    <div class="style-wrap">
+                        <a href="#"><img class="circular--square" src='{% static "" %}step1/star_thumbnails/{{star}}.png'></a>
+                    </div>
+                    <div class="style-wrap">
+                        <a href="#"><img class="circular--square" src='{% static "" %}step1/star_thumbnails/{{star}}.png'></a>
+                    </div>
+                    <div class="style-wrap">
+                        <a href="#"><img class="circular--square" src='{% static "" %}step1/star_thumbnails/{{star}}.png'></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Left and right controls -->
+            <a class="carousel-control-prev" href="#style_carousel" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#style_carousel" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+
+
+        </div>
+        <div class="col"></div>
+
+
+    </div>
+
 
 <!--SECTION2: Related Products -->
 <div class="related-product-area pb-95">
-    <div class="container">
         <div class="section-title text-center mb-50">
             <h2>Related products</h2>
         </div>
@@ -127,7 +241,6 @@ style-detail
         </div>
     </div>
 </div>
-        
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog">
@@ -262,6 +375,31 @@ style-detail
     </div>
 </div>
 <!-- Modal end -->
+
+<script>
+ $('#style_carousel').owlCarousel({
+        loop: true,
+        nav: true,
+        autoplay: false,
+        autoplayTimeout: 5000,
+        animateOut: 'fadeOut',
+        animateIn: 'fadeIn',
+        navText: ['<i class="fa fa-chevron-left"></i>', '<i class="fa fa-chevron-right"></i>'],
+        item: 4,
+        margin: 30,
+        responsive: {
+            0: {
+                items: 1
+            },
+            768: {
+                items: 2
+            },
+            1000: {
+                items: 4
+            }
+        }
+    })
+</script>
 
 {% endblock %}
 

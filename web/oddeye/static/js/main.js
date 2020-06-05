@@ -702,17 +702,17 @@
         animateOut: 'fadeOut',
         animateIn: 'fadeIn',
         navText: ['<i class="fa fa-chevron-left"></i>', '<i class="fa fa-chevron-right"></i>'],
-        item: 3,
+        item: 4,
         margin: 30,
         responsive: {
             0: {
                 items: 1
             },
             768: {
-                items: 3
+                items: 2
             },
             1000: {
-                items: 3
+                items: 4
             }
         }
     })

@@ -18,13 +18,32 @@ import traceback
 from builtins import open
 from time import sleep
 
+import cx_Oracle
+import os
+# os.putenv('NLS_LANG', 'KOREAN_KOREA.KO16MSWIN949')
+os.environ["NLS_LANG"] = ".AL32UTF8"
+
+# db connection
+conn = cx_Oracle.connect('oddeye/1234@15.164.247.135:1522/MODB')
+curs = conn.cursor()
+sql = "insert into test(product_ID, SUPER_CATEGORY, BASE_CATEGORY, SUB_CATEGORY, IMG_URL, PRODUCT_URL) values (:1, :2, :3, :4, :5, :6)"
+
 parser = argparse.ArgumentParser()
-parser.add_argument('--isfirst', default=False,
+parser.add_argument('--isfirst', default=True,
                     help="Crawling for the first time or not")
 parser.add_argument('--num', default=1000,
                     help="Number of items to fetch per category")
 parser.add_argument('--filepath', default='categorized_tong.json',
                     help="Directory to save item info")
+
+path='/home/ubuntu/chromedriver'
+options=webdriver.ChromeOptions() 
+options.add_argument('--disable-extensions')
+options.add_argument('--headless')
+options.add_argument('--disable-gpu')
+options.add_argument('--no-sandbox')
+driver=webdriver.Chrome(path, chrome_options=options)  #드라이버 생성
+
 
 category_dict = {
     1002: {"super_category": 0, "category": 0, "sub_category": 0, "name": "롱슬리브"},
@@ -120,12 +139,12 @@ def get_products1(category_dict, num, filepath):
             if key not in product_set:
                 try:
                     dict_post = { "product_url": product_url }
-                    dict_post['key'] = key
+                    dict_post['product_id'] = key
                     wait.until(EC.presence_of_element_located((By.CLASS_NAME, 'ImageLoader.ratio_1_1.loaded')))
                     ele_img = ele.find_element_by_class_name('ImageLoader.ratio_1_1.loaded')
                     dict_post["img_url"] = ele_img.get_attribute("src")
                     dict_post["sub_category"] = category_dict[cat]["sub_category"]
-                    dict_post["category"] = category_dict[cat]["category"]
+                    dict_post["base_category"] = category_dict[cat]["category"]
                     dict_post["super_category"] = category_dict[cat]["super_category"]
                     product_set.add(key)
                     
@@ -137,6 +156,10 @@ def get_products1(category_dict, num, filepath):
                     
                     out = json.dumps(dict_post, ensure_ascii=False)    #json 형식으로 정보 변환
                     out += ', '    #아이템 정보 분류하기 위해 끝에 쉼표 추가
+                    
+                    curs.execute(sql, (dict_post["product_id"], dict_post["super_category"], dict_post["base_category"], dict_post["sub_category"], dict_post["img_url"], dict_post["product_url"] ))
+                    print("이미지 개수:", cat_post_count)
+                    
                     with open(filepath, "a", encoding="utf-8") as f:
                         f.write(out)
                     cat_post_count +=1

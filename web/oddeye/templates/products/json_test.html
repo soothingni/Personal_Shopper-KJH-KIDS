@@ -6,42 +6,174 @@ Products List
 {% block content%}
 {% load staticfiles %}
 <style>
-    .styles_list .default-img{border-radius: 1000px;}
-    .styles_list .hover-img{border-radius: 1000px;}
+    .products_list .default-img{border-radius: 1000px;}
+    .products_list .hover-img{border-radius: 1000px;}
     .modal-dialog{margin: 2% auto ;}
+    .products_list .item {float: left; width: 30%; margin-left:10px; margin-right:10px;}
 </style>
+
+<!--<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>-->
+<!--<script type="text/javascript" src=static/js/jquery.jscroll.js"></script>-->
+<!--<script type="text/javascript">-->
+<!--    //<![CDATA[ $(document).ready(function () { $('#autoScroll').jscroll({ autoTrigger: true, loadingHtml: '<div class="next"><img src="./images/loading.gif" alt="Loading" /></div>', nextSelector: 'a.nextPage:last' }); }); //]]>-->
+<!--</script>-->
 
 
     <div class="wrapper">
-        <div class="product-area hm5-section-padding pt-100 pb-100">
+        <div class="shop-area pt-95 pb-100">
             <div class="container">
                 <div class="row">
-                    {% for item in seoul_json|slice:'0:12' %}
-                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
-                        <div class="product-wrap-3 mb-20 scroll-zoom">
-                            <div class="product-img">
-                                <a href="#" data-toggle="modal" data-target="#exampleModal" ><img src="{{item.img_url}}"></a>
-                                <span class="pink">-10%</span>
-                                <div class="product-content-3-wrap">
-                                    <div class="product-content-3">
-                                        <div class="product-title">
-                                            <h3><a href="#" data-toggle="modal" data-target="#exampleModal">Sheep Wool Sweater</a></h3>
-                                        </div>
-                                        <div class="price-3">
-                                            <span>$ 40.00</span>
-                                            <span class="old">$ 50.00</span>
-                                        </div>
-                                        <div class="product-action-3">
-                                            <a title="Add To Cart" href="{{item.product_url}}"><i class="fa fa-shopping-cart"></i></a>
-                                            <a title="Quick View" href="#" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-eye"></i></a>
-                                            <a title="Compare" href="#"><i class="fa fa-retweet"></i></a>
+                    <div class="col-lg-9">
+                        {% for item in seoul_json|slice:'0:10' %}
+                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-16">
+                            <div class="product-wrap-3 mb-20 scroll-zoom">
+                                <div class="product-img">
+                                    <a href="#" data-toggle="modal" data-target="#exampleModal" ><img src="{{item.img_url}}"></a>
+                                    <span class="pink">-10%</span>
+                                    <div class="product-content-3-wrap">
+                                        <div class="product-content-3">
+                                            <div class="product-title">
+                                                <h3><a href="#" data-toggle="modal" data-target="#exampleModal">Sheep Wool Sweater</a></h3>
+                                            </div>
+                                            <div class="price-3">
+                                                <span>$ 40.00</span>
+                                                <span class="old">$ 50.00</span>
+                                            </div>
+                                            <div class="product-action-3">
+                                                <a title="Add To Cart" href="{{item.product_url}}"><i class="fa fa-shopping-cart"></i></a>
+                                                <a title="Quick View" href="#" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-eye"></i></a>
+                                                <a title="Compare" href="#"><i class="fa fa-retweet"></i></a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        {% endfor %}
                     </div>
-                 {% endfor %}
+                    <div class="col-lg-3">
+                    <div class="sidebar-style ml-30">
+                        <div class="sidebar-widget">
+                            <h4 class="pro-sidebar-title">Search </h4>
+                            <div class="pro-sidebar-search mb-50 mt-25">
+                                <form class="pro-sidebar-search-form" action="#">
+                                    <input type="text" placeholder="Search here...">
+                                    <button>
+                                        <i class="pe-7s-search"></i>
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="sidebar-widget">
+                            <h4 class="pro-sidebar-title">Refine By </h4>
+                            <div class="sidebar-widget-list mt-30">
+                            <ul>
+                                <li>
+                                    <div class="sidebar-widget-list-left">
+                                        <input type="checkbox"> <a href="#">On Sale <span>4</span> </a>
+                                        <span class="checkmark"></span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="sidebar-widget-list-left">
+                                        <input type="checkbox" value=""> <a href="#">New <span>4</span></a>
+                                        <span class="checkmark"></span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="sidebar-widget-list-left">
+                                        <input type="checkbox" value=""> <a href="#">In Stock <span>4</span> </a>
+                                        <span class="checkmark"></span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="sidebar-widget mt-45">
+                        <h4 class="pro-sidebar-title">Filter By Price </h4>
+                        <div class="price-filter mt-10">
+                            <div class="price-slider-amount">
+                                <input type="text" id="amount" name="price"  placeholder="Add Your Price" />
+                            </div>
+                            <div id="slider-range"></div>
+                        </div>
+                    </div>
+                    <div class="sidebar-widget mt-50">
+                        <h4 class="pro-sidebar-title">Colour </h4>
+                        <div class="sidebar-widget-list mt-20">
+                            <ul>
+                                <li>
+                                    <div class="sidebar-widget-list-left">
+                                        <input type="checkbox" value=""> <a href="#">Green <span>4</span> </a>
+                                        <span class="checkmark"></span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="sidebar-widget-list-left">
+                                        <input type="checkbox" value=""> <a href="#">Cream <span>4</span> </a>
+                                        <span class="checkmark"></span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="sidebar-widget-list-left">
+                                        <input type="checkbox" value=""> <a href="#">Blue <span>4</span> </a>
+                                        <span class="checkmark"></span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="sidebar-widget-list-left">
+                                        <input type="checkbox" value=""> <a href="#">Black <span>4</span> </a>
+                                        <span class="checkmark"></span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="sidebar-widget mt-40">
+                        <h4 class="pro-sidebar-title">Size </h4>
+                        <div class="sidebar-widget-list mt-20">
+                            <ul>
+                                <li>
+                                    <div class="sidebar-widget-list-left">
+                                        <input type="checkbox" value=""> <a href="#">XL</a>
+                                        <span class="checkmark"></span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="sidebar-widget-list-left">
+                                        <input type="checkbox" value=""> <a href="#">L</a>
+                                        <span class="checkmark"></span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="sidebar-widget-list-left">
+                                        <input type="checkbox" value=""> <a href="#">SM</a>
+                                        <span class="checkmark"></span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="sidebar-widget-list-left">
+                                        <input type="checkbox" value=""> <a href="#">XXL</a>
+                                        <span class="checkmark"></span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="sidebar-widget mt-50">
+                        <h4 class="pro-sidebar-title">Tag </h4>
+                        <div class="sidebar-widget-tag mt-25">
+                            <ul>
+                                <li><a href="#">Clothing</a></li>
+                                <li><a href="#">Accessories</a></li>
+                                <li><a href="#">For Men</a></li>
+                                <li><a href="#">Women</a></li>
+                                <li><a href="#">Fashion</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
                 </div>
             </div>
         </div>

@@ -15,15 +15,15 @@
     }
     
     .bottom {
-        width: 200;
+        width: 200px;
     }
-    
-    #star_carousel {
-      position: relative;
-      margin: auto;
-      padding : 50px 50px 100px 50px;
+    #style_carousel {
+        text-align: center;
+        display:table;
+        position: relative;
+        margin:auto;
+        width:100%;
     }
-    
     .carousel{
         background-color: #FAEDAB;
     }
@@ -31,7 +31,7 @@
     td {
         width: 150px;
     }
-    
+
     .circular--square {
         border-radius: 3000px;
         width: 130px;
@@ -43,7 +43,10 @@
     header {
     background-color: #d9e8f3
     }
-    
+
+    #style_carousel .carousel-inner{margin:20px 0 50px 0;}
+    #style_carousel ul li {display:inline; margin:10px}
+
 </style>
 
 {% extends "base.html" %}
@@ -83,59 +86,129 @@ main
 </div>
 
 <!--SECTION2: STAR CAROUSEL-->
-<div id="star_carousel" class="carousel slide" data-ride="carousel">
-    <center>
-        <h3> star carousel </h3> 
-        
-          <ol class="carousel-indicators">
-            <li data-target="#star_carousel" data-slide-to="0" class="active"></li>
-            <li data-target="#star_carousel" data-slide-to="1"></li>
-            <li data-target="#star_carousel" data-slide-to="2"></li>
-          </ol>
-      <div class="carousel-inner">
-         
-        <div class="carousel-item active">
-            <table class="d-block w-30">
-                <tr>
-                    {% for thumbnail in thumbnails|slice:"0:4" %}
-                    <td> 
+<div id="style_carousel" class="carousel slide" data-ride="carousel">
+<h3> star carousel </h3>
+
+    <ol class="carousel-indicators">
+      <li data-target="#style_carousel" data-slide-to="0" class="active"></li>
+      <li data-target="#style_carousel" data-slide-to="1"></li>
+      <li data-target="#style_carousel" data-slide-to="2"></li>
+    </ol>
+
+    <div class="carousel-inner">
+        <!--first slide-->
+        <div class="carousel-item row active" style="margin:0 auto 0 auto;">
+            <div class="col"></div>
+                <ul>
+                    {% for thumbnail in thumbnails.0 %}
+                    <li>
                         <a href="{% url 'styles:styles' %}">
-                            <img  class="circular--square" src='{% static "" %}step1/star_thumbnails/{{thumbnail}}'>
-                         </a> 
-                    </td>
+                            <img class="circular--square" src='{% static "" %}step1/star_thumbnails/{{thumbnail}}'>
+                        </a>
+                    </li>
                     {% endfor %}
-                </tr>
-            </table>
+                </ul>
         </div>
-          
-    {% for i in thumb_range %}
-            <div class="carousel-item">
-                <table class="d-block w-30">
-                    <tr>
-                        {% for thumbnail in thumbnails|slice:"i:i+4" %}
-                        <td> 
-                            <a href="{% url 'styles:styles' %}">
-                                <img  class="circular--square" src='{% static "" %}step1/star_thumbnails/{{thumbnail}}'>
-                             </a> 
-                        </td>
-                        {% endfor %}
-                    </tr>
-                </table>
+        <!--second slide and on-->
+        {% for thumbnail in thumbnails|slice:"1:" %}
+        <div class="carousel-item row" style="margin:0 auto 0 auto;">
+            <div class="col"></div>
+                <ul>
+                    <li>
+                        <a href="{% url 'styles:styles' %}">
+                            <img class="circular--square" src='{% static "" %}step1/star_thumbnails/{{thumbnail.0}}'>
+                        </a>
+                    </li>
+                    {% if thumbnail|length > 1%}
+                    <li>
+                        <a href="{% url 'styles:styles' %}">
+                            <img class="circular--square" src='{% static "" %}step1/star_thumbnails/{{thumbnail.1}}'>
+                        </a>
+                    </li>
+                    {% endif %}
+                    {% if thumbnail|length > 2 %}
+                    <li>
+                        <a href="{% url 'styles:styles' %}">
+                            <img class="circular--square" src='{% static "" %}step1/star_thumbnails/{{thumbnail.2}}'>
+                        </a>
+                    </li>
+                    {% endif %}
+                    {% if thumbnail|length > 3 %}
+                    <li>
+                        <a href="{% url 'styles:styles' %}">
+                            <img class="circular--square" src='{% static "" %}step1/star_thumbnails/{{thumbnail.3}}'>
+                        </a>
+                    </li>
+                    {% endif %}
+                </ul>
             </div>
-    {% endfor %}
+        {% endfor %}
+        <a class="carousel-control-prev" href="#style_carousel" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#style_carousel" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+</div>
+
+<!--        <div class="carousel-item row active" style="margin:0 auto 0 auto;">-->
+<!--            <div class="col"></div>-->
+<!--                <ul>-->
+<!--                    {% for thumbnail in thumbnails.0 %}-->
+<!--                    <li>-->
+<!--                        <a href="{% url 'styles:styles' %}">-->
+<!--                            <img class="circular&#45;&#45;square" src='{% static "" %}step1/star_thumbnails/{{thumbnail}}'>-->
+<!--                        </a>-->
+<!--                    </li>-->
+<!--                        {% endfor %}-->
+
+<!--                </ul>-->
+<!--            <div class="col"></div>-->
+<!--        </div>-->
+
+<!--        <div class="carousel-item row" style="margin:0 auto 0 auto;">-->
+<!--            <div class="col"></div>-->
+<!--                <ul>-->
+<!--                    {% for thumbnail in thumbnails.1 %}-->
+<!--                    <li>-->
+<!--                        <a href="{% url 'styles:styles' %}">-->
+<!--                            <img class="circular&#45;&#45;square" src='{% static "" %}step1/star_thumbnails/{{thumbnail}}'>-->
+<!--                        </a>-->
+<!--                    </li>-->
+<!--                    {% endfor %}-->
+<!--                </ul>-->
+<!--            <div class="col"></div>-->
+<!--        </div>-->
+<!--        <div class="carousel-item row" style="margin:0 auto 0 auto;">-->
+<!--            <div class="col"></div>-->
+<!--                <ul>-->
+<!--                    {% for thumbnail in thumbnails.2 %}-->
+<!--                    <li>-->
+<!--                        <a href="{% url 'styles:styles' %}">-->
+<!--                            <img class="circular&#45;&#45;square" src='{% static "" %}step1/star_thumbnails/{{thumbnail}}'>-->
+<!--                        </a>-->
+<!--                    </li>-->
+<!--                    {% endfor %}-->
+<!--                </ul>-->
+<!--            <div class="col"></div>-->
+
 
           
-      </div>
-      <a class="carousel-control-prev" href="#star_carousel" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-      <a class="carousel-control-next" href="#star_carousel" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-      </a>
-    </center>
-</div>
+
+
+
+
+
+
+
+
+
+
+
+
 {% endblock %}
 
 {% block jsfooter %}
@@ -163,7 +236,7 @@ main
 
 <script type="text/javascript">
     
-    $('#star_carousel').carousel({
+    $('#style_carousel').carousel({
   interval: 1500;
     });
     
