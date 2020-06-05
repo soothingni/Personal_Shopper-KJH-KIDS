@@ -7,5 +7,5 @@ app_name = 'products'
 
 urlpatterns = [
     path('', views.jsontest, name='products'),
-    # path('jsontest',views.jsontest)
+    path('modal',views.modaltest)
 ]

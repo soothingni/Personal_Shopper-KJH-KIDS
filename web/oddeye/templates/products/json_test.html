@@ -18,14 +18,37 @@ Products List
 <!--    //<![CDATA[ $(document).ready(function () { $('#autoScroll').jscroll({ autoTrigger: true, loadingHtml: '<div class="next"><img src="./images/loading.gif" alt="Loading" /></div>', nextSelector: 'a.nextPage:last' }); }); //]]>-->
 <!--</script>-->
 
-
-    <div class="wrapper">
-        <div class="shop-area pt-95 pb-100">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-9">
-                        {% for item in seoul_json|slice:'0:10' %}
-                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-16">
+<div class="shop-area pt-95 pb-100">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-9">
+                <div class="shop-top-bar">
+                    <div class="select-shoing-wrap">
+                        <div class="shop-select">
+                            <select>
+                                <option value="">Sort by newness</option>
+                                <option value="">A to Z</option>
+                                <option value=""> Z to A</option>
+                                <option value="">In stock</option>
+                            </select>
+                        </div>
+                        <p>Showing 1–6 of 12 result</p>
+                    </div>
+                    <div class="shop-tab nav">
+                        <a class="active" href="#shop-1" data-toggle="tab">
+                            <i class="fa fa-table"></i>
+                        </a>
+                        <a href="#shop-2" data-toggle="tab">
+                            <i class="fa fa-list-ul"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="shop-bottom-area mt-35">
+                    <div class="tab-content jump">
+                        <div id="shop-1" class="tab-pane active">
+                            <div class="row">
+                               {% for item in seoul_json|slice:"0:100" %}
+                        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-16">
                             <div class="product-wrap-3 mb-20 scroll-zoom">
                                 <div class="product-img">
                                     <a href="#" data-toggle="modal" data-target="#exampleModal" ><img src="{{item.img_url}}"></a>
@@ -49,24 +72,189 @@ Products List
                                 </div>
                             </div>
                         </div>
-                        {% endfor %}
-                    </div>
-                    <div class="col-lg-3">
-                    <div class="sidebar-style ml-30">
-                        <div class="sidebar-widget">
-                            <h4 class="pro-sidebar-title">Search </h4>
-                            <div class="pro-sidebar-search mb-50 mt-25">
-                                <form class="pro-sidebar-search-form" action="#">
-                                    <input type="text" placeholder="Search here...">
-                                    <button>
-                                        <i class="pe-7s-search"></i>
-                                    </button>
-                                </form>
+                            {% endfor %}
+
                             </div>
                         </div>
-                        <div class="sidebar-widget">
-                            <h4 class="pro-sidebar-title">Refine By </h4>
-                            <div class="sidebar-widget-list mt-30">
+                        <div id="shop-2" class="tab-pane">
+                            <div class="shop-list-wrap mb-30 scroll-zoom">
+                                <div class="row">
+                                    <div class="col-xl-4 col-lg-5 col-md-5 col-sm-6">
+                                        <div class="product-wrap">
+                                            <div class="product-img">
+                                                <a href="#">
+                                                    <img class="default-img" src="../../static/img/product/pro-1.jpg" alt="">
+                                                    <img class="hover-img" src="../../static/img/product/pro-1-1.jpg" alt="">
+                                                </a>
+                                                <span class="pink">-10%</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-8 col-lg-7 col-md-7 col-sm-6">
+                                        <div class="shop-list-content">
+                                            <h3><a href="#">Products Name Here</a></h3>
+                                            <div class="product-list-price">
+                                                <span>$ 60.00</span>
+                                                <span class="old">$ 90.00</span>
+                                            </div>
+                                            <div class="rating-review">
+                                                <div class="product-list-rating">
+                                                    <i class="fa fa-star-o yellow"></i>
+                                                    <i class="fa fa-star-o yellow"></i>
+                                                    <i class="fa fa-star-o yellow"></i>
+                                                    <i class="fa fa-star-o"></i>
+                                                    <i class="fa fa-star-o"></i>
+                                                </div>
+                                                <a href="#">3 Reviews</a>
+                                            </div>
+                                            <p>Lorem ipsum dolor sit amet, consecteto adipisic elit eiusm tempor incidid ut labore et dolore magna aliqua Ut enim ad minim </p>
+                                            <div class="shop-list-btn btn-hover">
+                                                <a href="#">ADD TO CART</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="shop-list-wrap mb-30 scroll-zoom">
+                                <div class="row">
+                                    <div class="col-xl-4 col-lg-5 col-md-5 col-sm-6">
+                                        <div class="product-wrap">
+                                            <div class="product-img">
+                                                <a href="#">
+                                                    <img class="default-img" src="../../static/img/product/pro-2.jpg" alt="">
+                                                    <img class="hover-img" src="../../static/img/product/pro-2-1.jpg" alt="">
+                                                </a>
+                                                <span class="purple">New</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-8 col-lg-7 col-md-7 col-sm-6">
+                                        <div class="shop-list-content">
+                                            <h3><a href="#">Products Name Here</a></h3>
+                                            <div class="product-list-price">
+                                                <span>$ 60.00</span>
+                                            </div>
+                                            <div class="rating-review">
+                                                <div class="product-list-rating">
+                                                    <i class="fa fa-star-o yellow"></i>
+                                                    <i class="fa fa-star-o yellow"></i>
+                                                    <i class="fa fa-star-o yellow"></i>
+                                                    <i class="fa fa-star-o"></i>
+                                                    <i class="fa fa-star-o"></i>
+                                                </div>
+                                                <a href="#">3 Reviews</a>
+                                            </div>
+                                            <p>Lorem ipsum dolor sit amet, consecteto adipisic elit eiusm tempor incidid ut labore et dolore magna aliqua Ut enim ad minim </p>
+                                            <div class="shop-list-btn btn-hover">
+                                                <a href="#">ADD TO CART</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="shop-list-wrap mb-30 scroll-zoom">
+                                <div class="row">
+                                    <div class="col-xl-4 col-lg-5 col-md-5 col-sm-6">
+                                        <div class="product-wrap">
+                                            <div class="product-img">
+                                                <a href="#">
+                                                    <img class="default-img" src="../../static/img/product/pro-3.jpg" alt="">
+                                                    <img class="hover-img" src="../../static/img/product/pro-3-1.jpg" alt="">
+                                                </a>
+                                                <span class="pink">-20%</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-8 col-lg-7 col-md-7 col-sm-6">
+                                        <div class="shop-list-content">
+                                            <h3><a href="#">Products Name Here</a></h3>
+                                            <div class="product-list-price">
+                                                <span>$ 30.00</span>
+                                                <span class="old">$ 50.00</span>
+                                            </div>
+                                            <div class="rating-review">
+                                                <div class="product-list-rating">
+                                                    <i class="fa fa-star-o yellow"></i>
+                                                    <i class="fa fa-star-o yellow"></i>
+                                                    <i class="fa fa-star-o yellow"></i>
+                                                    <i class="fa fa-star-o"></i>
+                                                    <i class="fa fa-star-o"></i>
+                                                </div>
+                                                <a href="#">3 Reviews</a>
+                                            </div>
+                                            <p>Lorem ipsum dolor sit amet, consecteto adipisic elit eiusm tempor incidid ut labore et dolore magna aliqua Ut enim ad minim </p>
+                                            <div class="shop-list-btn btn-hover">
+                                                <a href="#">ADD TO CART</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="shop-list-wrap mb-30 scroll-zoom">
+                                <div class="row">
+                                    <div class="col-xl-4 col-lg-5 col-md-5 col-sm-6">
+                                        <div class="product-wrap">
+                                            <div class="product-img">
+                                                <a href="#">
+                                                    <img class="default-img" src="../../static/img/product/pro-7.jpg" alt="">
+                                                    <img class="hover-img" src="../../static/img/product/pro-4-1.jpg" alt="">
+                                                </a>
+                                                <span class="purple">New</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-8 col-lg-7 col-md-7 col-sm-6">
+                                        <div class="shop-list-content">
+                                            <h3><a href="#">Products Name Here</a></h3>
+                                            <div class="product-list-price">
+                                                <span>$ 70.00</span>
+                                            </div>
+                                            <div class="rating-review">
+                                                <div class="product-list-rating">
+                                                    <i class="fa fa-star-o yellow"></i>
+                                                    <i class="fa fa-star-o yellow"></i>
+                                                    <i class="fa fa-star-o yellow"></i>
+                                                    <i class="fa fa-star-o"></i>
+                                                    <i class="fa fa-star-o"></i>
+                                                </div>
+                                                <a href="#">3 Reviews</a>
+                                            </div>
+                                            <p>Lorem ipsum dolor sit amet, consecteto adipisic elit eiusm tempor incidid ut labore et dolore magna aliqua Ut enim ad minim </p>
+                                            <div class="shop-list-btn btn-hover">
+                                                <a href="#">ADD TO CART</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pro-pagination-style text-center mt-30">
+                        <ul>
+                            <li><a class="prev" href="#"><i class="fa fa-angle-double-left"></i></a></li>
+                            <li><a class="active" href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a class="next" href="#"><i class="fa fa-angle-double-right"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="sidebar-style ml-30">
+                    <div class="sidebar-widget">
+                        <h4 class="pro-sidebar-title">Search </h4>
+                        <div class="pro-sidebar-search mb-50 mt-25">
+                            <form class="pro-sidebar-search-form" action="#">
+                                <input type="text" placeholder="Search here...">
+                                <button>
+                                    <i class="pe-7s-search"></i>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="sidebar-widget">
+                        <h4 class="pro-sidebar-title">Refine By </h4>
+                        <div class="sidebar-widget-list mt-30">
                             <ul>
                                 <li>
                                     <div class="sidebar-widget-list-left">
@@ -174,10 +362,10 @@ Products List
                     </div>
                 </div>
             </div>
-                </div>
-            </div>
         </div>
     </div>
+</div>
+
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog">

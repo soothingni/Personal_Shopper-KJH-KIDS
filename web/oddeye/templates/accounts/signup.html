@@ -6,17 +6,21 @@
     <h1>signup</h1>
     <form method="POST" action="{% url 'signup' %}">
         {% csrf_token %}
+         E-mail:
+        <br>
+        <input name="email" type="email" required>
+        <br>
         Username:
         <br>
-        <input name="username" type="text">
+        <input name="username" type="text" required  minlength="3"  maxlength="10">
         <br>
         Password:
         <br>
-        <input name="password1" type="password">
+        <input name="password1" type="password" required  minlength="4">
         <br>
         Confirm Password:
         <br>
-        <input name="password2" type="password">
+        <input name="password2" type="password" required  minlength="4">
         <br><br>
         <input type="submit" class="btn btn-primary" value="sign up">
 

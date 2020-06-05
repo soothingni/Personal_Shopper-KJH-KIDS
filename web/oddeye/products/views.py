@@ -30,3 +30,6 @@ def jsontest(req):
 
     context = {"seoul_json": send_list}
     return render(req,'products/json_test.html', context=context )
+
+def modaltest(req):
+    return render(req, 'products/modaltest.html')
