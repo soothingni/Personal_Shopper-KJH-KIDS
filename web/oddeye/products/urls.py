@@ -6,6 +6,7 @@ from . import views
 app_name = 'products'
 
 urlpatterns = [
-    path('', views.jsontest, name='products'),
-    path('modal',views.modaltest)
+    path('', views.ProductsList, name='products'),
+    path('modal',views.modaltest),
+    path('list',views.productview, name='prod')
 ]

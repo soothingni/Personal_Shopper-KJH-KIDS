@@ -4,20 +4,16 @@ Products List
 {% endblock title %}
 
 {% block content%}
-{% load staticfiles %}
+{% load static %}
+<head>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <style>
     .products_list .default-img{border-radius: 1000px;}
     .products_list .hover-img{border-radius: 1000px;}
     .modal-dialog{margin: 2% auto ;}
     .products_list .item {float: left; width: 30%; margin-left:10px; margin-right:10px;}
 </style>
-
-<!--<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>-->
-<!--<script type="text/javascript" src=static/js/jquery.jscroll.js"></script>-->
-<!--<script type="text/javascript">-->
-<!--    //<![CDATA[ $(document).ready(function () { $('#autoScroll').jscroll({ autoTrigger: true, loadingHtml: '<div class="next"><img src="./images/loading.gif" alt="Loading" /></div>', nextSelector: 'a.nextPage:last' }); }); //]]>-->
-<!--</script>-->
-
+</head>
 <div class="shop-area pt-95 pb-100">
     <div class="container">
         <div class="row">
@@ -47,8 +43,8 @@ Products List
                     <div class="tab-content jump">
                         <div id="shop-1" class="tab-pane active">
                             <div class="row">
-                               {% for item in seoul_json|slice:"0:100" %}
-                        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-16">
+                                {% for item in data %}
+                                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-16" id="prod_page">
                             <div class="product-wrap-3 mb-20 scroll-zoom">
                                 <div class="product-img">
                                     <a href="#" data-toggle="modal" data-target="#exampleModal" ><img src="{{item.img_url}}"></a>
@@ -72,8 +68,7 @@ Products List
                                 </div>
                             </div>
                         </div>
-                            {% endfor %}
-
+                                {% endfor %}
                             </div>
                         </div>
                         <div id="shop-2" class="tab-pane">
@@ -228,14 +223,6 @@ Products List
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="pro-pagination-style text-center mt-30">
-                        <ul>
-                            <li><a class="prev" href="#"><i class="fa fa-angle-double-left"></i></a></li>
-                            <li><a class="active" href="#">1</a></li>
-                            <li><a href="#">2</a></li>
-                            <li><a class="next" href="#"><i class="fa fa-angle-double-right"></i></a></li>
-                        </ul>
                     </div>
                 </div>
             </div>
@@ -600,5 +587,16 @@ Products List
 </div>
 <!-- Modal end -->
 
+
+<script>
+    var page=1;
+
+    $(window).scroll(function () {
+        if ($(window).scrollTop()==$(document).height()-$(window).height()){
+            console.log(data)
+            // $(".tab-content").append('<div class="box"><h1>Page' + page + '</h1></div>');
+        }
+    });
+</script>
 {% endblock %}
 

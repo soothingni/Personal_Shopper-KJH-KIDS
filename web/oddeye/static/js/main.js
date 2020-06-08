@@ -12,7 +12,32 @@
     iconCart.on('click', function() {
         $('.shopping-cart-content').toggleClass('cart-visible');
     })
-    
+
+
+    /* style carousel */
+    $('.style-carousel').owlCarousel({
+        loop: true,
+        nav: true,
+        autoplay: true,
+        navText: ['<i class="fa fa-chevron-left"></i>', '<i class="fa fa-chevron-right"></i>'],
+        autoplayTimeout: 3000,
+        animateOut: 'fadeOut',
+        animateIn: 'fadeIn',
+        item: 1,
+        responsive: {
+            0: {
+                items: 3
+            },
+            768: {
+                items: 4
+            },
+            1000: {
+                items: 4
+            }
+        }
+    })
+
+
     /* Slider active */
     $('.slider-active').owlCarousel({
         loop: true,

@@ -10,7 +10,8 @@ def main(req):
     stars = ['iu', 'irene', 'hyuna', 'yerin', 'sunmi', 'jennie']
     thumbnails = os.listdir('static/step1/star_thumbnails')
 
-    context = {"stars": stars, "thumbnails": [thumbnails[:4],thumbnails[4:8],thumbnails[8:]], "thumb_range": range(4, len(thumbnails), 4)}
+#    context = {"stars": stars, "thumbnails": [thumbnails[:4],thumbnails[4:8],thumbnails[8:]], "thumb_range": range(4, len(thumbnails), 4)}
+    context = {"stars": stars, "thumbnails": thumbnails}
 
     return render(req, 'styles/main.html', context)
 
@@ -53,6 +54,11 @@ class StarView(View):
         ]
         context = {"star": star, "products": product_info}
         return render(req, 'styles/detail.html',context=context)
+    
+def Star(request):
+    star_id = request.GET['star_id']
+    # return HttpResponse("{'result': str(result) + }")
+    return JsonResponse({'star_id': star_id})    #딕셔너리를 json으로 바꿔주는 함수
 
 
 def test(req):

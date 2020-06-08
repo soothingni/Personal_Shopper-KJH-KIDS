@@ -6,3 +6,133 @@
 [I 17:00:01.841 NotebookApp] 302 GET / (222.107.238.15) 0.56ms
 [I 17:00:01.847 NotebookApp] 302 GET /tree? (222.107.238.15) 0.56ms
 [I 17:00:04.571 NotebookApp] 302 POST /login?next=%2Ftree%3F (222.107.238.15) 1.08ms
+[I 10:20:18.101 NotebookApp] Serving notebooks from local directory: /root/Personal_Shopper-KJH-KIDS/web/oddeye
+[I 10:20:18.104 NotebookApp] The Jupyter Notebook is running at:
+[I 10:20:18.104 NotebookApp] http://ip-172-31-40-147:8892/
+[I 10:20:18.104 NotebookApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+[W 10:20:18.107 NotebookApp] No web browser found: could not locate runnable browser.
+[I 10:20:26.866 NotebookApp] Serving notebooks from local directory: /root/Personal_Shopper-KJH-KIDS/web/oddeye
+[I 10:20:26.866 NotebookApp] The Jupyter Notebook is running at:
+[I 10:20:26.866 NotebookApp] http://ip-172-31-40-147:8893/
+[I 10:20:26.866 NotebookApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+[W 10:20:26.868 NotebookApp] No web browser found: could not locate runnable browser.
+[I 10:21:14.992 NotebookApp] 302 GET / (222.107.238.15) 0.57ms
+[I 10:33:08.803 NotebookApp] Saving file at /products/views.py
+[I 10:33:28.933 NotebookApp] Saving file at /products/views.py
+[I 10:33:39.683 NotebookApp] Saving file at /products/views.py
+[I 10:34:52.542 NotebookApp] Saving file at /products/views.py
+[W 10:35:09.455 NotebookApp] Blocking request with no referer
+[W 10:35:09.455 NotebookApp] 403 GET /files/static/img/product/hm5-pro-1.jpg (222.107.238.15): Blocking request from unknown origin
+[W 10:35:09.460 NotebookApp] 403 GET /files/static/img/product/hm5-pro-1.jpg (222.107.238.15) 5.33ms referer=None
+[W 10:35:09.461 NotebookApp] Blocking request with no referer
+[W 10:35:09.461 NotebookApp] 403 GET /files/static/img/product/hm5-pro-2.jpg (222.107.238.15): Blocking request from unknown origin
+[W 10:35:09.462 NotebookApp] 403 GET /files/static/img/product/hm5-pro-2.jpg (222.107.238.15) 1.36ms referer=None
+[W 10:35:09.465 NotebookApp] Blocking request with no referer
+[W 10:35:09.465 NotebookApp] 403 GET /files/static/img/product/hm5-pro-3.jpg (222.107.238.15): Blocking request from unknown origin
+[W 10:35:09.466 NotebookApp] 403 GET /files/static/img/product/hm5-pro-3.jpg (222.107.238.15) 1.21ms referer=None
+[W 10:35:09.467 NotebookApp] Blocking request with no referer
+[W 10:35:09.467 NotebookApp] 403 GET /files/static/img/product/hm5-pro-4.jpg (222.107.238.15): Blocking request from unknown origin
+[W 10:35:09.468 NotebookApp] 403 GET /files/static/img/product/hm5-pro-4.jpg (222.107.238.15) 1.27ms referer=None
+[W 10:35:09.470 NotebookApp] Blocking request with no referer
+[W 10:35:09.471 NotebookApp] 403 GET /files/static/img/product/hm5-pro-5.jpg (222.107.238.15): Blocking request from unknown origin
+[W 10:35:09.471 NotebookApp] 403 GET /files/static/img/product/hm5-pro-5.jpg (222.107.238.15) 1.20ms referer=None
+[W 10:35:09.473 NotebookApp] Blocking request with no referer
+[W 10:35:09.473 NotebookApp] 403 GET /files/static/img/product/hm5-pro-6.jpg (222.107.238.15): Blocking request from unknown origin
+[W 10:35:09.474 NotebookApp] 403 GET /files/static/img/product/hm5-pro-6.jpg (222.107.238.15) 1.18ms referer=None
+[W 10:35:09.476 NotebookApp] Blocking request with no referer
+[W 10:35:09.476 NotebookApp] 403 GET /files/static/img/product/hm5-pro-7.jpg (222.107.238.15): Blocking request from unknown origin
+[W 10:35:09.477 NotebookApp] 403 GET /files/static/img/product/hm5-pro-7.jpg (222.107.238.15) 1.27ms referer=None
+[W 10:35:09.479 NotebookApp] Blocking request with no referer
+[W 10:35:09.479 NotebookApp] 403 GET /files/static/img/product/hm5-pro-8.jpg (222.107.238.15): Blocking request from unknown origin
+[W 10:35:09.479 NotebookApp] 403 GET /files/static/img/product/hm5-pro-8.jpg (222.107.238.15) 1.23ms referer=None
+[W 10:35:09.481 NotebookApp] Blocking request with no referer
+[W 10:35:09.481 NotebookApp] 403 GET /files/static/img/product/hm5-pro-9.jpg (222.107.238.15): Blocking request from unknown origin
+[W 10:35:09.482 NotebookApp] 403 GET /files/static/img/product/hm5-pro-9.jpg (222.107.238.15) 1.20ms referer=None
+[W 10:35:09.483 NotebookApp] Blocking request with no referer
+[W 10:35:09.483 NotebookApp] 403 GET /files/static/img/product/hm5-pro-10.jpg (222.107.238.15): Blocking request from unknown origin
+[W 10:35:09.484 NotebookApp] 403 GET /files/static/img/product/hm5-pro-10.jpg (222.107.238.15) 1.27ms referer=None
+[W 10:35:09.486 NotebookApp] Blocking request with no referer
+[W 10:35:09.486 NotebookApp] 403 GET /files/static/img/product/hm5-pro-11.jpg (222.107.238.15): Blocking request from unknown origin
+[W 10:35:09.487 NotebookApp] 403 GET /files/static/img/product/hm5-pro-11.jpg (222.107.238.15) 2.13ms referer=None
+[W 10:35:09.487 NotebookApp] Blocking request with no referer
+[W 10:35:09.487 NotebookApp] 403 GET /files/static/img/product/hm5-pro-12.jpg (222.107.238.15): Blocking request from unknown origin
+[W 10:35:09.487 NotebookApp] 403 GET /files/static/img/product/hm5-pro-12.jpg (222.107.238.15) 2.31ms referer=None
+[W 10:35:09.489 NotebookApp] Blocking request with no referer
+[W 10:35:09.489 NotebookApp] 403 GET /files/static/img/product/pro-1.jpg (222.107.238.15): Blocking request from unknown origin
+[W 10:35:09.490 NotebookApp] 403 GET /files/static/img/product/pro-1.jpg (222.107.238.15) 1.76ms referer=None
+[W 10:35:09.490 NotebookApp] Blocking request with no referer
+[W 10:35:09.490 NotebookApp] 403 GET /files/static/img/product/quickview-l1.jpg (222.107.238.15): Blocking request from unknown origin
+[W 10:35:09.491 NotebookApp] 403 GET /files/static/img/product/quickview-l1.jpg (222.107.238.15) 2.10ms referer=None
+[W 10:35:09.491 NotebookApp] Blocking request with no referer
+[W 10:35:09.491 NotebookApp] 403 GET /files/static/img/product/pro-1-1.jpg (222.107.238.15): Blocking request from unknown origin
+[W 10:35:09.492 NotebookApp] 403 GET /files/static/img/product/pro-1-1.jpg (222.107.238.15) 1.38ms referer=None
+[W 10:35:09.493 NotebookApp] Blocking request with no referer
+[W 10:35:09.493 NotebookApp] 403 GET /files/static/img/product/pro-2.jpg (222.107.238.15): Blocking request from unknown origin
+[W 10:35:09.494 NotebookApp] 403 GET /files/static/img/product/pro-2.jpg (222.107.238.15) 1.29ms referer=None
+[W 10:35:09.495 NotebookApp] Blocking request with no referer
+[W 10:35:09.495 NotebookApp] 403 GET /files/static/img/product/pro-2-1.jpg (222.107.238.15): Blocking request from unknown origin
+[W 10:35:09.495 NotebookApp] 403 GET /files/static/img/product/pro-2-1.jpg (222.107.238.15) 1.33ms referer=None
+[W 10:35:09.496 NotebookApp] Blocking request with no referer
+[W 10:35:09.496 NotebookApp] 403 GET /files/static/img/product/pro-3.jpg (222.107.238.15): Blocking request from unknown origin
+[W 10:35:09.497 NotebookApp] 403 GET /files/static/img/product/pro-3.jpg (222.107.238.15) 1.30ms referer=None
+[W 10:35:09.498 NotebookApp] Blocking request with no referer
+[W 10:35:09.498 NotebookApp] 403 GET /files/static/img/product/pro-3-1.jpg (222.107.238.15): Blocking request from unknown origin
+[W 10:35:09.498 NotebookApp] 403 GET /files/static/img/product/pro-3-1.jpg (222.107.238.15) 1.18ms referer=None
+[W 10:35:13.949 NotebookApp] Blocking request with no referer
+[W 10:35:13.950 NotebookApp] 403 GET /files/static/img/product/hm5-pro-1.jpg (222.107.238.15): Blocking request from unknown origin
+[W 10:35:13.950 NotebookApp] 403 GET /files/static/img/product/hm5-pro-1.jpg (222.107.238.15) 1.47ms referer=None
+[W 10:35:13.951 NotebookApp] Blocking request with no referer
+[W 10:35:13.951 NotebookApp] 403 GET /files/static/img/product/hm5-pro-2.jpg (222.107.238.15): Blocking request from unknown origin
+[W 10:35:13.952 NotebookApp] 403 GET /files/static/img/product/hm5-pro-2.jpg (222.107.238.15) 1.41ms referer=None
+[W 10:35:13.953 NotebookApp] Blocking request with no referer
+[W 10:35:13.953 NotebookApp] 403 GET /files/static/img/product/hm5-pro-3.jpg (222.107.238.15): Blocking request from unknown origin
+[W 10:35:13.954 NotebookApp] 403 GET /files/static/img/product/hm5-pro-3.jpg (222.107.238.15) 1.37ms referer=None
+[W 10:35:13.956 NotebookApp] Blocking request with no referer
+[W 10:35:13.956 NotebookApp] 403 GET /files/static/img/product/hm5-pro-4.jpg (222.107.238.15): Blocking request from unknown origin
+[W 10:35:13.957 NotebookApp] 403 GET /files/static/img/product/hm5-pro-4.jpg (222.107.238.15) 2.25ms referer=None
+[W 10:35:13.957 NotebookApp] Blocking request with no referer
+[W 10:35:13.957 NotebookApp] 403 GET /files/static/img/product/hm5-pro-5.jpg (222.107.238.15): Blocking request from unknown origin
+[W 10:35:13.958 NotebookApp] 403 GET /files/static/img/product/hm5-pro-5.jpg (222.107.238.15) 2.87ms referer=None
+[W 10:35:13.958 NotebookApp] Blocking request with no referer
+[W 10:35:13.958 NotebookApp] 403 GET /files/static/img/product/hm5-pro-6.jpg (222.107.238.15): Blocking request from unknown origin
+[W 10:35:13.959 NotebookApp] 403 GET /files/static/img/product/hm5-pro-6.jpg (222.107.238.15) 3.49ms referer=None
+[W 10:35:13.961 NotebookApp] Blocking request with no referer
+[W 10:35:13.961 NotebookApp] 403 GET /files/static/img/product/hm5-pro-7.jpg (222.107.238.15): Blocking request from unknown origin
+[W 10:35:13.961 NotebookApp] 403 GET /files/static/img/product/hm5-pro-7.jpg (222.107.238.15) 1.77ms referer=None
+[W 10:35:13.962 NotebookApp] Blocking request with no referer
+[W 10:35:13.962 NotebookApp] 403 GET /files/static/img/product/hm5-pro-8.jpg (222.107.238.15): Blocking request from unknown origin
+[W 10:35:13.962 NotebookApp] 403 GET /files/static/img/product/hm5-pro-8.jpg (222.107.238.15) 2.27ms referer=None
+[W 10:35:13.963 NotebookApp] Blocking request with no referer
+[W 10:35:13.963 NotebookApp] 403 GET /files/static/img/product/hm5-pro-9.jpg (222.107.238.15): Blocking request from unknown origin
+[W 10:35:13.964 NotebookApp] 403 GET /files/static/img/product/hm5-pro-9.jpg (222.107.238.15) 1.40ms referer=None
+[W 10:35:13.965 NotebookApp] Blocking request with no referer
+[W 10:35:13.965 NotebookApp] 403 GET /files/static/img/product/hm5-pro-10.jpg (222.107.238.15): Blocking request from unknown origin
+[W 10:35:13.966 NotebookApp] 403 GET /files/static/img/product/hm5-pro-10.jpg (222.107.238.15) 1.33ms referer=None
+[W 10:35:13.966 NotebookApp] Blocking request with no referer
+[W 10:35:13.966 NotebookApp] 403 GET /files/static/img/product/hm5-pro-11.jpg (222.107.238.15): Blocking request from unknown origin
+[W 10:35:13.967 NotebookApp] 403 GET /files/static/img/product/hm5-pro-11.jpg (222.107.238.15) 1.24ms referer=None
+[W 10:35:13.968 NotebookApp] Blocking request with no referer
+[W 10:35:13.968 NotebookApp] 403 GET /files/static/img/product/hm5-pro-12.jpg (222.107.238.15): Blocking request from unknown origin
+[W 10:35:13.969 NotebookApp] 403 GET /files/static/img/product/hm5-pro-12.jpg (222.107.238.15) 1.35ms referer=None
+[W 10:35:13.970 NotebookApp] Blocking request with no referer
+[W 10:35:13.970 NotebookApp] 403 GET /files/static/img/product/quickview-l1.jpg (222.107.238.15): Blocking request from unknown origin
+[W 10:35:13.970 NotebookApp] 403 GET /files/static/img/product/quickview-l1.jpg (222.107.238.15) 1.32ms referer=None
+[W 10:35:13.971 NotebookApp] Blocking request with no referer
+[W 10:35:13.971 NotebookApp] 403 GET /files/static/img/product/pro-1.jpg (222.107.238.15): Blocking request from unknown origin
+[W 10:35:13.972 NotebookApp] 403 GET /files/static/img/product/pro-1.jpg (222.107.238.15) 1.24ms referer=None
+[W 10:35:13.973 NotebookApp] Blocking request with no referer
+[W 10:35:13.973 NotebookApp] 403 GET /files/static/img/product/pro-1-1.jpg (222.107.238.15): Blocking request from unknown origin
+[W 10:35:13.973 NotebookApp] 403 GET /files/static/img/product/pro-1-1.jpg (222.107.238.15) 1.35ms referer=None
+[W 10:35:13.974 NotebookApp] Blocking request with no referer
+[W 10:35:13.974 NotebookApp] 403 GET /files/static/img/product/pro-2.jpg (222.107.238.15): Blocking request from unknown origin
+[W 10:35:13.975 NotebookApp] 403 GET /files/static/img/product/pro-2.jpg (222.107.238.15) 1.33ms referer=None
+[W 10:35:13.976 NotebookApp] Blocking request with no referer
+[W 10:35:13.976 NotebookApp] 403 GET /files/static/img/product/pro-2-1.jpg (222.107.238.15): Blocking request from unknown origin
+[W 10:35:13.977 NotebookApp] 403 GET /files/static/img/product/pro-2-1.jpg (222.107.238.15) 1.28ms referer=None
+[W 10:35:13.977 NotebookApp] Blocking request with no referer
+[W 10:35:13.977 NotebookApp] 403 GET /files/static/img/product/pro-3.jpg (222.107.238.15): Blocking request from unknown origin
+[W 10:35:13.978 NotebookApp] 403 GET /files/static/img/product/pro-3.jpg (222.107.238.15) 1.32ms referer=None
+[W 10:35:13.979 NotebookApp] Blocking request with no referer
+[W 10:35:13.979 NotebookApp] 403 GET /files/static/img/product/pro-3-1.jpg (222.107.238.15): Blocking request from unknown origin
+[W 10:35:13.980 NotebookApp] 403 GET /files/static/img/product/pro-3-1.jpg (222.107.238.15) 1.27ms referer=None
+[I 10:46:22.160 NotebookApp] Saving file at /templates/products/list.html

@@ -52,37 +52,36 @@
 		margin: 0 2.3rem 0 0;
 		width: 1.25rem;
 		height: 2.6rem;
-
-		i {
-			position: absolute;
-			top: 0;
-			left: 0;
-
-			display: block;
-		}
-		.icon-default {
-            transition: opacity .3s, transform .3s;
-		}
-
-		.icon-hover {
-            transition: opacity .3s, transform .3s;
-			transform: rotate(-180deg) scale(.5);
-			opacity: 0;
-		}
 	}
 
-	&:hover {
-		transform: scale(1.2);
-    	box-shadow:  20px 15px rgba(0,0,0,0.15);
-		.icon-hover {
-			transform: rotate(0deg) scale(1);
-			opacity: 1;
-		}
-		.icon-default {
-			transform: rotate(180deg) scale(.5);
-			opacity: 0;
-		}
-	}
+    .icons i {
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        display: block;
+    }
+    .icons .icon-default {
+        transition: opacity .3s, transform .3s;
+    }
+
+    .icons .icon-hover {
+        transition: opacity .3s, transform .3s;
+        transform: rotate(-180deg) scale(.5);
+        opacity: 0;
+    }
+
+
+    .icons:hover .icon-hover {
+        transform: rotate(0deg) scale(1);
+        opacity: 1;
+    }
+    .icons:hover .icon-default {
+        transform: rotate(180deg) scale(.5);
+        opacity: 0;
+    }
+
+
 </style>
 
 {% extends "base.html" %}
@@ -113,11 +112,9 @@ style-detail
                     <div class="product-details-content ml-70">
                         <div class="pro-details-quality">
                             <div class="pro-details-wishlist">
-                                <a href="#">
-                                    <div class=icons>
-                                        <i class="fa fa-heart-o icon-default fa-lg"></i>
-                                        <i class="fa fa-heart icon-hover fa-lg"></i>
-                                    </div>
+                                <a href="#" class=icons  data-toggle="tooltip" data-placement="bottom" title="Follow">
+                                    <i class="fa fa-heart-o icon-default fa-lg"></i>
+                                    <i class="fa fa-heart icon-hover fa-lg"></i>
                                 </a>
                             </div>
                         </div>
@@ -145,12 +142,6 @@ style-detail
 
         <!--나머지 이미지 캐로셀22test22222-->
         <div id="style_carousel" class="carousel slide col-lg-6" data-ride="carousel">
-            <!-- Indicators -->
-            <ol class="carousel-indicators">
-                <li data-target="#style_carousel" data-slide-to="0" class="active"></li>
-                <li data-target="#style_carousel" data-slide-to="1"></li>
-                <li data-target="#style_carousel" data-slide-to="2"></li>
-            </ol>
 
             <!-- Wrapper for slides -->
             <div class="carousel-inner">
@@ -196,6 +187,13 @@ style-detail
               <span class="sr-only">Next</span>
             </a>
 
+
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li data-target="#style_carousel" data-slide-to="0" class="active"></li>
+                <li data-target="#style_carousel" data-slide-to="1"></li>
+                <li data-target="#style_carousel" data-slide-to="2"></li>
+            </ol>
 
         </div>
         <div class="col"></div>

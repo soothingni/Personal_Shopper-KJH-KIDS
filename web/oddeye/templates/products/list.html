@@ -18,10 +18,11 @@ Products List
         <div class="product-area hm5-section-padding pt-100 pb-100">
             <div class="container">
                 <div class="row">
+                    {% for data in datas %}
                     <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
                         <div class="product-wrap-3 mb-20 scroll-zoom">
                             <div class="product-img">
-                                <a href="#" data-toggle="modal" data-target="#exampleModal"><img src="../../static/img/product/hm5-pro-1.jpg" alt=""></a>
+                                <a href="#" data-toggle="modal" data-target="#exampleModal"><img src={{data.img_url}} alt=""></a>
                                 <span class="pink">-10%</span>
                                 <div class="product-content-3-wrap">
                                     <div class="product-content-3">
@@ -33,7 +34,7 @@ Products List
                                             <span class="old">$ 50.00</span>
                                         </div>
                                         <div class="product-action-3">
-                                            <a title="Add To Cart" href="#"><i class="fa fa-shopping-cart"></i></a>
+                                            <a title="Buy Now" href={{data.product_url}}><i class="fa fa-shopping-cart"></i></a>
                                             <a title="Quick View" href="#" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-eye"></i></a>
                                             <a title="Compare" href="#"><i class="fa fa-retweet"></i></a>
                                         </div>
@@ -42,255 +43,7 @@ Products List
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
-                        <div class="product-wrap-3 mb-20 scroll-zoom">
-                            <div class="product-img">
-                                <a href="#" data-toggle="modal" data-target="#exampleModal"><img src="../../static/img/product/hm5-pro-2.jpg" alt=""></a>
-                                <div class="product-content-3-wrap">
-                                    <div class="product-content-3">
-                                        <div class="product-title">
-                                            <h3><a href="#" data-toggle="modal" data-target="#exampleModal">Gray Backpack</a></h3>
-                                        </div>
-                                        <div class="price-3">
-                                            <span>$ 40.00</span>
-                                        </div>
-                                        <div class="product-action-3">
-                                            <a title="Add To Cart" href="#"><i class="fa fa-shopping-cart"></i></a>
-                                            <a title="Quick View" href="#" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-eye"></i></a>
-                                            <a title="Compare" href="#"><i class="fa fa-retweet"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
-                        <div class="product-wrap-3 mb-20 scroll-zoom">
-                            <div class="product-img">
-                                <a href="#" data-toggle="modal" data-target="#exampleModal"><img src="../../static/img/product/hm5-pro-3.jpg" alt=""></a>
-                                <span class="purple">New</span>
-                                <div class="product-content-3-wrap">
-                                    <div class="product-content-3">
-                                        <div class="product-title">
-                                            <h3><a href="#" data-toggle="modal" data-target="#exampleModal">Waist Belt</a></h3>
-                                        </div>
-                                        <div class="price-3">
-                                            <span>$ 40.00</span>
-                                        </div>
-                                        <div class="product-action-3">
-                                            <a title="Add To Cart" href="#"><i class="fa fa-shopping-cart"></i></a>
-                                            <a title="Quick View" href="#" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-eye"></i></a>
-                                            <a title="Compare" href="#"><i class="fa fa-retweet"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
-                        <div class="product-wrap-3 mb-20 scroll-zoom">
-                            <div class="product-img">
-                                <a href="#" data-toggle="modal" data-target="#exampleModal"><img src="../../static/img/product/hm5-pro-4.jpg" alt=""></a>
-                                <div class="product-content-3-wrap">
-                                    <div class="product-content-3">
-                                        <div class="product-title">
-                                            <h3><a href="#" data-toggle="modal" data-target="#exampleModal">Timex Watch</a></h3>
-                                        </div>
-                                        <div class="price-3">
-                                            <span>$ 40.00</span>
-                                        </div>
-                                        <div class="product-action-3">
-                                            <a title="Add To Cart" href="#"><i class="fa fa-shopping-cart"></i></a>
-                                            <a title="Quick View" href="#" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-eye"></i></a>
-                                            <a title="Compare" href="#"><i class="fa fa-retweet"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
-                        <div class="product-wrap-3 mb-20 scroll-zoom">
-                            <div class="product-img">
-                                <a href="#" data-toggle="modal" data-target="#exampleModal"><img src="../../static/img/product/hm5-pro-5.jpg" alt=""></a>
-                                <div class="product-content-3-wrap">
-                                    <div class="product-content-3">
-                                        <div class="product-title">
-                                            <h3><a href="#" data-toggle="modal" data-target="#exampleModal">Puma Shoes For Men</a></h3>
-                                        </div>
-                                        <div class="price-3">
-                                            <span>$ 40.00</span>
-                                        </div>
-                                        <div class="product-action-3">
-                                            <a title="Add To Cart" href="#"><i class="fa fa-shopping-cart"></i></a>
-                                            <a title="Quick View" href="#" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-eye"></i></a>
-                                            <a title="Compare" href="#"><i class="fa fa-retweet"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
-                        <div class="product-wrap-3 mb-20 scroll-zoom">
-                            <div class="product-img">
-                                <a href="#" data-toggle="modal" data-target="#exampleModal"><img src="../../static/img/product/hm5-pro-6.jpg" alt=""></a>
-                                <span class="purple">-20%</span>
-                                <div class="product-content-3-wrap">
-                                    <div class="product-content-3">
-                                        <div class="product-title">
-                                            <h3><a href="#" data-toggle="modal" data-target="#exampleModal">Jeans For Men</a></h3>
-                                        </div>
-                                        <div class="price-3">
-                                            <span>$ 40.00</span>
-                                            <span class="old">$ 50.00</span>
-                                        </div>
-                                        <div class="product-action-3">
-                                            <a title="Add To Cart" href="#"><i class="fa fa-shopping-cart"></i></a>
-                                            <a title="Quick View" href="#" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-eye"></i></a>
-                                            <a title="Compare" href="#"><i class="fa fa-retweet"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
-                        <div class="product-wrap-3 mb-20 scroll-zoom">
-                            <div class="product-img">
-                                <a href="#" data-toggle="modal" data-target="#exampleModal"><img src="../../static/img/product/hm5-pro-7.jpg" alt=""></a>
-                                <div class="product-content-3-wrap">
-                                    <div class="product-content-3">
-                                        <div class="product-title">
-                                            <h3><a href="#" data-toggle="modal" data-target="#exampleModal">Wireless Headphone</a></h3>
-                                        </div>
-                                        <div class="price-3">
-                                            <span>$ 40.00</span>
-                                        </div>
-                                        <div class="product-action-3">
-                                            <a title="Add To Cart" href="#"><i class="fa fa-shopping-cart"></i></a>
-                                            <a title="Quick View" href="#" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-eye"></i></a>
-                                            <a title="Compare" href="#"><i class="fa fa-retweet"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
-                        <div class="product-wrap-3 mb-20 scroll-zoom">
-                            <div class="product-img">
-                                <a href="#" data-toggle="modal" data-target="#exampleModal"><img src="../../static/img/product/hm5-pro-8.jpg" alt=""></a>
-                                <span class="purple">New</span>
-                                <div class="product-content-3-wrap">
-                                    <div class="product-content-3">
-                                        <div class="product-title">
-                                            <h3><a href="#" data-toggle="modal" data-target="#exampleModal">Sports Shoes</a></h3>
-                                        </div>
-                                        <div class="price-3">
-                                            <span>$ 40.00</span>
-                                        </div>
-                                        <div class="product-action-3">
-                                            <a title="Add To Cart" href="#"><i class="fa fa-shopping-cart"></i></a>
-                                            <a title="Quick View" href="#" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-eye"></i></a>
-                                            <a title="Compare" href="#"><i class="fa fa-retweet"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
-                        <div class="product-wrap-3 mb-20 scroll-zoom">
-                            <div class="product-img">
-                                <a href="#" data-toggle="modal" data-target="#exampleModal"><img src="../../static/img/product/hm5-pro-9.jpg" alt=""></a>
-                                <div class="product-content-3-wrap">
-                                    <div class="product-content-3">
-                                        <div class="product-title">
-                                            <h3><a href="#" data-toggle="modal" data-target="#exampleModal">Optical Instrument</a></h3>
-                                        </div>
-                                        <div class="price-3">
-                                            <span>$ 40.00</span>
-                                        </div>
-                                        <div class="product-action-3">
-                                            <a title="Add To Cart" href="#"><i class="fa fa-shopping-cart"></i></a>
-                                            <a title="Quick View" href="#" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-eye"></i></a>
-                                            <a title="Compare" href="#"><i class="fa fa-retweet"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
-                        <div class="product-wrap-3 mb-20 scroll-zoom">
-                            <div class="product-img">
-                                <a href="#" data-toggle="modal" data-target="#exampleModal"><img src="../../static/img/product/hm5-pro-10.jpg" alt=""></a>
-                                <span class="purple">New</span>
-                                <div class="product-content-3-wrap">
-                                    <div class="product-content-3">
-                                        <div class="product-title">
-                                            <h3><a href="#" data-toggle="modal" data-target="#exampleModal">Panama Hat</a></h3>
-                                        </div>
-                                        <div class="price-3">
-                                            <span>$ 40.00</span>
-                                        </div>
-                                        <div class="product-action-3">
-                                            <a title="Add To Cart" href="#"><i class="fa fa-shopping-cart"></i></a>
-                                            <a title="Quick View" href="#" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-eye"></i></a>
-                                            <a title="Compare" href="#"><i class="fa fa-retweet"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
-                        <div class="product-wrap-3 mb-20 scroll-zoom">
-                            <div class="product-img">
-                                <a href="#" data-toggle="modal" data-target="#exampleModal"><img src="../../static/img/product/hm5-pro-11.jpg" alt=""></a>
-                                <div class="product-content-3-wrap">
-                                    <div class="product-content-3">
-                                        <div class="product-title">
-                                            <h3><a href="#" data-toggle="modal" data-target="#exampleModal">Sunflower Shoes</a></h3>
-                                        </div>
-                                        <div class="price-3">
-                                            <span>$ 40.00</span>
-                                        </div>
-                                        <div class="product-action-3">
-                                            <a title="Add To Cart" href="#"><i class="fa fa-shopping-cart"></i></a>
-                                            <a title="Quick View" href="#" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-eye"></i></a>
-                                            <a title="Compare" href="#"><i class="fa fa-retweet"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
-                        <div class="product-wrap-3 mb-20 scroll-zoom">
-                            <div class="product-img">
-                                <a href="#" data-toggle="modal" data-target="#exampleModal"><img src="../../static/img/product/hm5-pro-12.jpg" alt=""></a>
-                                <span class="purple">-30%</span>
-                                <div class="product-content-3-wrap">
-                                    <div class="product-content-3">
-                                        <div class="product-title">
-                                            <h3><a href="#" data-toggle="modal" data-target="#exampleModal">Leather Crossbody Purse</a></h3>
-                                        </div>
-                                        <div class="price-3">
-                                            <span>$ 40.00</span>
-                                            <span class="old">$ 50.00</span>
-                                        </div>
-                                        <div class="product-action-3">
-                                            <a title="Add To Cart" href="#"><i class="fa fa-shopping-cart"></i></a>
-                                            <a title="Quick View" href="#" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-eye"></i></a>
-                                            <a title="Compare" href="#"><i class="fa fa-retweet"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    {% endfor %}
                 </div>
             </div>
         </div>

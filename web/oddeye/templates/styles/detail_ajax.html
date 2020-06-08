@@ -1,0 +1,403 @@
+<style>
+    .circular--square {
+        border-radius: 1000px;
+    }
+    
+    .product-area i {
+        margin:11.05px 0 11.05px 0;
+    }
+    
+    #selected_thumbnail {
+    width: 300px;
+    }
+    
+    .owl-carousel {
+        position: relative;
+        width: 440 !important;
+        height: 440;
+        margin: 50 0 100 0 ;
+    }
+    
+    @media only screen and (min-width: 768px) {
+        .owl-stage {
+            transform: none !important;
+            width: 440 !important;
+        }
+
+        .owl-carousel .owl-stage-outer {
+            width: 110%;
+            overflow: visible !important;
+        }
+
+        .owl-carousel .owl-item img {
+            width: 200 !important;
+            display: inline-grid;
+            float: none;
+        }
+    }
+    #style_carousel img{
+        width:200px
+    }
+    #style_carousel .style-wrap {
+        float: left; width: 50%; margin:20px auto 20px auto;
+    }
+
+    .icons {
+		position: relative;
+
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		margin: 0 2.3rem 0 0;
+		width: 1.25rem;
+		height: 2.6rem;
+	}
+
+    .icons i {
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        display: block;
+    }
+    .icons .icon-default {
+        transition: opacity .3s, transform .3s;
+    }
+
+    .icons .icon-hover {
+        transition: opacity .3s, transform .3s;
+        transform: rotate(-180deg) scale(.5);
+        opacity: 0;
+    }
+
+
+    .icons:hover .icon-hover {
+        transform: rotate(0deg) scale(1);
+        opacity: 1;
+    }
+    .icons:hover .icon-default {
+        transform: rotate(180deg) scale(.5);
+        opacity: 0;
+    }
+
+
+</style>
+
+{% extends "base.html" %}
+
+{% block title %}
+style-detail
+{% endblock title %}
+
+{% load static %}
+
+{% block content %}
+
+<div class="container">
+    <div class="shop-area pt-100 pb-100 row">
+        <!-- 선택된 이미지 크게 -->
+        <div class="col"></div>
+        <div class="selected col-lg-4" >
+            <h2>{{star}}</h2>
+            <div class="row" >
+                <div class="col-lg-6 col-md-6">
+                    <div id="selected_thumbnail" class="product-details dec-img-wrap">
+                        <img class="circular--square" src='{% static "" %}step1/star_thumbnails/{{star}}.png'>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="product-details-content ml-70">
+                        <div class="pro-details-quality">
+                            <div class="pro-details-wishlist">
+                                <a href="#" class=icons  data-toggle="tooltip" data-placement="bottom" title="Follow">
+                                    <i class="fa fa-heart-o icon-default fa-lg"></i>
+                                    <i class="fa fa-heart icon-hover fa-lg"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="pro-details-meta">
+                            <span>TAGS :</span>
+                            <ul>
+                                <li><a href="#"> #오늘은</a></li>
+                                <li><a href="#"> #꼭</a></li>
+                                <li><a href="#"> #공부한다</a></li>
+                            </ul>
+                        </div>
+                        <div class="pro-details-social">
+                            <ul>
+                                <li><a href="#"><i class="fa fa-facebook fa-lg"></i></a></li>
+                                <li><a href="#"><i class="fa fa-instagram fa-lg"></i></a></li>
+                                <li><a href="#"><i class="fa fa-pinterest-p fa-lg"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter fa-lg"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col"></div>
+
+        <!--나머지 이미지 캐로셀22test22222-->
+        <div id="style_carousel" class="carousel slide col-lg-6" data-ride="carousel">
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="style-wrap">
+                        <a href="#"><img class="circular--square" src='{% static "" %}step1/star_thumbnails/{{star}}.png'></a>
+                    </div>
+                    <div class="style-wrap">
+                        <a href="#"><img class="circular--square" src='{% static "" %}step1/star_thumbnails/{{star}}.png'></a>
+                    </div>
+                    <div class="style-wrap">
+                        <a href="#"><img class="circular--square" src='{% static "" %}step1/star_thumbnails/{{star}}.png'></a>
+                    </div>
+                    <div class="style-wrap">
+                        <a href="#"><img class="circular--square" src='{% static "" %}step1/star_thumbnails/{{star}}.png'></a>
+                    </div>
+                </div>
+
+
+                <div class="carousel-item">
+                    <div class="style-wrap">
+                        <a href="#"><img class="circular--square" src='{% static "" %}step1/star_thumbnails/{{star}}.png'></a>
+                    </div>
+                    <div class="style-wrap">
+                        <a href="#"><img class="circular--square" src='{% static "" %}step1/star_thumbnails/{{star}}.png'></a>
+                    </div>
+                    <div class="style-wrap">
+                        <a href="#"><img class="circular--square" src='{% static "" %}step1/star_thumbnails/{{star}}.png'></a>
+                    </div>
+                    <div class="style-wrap">
+                        <a href="#"><img class="circular--square" src='{% static "" %}step1/star_thumbnails/{{star}}.png'></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Left and right controls -->
+            <a class="carousel-control-prev" href="#style_carousel" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#style_carousel" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+
+
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li data-target="#style_carousel" data-slide-to="0" class="active"></li>
+                <li data-target="#style_carousel" data-slide-to="1"></li>
+                <li data-target="#style_carousel" data-slide-to="2"></li>
+            </ol>
+
+        </div>
+        <div class="col"></div>
+
+
+    </div>
+
+
+<!--SECTION2: Related Products -->
+<div class="related-product-area pb-95">
+        <div class="section-title text-center mb-50">
+            <h2>Related products</h2>
+        </div>
+        <div class="product-area hm5-section-padding pt-100 pb-100">
+                <div class="row">
+                    {% for product in products %}
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
+                        <div class="product-wrap-3 mb-20 scroll-zoom">
+                            <div class="product-img">
+                                <a href="product-details.html"><img src={{product.img_url}} alt=""></a>
+                                <span class="pink">-10%</span>
+                                <div class="product-content-3-wrap">
+                                    <div class="product-content-3">
+                                        <div class="product-title">
+                                            <h3><a href="product-details.html">Sheep Wool Sweater</a></h3>
+                                        </div>
+                                        <div class="price-3">
+                                            <span>$ 40.00</span>
+                                            <span class="old">$ 50.00</span>
+                                        </div>
+                                        <div class="product-action-3">
+                                            <a title="Add To Cart" href="#"><i class="fa fa-shopping-cart"></i></a>
+                                            <a title="Quick View" href="#" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-eye"></i></a>
+                                            <a title="Wish" href="#"><i class="fa fa-heart"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">x</span></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-5 col-sm-12 col-xs-12">
+                        <div class="tab-content quickview-big-img">
+                            <div id="pro-1" class="tab-pane fade show active">
+                                <img src="assets/img/product/quickview-l1.jpg" alt="">
+                            </div>
+                            <div id="pro-2" class="tab-pane fade">
+                                <img src="assets/img/product/quickview-l2.jpg" alt="">
+                            </div>
+                            <div id="pro-3" class="tab-pane fade">
+                                <img src="assets/img/product/quickview-l3.jpg" alt="">
+                            </div>
+                            <div id="pro-4" class="tab-pane fade">
+                                <img src="assets/img/product/quickview-l2.jpg" alt="">
+                            </div>
+                        </div>
+                        <!-- Thumbnail Large Image End -->
+                        <!-- Thumbnail Image End -->
+                        <div class="quickview-wrap mt-15">
+                            <div class="quickview-slide-active owl-carousel nav nav-style-1" role="tablist">
+                                <a class="active" data-toggle="tab" href="#pro-1"><img src="assets/img/product/quickview-s1.jpg" alt=""></a>
+                                <a data-toggle="tab" href="#pro-2"><img src="assets/img/product/quickview-s2.jpg" alt=""></a>
+                                <a data-toggle="tab" href="#pro-3"><img src="assets/img/product/quickview-s3.jpg" alt=""></a>
+                                <a data-toggle="tab" href="#pro-4"><img src="assets/img/product/quickview-s2.jpg" alt=""></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-7 col-sm-12 col-xs-12">
+                        <div class="product-details-content quickview-content">
+                            <h2>Products Name Here</h2>
+                            <div class="product-details-price">
+                                <span>$18.00 </span>
+                                <span class="old">$20.00 </span>
+                            </div>
+                            <div class="pro-details-rating-wrap">
+                                <div class="pro-details-rating">
+                                    <i class="fa fa-star-o yellow"></i>
+                                    <i class="fa fa-star-o yellow"></i>
+                                    <i class="fa fa-star-o yellow"></i>
+                                    <i class="fa fa-star-o"></i>
+                                    <i class="fa fa-star-o"></i>
+                                </div>
+                                <span>3 Reviews</span>
+                            </div>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisic elit eiusm tempor incidid ut labore et dolore magna aliqua. Ut enim ad minim venialo quis nostrud exercitation ullamco</p>
+                            <div class="pro-details-list">
+                                <ul>
+                                    <li>- 0.5 mm Dail</li>
+                                    <li>- Inspired vector icons</li>
+                                    <li>- Very modern style  </li>
+                                </ul>
+                            </div>
+                            <div class="pro-details-size-color">
+                                <div class="pro-details-color-wrap">
+                                    <span>Color</span>
+                                    <div class="pro-details-color-content">
+                                        <ul>
+                                            <li class="blue"></li>
+                                            <li class="maroon active"></li>
+                                            <li class="gray"></li>
+                                            <li class="green"></li>
+                                            <li class="yellow"></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="pro-details-size">
+                                    <span>Size</span>
+                                    <div class="pro-details-size-content">
+                                        <ul>
+                                            <li><a href="#">s</a></li>
+                                            <li><a href="#">m</a></li>
+                                            <li><a href="#">l</a></li>
+                                            <li><a href="#">xl</a></li>
+                                            <li><a href="#">xxl</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="pro-details-quality">
+                                <div class="cart-plus-minus">
+                                    <input class="cart-plus-minus-box" type="text" name="qtybutton" value="2">
+                                </div>
+                                <div class="pro-details-cart btn-hover">
+                                    <a href="#">Add To Cart</a>
+                                </div>
+                                <div class="pro-details-wishlist">
+                                    <a href="#"><i class="fa fa-heart-o"></i></a>
+                                </div>
+                                <div class="pro-details-compare">
+                                    <a href="#"><i class="pe-7s-shuffle"></i></a>
+                                </div>
+                            </div>
+                            <div class="pro-details-meta">
+                                <span>Categories :</span>
+                                <ul>
+                                    <li><a href="#">Minimal,</a></li>
+                                    <li><a href="#">Furniture,</a></li>
+                                    <li><a href="#">Electronic</a></li>
+                                </ul>
+                            </div>
+                            <div class="pro-details-meta">
+                                <span>Tag :</span>
+                                <ul>
+                                    <li><a href="#">Fashion, </a></li>
+                                    <li><a href="#">Furniture,</a></li>
+                                    <li><a href="#">Electronic</a></li>
+                                </ul>
+                            </div>
+                            <div class="pro-details-social">
+                                <ul>
+                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-pinterest-p"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal end -->
+
+<script>
+ $('#style_carousel').owlCarousel({
+        loop: true,
+        nav: true,
+        autoplay: false,
+        autoplayTimeout: 5000,
+        animateOut: 'fadeOut',
+        animateIn: 'fadeIn',
+        navText: ['<i class="fa fa-chevron-left"></i>', '<i class="fa fa-chevron-right"></i>'],
+        item: 4,
+        margin: 30,
+        responsive: {
+            0: {
+                items: 1
+            },
+            768: {
+                items: 2
+            },
+            1000: {
+                items: 4
+            }
+        }
+    })
+</script>
+
+{% endblock %}
+
