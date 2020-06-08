@@ -20,7 +20,7 @@ from time import sleep
 
 
 parser = argparse.ArgumentParser()
-parser.add_argument('--isfirst', default=False,
+parser.add_argument('--isfirst', default=None,
                     help="Crawling for the first time or not")
 parser.add_argument('--num', default=1000,
                     help="Number of items to fetch per category")
@@ -85,7 +85,13 @@ def get_products1(category_dict, num, filepath):
     product_set = set()   #중복 크롤링 거르기 위한 셋. product_url을 원소로 함
 
     wait_time = 300
-    browser = webdriver.Chrome('chromedriver')   #크롬 브라우저 실행
+    options=webdriver.ChromeOptions()     #크롬드라이버 옵션 추가(안 할 시 에러)
+    options.add_argument('--disable-extensions')
+    options.add_argument('--headless')
+    options.add_argument('--disable-gpu')
+    options.add_argument('--no-sandbox')
+    browser=webdriver.Chrome('chromedriver', chrome_options=options)  #드라이버 생성
+    # browser = webdriver.Chrome('chromedriver')   #크롬 브라우저 실행
     wait = WebDriverWait(browser, wait_time)
     
     for cat in category_dict:
@@ -140,7 +146,7 @@ def get_products1(category_dict, num, filepath):
                     with open(filepath, "a", encoding="utf-8") as f:
                         f.write(out)
                     cat_post_count +=1
-                
+
                 except: continue
                     
         print("saved {} items from {} section".format(cat_post_count, category_dict[cat]['name']))
@@ -154,7 +160,16 @@ def get_products1(category_dict, num, filepath):
 
     with open(filepath, 'w', encoding = 'utf-8') as f:
         f.write(bracketed)
-        
+
+    # #product_id 순으로 정렬(내림차순)
+    # with open(filepath) as json_file:
+    #     jsonfile = json.load(json_file)
+    #
+    # sorted_json = sorted(jsonfile, key=lambda x: x['product_id'], reverse=True)
+    #
+    # with open('sorted_' + filepath, 'w') as f:
+    #     f.write(str(sorted_json))
+
     print('Finished crawling. Saved as {}'.format(filepath))
     browser.close()
     
@@ -170,16 +185,22 @@ def get_products2(category_dict, filepath):
     """
     with open(filepath) as data_file:    # 기존 파일 읽어오기
         existing = json.load(data_file)
-    
-    product_set = set([e['key'] for e in existing])   #중복 크롤링 거르기 위한 셋. key를 원소로 함
+
+    product_ids = [e['product_id'] for e in existing]
+    newest_product_id = sorted(product_ids, key=lambda x: str(x), reverse=True)[0]   #기존 파일에서 가장 최신 상품의 product_id
+    product_set = set(product_ids)   #중복 크롤링 거르기 위한 셋. key를 원소로 함
           
     #새로 저장할 경로
     now = time.localtime()
-    filepath_temp = '_'.join(os.path.splitext(filepath)[0].split('_')[:-2])
-    new_filepath = filepath_temp +'_'+time.strftime('%y%m%d_%I%M%S', now) + os.path.splitext(filepath)[1]
+    new_filepath = 'new_only_' + time.strftime('%y%m%d_%I%M%S', now) +  '.json'
 
     wait_time = 300
-    browser = webdriver.Chrome('chromedriver')   #크롬 브라우저 실행
+    options=webdriver.ChromeOptions()     #크롬드라이버 옵션 추가(안 할 시 에러)
+    options.add_argument('--disable-extensions')
+    options.add_argument('--headless')
+    options.add_argument('--disable-gpu')
+    options.add_argument('--no-sandbox')
+    browser=webdriver.Chrome('chromedriver', chrome_options=options)  #드라이버 생성
     wait = WebDriverWait(browser, wait_time)
     
     print(time.strftime('start at %Y-%m-%d %I:%M:%S %p', time.localtime()))    
@@ -192,61 +213,74 @@ def get_products2(category_dict, filepath):
         time.sleep(2)
         ele_posts = browser.find_element_by_class_name('products_container').find_elements_by_class_name('image_container')
         product_key_temp_first = ele_posts[0].find_element_by_tag_name('a').get_attribute('href').split('/')[-2]
+
         if product_key_temp_first in product_set: 
             print('{} is up to date'.format(category_dict[cat]['name']))
-            
-        while True:  # 여기서 num은 사용 안 함, 기존 상품이 이미 저장되어 있다는 전제 하에 기존 상품이 보일 때까지 무한
-            ele_posts = browser.find_element_by_class_name('products_container').find_elements_by_class_name('image_container')
-            product_key_temp_last = ele_posts[-1].find_element_by_tag_name('a').get_attribute('href').split('/')[-2]
 
-            # 기존 상품이 보일 시
-            if product_key_temp_last in product_set: break
-                
-            #기존 상품이 안 보일 시 더 스크롤
-            else: _=[body.send_keys(Keys.PAGE_DOWN) for _ in range(5)]
+        else:
+            
+            while True:  # 여기서 num은 사용 안 함, 기존 상품이 이미 저장되어 있다는 전제 하에 기존 상품이 보일 때까지 무한
+                ele_posts = browser.find_element_by_class_name('products_container').find_elements_by_class_name('image_container')
+                new_product_ids = [e.find_element_by_tag_name('a').get_attribute('href').split('/')[-2] for e in ele_posts]
+
+                # 기존 상품이 보일 시
+                if newest_product_id in new_product_ids:
+                    break
+
+                #기존 상품이 안 보일 시 더 스크롤
+                else:
+                    _ = [body.send_keys(Keys.PAGE_DOWN) for _ in range(5)]
             
         
-        cat_post_count = 0   #카테고리별 크롤링된 아이템 수 세기
-        for ele in ele_posts:
-            product_url= ele.find_element_by_tag_name('a').get_attribute('href')
-            key = product_url.split('/')[-2]
-            if key not in product_set:
-                try:
-                    dict_post = { "product_url": product_url }
-                    dict_post['product_id'] = key
-                    ele_img = ele.find_element_by_class_name('ImageLoader.ratio_1_1.loaded')
-                    dict_post["img_url"] = ele_img.get_attribute("src")
-                    dict_post["sub_category"] = category_dict[cat]["sub_category"]
-                    dict_post["category"] = category_dict[cat]["category"]
-                    dict_post["super_category"] = category_dict[cat]["super_category"]
-                    product_set.add(key)
+            cat_post_count = 0   #카테고리별 크롤링된 아이템 수 세기
+            for ele in ele_posts:
+                product_url= ele.find_element_by_tag_name('a').get_attribute('href')
+                key = product_url.split('/')[-2]
+                if key not in product_set:
+                    try:
+                        dict_post = { "product_url": product_url }
+                        dict_post['product_id'] = key
+                        ele_img = ele.find_element_by_class_name('ImageLoader.ratio_1_1.loaded')
+                        dict_post["img_url"] = ele_img.get_attribute("src")
+                        dict_post["sub_category"] = category_dict[cat]["sub_category"]
+                        dict_post["category"] = category_dict[cat]["category"]
+                        dict_post["super_category"] = category_dict[cat]["super_category"]
+                        product_set.add(key)
 
-                    out = json.dumps(dict_post, ensure_ascii=False)    #json 형식으로 정보 변환
-                    out += ', '    #아이템 정보 분류하기 위해 끝에 쉼표 추가
-                    with open(new_filepath, "a", encoding="utf-8") as f:
-                        f.write(out)
-                    cat_post_count +=1
+                        out = json.dumps(dict_post, ensure_ascii=False)    #json 형식으로 정보 변환
+                        out += ', '    #아이템 정보 분류하기 위해 끝에 쉼표 추가
+                        if not os.path.exists(new_filepath):
+                            with open(new_filepath, "w", encoding="utf-8") as f:
+                                f.write(out)
+                        else:
+                            with open(new_filepath, "a", encoding="utf-8") as f:
+                                f.write(out)
+                        cat_post_count +=1
 
-                except: continue
+                    except:
+                        continue
 
-        print("saved {} new items from {} section".format(cat_post_count, category_dict[cat]['name']))
+            print("saved {} new items from {} section".format(cat_post_count, category_dict[cat]['name']))
 
-    #[]로 감싸주기
-    with open(new_filepath, encoding="utf-8") as f:
-        file = f.read()
+            #[]로 감싸주기
+            with open(new_filepath, encoding="utf-8") as f:
+                file = f.read()
 
-    removed_comma = file[:-2]
-    bracketed = '[' + removed_comma + ']'
-    listed = removed_comma.split(', ')
+            removed_comma = file[:-2]
+            bracketed = '[' + removed_comma + ']'
 
-    with open(time.strftime('%y%m%d_%I%M%S', now)+ '_updated_' + filepath , 'a', encoding='utf-8') as f:       #기존 파일에 새로 크롤링한 내용 덧붙이기
-        existing.extend(listed)
-        f.write(str(existing))
+            with open(new_filepath, 'w', encoding='utf-8') as f:    #새로 크롤링한 내용만 있는 파일 (이미지 다운로드용)
+                f.write(str(bracketed))
 
-    with open(new_filepath, 'w', encoding='utf-8') as f:
-        f.write(str(bracketed))
+            with open(new_filepath, encoding='utf-8') as data_file:
+                new_data = json.load(data_file)
 
-    print('Finished updating. Saved as {}'.format(new_filepath))
+            with open(filepath, 'w', encoding='utf-8') as f:       #기존 파일에 새로 크롤링한 내용 덧붙이기
+                existing.extend(new_data)
+                f.write(str(existing))
+
+            print('Finished updating. Saved as {}'.format(new_filepath))
+
     browser.close()
 
     return new_filepath
@@ -266,7 +300,7 @@ if __name__ == '__main__':
     print('-------------------------------------------------------')
     print('Starting PROCESS 1: Fetching item info')
     print('-------------------------------------------------------')
-    
+
     print(args.isfirst)
     
     if args.isfirst:
@@ -283,6 +317,7 @@ if __name__ == '__main__':
     print('Starting PROCESS 2: Image Download')
     print('-------------------------------------------------------')
 
+    print(filepath)
     with open(filepath) as data_file:
         data = json.load(data_file)
 
