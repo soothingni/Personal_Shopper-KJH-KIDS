@@ -53,18 +53,20 @@ def ProductsList(req):
     {'img_url': 'https://images.seoulstore.com/products/1b0fb2ec874d8a444df2d1ef724cb98d.jpg?d=640xauto', 'product_url': 'https://www.seoulstore.com/products/1206668/detail'}, 
     {'img_url': 'https://images.seoulstore.com/products/db7ef21fb50b25cddeae02b3135c383e.jpg?d=640xauto', 'product_url': 'https://www.seoulstore.com/products/1206211/detail'}]
 
-    NUMBER_OF_DATAS_PER_ONCE = 12
+    page = req.GET.get('page', 1)
+    NUMBER_OF_DATAS_PER_ONCE = 8
     paginator = Paginator(result, NUMBER_OF_DATAS_PER_ONCE) # 한 페이지에 해당 개수만큼을 할당
     
     try:
-        datas = paginator.page(random.randint(1, len(result)))
+        datas = paginator.page(page)
     except PageNotAnInteger:
         datas = paginator.page(1)
     except EmptyPage:
         datas = paginator.page(paginator.num_pages)
     
-    print(datas)
-    
+    print(datas[0])
+
+
     return render(req, 'products/list.html', {'datas': datas})
 
 def modaltest(req):
@@ -78,7 +80,18 @@ def productview(req):
     with open('static/json/categorized_tong.json', 'r') as json_file:
         json_data=json.load(json_file)
     page=req.GET.get("page",1)
-    p=Paginator(json_data,100)
+    p=Paginator(json_data,12)
     subs=p.page(page)
     context={'data':subs}
     return render(req,'products/json_test.html', context)
+
+
+
+def prod_init(req):
+    with open('static/json/categorized_tong.json', 'r') as json_file:
+        json_data=json.load(json_file)
+    page=req.GET.get("page",1)
+    p=Paginator(json_data,12)
+    subs=p.page(page)
+    context={'data':subs}
+    return render(req,'products/prod_in.html', context)

@@ -110,7 +110,7 @@ main
                 <div class="style-carousel owl-carousel nav-style-1">
                     {% for thumbnail in thumbnails %}
                     <div class="item">
-                        <a href="{% url 'styles:styles' %}">
+                        <a href="styles/details/{{thumbnail|slice:':-4'}}">
                             <img class="circular--square" src='{% static "" %}step1/star_thumbnails/{{thumbnail}}'>
                         </a>
                     </div>

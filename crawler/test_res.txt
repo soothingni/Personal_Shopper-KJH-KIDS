@@ -1,0 +1,13 @@
+/bin/sh: /root/Personal_Shopper-KJH-KIDS/crawler/test.py: Permission denied
+/bin/sh: /root/Personal_Shopper-KJH-KIDS/crawler/test.py: Permission denied
+/root/Personal_Shopper-KJH-KIDS/crawler/test.py: line 1: syntax error near unexpected token `"hello World!"'
+/root/Personal_Shopper-KJH-KIDS/crawler/test.py: line 1: `print("hello World!")'
+hello World!
+hello World!
+hello World!
+hello World!
+hello World!
+hello World!
+hello World!
+hello World!
+hello World!

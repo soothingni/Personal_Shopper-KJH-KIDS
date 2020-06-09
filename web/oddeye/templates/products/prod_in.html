@@ -1,0 +1,688 @@
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="../../static/favicon.png">
+
+    <!-- CSS
+	============================================ -->
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/icons.min.css">
+    <link rel="stylesheet" href="/static/css/plugins.css">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <script src="/static/js/vendor/modernizr-2.8.3.min.js"></script>
+    <script src="http://code.jquery.com/jquery-3.1.0.min.js"></script>
+    <script src="/static/js/vendor/jquery-v3.4.1.min.js"></script>
+    <script src="/static/js/popper.min.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
+    <script src="/static/js/plugins.js"></script>
+    <script src="/static/js/ajax-mail.js"></script>
+    <script src="/static/js/main.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <style>
+        .products_list .default-img{border-radius: 1000px;}
+        .products_list .hover-img{border-radius: 1000px;}
+        .modal-dialog{margin: 2% auto ;}
+        .products_list .item {float: left; width: 30%; margin-left:10px; margin-right:10px;}
+    </style>
+</head>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-9">
+                    <div class="tab-content jump">
+                        <div id="shop-1" class="tab-pane active">
+                            <div class="row">
+                                {% for item in data %}
+                                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-16" id="prod_page">
+                            <div class="product-wrap-3 mb-20 scroll-zoom">
+                                <div class="product-img">
+                                    <a href="#" data-toggle="modal" data-target="#exampleModal" ><img src="{{item.img_url}}"></a>
+                                    <span class="pink">-10%</span>
+                                    <div class="product-content-3-wrap">
+                                        <div class="product-content-3">
+                                            <div class="product-title">
+                                                <h3><a href="#" data-toggle="modal" data-target="#exampleModal">Sheep Wool Sweater</a></h3>
+                                            </div>
+                                            <div class="price-3">
+                                                <span>$ 40.00</span>
+                                                <span class="old">$ 50.00</span>
+                                            </div>
+                                            <div class="product-action-3">
+                                                <a title="Add To Cart" href="{{item.product_url}}"><i class="fa fa-shopping-cart"></i></a>
+                                                <a title="Quick View" href="#" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-eye"></i></a>
+                                                <a title="Compare" href="#"><i class="fa fa-retweet"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <div id="shop-2" class="tab-pane">
+                            <div class="shop-list-wrap mb-30 scroll-zoom">
+                                <div class="row">
+                                    <div class="col-xl-4 col-lg-5 col-md-5 col-sm-6">
+                                        <div class="product-wrap">
+                                            <div class="product-img">
+                                                <a href="#">
+                                                    <img class="default-img" src="../../static/img/product/pro-1.jpg" alt="">
+                                                    <img class="hover-img" src="../../static/img/product/pro-1-1.jpg" alt="">
+                                                </a>
+                                                <span class="pink">-10%</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-8 col-lg-7 col-md-7 col-sm-6">
+                                        <div class="shop-list-content">
+                                            <h3><a href="#">Products Name Here</a></h3>
+                                            <div class="product-list-price">
+                                                <span>$ 60.00</span>
+                                                <span class="old">$ 90.00</span>
+                                            </div>
+                                            <div class="rating-review">
+                                                <div class="product-list-rating">
+                                                    <i class="fa fa-star-o yellow"></i>
+                                                    <i class="fa fa-star-o yellow"></i>
+                                                    <i class="fa fa-star-o yellow"></i>
+                                                    <i class="fa fa-star-o"></i>
+                                                    <i class="fa fa-star-o"></i>
+                                                </div>
+                                                <a href="#">3 Reviews</a>
+                                            </div>
+                                            <p>Lorem ipsum dolor sit amet, consecteto adipisic elit eiusm tempor incidid ut labore et dolore magna aliqua Ut enim ad minim </p>
+                                            <div class="shop-list-btn btn-hover">
+                                                <a href="#">ADD TO CART</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="shop-list-wrap mb-30 scroll-zoom">
+                                <div class="row">
+                                    <div class="col-xl-4 col-lg-5 col-md-5 col-sm-6">
+                                        <div class="product-wrap">
+                                            <div class="product-img">
+                                                <a href="#">
+                                                    <img class="default-img" src="../../static/img/product/pro-2.jpg" alt="">
+                                                    <img class="hover-img" src="../../static/img/product/pro-2-1.jpg" alt="">
+                                                </a>
+                                                <span class="purple">New</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-8 col-lg-7 col-md-7 col-sm-6">
+                                        <div class="shop-list-content">
+                                            <h3><a href="#">Products Name Here</a></h3>
+                                            <div class="product-list-price">
+                                                <span>$ 60.00</span>
+                                            </div>
+                                            <div class="rating-review">
+                                                <div class="product-list-rating">
+                                                    <i class="fa fa-star-o yellow"></i>
+                                                    <i class="fa fa-star-o yellow"></i>
+                                                    <i class="fa fa-star-o yellow"></i>
+                                                    <i class="fa fa-star-o"></i>
+                                                    <i class="fa fa-star-o"></i>
+                                                </div>
+                                                <a href="#">3 Reviews</a>
+                                            </div>
+                                            <p>Lorem ipsum dolor sit amet, consecteto adipisic elit eiusm tempor incidid ut labore et dolore magna aliqua Ut enim ad minim </p>
+                                            <div class="shop-list-btn btn-hover">
+                                                <a href="#">ADD TO CART</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="shop-list-wrap mb-30 scroll-zoom">
+                                <div class="row">
+                                    <div class="col-xl-4 col-lg-5 col-md-5 col-sm-6">
+                                        <div class="product-wrap">
+                                            <div class="product-img">
+                                                <a href="#">
+                                                    <img class="default-img" src="../../static/img/product/pro-3.jpg" alt="">
+                                                    <img class="hover-img" src="../../static/img/product/pro-3-1.jpg" alt="">
+                                                </a>
+                                                <span class="pink">-20%</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-8 col-lg-7 col-md-7 col-sm-6">
+                                        <div class="shop-list-content">
+                                            <h3><a href="#">Products Name Here</a></h3>
+                                            <div class="product-list-price">
+                                                <span>$ 30.00</span>
+                                                <span class="old">$ 50.00</span>
+                                            </div>
+                                            <div class="rating-review">
+                                                <div class="product-list-rating">
+                                                    <i class="fa fa-star-o yellow"></i>
+                                                    <i class="fa fa-star-o yellow"></i>
+                                                    <i class="fa fa-star-o yellow"></i>
+                                                    <i class="fa fa-star-o"></i>
+                                                    <i class="fa fa-star-o"></i>
+                                                </div>
+                                                <a href="#">3 Reviews</a>
+                                            </div>
+                                            <p>Lorem ipsum dolor sit amet, consecteto adipisic elit eiusm tempor incidid ut labore et dolore magna aliqua Ut enim ad minim </p>
+                                            <div class="shop-list-btn btn-hover">
+                                                <a href="#">ADD TO CART</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="shop-list-wrap mb-30 scroll-zoom">
+                                <div class="row">
+                                    <div class="col-xl-4 col-lg-5 col-md-5 col-sm-6">
+                                        <div class="product-wrap">
+                                            <div class="product-img">
+                                                <a href="#">
+                                                    <img class="default-img" src="../../static/img/product/pro-7.jpg" alt="">
+                                                    <img class="hover-img" src="../../static/img/product/pro-4-1.jpg" alt="">
+                                                </a>
+                                                <span class="purple">New</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-8 col-lg-7 col-md-7 col-sm-6">
+                                        <div class="shop-list-content">
+                                            <h3><a href="#">Products Name Here</a></h3>
+                                            <div class="product-list-price">
+                                                <span>$ 70.00</span>
+                                            </div>
+                                            <div class="rating-review">
+                                                <div class="product-list-rating">
+                                                    <i class="fa fa-star-o yellow"></i>
+                                                    <i class="fa fa-star-o yellow"></i>
+                                                    <i class="fa fa-star-o yellow"></i>
+                                                    <i class="fa fa-star-o"></i>
+                                                    <i class="fa fa-star-o"></i>
+                                                </div>
+                                                <a href="#">3 Reviews</a>
+                                            </div>
+                                            <p>Lorem ipsum dolor sit amet, consecteto adipisic elit eiusm tempor incidid ut labore et dolore magna aliqua Ut enim ad minim </p>
+                                            <div class="shop-list-btn btn-hover">
+                                                <a href="#">ADD TO CART</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+            </div>
+            </div>
+        </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">x</span></button>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6 col-sm-12 col-xs-12">
+                            <div class="tab-content quickview-big-img">
+                                <div id="pro-1" class="tab-pane fade show active">
+                                    <img src="{{seoul_json.0.img_url}}" alt="">
+                                </div>
+                            </div>
+                            <!-- Thumbnail Large Image End -->
+                            <!-- Thumbnail Image End -->
+                        </div>
+                        <div class="col-md-6 col-sm-12 col-xs-12">
+                            <div class="product-details-content quickview-content">
+                                <h2>Products Name Here</h2>
+                                <div class="product-details-price">
+                                    <span>$18.00 </span>
+                                    <span class="old">$20.00 </span>
+                                </div>
+                                <div class="pro-details-rating-wrap">
+                                    <div class="pro-details-rating">
+                                        <i class="fa fa-star-o yellow"></i>
+                                        <i class="fa fa-star-o yellow"></i>
+                                        <i class="fa fa-star-o yellow"></i>
+                                        <i class="fa fa-star-o"></i>
+                                        <i class="fa fa-star-o"></i>
+                                    </div>
+                                    <span>3 Reviews</span>
+                                </div>
+
+                                <div class="pro-details-quality">
+                                    <div class="pro-details-cart btn-hover">
+                                        <a href="#">Add To Cart</a>
+                                    </div>
+                                    <div class="pro-details-wishlist">
+                                        <a href="#"><i class="fa fa-heart-o"></i></a>
+                                    </div>
+                                </div>
+                                <div class="pro-details-meta">
+                                    <span>Tag :</span>
+                                    <ul>
+                                        <li><a href="#">Fashion, </a></li>
+                                        <li><a href="#">Furniture,</a></li>
+                                        <li><a href="#">Electronic</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row container-fluid" style="margin:50px 0">
+                        <div id="star_carousel" class="col carousel slide styles_list" data-ride="carousel">
+                            <div class="row">
+                                <ol class="carousel-indicators">
+                                    <li data-target="#star_carousel" data-slide-to="0" class="active"></li>
+                                    <li data-target="#star_carousel" data-slide-to="1"></li>
+                                    <li data-target="#star_carousel" data-slide-to="2"></li>
+                                </ol>
+                            </div>
+                            <div class="carousel-inner">
+                                <div class="row carousel-item active">
+                                    <div class="col-xl-4 col-md-6 col-lg-6 col-sm-6">
+                                        <div class="product-wrap mb-25 scroll-zoom" data-sr-id="1" style="; visibility: visible;  -webkit-transform: translateY(0) scale(1); opacity: 1;transform: translateY(0) scale(1); opacity: 1;-webkit-transition: -webkit-transform 0.8s cubic-bezier(0.6, 0.2, 0.1, 1) 0s, opacity 0.8s cubic-bezier(0.6, 0.2, 0.1, 1) 0s; transition: transform 0.8s cubic-bezier(0.6, 0.2, 0.1, 1) 0s, opacity 0.8s cubic-bezier(0.6, 0.2, 0.1, 1) 0s; ">
+                                            <div class="product-img">
+                                                <a href="/styles/detail/">
+                                                    <img class="default-img" src="../../static/img/product/pro-1.jpg" alt="">
+                                                    <img class="hover-img" src="../../static/img/product/pro-1-1.jpg" alt="">
+                                                </a>
+                                                <span class="pink">-10%</span>
+                                                <div class="product-action">
+                                                    <div class="pro-same-action pro-wishlist">
+                                                        <a title="Wishlist" href="#"><i class="pe-7s-like"></i></a>
+                                                    </div>
+                                                    <div class="pro-same-action pro-cart">
+                                                        <a title="Add To Wish" href="#"><i class="pe-7s-cart"></i> Add to cart</a>
+                                                    </div>
+                                                    <div class="pro-same-action pro-quickview">
+                                                        <a title="Quick View" href="#" data-toggle="modal" data-target="#exampleModal"><i class="pe-7s-look"></i></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="product-content text-center">
+                                                <h3><a href="product-details.html">T- Shirt And Jeans</a></h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-4 col-md-6 col-lg-6 col-sm-6">
+                                        <div class="product-wrap mb-25 scroll-zoom" data-sr-id="2" style="; visibility: visible;  -webkit-transform: translateY(0) scale(1); opacity: 1;transform: translateY(0) scale(1); opacity: 1;-webkit-transition: -webkit-transform 0.8s cubic-bezier(0.6, 0.2, 0.1, 1) 0s, opacity 0.8s cubic-bezier(0.6, 0.2, 0.1, 1) 0s; transition: transform 0.8s cubic-bezier(0.6, 0.2, 0.1, 1) 0s, opacity 0.8s cubic-bezier(0.6, 0.2, 0.1, 1) 0s; ">
+                                            <div class="product-img">
+                                                <a href="single-product.html">
+                                                    <img class="default-img" src="../../static/img/product/pro-2.jpg" alt="">
+                                                    <img class="hover-img" src="../../static/img/product/pro-2-1.jpg" alt="">
+                                                </a>
+                                                <span class="purple">New</span>
+                                                <div class="product-action">
+                                                    <div class="pro-same-action pro-wishlist">
+                                                        <a title="Wishlist" href="#"><i class="pe-7s-like"></i></a>
+                                                    </div>
+                                                    <div class="pro-same-action pro-cart">
+                                                        <a title="Add To Cart" href="#"><i class="pe-7s-cart"></i> Add to cart</a>
+                                                    </div>
+                                                    <div class="pro-same-action pro-quickview">
+                                                        <a title="Quick View" href="#" data-toggle="modal" data-target="#exampleModal"><i class="pe-7s-look"></i></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="product-content text-center">
+                                                <h3><a href="product-details.html">T- Shirt And Jeans</a></h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-4 col-md-6 col-lg-6 col-sm-6">
+                                        <div class="product-wrap mb-25 scroll-zoom" data-sr-id="3" style="; visibility: visible;  -webkit-transform: translateY(0) scale(1); opacity: 1;transform: translateY(0) scale(1); opacity: 1;-webkit-transition: -webkit-transform 0.8s cubic-bezier(0.6, 0.2, 0.1, 1) 0s, opacity 0.8s cubic-bezier(0.6, 0.2, 0.1, 1) 0s; transition: transform 0.8s cubic-bezier(0.6, 0.2, 0.1, 1) 0s, opacity 0.8s cubic-bezier(0.6, 0.2, 0.1, 1) 0s; ">
+                                            <div class="product-img">
+                                                <a href="#">
+                                                    <img class="default-img" src="../../static/img/product/pro-3.jpg" alt="">
+                                                    <img class="hover-img" src="../../static/img/product/pro-3-1.jpg" alt="">
+                                                </a>
+                                                <span class="pink">-10%</span>
+                                                <div class="product-action">
+                                                    <div class="pro-same-action pro-wishlist">
+                                                        <a title="Wishlist" href="#"><i class="pe-7s-like"></i></a>
+                                                    </div>
+                                                    <div class="pro-same-action pro-cart">
+                                                        <a title="Add To Cart" href="#"><i class="pe-7s-cart"></i> Add to cart</a>
+                                                    </div>
+                                                    <div class="pro-same-action pro-quickview">
+                                                        <a title="Quick View" href="#" data-toggle="modal" data-target="#exampleModal"><i class="pe-7s-look"></i></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="product-content text-center">
+                                                <h3><a href="product-details.html">T- Shirt And Jeans</a></h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row carousel-item">
+                                    <div class="col-xl-4 col-md-6 col-lg-6 col-sm-6">
+                                        <div class="product-wrap mb-25 scroll-zoom" data-sr-id="1" style="; visibility: visible;  -webkit-transform: translateY(0) scale(1); opacity: 1;transform: translateY(0) scale(1); opacity: 1;-webkit-transition: -webkit-transform 0.8s cubic-bezier(0.6, 0.2, 0.1, 1) 0s, opacity 0.8s cubic-bezier(0.6, 0.2, 0.1, 1) 0s; transition: transform 0.8s cubic-bezier(0.6, 0.2, 0.1, 1) 0s, opacity 0.8s cubic-bezier(0.6, 0.2, 0.1, 1) 0s; ">
+                                            <div class="product-img">
+                                                <a href="/styles/detail/">
+                                                    <img class="default-img" src="../../static/img/product/pro-1.jpg" alt="">
+                                                    <img class="hover-img" src="../../static/img/product/pro-1-1.jpg" alt="">
+                                                </a>
+                                                <span class="pink">-10%</span>
+                                                <div class="product-action">
+                                                    <div class="pro-same-action pro-wishlist">
+                                                        <a title="Wishlist" href="#"><i class="pe-7s-like"></i></a>
+                                                    </div>
+                                                    <div class="pro-same-action pro-cart">
+                                                        <a title="Add To Wish" href="#"><i class="pe-7s-cart"></i> Add to cart</a>
+                                                    </div>
+                                                    <div class="pro-same-action pro-quickview">
+                                                        <a title="Quick View" href="#" data-toggle="modal" data-target="#exampleModal"><i class="pe-7s-look"></i></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="product-content text-center">
+                                                <h3><a href="product-details.html">T- Shirt And Jeans</a></h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-4 col-md-6 col-lg-6 col-sm-6">
+                                        <div class="product-wrap mb-25 scroll-zoom" data-sr-id="2" style="; visibility: visible;  -webkit-transform: translateY(0) scale(1); opacity: 1;transform: translateY(0) scale(1); opacity: 1;-webkit-transition: -webkit-transform 0.8s cubic-bezier(0.6, 0.2, 0.1, 1) 0s, opacity 0.8s cubic-bezier(0.6, 0.2, 0.1, 1) 0s; transition: transform 0.8s cubic-bezier(0.6, 0.2, 0.1, 1) 0s, opacity 0.8s cubic-bezier(0.6, 0.2, 0.1, 1) 0s; ">
+                                            <div class="product-img">
+                                                <a href="single-product.html">
+                                                    <img class="default-img" src="../../static/img/product/pro-2.jpg" alt="">
+                                                    <img class="hover-img" src="../../static/img/product/pro-2-1.jpg" alt="">
+                                                </a>
+                                                <span class="purple">New</span>
+                                                <div class="product-action">
+                                                    <div class="pro-same-action pro-wishlist">
+                                                        <a title="Wishlist" href="#"><i class="pe-7s-like"></i></a>
+                                                    </div>
+                                                    <div class="pro-same-action pro-cart">
+                                                        <a title="Add To Cart" href="#"><i class="pe-7s-cart"></i> Add to cart</a>
+                                                    </div>
+                                                    <div class="pro-same-action pro-quickview">
+                                                        <a title="Quick View" href="#" data-toggle="modal" data-target="#exampleModal"><i class="pe-7s-look"></i></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="product-content text-center">
+                                                <h3><a href="product-details.html">T- Shirt And Jeans</a></h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-4 col-md-6 col-lg-6 col-sm-6">
+                                        <div class="product-wrap mb-25 scroll-zoom" data-sr-id="3" style="; visibility: visible;  -webkit-transform: translateY(0) scale(1); opacity: 1;transform: translateY(0) scale(1); opacity: 1;-webkit-transition: -webkit-transform 0.8s cubic-bezier(0.6, 0.2, 0.1, 1) 0s, opacity 0.8s cubic-bezier(0.6, 0.2, 0.1, 1) 0s; transition: transform 0.8s cubic-bezier(0.6, 0.2, 0.1, 1) 0s, opacity 0.8s cubic-bezier(0.6, 0.2, 0.1, 1) 0s; ">
+                                            <div class="product-img">
+                                                <a href="#">
+                                                    <img class="default-img" src="../../static/img/product/pro-3.jpg" alt="">
+                                                    <img class="hover-img" src="../../static/img/product/pro-3-1.jpg" alt="">
+                                                </a>
+                                                <span class="pink">-10%</span>
+                                                <div class="product-action">
+                                                    <div class="pro-same-action pro-wishlist">
+                                                        <a title="Wishlist" href="#"><i class="pe-7s-like"></i></a>
+                                                    </div>
+                                                    <div class="pro-same-action pro-cart">
+                                                        <a title="Add To Cart" href="#"><i class="pe-7s-cart"></i> Add to cart</a>
+                                                    </div>
+                                                    <div class="pro-same-action pro-quickview">
+                                                        <a title="Quick View" href="#" data-toggle="modal" data-target="#exampleModal"><i class="pe-7s-look"></i></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="product-content text-center">
+                                                <h3><a href="product-details.html">T- Shirt And Jeans</a></h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal end -->
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">x</span></button>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6 col-sm-12 col-xs-12">
+                            <div class="tab-content quickview-big-img">
+                                <div id="pro-1" class="tab-pane fade show active">
+                                    <img src="{{seoul_json.0.img_url}}" alt="">
+                                </div>
+                            </div>
+                            <!-- Thumbnail Large Image End -->
+                            <!-- Thumbnail Image End -->
+                        </div>
+                        <div class="col-md-6 col-sm-12 col-xs-12">
+                            <div class="product-details-content quickview-content">
+                                <h2>Products Name Here</h2>
+                                <div class="product-details-price">
+                                    <span>$18.00 </span>
+                                    <span class="old">$20.00 </span>
+                                </div>
+                                <div class="pro-details-rating-wrap">
+                                    <div class="pro-details-rating">
+                                        <i class="fa fa-star-o yellow"></i>
+                                        <i class="fa fa-star-o yellow"></i>
+                                        <i class="fa fa-star-o yellow"></i>
+                                        <i class="fa fa-star-o"></i>
+                                        <i class="fa fa-star-o"></i>
+                                    </div>
+                                    <span>3 Reviews</span>
+                                </div>
+
+                                <div class="pro-details-quality">
+                                    <div class="pro-details-cart btn-hover">
+                                        <a href="#">Add To Cart</a>
+                                    </div>
+                                    <div class="pro-details-wishlist">
+                                        <a href="#"><i class="fa fa-heart-o"></i></a>
+                                    </div>
+                                </div>
+                                <div class="pro-details-meta">
+                                    <span>Tag :</span>
+                                    <ul>
+                                        <li><a href="#">Fashion, </a></li>
+                                        <li><a href="#">Furniture,</a></li>
+                                        <li><a href="#">Electronic</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row container-fluid" style="margin:50px 0">
+                        <div id="star_carousel" class="col carousel slide styles_list" data-ride="carousel">
+                            <div class="row">
+                                <ol class="carousel-indicators">
+                                    <li data-target="#star_carousel" data-slide-to="0" class="active"></li>
+                                    <li data-target="#star_carousel" data-slide-to="1"></li>
+                                    <li data-target="#star_carousel" data-slide-to="2"></li>
+                                </ol>
+                            </div>
+                            <div class="carousel-inner">
+                                <div class="row carousel-item active">
+                                    <div class="col-xl-4 col-md-6 col-lg-6 col-sm-6">
+                                        <div class="product-wrap mb-25 scroll-zoom" data-sr-id="1" style="; visibility: visible;  -webkit-transform: translateY(0) scale(1); opacity: 1;transform: translateY(0) scale(1); opacity: 1;-webkit-transition: -webkit-transform 0.8s cubic-bezier(0.6, 0.2, 0.1, 1) 0s, opacity 0.8s cubic-bezier(0.6, 0.2, 0.1, 1) 0s; transition: transform 0.8s cubic-bezier(0.6, 0.2, 0.1, 1) 0s, opacity 0.8s cubic-bezier(0.6, 0.2, 0.1, 1) 0s; ">
+                                            <div class="product-img">
+                                                <a href="/styles/detail/">
+                                                    <img class="default-img" src="../../static/img/product/pro-1.jpg" alt="">
+                                                    <img class="hover-img" src="../../static/img/product/pro-1-1.jpg" alt="">
+                                                </a>
+                                                <span class="pink">-10%</span>
+                                                <div class="product-action">
+                                                    <div class="pro-same-action pro-wishlist">
+                                                        <a title="Wishlist" href="#"><i class="pe-7s-like"></i></a>
+                                                    </div>
+                                                    <div class="pro-same-action pro-cart">
+                                                        <a title="Add To Wish" href="#"><i class="pe-7s-cart"></i> Add to cart</a>
+                                                    </div>
+                                                    <div class="pro-same-action pro-quickview">
+                                                        <a title="Quick View" href="#" data-toggle="modal" data-target="#exampleModal"><i class="pe-7s-look"></i></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="product-content text-center">
+                                                <h3><a href="product-details.html">T- Shirt And Jeans</a></h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-4 col-md-6 col-lg-6 col-sm-6">
+                                        <div class="product-wrap mb-25 scroll-zoom" data-sr-id="2" style="; visibility: visible;  -webkit-transform: translateY(0) scale(1); opacity: 1;transform: translateY(0) scale(1); opacity: 1;-webkit-transition: -webkit-transform 0.8s cubic-bezier(0.6, 0.2, 0.1, 1) 0s, opacity 0.8s cubic-bezier(0.6, 0.2, 0.1, 1) 0s; transition: transform 0.8s cubic-bezier(0.6, 0.2, 0.1, 1) 0s, opacity 0.8s cubic-bezier(0.6, 0.2, 0.1, 1) 0s; ">
+                                            <div class="product-img">
+                                                <a href="single-product.html">
+                                                    <img class="default-img" src="../../static/img/product/pro-2.jpg" alt="">
+                                                    <img class="hover-img" src="../../static/img/product/pro-2-1.jpg" alt="">
+                                                </a>
+                                                <span class="purple">New</span>
+                                                <div class="product-action">
+                                                    <div class="pro-same-action pro-wishlist">
+                                                        <a title="Wishlist" href="#"><i class="pe-7s-like"></i></a>
+                                                    </div>
+                                                    <div class="pro-same-action pro-cart">
+                                                        <a title="Add To Cart" href="#"><i class="pe-7s-cart"></i> Add to cart</a>
+                                                    </div>
+                                                    <div class="pro-same-action pro-quickview">
+                                                        <a title="Quick View" href="#" data-toggle="modal" data-target="#exampleModal"><i class="pe-7s-look"></i></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="product-content text-center">
+                                                <h3><a href="product-details.html">T- Shirt And Jeans</a></h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-4 col-md-6 col-lg-6 col-sm-6">
+                                        <div class="product-wrap mb-25 scroll-zoom" data-sr-id="3" style="; visibility: visible;  -webkit-transform: translateY(0) scale(1); opacity: 1;transform: translateY(0) scale(1); opacity: 1;-webkit-transition: -webkit-transform 0.8s cubic-bezier(0.6, 0.2, 0.1, 1) 0s, opacity 0.8s cubic-bezier(0.6, 0.2, 0.1, 1) 0s; transition: transform 0.8s cubic-bezier(0.6, 0.2, 0.1, 1) 0s, opacity 0.8s cubic-bezier(0.6, 0.2, 0.1, 1) 0s; ">
+                                            <div class="product-img">
+                                                <a href="#">
+                                                    <img class="default-img" src="../../static/img/product/pro-3.jpg" alt="">
+                                                    <img class="hover-img" src="../../static/img/product/pro-3-1.jpg" alt="">
+                                                </a>
+                                                <span class="pink">-10%</span>
+                                                <div class="product-action">
+                                                    <div class="pro-same-action pro-wishlist">
+                                                        <a title="Wishlist" href="#"><i class="pe-7s-like"></i></a>
+                                                    </div>
+                                                    <div class="pro-same-action pro-cart">
+                                                        <a title="Add To Cart" href="#"><i class="pe-7s-cart"></i> Add to cart</a>
+                                                    </div>
+                                                    <div class="pro-same-action pro-quickview">
+                                                        <a title="Quick View" href="#" data-toggle="modal" data-target="#exampleModal"><i class="pe-7s-look"></i></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="product-content text-center">
+                                                <h3><a href="product-details.html">T- Shirt And Jeans</a></h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row carousel-item">
+                                    <div class="col-xl-4 col-md-6 col-lg-6 col-sm-6">
+                                        <div class="product-wrap mb-25 scroll-zoom" data-sr-id="1" style="; visibility: visible;  -webkit-transform: translateY(0) scale(1); opacity: 1;transform: translateY(0) scale(1); opacity: 1;-webkit-transition: -webkit-transform 0.8s cubic-bezier(0.6, 0.2, 0.1, 1) 0s, opacity 0.8s cubic-bezier(0.6, 0.2, 0.1, 1) 0s; transition: transform 0.8s cubic-bezier(0.6, 0.2, 0.1, 1) 0s, opacity 0.8s cubic-bezier(0.6, 0.2, 0.1, 1) 0s; ">
+                                            <div class="product-img">
+                                                <a href="/styles/detail/">
+                                                    <img class="default-img" src="../../static/img/product/pro-1.jpg" alt="">
+                                                    <img class="hover-img" src="../../static/img/product/pro-1-1.jpg" alt="">
+                                                </a>
+                                                <span class="pink">-10%</span>
+                                                <div class="product-action">
+                                                    <div class="pro-same-action pro-wishlist">
+                                                        <a title="Wishlist" href="#"><i class="pe-7s-like"></i></a>
+                                                    </div>
+                                                    <div class="pro-same-action pro-cart">
+                                                        <a title="Add To Wish" href="#"><i class="pe-7s-cart"></i> Add to cart</a>
+                                                    </div>
+                                                    <div class="pro-same-action pro-quickview">
+                                                        <a title="Quick View" href="#" data-toggle="modal" data-target="#exampleModal"><i class="pe-7s-look"></i></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="product-content text-center">
+                                                <h3><a href="product-details.html">T- Shirt And Jeans</a></h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-4 col-md-6 col-lg-6 col-sm-6">
+                                        <div class="product-wrap mb-25 scroll-zoom" data-sr-id="2" style="; visibility: visible;  -webkit-transform: translateY(0) scale(1); opacity: 1;transform: translateY(0) scale(1); opacity: 1;-webkit-transition: -webkit-transform 0.8s cubic-bezier(0.6, 0.2, 0.1, 1) 0s, opacity 0.8s cubic-bezier(0.6, 0.2, 0.1, 1) 0s; transition: transform 0.8s cubic-bezier(0.6, 0.2, 0.1, 1) 0s, opacity 0.8s cubic-bezier(0.6, 0.2, 0.1, 1) 0s; ">
+                                            <div class="product-img">
+                                                <a href="single-product.html">
+                                                    <img class="default-img" src="../../static/img/product/pro-2.jpg" alt="">
+                                                    <img class="hover-img" src="../../static/img/product/pro-2-1.jpg" alt="">
+                                                </a>
+                                                <span class="purple">New</span>
+                                                <div class="product-action">
+                                                    <div class="pro-same-action pro-wishlist">
+                                                        <a title="Wishlist" href="#"><i class="pe-7s-like"></i></a>
+                                                    </div>
+                                                    <div class="pro-same-action pro-cart">
+                                                        <a title="Add To Cart" href="#"><i class="pe-7s-cart"></i> Add to cart</a>
+                                                    </div>
+                                                    <div class="pro-same-action pro-quickview">
+                                                        <a title="Quick View" href="#" data-toggle="modal" data-target="#exampleModal"><i class="pe-7s-look"></i></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="product-content text-center">
+                                                <h3><a href="product-details.html">T- Shirt And Jeans</a></h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-4 col-md-6 col-lg-6 col-sm-6">
+                                        <div class="product-wrap mb-25 scroll-zoom" data-sr-id="3" style="; visibility: visible;  -webkit-transform: translateY(0) scale(1); opacity: 1;transform: translateY(0) scale(1); opacity: 1;-webkit-transition: -webkit-transform 0.8s cubic-bezier(0.6, 0.2, 0.1, 1) 0s, opacity 0.8s cubic-bezier(0.6, 0.2, 0.1, 1) 0s; transition: transform 0.8s cubic-bezier(0.6, 0.2, 0.1, 1) 0s, opacity 0.8s cubic-bezier(0.6, 0.2, 0.1, 1) 0s; ">
+                                            <div class="product-img">
+                                                <a href="#">
+                                                    <img class="default-img" src="../../static/img/product/pro-3.jpg" alt="">
+                                                    <img class="hover-img" src="../../static/img/product/pro-3-1.jpg" alt="">
+                                                </a>
+                                                <span class="pink">-10%</span>
+                                                <div class="product-action">
+                                                    <div class="pro-same-action pro-wishlist">
+                                                        <a title="Wishlist" href="#"><i class="pe-7s-like"></i></a>
+                                                    </div>
+                                                    <div class="pro-same-action pro-cart">
+                                                        <a title="Add To Cart" href="#"><i class="pe-7s-cart"></i> Add to cart</a>
+                                                    </div>
+                                                    <div class="pro-same-action pro-quickview">
+                                                        <a title="Quick View" href="#" data-toggle="modal" data-target="#exampleModal"><i class="pe-7s-look"></i></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="product-content text-center">
+                                                <h3><a href="product-details.html">T- Shirt And Jeans</a></h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal end -->

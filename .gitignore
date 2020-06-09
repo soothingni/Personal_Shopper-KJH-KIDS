@@ -162,4 +162,6 @@ model/img_moved2/
 Chromedriver
 seoulstore_ALL/
 masked_moved2/
+train/
+val/
 # End of https://www.gitignore.io/api/python,windows,jupyternotebooks

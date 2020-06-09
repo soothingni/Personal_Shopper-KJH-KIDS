@@ -15,7 +15,7 @@ import json
 import os
 import re
 import sys
-import time
+from pathlib import Path
 import traceback
 from builtins import open
 from time import sleep
@@ -23,6 +23,8 @@ from time import sleep
 import cx_Oracle
 import os
 os.environ["NLS_LANG"] = ".AL32UTF8"
+
+base_path = '/root/Personal_Shopper-KJH-KIDS/crawler/UpdateProduct'
 
 # db connection
 conn = cx_Oracle.connect('oddeye/1234@15.164.247.135:1522/MODB')
@@ -33,7 +35,7 @@ parser.add_argument('--isfirst', default=None,
                     help="Crawling for the first time or not")
 parser.add_argument('--num', default=1000,
                     help="Number of items to fetch per category")
-parser.add_argument('--filepath', default='categorized_tong.json',
+parser.add_argument('--filepath', default=base_path+'/categorized_tong.json',
                     help="Directory to save item info")
 
 category_dict = {
@@ -211,7 +213,8 @@ def get_products2(category_dict, filepath):
           
     #새로 저장할 경로
     now = time.localtime()
-    new_filepath = 'new_only_' + time.strftime('%y%m%d_%I%M%S', now) +  '.json'
+    Path(base_path+'/new_only_' + time.strftime('%y%m%d_%H', now) +  '.json').touch()
+    new_filepath = base_path+'/new_only_' + time.strftime('%y%m%d_%H', now) +  '.json'
 
     wait_time = 300
     path = '/home/ubuntu/chromedriver'
@@ -276,6 +279,10 @@ def get_products2(category_dict, filepath):
                             with open(new_filepath, "a", encoding="utf-8") as f:
                                 f.write(out)
                         cat_post_count +=1
+                        
+                        t = (dict_post['product_id'], dict_post['super_category'], dict_post["base_category"], dict_post["sub_category"], dict_post["img_url"], dict_post["product_url"])   
+                        print("Test", t)
+                        db_insert(t, cat_post_count)
 
                     except:
                         continue
@@ -341,7 +348,12 @@ if __name__ == '__main__':
     print('Starting PROCESS 2: Image Download')
     print('-------------------------------------------------------')
 
+    bracketed = '[]'
     print(filepath)
+    
+    with open(filepath, 'w', encoding='utf-8') as f:    #새로 크롤링한 내용만 있는 파일 (이미지 다운로드용)
+        f.write(str(bracketed))
+        
     with open(filepath) as data_file:
         data = json.load(data_file)
 
