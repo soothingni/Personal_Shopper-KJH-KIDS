@@ -4,10 +4,8 @@ from django.views.generic import View
 from django.contrib.auth.models import User
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
-''' 여기는 django db (sqlite) 사용할 때 필요한 모듈?
 from django.db import connection # DB에서 데이터를 받아오기 위한 라이브러리
-from products.models import product # DB에서 필요한 table import
-'''
+# from products.models import star # DB에서 필요한 table import
 
 import os
 
@@ -30,8 +28,8 @@ def main2(req):
     return render(req, 'styles/main2.html')
 
 def StylesList(req):
-    # DB 연동 후 사용할 코드
     '''
+    # DB 연동 후 사용할 코드
     sql = """
         SELECT no, name, like
         FROM styles_star
@@ -40,18 +38,21 @@ def StylesList(req):
     """
     cursor = connection.cursor()
     cursor.execute(sql)
-    result = dictfetchall(cursor)
+    temp_result = dictfetchall(cursor)
+
+    print(temp_result)
     '''
 
+
     # 임시 코드
-    result = [{'no': 37, 'name': 'dahee', 'like': 100},
-              {'no': 45, 'name': 'hani', 'like': 100},
-              {'no': 19, 'name': 'hyuna', 'like': 84},
-              {'no': 10, 'name': 'irene', 'like': 88},
-              {'no': 1, 'name': 'iu', 'like': 65},
-              {'no': 17, 'name': 'jennie', 'like': 80},
-              {'no': 34, 'name': 'sunmi', 'like': 99},
-              {'no': 25, 'name': 'yerin', 'like': 98}]
+    result = [{'no': 37, 'name': 'dahee', 'style': 1, 'like': 100},
+              {'no': 45, 'name': 'hani', 'style': 1, 'like': 100},
+              {'no': 19, 'name': 'hyuna', 'style': 1, 'like': 84},
+              {'no': 10, 'name': 'irene', 'style': 1, 'like': 88},
+              {'no': 1, 'name': 'iu', 'style': 1, 'like': 65},
+              {'no': 17, 'name': 'jennie', 'style': 1, 'like': 80},
+              {'no': 34, 'name': 'sunmi', 'style': 1, 'like': 99},
+              {'no': 25, 'name': 'yerin', 'style': 1, 'like': 98}]
 
     stars = ['iu', 'irene', 'hyuna', 'yerin', 'sunmi', 'jennie']
 

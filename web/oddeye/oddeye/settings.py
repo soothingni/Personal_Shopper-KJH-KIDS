@@ -87,8 +87,12 @@ WSGI_APPLICATION = 'oddeye.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.oracle',
+        'NAME': 'MODB',
+        'USER': 'oddeye',
+        'PASSWORD': '1234',
+        'HOST': '15.164.247.135',
+        'PORT': '1522',
     }
 }
 
