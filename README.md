@@ -5,4 +5,4 @@
 
 ## Segmentation
 
-[Segmentation_README](./model/seg/readme.md)
+[Segmentation_README](./model/seg/)
