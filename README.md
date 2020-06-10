@@ -3,6 +3,12 @@
 
 
 
+## Triplet Network
+
+[Triplet README](./model/)
+
+
+
 ## Segmentation
 
 [Segmentation_README](./model/seg/)
