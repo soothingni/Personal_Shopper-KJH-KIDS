@@ -1,7 +1,7 @@
 from django.db import models
 
 # Create your models here.
-class User(models.Model):
+class Users(models.Model):
     no = models.CharField(primary_key=True, max_length=15, verbose_name="NO")
     id = models.CharField(max_length=15, verbose_name="아이디")
     password = models.CharField(max_length=15, verbose_name="패스워드")
@@ -13,6 +13,6 @@ class User(models.Model):
         return self.id
 
     class Meta:
-        db_table = "user"
-        verbose_name = "user"
-        verbose_name_plural = "user"
+        db_table = "Users"
+        verbose_name = "Users"
+        verbose_name_plural = "Users"
