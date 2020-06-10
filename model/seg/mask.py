@@ -131,9 +131,9 @@ def mask(start=0,time=100):
             cnt+=1
         folder_index+=1
      
-df_time=100     
+  
         
-def seoulmask(dir,start=0,time=1000):
+def seoulmask(dir,start=0,time=1):
     img_list=os.listdir(dir)
     img_list=sorted(img_list)
     start=int(start)

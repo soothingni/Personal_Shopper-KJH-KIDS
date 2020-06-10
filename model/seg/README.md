@@ -1,6 +1,8 @@
 # Fashion Image segmentation with Detectron2
 
+![sampleimage1](imgs/sample1.jpg)
 
+![sampleimage2](imgs/sample2.jpg)
 
 ## Requirement
 
@@ -8,6 +10,7 @@
 - Detectron2
 - PyTorch ≥ 1.4
 - torchivision that matches the PyTorch installation. You can install them together at [pytorch.org](https://pytorch.org) to make sure of this
+- CUDA ≥ 10.1
 - OpenCV, PIL to save RGBA type image
 - pycocotools
 - gcc &g++  ≥5 are required.
@@ -37,12 +40,12 @@ pip install detectron2==0.1.3 -f https://dl.fbaipublicfiles.com/detectron2/wheel
 ## Getting Started
 
 ```python
-python mask.py --dir demo --start 0 --time 1
+python mask.py --dir demo
 ```
 
 ## Model
 
-[Model_final.pth](https://drive.google.com/file/d/1mGvNaa1u6SFbldQbaZqB9X_WSV3hVo2i/view?usp=sharing)
+[Pretrained_200610](https://drive.google.com/file/d/1mGvNaa1u6SFbldQbaZqB9X_WSV3hVo2i/view?usp=sharing)
 
 
 
