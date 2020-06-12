@@ -24,22 +24,74 @@ import cx_Oracle
 import os
 os.environ["NLS_LANG"] = ".AL32UTF8"
 
+<<<<<<< HEAD
+base_path = ''
+
+db connection
+=======
 base_path = '/root/Personal_Shopper-KJH-KIDS/crawler/UpdateProduct'
 
 # db connection
+>>>>>>> 3591a73a31cd6003b1dd18240de887a4bc15de8d
 conn = cx_Oracle.connect('oddeye/1234@15.164.247.135:1522/MODB')
 curs = conn.cursor()
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--isfirst', default=None,
                     help="Crawling for the first time or not")
+<<<<<<< HEAD
+parser.add_argument('--num', default=10,
+                    help="Number of items to fetch per category")
+parser.add_argument('--filepath', default=base_path+'test.json',
+=======
 parser.add_argument('--num', default=1000,
                     help="Number of items to fetch per category")
 parser.add_argument('--filepath', default=base_path+'/categorized_tong.json',
+>>>>>>> 3591a73a31cd6003b1dd18240de887a4bc15de8d
                     help="Directory to save item info")
 
 category_dict = {
     1002: {"super_category": 0, "category": 0, "sub_category": 0, "name": "롱슬리브"},
+<<<<<<< HEAD
+    1003: {"super_category": 0, "category": 0, "sub_category": 1, "name": "숏슬리브"},
+    1004: {"super_category": 0, "category": 0, "sub_category": 2, "name": "슬리브리스"},
+    1005: {"super_category": 0, "category": 0, "sub_category": 3, "name": "크롭 탑"},
+    1006: {"super_category": 0, "category": 0, "sub_category": 4, "name": "폴로 셔츠"},
+    1008: {"super_category": 0, "category": 1, "sub_category": 5, "name": "후디"},
+    1010: {"super_category": 0, "category": 1, "sub_category": 6, "name": "스웨트셔츠"},
+    1009: {"super_category": 0, "category": 1, "sub_category": 7, "name": "집업후디"},
+    1012: {"super_category": 0, "category": 2, "sub_category": 8, "name": "롱 슬리브"},
+    1013:{"super_category": 0, "category": 2, "sub_category": 9, "name": "숏 슬리브"},
+    1014: {"super_category": 0, "category": 2, "sub_category": 10, "name": "블라우스"},
+    1016: {"super_category": 0, "category": 3, "sub_category": 11, "name": "라운드넥" },
+    1017: {"super_category": 0, "category": 3, "sub_category": 12, "name": "브이넥"},
+    1018: {"super_category": 0, "category": 3, "sub_category": 13, "name": "터틀넥"},
+    1019: {"super_category": 0, "category": 3, "sub_category": 14, "name": "베스트"},
+    1020: {"super_category": 0, "category": 3, "sub_category": 15, "name": "가디건"},
+    
+    1025: {"super_category": 1, "category": 4, "sub_category": 16, "name": "미니"},
+    1026: {"super_category": 1, "category": 4, "sub_category": 17, "name": "미디/롱"},
+    1028: {"super_category": 1, "category": 5, "sub_category": 18, "name": "치노"},
+    1034: {"super_category": 1, "category": 5, "sub_category": 19, "name": "스웨트팬츠"},
+    1031: {"super_category": 1, "category": 5, "sub_category": 20, "name": "스트레이트"},
+    1032: {"super_category": 1, "category": 5, "sub_category": 21, "name": "와이드"},
+    1030: {"super_category": 1, "category": 5, "sub_category": 22, "name": "스키니"},
+    1033: {"super_category": 1, "category": 5, "sub_category": 23, "name": "부츠컷"},
+    1029: {"super_category": 1, "category": 5, "sub_category": 24, "name": "쇼츠"},
+    1035: {"super_category": 1, "category": 5, "sub_category": 25, "name": "레깅스"},
+    1040: {"super_category": 1, "category": 6, "sub_category": 26, "name": "스트레이트"},
+    1041: {"super_category": 1, "category": 6, "sub_category": 27, "name": "와이드"},
+    1039: {"super_category": 1, "category": 6, "sub_category": 28, "name": "스키니"},
+    1042: {"super_category": 1, "category": 6, "sub_category": 29, "name": "부츠컷"},
+    1043: {"super_category": 1, "category": 6, "sub_category": 30, "name": "크롭"},
+    1038: {"super_category": 1, "category": 6, "sub_category": 31, "name": "스커트"},
+    1037: {"super_category": 1, "category": 6, "sub_category": 32, "name": "쇼츠"},
+    
+    1022: {"super_category": 2, "category": 7, "sub_category": 33, "name": "미니"},
+    1023: {"super_category": 2, "category": 7, "sub_category": 34, "name": "미디/맥시"},
+    1273: {"super_category": 2, "category": 7, "sub_category": 35, "name": "드레스"},
+    1045: {"super_category": 2, "category": 8, "sub_category": 36, "name": "올인원"},
+=======
 #     1003: {"super_category": 0, "category": 0, "sub_category": 1, "name": "숏슬리브"},
 #     1004: {"super_category": 0, "category": 0, "sub_category": 2, "name": "슬리브리스"},
 #     1005: {"super_category": 0, "category": 0, "sub_category": 3, "name": "크롭 탑"},
@@ -78,11 +130,16 @@ category_dict = {
 #     1023: {"super_category": 2, "category": 7, "sub_category": 34, "name": "미디/맥시"},
 #     1273: {"super_category": 2, "category": 7, "sub_category": 35, "name": "드레스"},
 #     1045: {"super_category": 2, "category": 8, "sub_category": 36, "name": "올인원"},
+>>>>>>> 3591a73a31cd6003b1dd18240de887a4bc15de8d
     1046: {"super_category": 2, "category": 8, "sub_category": 37, "name": "점프수트"}
 }
 
 def db_insert(t, count):
+<<<<<<< HEAD
+    sql="insert into products values(:1,:2,:3,:4,:5,:6,:7,:8,:9)"
+=======
     sql="insert into products values(:1,:2,:3,:4,:5,:6)"
+>>>>>>> 3591a73a31cd6003b1dd18240de887a4bc15de8d
     curs.execute(sql,t)
     print(f"Insertion executed! {count}")
     conn.commit()
@@ -100,7 +157,11 @@ def get_products1(category_dict, num, filepath):
     """
     product_set = set()   #중복 크롤링 거르기 위한 셋. product_url을 원소로 함
 
+<<<<<<< HEAD
+    path='chromedriver'    #크롬드라이버 경로
+=======
     path='/home/ubuntu/chromedriver'    #크롬드라이버 경로
+>>>>>>> 3591a73a31cd6003b1dd18240de887a4bc15de8d
 
     wait_time = 300
     options=webdriver.ChromeOptions()     #크롬드라이버 옵션 추가(안 할 시 에러)
@@ -111,7 +172,11 @@ def get_products1(category_dict, num, filepath):
     browser=webdriver.Chrome(path, chrome_options=options)  #드라이버 생성
     # browser = webdriver.Chrome('chromedriver')   #크롬 브라우저 실행
     wait = WebDriverWait(browser, wait_time)
+<<<<<<< HEAD
+    print("1")
+=======
     
+>>>>>>> 3591a73a31cd6003b1dd18240de887a4bc15de8d
     for cat in category_dict:
         url = 'https://www.seoulstore.com/categories/{}/regDatetime/desc'.format(str(cat))
         browser.get(url)
@@ -122,11 +187,22 @@ def get_products1(category_dict, num, filepath):
         wait.until(EC.presence_of_element_located((By.CLASS_NAME, 'products_container')))  #페이지 로딩 기다림
         time.sleep(2)
         ele_posts = browser.find_element_by_class_name('products_container').find_elements_by_class_name('image_container')
+<<<<<<< HEAD
+        # print("ele_posts: ", ele_posts)
+        
+        print("2")
+        ##########추가한 부분###########
+        while len(ele_posts) < num:
+            body.send_keys(Keys.PAGE_DOWN)
+            ele_posts = browser.find_element_by_class_name('products_container').find_elements_by_class_name('ProductItem')  #!!여기 바꿈
+            # print("ele_posts2: ", ele_posts)
+=======
             
         ##########추가한 부분###########
         while len(ele_posts) < num:
             body.send_keys(Keys.PAGE_DOWN)
             ele_posts = browser.find_element_by_class_name('products_container').find_elements_by_class_name('image_container')
+>>>>>>> 3591a73a31cd6003b1dd18240de887a4bc15de8d
 
             cur_posts_count = len(ele_posts)
             if prev_posts_count == cur_posts_count:
@@ -137,7 +213,11 @@ def get_products1(category_dict, num, filepath):
 
             prev_posts_count = cur_posts_count
         ##########추가한 부분 끝##########
+<<<<<<< HEAD
+        print("3")
+=======
        
+>>>>>>> 3591a73a31cd6003b1dd18240de887a4bc15de8d
         cat_post_count = 0   #카테고리별 크롤링된 아이템 수 세기
         
         print(len(ele_posts))
@@ -146,6 +226,39 @@ def get_products1(category_dict, num, filepath):
             product_url= ele.find_element_by_tag_name('a').get_attribute('href')
             key = product_url.split('/')[-2]
             if key not in product_set:
+<<<<<<< HEAD
+                print('key: ', key)
+                # try:
+                dict_post = { "product_url": product_url }
+                dict_post['product_id'] = key
+                dict_post['product_name'] = ele.find_element_by_class_name('product_name').find_element_by_tag_name('a').text
+                price_list_ele = ele.find_element_by_class_name('price').find_elements_by_css_selector('span')
+                price_1 = ele.find_element_by_class_name('price').find_elements_by_css_selector('span')[-1].text
+                dict_post['price_original'] = int(price_1.replace(',',"").split(' ')[-1])  #!!여기 바꿈
+                if len(price_list_ele) >= 2:
+                    price_2 = ele.find_element_by_class_name('price').find_elements_by_css_selector('span')[0].text
+                    dict_post['price_discount'] = int(price_2.replace(',',"").split(' ')[-1])  #!!여기 바꿈
+                wait.until(EC.presence_of_element_located((By.CLASS_NAME, 'ImageLoader.ratio_1_1.loaded')))
+                ele_img = ele.find_element_by_class_name('ImageLoader.ratio_1_1.loaded')
+                dict_post["img_url"] = ele_img.get_attribute("src")
+                dict_post["sub_category"] = category_dict[cat]["sub_category"]
+                dict_post["base_category"] = category_dict[cat]["category"]
+                dict_post["super_category"] = category_dict[cat]["super_category"]
+                product_set.add(key)
+
+                out = json.dumps(dict_post, ensure_ascii=False)    #json 형식으로 정보 변환
+                out += ', '    #아이템 정보 분류하기 위해 끝에 쉼표 추가
+
+                with open(filepath, "a", encoding="utf-8") as f:
+                    f.write(out)
+                cat_post_count +=1
+                    
+                    # t = (dict_post['product_id'], dict_post['product_name'], dict_post['price_original'], dict_post['price_discount'],  dict_post['super_category'], dict_post["base_category"], dict_post["sub_category"], dict_post["img_url"], dict_post["product_url"])
+                    # print("Test", t)
+                    # db_insert(t, cat_post_count)
+
+                # except: continue
+=======
                 try:
                     dict_post = { "product_url": product_url }
                     dict_post['product_id'] = key
@@ -178,6 +291,7 @@ def get_products1(category_dict, num, filepath):
                     db_insert(t, cat_post_count)
 
                 except: continue
+>>>>>>> 3591a73a31cd6003b1dd18240de887a4bc15de8d
                     
         print("saved {} items from {} section".format(cat_post_count, category_dict[cat]['name']))
    
@@ -226,7 +340,11 @@ def get_products2(category_dict, filepath):
     new_filepath = base_path+'/new_only_' + time.strftime('%y%m%d_%H', now) +  '.json'
 
     wait_time = 300
+<<<<<<< HEAD
+    path = 'schromedriver'
+=======
     path = '/home/ubuntu/chromedriver'
+>>>>>>> 3591a73a31cd6003b1dd18240de887a4bc15de8d
     options=webdriver.ChromeOptions()     #크롬드라이버 옵션 추가(안 할 시 에러)
     options.add_argument('--disable-extensions')
     options.add_argument('--headless')
@@ -272,11 +390,25 @@ def get_products2(category_dict, filepath):
                     try:
                         dict_post = { "product_url": product_url }
                         dict_post['product_id'] = key
+<<<<<<< HEAD
+                        dict_post['product_name'] = ele.find_element_by_class_name('product_name').find_element_by_tag_name('a').text
+                        price_list_ele = ele.find_element_by_class_name('price').find_elements_by_css_selector('span')
+                        price_1 = ele.find_element_by_class_name('price').find_elements_by_css_selector('span')[-1].text
+                        dict_post['price_original'] = int(price_1.replace(',',""))
+                        if len(price_list_ele) >= 2:
+                            price_2 = ele.find_element_by_class_name('price').find_elements_by_css_selector('span')[0].text
+                            dict_post['price_discount'] = int(price_2.replace(',',""))
+=======
+>>>>>>> 3591a73a31cd6003b1dd18240de887a4bc15de8d
                         ele_img = ele.find_element_by_class_name('ImageLoader.ratio_1_1.loaded')
                         dict_post["img_url"] = ele_img.get_attribute("src")
                         dict_post["sub_category"] = category_dict[cat]["sub_category"]
                         dict_post["category"] = category_dict[cat]["category"]
+<<<<<<< HEAD
+                        dict_post["super_category"] = category_dict[cat]["super_category"]    
+=======
                         dict_post["super_category"] = category_dict[cat]["super_category"]
+>>>>>>> 3591a73a31cd6003b1dd18240de887a4bc15de8d
                         product_set.add(key)
 
                         out = json.dumps(dict_post, ensure_ascii=False)    #json 형식으로 정보 변환
@@ -289,7 +421,11 @@ def get_products2(category_dict, filepath):
                                 f.write(out)
                         cat_post_count +=1
                         
+<<<<<<< HEAD
+                        t = (dict_post['product_id'], dict_post['product_name'], dict_post['price_original'], dict_post['price_discount'],  dict_post['super_category'], dict_post["base_category"], dict_post["sub_category"], dict_post["img_url"], dict_post["product_url"])
+=======
                         t = (dict_post['product_id'], dict_post['super_category'], dict_post["base_category"], dict_post["sub_category"], dict_post["img_url"], dict_post["product_url"])   
+>>>>>>> 3591a73a31cd6003b1dd18240de887a4bc15de8d
                         print("Test", t)
                         db_insert(t, cat_post_count)
 
