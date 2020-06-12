@@ -40,49 +40,49 @@ parser.add_argument('--filepath', default=base_path+'/categorized_tong.json',
 
 category_dict = {
     1002: {"super_category": 0, "category": 0, "sub_category": 0, "name": "롱슬리브"},
-    1003: {"super_category": 0, "category": 0, "sub_category": 1, "name": "숏슬리브"},
-    1004: {"super_category": 0, "category": 0, "sub_category": 2, "name": "슬리브리스"},
-    1005: {"super_category": 0, "category": 0, "sub_category": 3, "name": "크롭 탑"},
-    1006: {"super_category": 0, "category": 0, "sub_category": 4, "name": "폴로 셔츠"},
-    1008: {"super_category": 0, "category": 1, "sub_category": 5, "name": "후디"},
-    1010: {"super_category": 0, "category": 1, "sub_category": 6, "name": "스웨트셔츠"},
-    1009: {"super_category": 0, "category": 1, "sub_category": 7, "name": "집업후디"},
-    1012: {"super_category": 0, "category": 2, "sub_category": 8, "name": "롱 슬리브"},
-    1013:{"super_category": 0, "category": 2, "sub_category": 9, "name": "숏 슬리브"},
-    1014: {"super_category": 0, "category": 2, "sub_category": 10, "name": "블라우스"},
-    1016: {"super_category": 0, "category": 3, "sub_category": 11, "name": "라운드넥" },
-    1017: {"super_category": 0, "category": 3, "sub_category": 12, "name": "브이넥"},
-    1018: {"super_category": 0, "category": 3, "sub_category": 13, "name": "터틀넥"},
-    1019: {"super_category": 0, "category": 3, "sub_category": 14, "name": "베스트"},
-    1020: {"super_category": 0, "category": 3, "sub_category": 15, "name": "가디건"},
+#     1003: {"super_category": 0, "category": 0, "sub_category": 1, "name": "숏슬리브"},
+#     1004: {"super_category": 0, "category": 0, "sub_category": 2, "name": "슬리브리스"},
+#     1005: {"super_category": 0, "category": 0, "sub_category": 3, "name": "크롭 탑"},
+#     1006: {"super_category": 0, "category": 0, "sub_category": 4, "name": "폴로 셔츠"},
+#     1008: {"super_category": 0, "category": 1, "sub_category": 5, "name": "후디"},
+#     1010: {"super_category": 0, "category": 1, "sub_category": 6, "name": "스웨트셔츠"},
+#     1009: {"super_category": 0, "category": 1, "sub_category": 7, "name": "집업후디"},
+#     1012: {"super_category": 0, "category": 2, "sub_category": 8, "name": "롱 슬리브"},
+#     1013:{"super_category": 0, "category": 2, "sub_category": 9, "name": "숏 슬리브"},
+#     1014: {"super_category": 0, "category": 2, "sub_category": 10, "name": "블라우스"},
+#     1016: {"super_category": 0, "category": 3, "sub_category": 11, "name": "라운드넥" },
+#     1017: {"super_category": 0, "category": 3, "sub_category": 12, "name": "브이넥"},
+#     1018: {"super_category": 0, "category": 3, "sub_category": 13, "name": "터틀넥"},
+#     1019: {"super_category": 0, "category": 3, "sub_category": 14, "name": "베스트"},
+#     1020: {"super_category": 0, "category": 3, "sub_category": 15, "name": "가디건"},
     
-    1025: {"super_category": 1, "category": 4, "sub_category": 16, "name": "미니"},
-    1026: {"super_category": 1, "category": 4, "sub_category": 17, "name": "미디/롱"},
-    1028: {"super_category": 1, "category": 5, "sub_category": 18, "name": "치노"},
-    1034: {"super_category": 1, "category": 5, "sub_category": 19, "name": "스웨트팬츠"},
-    1031: {"super_category": 1, "category": 5, "sub_category": 20, "name": "스트레이트"},
-    1032: {"super_category": 1, "category": 5, "sub_category": 21, "name": "와이드"},
-    1030: {"super_category": 1, "category": 5, "sub_category": 22, "name": "스키니"},
-    1033: {"super_category": 1, "category": 5, "sub_category": 23, "name": "부츠컷"},
-    1029: {"super_category": 1, "category": 5, "sub_category": 24, "name": "쇼츠"},
-    1035: {"super_category": 1, "category": 5, "sub_category": 25, "name": "레깅스"},
-    1040: {"super_category": 1, "category": 6, "sub_category": 26, "name": "스트레이트"},
-    1041: {"super_category": 1, "category": 6, "sub_category": 27, "name": "와이드"},
-    1039: {"super_category": 1, "category": 6, "sub_category": 28, "name": "스키니"},
-    1042: {"super_category": 1, "category": 6, "sub_category": 29, "name": "부츠컷"},
-    1043: {"super_category": 1, "category": 6, "sub_category": 30, "name": "크롭"},
-    1038: {"super_category": 1, "category": 6, "sub_category": 31, "name": "스커트"},
-    1037: {"super_category": 1, "category": 6, "sub_category": 32, "name": "쇼츠"},
+#     1025: {"super_category": 1, "category": 4, "sub_category": 16, "name": "미니"},
+#     1026: {"super_category": 1, "category": 4, "sub_category": 17, "name": "미디/롱"},
+#     1028: {"super_category": 1, "category": 5, "sub_category": 18, "name": "치노"},
+#     1034: {"super_category": 1, "category": 5, "sub_category": 19, "name": "스웨트팬츠"},
+#     1031: {"super_category": 1, "category": 5, "sub_category": 20, "name": "스트레이트"},
+#     1032: {"super_category": 1, "category": 5, "sub_category": 21, "name": "와이드"},
+#     1030: {"super_category": 1, "category": 5, "sub_category": 22, "name": "스키니"},
+#     1033: {"super_category": 1, "category": 5, "sub_category": 23, "name": "부츠컷"},
+#     1029: {"super_category": 1, "category": 5, "sub_category": 24, "name": "쇼츠"},
+#     1035: {"super_category": 1, "category": 5, "sub_category": 25, "name": "레깅스"},
+#     1040: {"super_category": 1, "category": 6, "sub_category": 26, "name": "스트레이트"},
+#     1041: {"super_category": 1, "category": 6, "sub_category": 27, "name": "와이드"},
+#     1039: {"super_category": 1, "category": 6, "sub_category": 28, "name": "스키니"},
+#     1042: {"super_category": 1, "category": 6, "sub_category": 29, "name": "부츠컷"},
+#     1043: {"super_category": 1, "category": 6, "sub_category": 30, "name": "크롭"},
+#     1038: {"super_category": 1, "category": 6, "sub_category": 31, "name": "스커트"},
+#     1037: {"super_category": 1, "category": 6, "sub_category": 32, "name": "쇼츠"},
     
-    1022: {"super_category": 2, "category": 7, "sub_category": 33, "name": "미니"},
-    1023: {"super_category": 2, "category": 7, "sub_category": 34, "name": "미디/맥시"},
-    1273: {"super_category": 2, "category": 7, "sub_category": 35, "name": "드레스"},
-    1045: {"super_category": 2, "category": 8, "sub_category": 36, "name": "올인원"},
+#     1022: {"super_category": 2, "category": 7, "sub_category": 33, "name": "미니"},
+#     1023: {"super_category": 2, "category": 7, "sub_category": 34, "name": "미디/맥시"},
+#     1273: {"super_category": 2, "category": 7, "sub_category": 35, "name": "드레스"},
+#     1045: {"super_category": 2, "category": 8, "sub_category": 36, "name": "올인원"},
     1046: {"super_category": 2, "category": 8, "sub_category": 37, "name": "점프수트"}
 }
 
 def db_insert(t, count):
-    sql="insert into product values(:1,:2,:3,:4,:5,:6)"
+    sql="insert into products values(:1,:2,:3,:4,:5,:6)"
     curs.execute(sql,t)
     print(f"Insertion executed! {count}")
     conn.commit()
@@ -155,6 +155,13 @@ def get_products1(category_dict, num, filepath):
                     dict_post["sub_category"] = category_dict[cat]["sub_category"]
                     dict_post["base_category"] = category_dict[cat]["category"]
                     dict_post["super_category"] = category_dict[cat]["super_category"]
+
+                    dict_post['product_name'] = ele.find_element_by_class_name('product_name').find_element_by_tag_name('a').text
+                    price_list_ele = ele.find_element_by_class_name('price').find_elements_by_css_selector('span')
+                    dict_post['price_consumer'] = ele.find_element_by_class_name('price').find_elements_by_css_selector('span')[-1].text
+                    if len(price_list_ele) >= 2:
+                        dict_post['price_discount'] = ele.find_element_by_class_name('price').find_elements_by_css_selector('span')[0].text
+
                     product_set.add(key)
                     
                     out = json.dumps(dict_post, ensure_ascii=False)    #json 형식으로 정보 변환
@@ -207,7 +214,7 @@ def get_products2(category_dict, filepath):
     with open(filepath) as data_file:    # 기존 파일 읽어오기
         existing = json.load(data_file)
 
-    product_ids = [e['product_id'] for e in existing]
+    product_ids = [e['product_ID'] for e in existing]
     newest_product_id = sorted(product_ids, key=lambda x: str(x), reverse=True)[0]   #기존 파일에서 가장 최신 상품의 product_id
     product_set = set(product_ids)   #중복 크롤링 거르기 위한 셋. key를 원소로 함
           
@@ -348,12 +355,7 @@ if __name__ == '__main__':
     print('Starting PROCESS 2: Image Download')
     print('-------------------------------------------------------')
 
-    bracketed = '[]'
-    print(filepath)
-    
-    with open(filepath, 'w', encoding='utf-8') as f:    #새로 크롤링한 내용만 있는 파일 (이미지 다운로드용)
-        f.write(str(bracketed))
-        
+    print(filepath)        
     with open(filepath) as data_file:
         data = json.load(data_file)
 
