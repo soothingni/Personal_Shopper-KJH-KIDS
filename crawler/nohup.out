@@ -1,0 +1,30 @@
+[I 20:50:51.300 NotebookApp] [nb_conda_kernels] enabled, 27 kernels found
+[I 20:50:51.465 NotebookApp] Loading IPython parallel extension
+[I 20:50:51.486 NotebookApp] JupyterLab beta preview extension loaded from /home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/site-packages/jupyterlab
+[I 20:50:51.486 NotebookApp] JupyterLab application directory is /home/ubuntu/anaconda3/envs/tensorflow2_p36/share/jupyter/lab
+[I 20:50:51.634 NotebookApp] [nb_conda] enabled
+[I 20:50:51.636 NotebookApp] Serving notebooks from local directory: /root/Personal_Shopper-KJH-KIDS/crawler
+[I 20:50:51.636 NotebookApp] 0 active kernels
+[I 20:50:51.636 NotebookApp] The Jupyter Notebook is running at:
+[I 20:50:51.636 NotebookApp] http://ip-172-31-40-147:8894/
+[I 20:50:51.636 NotebookApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+
+(firefox:30348): LIBDBUSMENU-GLIB-WARNING **: Unable to get session bus: Error spawning command line 'dbus-launch --autolaunch=ec2a1b78e1a4c90c123561379fee300b --binary-syntax --close-stderr': Child process exited with code 1
+[I 20:50:59.980 NotebookApp] 302 GET /tree (127.0.0.1) 1.30ms
+[I 20:51:05.915 NotebookApp] 302 POST /login?next=%2Ftree (127.0.0.1) 0.96ms
+[I 20:52:22.498 NotebookApp] Saving file at /THISONE_download_seoulstore.py
+[I 21:28:17.074 NotebookApp] 302 GET / (222.107.37.171) 0.38ms
+[W 21:28:17.082 NotebookApp] Clearing invalid/expired login cookie username-15-164-247-135-8894
+[W 21:28:17.082 NotebookApp] Clearing invalid/expired login cookie username-15-164-247-135-8894
+[I 21:28:17.082 NotebookApp] 302 GET /tree? (222.107.37.171) 0.89ms
+[I 21:28:19.189 NotebookApp] 302 POST /login?next=%2Ftree%3F (222.107.37.171) 0.90ms
+[I 21:28:41.587 NotebookApp] Creating new notebook in 
+[I 21:28:45.812 NotebookApp] Kernel started: 5fcc0668-0715-46cc-a7e5-19ac66e50dd0
+[I 21:28:46.255 NotebookApp] Adapting to protocol v5.1 for kernel 5fcc0668-0715-46cc-a7e5-19ac66e50dd0
+[I 21:30:45.809 NotebookApp] Saving file at /Untitled.ipynb
+[I 21:32:45.795 NotebookApp] Saving file at /Untitled.ipynb
+[I 21:45:58.037 NotebookApp] Starting buffering for 5fcc0668-0715-46cc-a7e5-19ac66e50dd0:4185c4c1b1da4ada8db41ce9aa21a0f5
+[I 21:46:02.618 NotebookApp] Kernel shutdown: 5fcc0668-0715-46cc-a7e5-19ac66e50dd0
+[W 21:46:02.619 NotebookApp] delete /Untitled.ipynb
+[C 22:00:01.500 NotebookApp] received signal 15, stopping
+[I 22:00:01.500 NotebookApp] Shutting down 0 kernels

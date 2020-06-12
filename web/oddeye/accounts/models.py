@@ -1,7 +1,7 @@
 from django.db import models
 
 # Create your models here.
-class Users(models.Model):
+class OddeyeUsers(models.Model):
     no = models.CharField(primary_key=True, max_length=15, verbose_name="NO")
     id = models.CharField(max_length=15, verbose_name="아이디")
     password = models.CharField(max_length=15, verbose_name="패스워드")
@@ -13,6 +13,6 @@ class Users(models.Model):
         return self.id
 
     class Meta:
-        db_table = "Users"
-        verbose_name = "Users"
-        verbose_name_plural = "Users"
+        db_table = "oddeye_users"
+        verbose_name = "oddeye_users"
+        verbose_name_plural = "oddeye_users"

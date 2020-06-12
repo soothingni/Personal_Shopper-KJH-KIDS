@@ -1,0 +1,20 @@
+[I 11:14:39.170 NotebookApp] Serving notebooks from local directory: /root/Personal_Shopper-KJH-KIDS/web
+[I 11:14:39.170 NotebookApp] The Jupyter Notebook is running at:
+[I 11:14:39.170 NotebookApp] http://ip-172-31-40-147:8892/
+[I 11:14:39.170 NotebookApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+[W 11:14:39.174 NotebookApp] No web browser found: could not locate runnable browser.
+[I 11:15:18.550 NotebookApp] Serving notebooks from local directory: /root/Personal_Shopper-KJH-KIDS/web
+[I 11:15:18.550 NotebookApp] The Jupyter Notebook is running at:
+[I 11:15:18.550 NotebookApp] http://ip-172-31-40-147:8893/
+[I 11:15:18.550 NotebookApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+[W 11:15:18.552 NotebookApp] No web browser found: could not locate runnable browser.
+[I 11:15:44.722 NotebookApp] 302 GET / (222.107.238.15) 0.56ms
+[I 11:16:21.293 NotebookApp] Creating new directory in /oddeye/static
+[I 11:19:46.262 NotebookApp] Uploading file to /oddeye/static/star/seulgi_4.jpg
+[I 11:19:46.521 NotebookApp] Uploading file to /oddeye/static/star/seulgi_3.jpg
+[I 11:19:48.136 NotebookApp] Uploading file to /oddeye/static/star/seulgi_1.jpg
+[I 11:19:49.351 NotebookApp] Uploading file to /oddeye/static/star/seulg_2.jpg
+[I 11:19:49.944 NotebookApp] Uploading file to /oddeye/static/star/jennie_4.jpg
+[I 11:19:50.777 NotebookApp] Uploading file to /oddeye/static/star/jennie_3.jpg
+[I 11:19:51.720 NotebookApp] Uploading file to /oddeye/static/star/jennie_2.jpg
+[I 11:19:52.524 NotebookApp] Uploading file to /oddeye/static/star/jennie_1.jpg

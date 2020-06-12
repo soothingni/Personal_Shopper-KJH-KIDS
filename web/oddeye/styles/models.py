@@ -9,7 +9,7 @@ class Star(models.Model):
     style = models.IntegerField()
 
     def __str__(self):
-        return self.name+'_'+self.style
+        return self.name+'_'+str(self.style)
 
     class Meta:
         db_table = 'star'
@@ -27,4 +27,4 @@ class Star_embedding(models.Model):
     class Meta:
         db_table = 'star_embedding'
         verbose_name = '스타 임베딩'
-        verbose_name_plural = '스타 임베딩 값'
+        verbose_name_plural = '스타 임베딩'

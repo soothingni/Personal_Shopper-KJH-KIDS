@@ -164,4 +164,6 @@ seoulstore_ALL/
 masked_moved2/
 train/
 val/
+masked_seoulstoreALL/
+original_seoulstoreALL/
 # End of https://www.gitignore.io/api/python,windows,jupyternotebooks

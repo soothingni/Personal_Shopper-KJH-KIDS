@@ -1,0 +1,24 @@
+-------------------------------------------------------
+Starting PROCESS 1: Fetching item info
+-------------------------------------------------------
+None
+-------------------------------------------------------
+Starting PROCESS 1: Fetching item info
+-------------------------------------------------------
+None
+Traceback (most recent call last):
+  File "/root/Personal_Shopper-KJH-KIDS/crawler/THISONE_download_seoulstore.py", line 339, in <module>
+    new_filepath = get_products2(category_dict, args.filepath)
+  File "/root/Personal_Shopper-KJH-KIDS/crawler/THISONE_download_seoulstore.py", line 208, in get_products2
+    existing = json.load(data_file)
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/json/__init__.py", line 299, in load
+    parse_constant=parse_constant, object_pairs_hook=object_pairs_hook, **kw)
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/json/__init__.py", line 354, in loads
+    return _default_decoder.decode(s)
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/json/decoder.py", line 342, in decode
+    raise JSONDecodeError("Extra data", s, end)
+json.decoder.JSONDecodeError: Extra data: line 1 column 3 (char 2)
+Traceback (most recent call last):
+  File "/root/Personal_Shopper-KJH-KIDS/crawler/THISONE_download_seoulstore.py", line 30, in <module>
+    conn = cx_Oracle.connect('oddeye/1234@15.164.247.135:1522/MODB')
+cx_Oracle.DatabaseError: ORA-12541: TNS:no listener

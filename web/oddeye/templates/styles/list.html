@@ -96,9 +96,9 @@ Styles List
                         <a class="active" href="#shop-1" data-toggle="tab">
                             <i class="fa fa-table"></i>
                         </a>
-                        <a href="#shop-2" data-toggle="tab">
-                            <i class="fa fa-list-ul"></i>
-                        </a>
+<!--                        <a href="#shop-2" data-toggle="tab">-->
+<!--                            <i class="fa fa-list-ul"></i>-->
+<!--                        </a>-->
                     </div>
                 </div>
                 <div class="shop-bottom-area mt-35">
@@ -113,21 +113,21 @@ Styles List
                                             <a href="details/{{star}}">
                                                 <div class="container2">
 
-                                                <img class="default-img" src='{% static "" %}step1/star_thumbnails/{{star}}.png' alt="">
+                                                <img class="default-img" src='{% static "" %}star/{{star.name}}_{{star.style}}.jpg' width=300 height=300 walt="">
                                                     <div class="overlay2"></div>
-                                                    <div class="overlay"><p class="pt"><font color="white" size="7">{{star|upper}}</font></p></div>
+                                                    <div class="overlay"><p class="pt"><font color="white" size="7">{{star.name|upper}}</font></p></div>
 
                                                 </div>
                                             </a>
-                                            {% if star == "iu" %}
+                                            {% if star.name == "iu" %}
                                             <span class="pink">HOT</span>
-                                            {% elif star == "irene" %}
+                                            {% elif star.name == "irene" %}
                                             <span class="pink">NEW</span>
                                             {% else %}
                                             {% endif %}
                                             <div class="product-action">
                                                 <div class="pro-same-action pro-wishlist" style="margin: 0 0 0 auto;">
-                                                    <p class="wish"><a title="Wishlist" href="#"><i class="pe-7s-like fa-2x" style="margin-top: 5px;"></i></a></p>
+                                                    <p class="wish"><a title="Following" href="#"><i class="pe-7s-like fa-2x" style="margin-top: 5px;"></i></a></p>
                                                 </div>
                                                 <div class="pro-same-action pro-quickview" style="margin: 0 auto 0 0;">
                                                     <p class="wish"><a title="Quick View" href="#" data-toggle="modal" data-target="#exampleModal"><i class="pe-7s-look fa-2x" style="margin-top: 5px;"></i></a></p>
@@ -141,158 +141,158 @@ Styles List
                                 {% endfor %}
                             </div>
                         </div>
-                        <div id="shop-2" class="tab-pane">
-                            <div class="shop-list-wrap mb-30 scroll-zoom">
-                                <div class="row">
-                                    <div class="col-xl-4 col-lg-5 col-md-5 col-sm-6">
-                                        <div class="product-wrap">
-                                            <div class="product-img">
-                                                <a href="#">
-                                                    <img class="default-img" src="../../static/img/product/pro-1.jpg" alt="">
-                                                    <img class="hover-img" src="../../static/img/product/pro-1-1.jpg" alt="">
-                                                </a>
-                                                <span class="pink">-10%</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-8 col-lg-7 col-md-7 col-sm-6">
-                                        <div class="shop-list-content">
-                                            <h3><a href="#">Products Name Here</a></h3>
-                                            <div class="product-list-price">
-                                                <span>$ 60.00</span>
-                                                <span class="old">$ 90.00</span>
-                                            </div>
-                                            <div class="rating-review">
-                                                <div class="product-list-rating">
-                                                    <i class="fa fa-star-o yellow"></i>
-                                                    <i class="fa fa-star-o yellow"></i>
-                                                    <i class="fa fa-star-o yellow"></i>
-                                                    <i class="fa fa-star-o"></i>
-                                                    <i class="fa fa-star-o"></i>
-                                                </div>
-                                                <a href="#">3 Reviews</a>
-                                            </div>
-                                            <p>Lorem ipsum dolor sit amet, consecteto adipisic elit eiusm tempor incidid ut labore et dolore magna aliqua Ut enim ad minim </p>
-                                            <div class="shop-list-btn btn-hover">
-                                                <a href="#">ADD TO CART</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="shop-list-wrap mb-30 scroll-zoom">
-                                <div class="row">
-                                    <div class="col-xl-4 col-lg-5 col-md-5 col-sm-6">
-                                        <div class="product-wrap">
-                                            <div class="product-img">
-                                                <a href="#">
-                                                    <img class="default-img" src="../../static/img/product/pro-2.jpg" alt="">
-                                                    <img class="hover-img" src="../../static/img/product/pro-2-1.jpg" alt="">
-                                                </a>
-                                                <span class="purple">New</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-8 col-lg-7 col-md-7 col-sm-6">
-                                        <div class="shop-list-content">
-                                            <h3><a href="#">Products Name Here</a></h3>
-                                            <div class="product-list-price">
-                                                <span>$ 60.00</span>
-                                            </div>
-                                            <div class="rating-review">
-                                                <div class="product-list-rating">
-                                                    <i class="fa fa-star-o yellow"></i>
-                                                    <i class="fa fa-star-o yellow"></i>
-                                                    <i class="fa fa-star-o yellow"></i>
-                                                    <i class="fa fa-star-o"></i>
-                                                    <i class="fa fa-star-o"></i>
-                                                </div>
-                                                <a href="#">3 Reviews</a>
-                                            </div>
-                                            <p>Lorem ipsum dolor sit amet, consecteto adipisic elit eiusm tempor incidid ut labore et dolore magna aliqua Ut enim ad minim </p>
-                                            <div class="shop-list-btn btn-hover">
-                                                <a href="#">ADD TO CART</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="shop-list-wrap mb-30 scroll-zoom">
-                                <div class="row">
-                                    <div class="col-xl-4 col-lg-5 col-md-5 col-sm-6">
-                                        <div class="product-wrap">
-                                            <div class="product-img">
-                                                <a href="#">
-                                                    <img class="default-img" src="../../static/img/product/pro-3.jpg" alt="">
-                                                    <img class="hover-img" src="../../static/img/product/pro-3-1.jpg" alt="">
-                                                </a>
-                                                <span class="pink">-20%</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-8 col-lg-7 col-md-7 col-sm-6">
-                                        <div class="shop-list-content">
-                                            <h3><a href="#">Products Name Here</a></h3>
-                                            <div class="product-list-price">
-                                                <span>$ 30.00</span>
-                                                <span class="old">$ 50.00</span>
-                                            </div>
-                                            <div class="rating-review">
-                                                <div class="product-list-rating">
-                                                    <i class="fa fa-star-o yellow"></i>
-                                                    <i class="fa fa-star-o yellow"></i>
-                                                    <i class="fa fa-star-o yellow"></i>
-                                                    <i class="fa fa-star-o"></i>
-                                                    <i class="fa fa-star-o"></i>
-                                                </div>
-                                                <a href="#">3 Reviews</a>
-                                            </div>
-                                            <p>Lorem ipsum dolor sit amet, consecteto adipisic elit eiusm tempor incidid ut labore et dolore magna aliqua Ut enim ad minim </p>
-                                            <div class="shop-list-btn btn-hover">
-                                                <a href="#">ADD TO CART</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="shop-list-wrap mb-30 scroll-zoom">
-                                <div class="row">
-                                    <div class="col-xl-4 col-lg-5 col-md-5 col-sm-6">
-                                        <div class="product-wrap">
-                                            <div class="product-img">
-                                                <a href="#">
-                                                    <img class="default-img" src="../../static/img/product/pro-7.jpg" alt="">
-                                                    <img class="hover-img" src="../../static/img/product/pro-4-1.jpg" alt="">
-                                                </a>
-                                                <span class="purple">New</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-8 col-lg-7 col-md-7 col-sm-6">
-                                        <div class="shop-list-content">
-                                            <h3><a href="#">Products Name Here</a></h3>
-                                            <div class="product-list-price">
-                                                <span>$ 70.00</span>
-                                            </div>
-                                            <div class="rating-review">
-                                                <div class="product-list-rating">
-                                                    <i class="fa fa-star-o yellow"></i>
-                                                    <i class="fa fa-star-o yellow"></i>
-                                                    <i class="fa fa-star-o yellow"></i>
-                                                    <i class="fa fa-star-o"></i>
-                                                    <i class="fa fa-star-o"></i>
-                                                </div>
-                                                <a href="#">3 Reviews</a>
-                                            </div>
-                                            <p>Lorem ipsum dolor sit amet, consecteto adipisic elit eiusm tempor incidid ut labore et dolore magna aliqua Ut enim ad minim </p>
-                                            <div class="shop-list-btn btn-hover">
-                                                <a href="#">ADD TO CART</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+<!--                        <div id="shop-2" class="tab-pane">-->
+<!--                            <div class="shop-list-wrap mb-30 scroll-zoom">-->
+<!--                                <div class="row">-->
+<!--                                    <div class="col-xl-4 col-lg-5 col-md-5 col-sm-6">-->
+<!--                                        <div class="product-wrap">-->
+<!--                                            <div class="product-img">-->
+<!--                                                <a href="#">-->
+<!--                                                    <img class="default-img" src="../../static/img/product/pro-1.jpg" alt="">-->
+<!--                                                    <img class="hover-img" src="../../static/img/product/pro-1-1.jpg" alt="">-->
+<!--                                                </a>-->
+<!--                                                <span class="pink">-10%</span>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                    <div class="col-xl-8 col-lg-7 col-md-7 col-sm-6">-->
+<!--                                        <div class="shop-list-content">-->
+<!--                                            <h3><a href="#">Products Name Here</a></h3>-->
+<!--                                            <div class="product-list-price">-->
+<!--                                                <span>$ 60.00</span>-->
+<!--                                                <span class="old">$ 90.00</span>-->
+<!--                                            </div>-->
+<!--                                            <div class="rating-review">-->
+<!--                                                <div class="product-list-rating">-->
+<!--                                                    <i class="fa fa-star-o yellow"></i>-->
+<!--                                                    <i class="fa fa-star-o yellow"></i>-->
+<!--                                                    <i class="fa fa-star-o yellow"></i>-->
+<!--                                                    <i class="fa fa-star-o"></i>-->
+<!--                                                    <i class="fa fa-star-o"></i>-->
+<!--                                                </div>-->
+<!--                                                <a href="#">3 Reviews</a>-->
+<!--                                            </div>-->
+<!--                                            <p>Lorem ipsum dolor sit amet, consecteto adipisic elit eiusm tempor incidid ut labore et dolore magna aliqua Ut enim ad minim </p>-->
+<!--                                            <div class="shop-list-btn btn-hover">-->
+<!--                                                <a href="#">ADD TO CART</a>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            <div class="shop-list-wrap mb-30 scroll-zoom">-->
+<!--                                <div class="row">-->
+<!--                                    <div class="col-xl-4 col-lg-5 col-md-5 col-sm-6">-->
+<!--                                        <div class="product-wrap">-->
+<!--                                            <div class="product-img">-->
+<!--                                                <a href="#">-->
+<!--                                                    <img class="default-img" src="../../static/img/product/pro-2.jpg" alt="">-->
+<!--                                                    <img class="hover-img" src="../../static/img/product/pro-2-1.jpg" alt="">-->
+<!--                                                </a>-->
+<!--                                                <span class="purple">New</span>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                    <div class="col-xl-8 col-lg-7 col-md-7 col-sm-6">-->
+<!--                                        <div class="shop-list-content">-->
+<!--                                            <h3><a href="#">Products Name Here</a></h3>-->
+<!--                                            <div class="product-list-price">-->
+<!--                                                <span>$ 60.00</span>-->
+<!--                                            </div>-->
+<!--                                            <div class="rating-review">-->
+<!--                                                <div class="product-list-rating">-->
+<!--                                                    <i class="fa fa-star-o yellow"></i>-->
+<!--                                                    <i class="fa fa-star-o yellow"></i>-->
+<!--                                                    <i class="fa fa-star-o yellow"></i>-->
+<!--                                                    <i class="fa fa-star-o"></i>-->
+<!--                                                    <i class="fa fa-star-o"></i>-->
+<!--                                                </div>-->
+<!--                                                <a href="#">3 Reviews</a>-->
+<!--                                            </div>-->
+<!--                                            <p>Lorem ipsum dolor sit amet, consecteto adipisic elit eiusm tempor incidid ut labore et dolore magna aliqua Ut enim ad minim </p>-->
+<!--                                            <div class="shop-list-btn btn-hover">-->
+<!--                                                <a href="#">ADD TO CART</a>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            <div class="shop-list-wrap mb-30 scroll-zoom">-->
+<!--                                <div class="row">-->
+<!--                                    <div class="col-xl-4 col-lg-5 col-md-5 col-sm-6">-->
+<!--                                        <div class="product-wrap">-->
+<!--                                            <div class="product-img">-->
+<!--                                                <a href="#">-->
+<!--                                                    <img class="default-img" src="../../static/img/product/pro-3.jpg" alt="">-->
+<!--                                                    <img class="hover-img" src="../../static/img/product/pro-3-1.jpg" alt="">-->
+<!--                                                </a>-->
+<!--                                                <span class="pink">-20%</span>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                    <div class="col-xl-8 col-lg-7 col-md-7 col-sm-6">-->
+<!--                                        <div class="shop-list-content">-->
+<!--                                            <h3><a href="#">Products Name Here</a></h3>-->
+<!--                                            <div class="product-list-price">-->
+<!--                                                <span>$ 30.00</span>-->
+<!--                                                <span class="old">$ 50.00</span>-->
+<!--                                            </div>-->
+<!--                                            <div class="rating-review">-->
+<!--                                                <div class="product-list-rating">-->
+<!--                                                    <i class="fa fa-star-o yellow"></i>-->
+<!--                                                    <i class="fa fa-star-o yellow"></i>-->
+<!--                                                    <i class="fa fa-star-o yellow"></i>-->
+<!--                                                    <i class="fa fa-star-o"></i>-->
+<!--                                                    <i class="fa fa-star-o"></i>-->
+<!--                                                </div>-->
+<!--                                                <a href="#">3 Reviews</a>-->
+<!--                                            </div>-->
+<!--                                            <p>Lorem ipsum dolor sit amet, consecteto adipisic elit eiusm tempor incidid ut labore et dolore magna aliqua Ut enim ad minim </p>-->
+<!--                                            <div class="shop-list-btn btn-hover">-->
+<!--                                                <a href="#">ADD TO CART</a>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            <div class="shop-list-wrap mb-30 scroll-zoom">-->
+<!--                                <div class="row">-->
+<!--                                    <div class="col-xl-4 col-lg-5 col-md-5 col-sm-6">-->
+<!--                                        <div class="product-wrap">-->
+<!--                                            <div class="product-img">-->
+<!--                                                <a href="#">-->
+<!--                                                    <img class="default-img" src="../../static/img/product/pro-7.jpg" alt="">-->
+<!--                                                    <img class="hover-img" src="../../static/img/product/pro-4-1.jpg" alt="">-->
+<!--                                                </a>-->
+<!--                                                <span class="purple">New</span>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                    <div class="col-xl-8 col-lg-7 col-md-7 col-sm-6">-->
+<!--                                        <div class="shop-list-content">-->
+<!--                                            <h3><a href="#">Products Name Here</a></h3>-->
+<!--                                            <div class="product-list-price">-->
+<!--                                                <span>$ 70.00</span>-->
+<!--                                            </div>-->
+<!--                                            <div class="rating-review">-->
+<!--                                                <div class="product-list-rating">-->
+<!--                                                    <i class="fa fa-star-o yellow"></i>-->
+<!--                                                    <i class="fa fa-star-o yellow"></i>-->
+<!--                                                    <i class="fa fa-star-o yellow"></i>-->
+<!--                                                    <i class="fa fa-star-o"></i>-->
+<!--                                                    <i class="fa fa-star-o"></i>-->
+<!--                                                </div>-->
+<!--                                                <a href="#">3 Reviews</a>-->
+<!--                                            </div>-->
+<!--                                            <p>Lorem ipsum dolor sit amet, consecteto adipisic elit eiusm tempor incidid ut labore et dolore magna aliqua Ut enim ad minim </p>-->
+<!--                                            <div class="shop-list-btn btn-hover">-->
+<!--                                                <a href="#">ADD TO CART</a>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
                     </div>
                     <div class="pro-pagination-style text-center mt-30">
                         <ul>
