@@ -110,18 +110,18 @@ Styles List
                                     <div class="product-wrap mb-25 scroll-zoom">
                                         <div class="product-img">
 
-                                            <a href="details/{{star}}">
+                                            <a href="details/{{star.NAME}}">
                                                 <div class="container2">
 
-                                                <img class="default-img" src='{% static "" %}star/{{star.name}}_{{star.style}}.jpg' width=300 height=300 walt="">
+                                                <img class="default-img" src='{% static "" %}star/{{star.NAME}}/thumb/{{star.STYLE}}.jpg' alt="">
                                                     <div class="overlay2"></div>
-                                                    <div class="overlay"><p class="pt"><font color="white" size="7">{{star.name|upper}}</font></p></div>
+                                                    <div class="overlay"><p class="pt"><font color="white" size="7">{{star.NAME|upper}}</font></p></div>
 
                                                 </div>
                                             </a>
-                                            {% if star.name == "iu" %}
+                                            {% if star.NAME == "iu" %}
                                             <span class="pink">HOT</span>
-                                            {% elif star.name == "irene" %}
+                                            {% elif star.NAME == "irene" %}
                                             <span class="pink">NEW</span>
                                             {% else %}
                                             {% endif %}

@@ -166,4 +166,5 @@ train/
 val/
 masked_seoulstoreALL/
 original_seoulstoreALL/
+*.json
 # End of https://www.gitignore.io/api/python,windows,jupyternotebooks

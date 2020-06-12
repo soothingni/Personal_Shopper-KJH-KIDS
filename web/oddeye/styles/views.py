@@ -31,45 +31,30 @@ def main2(req):
 def StylesList(req):
 
     # DB 연동 후 사용할 코드
-    sql = """
-        SELECT NO, NAME, LIKE FROM STAR;
-    """
+    sql = '''
+    SELECT name, style, likey
+    FROM Star
+    '''
+
     conn = cx_Oracle.connect('oddeye/1234@15.164.247.135:1522/MODB')
     cursor = conn.cursor()
     cursor.execute(sql)
-    temp_result = dictfetchall(cursor)
+    db_data = dictfetchall(cursor)
 
-    print(temp_result)
+    context = {'stars':db_data}
+    print(context)
 
-
-
-    # # 임시 코드
-    # result = [{'no': 37, 'name': 'dahee', 'style': 1, 'like': 100},
-    #           {'no': 45, 'name': 'hani', 'style': 1, 'like': 100},
-    #           {'no': 19, 'name': 'hyuna', 'style': 1, 'like': 84},
-    #           {'no': 10, 'name': 'irene', 'style': 1, 'like': 88},
-    #           {'no': 1, 'name': 'iu', 'style': 1, 'like': 65},
-    #           {'no': 17, 'name': 'jennie', 'style': 1, 'like': 80},
-    #           {'no': 34, 'name': 'sunmi', 'style': 1, 'like': 99},
-    #           {'no': 25, 'name': 'yerin', 'style': 1, 'like': 98},
-    #           {'no': 8, 'name': 'seulgi', 'style': 1, 'like': 79}]
-    #
-
-    context = {'stars':result}
-
-    # stars = ['iu', 'irene', 'hyuna', 'yerin', 'sunmi', 'jennie']
-
-
-
-    # return render(req, 'styles/list.html',{'stars' : stars} )
     return render(req, 'styles/list.html', context)
 
 class StarView(View):
     def get(self, req, star_name):
-        star=star_name
-        # stars = {'iu':'iu', 'irene':'irene', 'hyuna':'hyuna', 'yerin':'yerin', 'sunmi':'sunmi', 'jennie':'jennie'}
-        # star = starts[star]
-        # thumbnails = os.listdir('static/step1/{}_thumbnails'.format('stars'))
+        star_name=star_name
+        sql = "SELECT style, likey, tag FROM Star WHERE name = '{}' ORDER BY likey".format(star_name)
+        conn = cx_Oracle.connect('oddeye/1234@15.164.247.135:1522/MODB')
+        cursor = conn.cursor()
+        cursor.execute(sql)
+        db_data = dictfetchall(cursor)
+        print(db_data)
 
         product_info = [
             {"product_url": "https://www.seoulstore.com/products/955954/detail",
@@ -82,8 +67,9 @@ class StarView(View):
              "img_url": "https://images.seoulstore.com/products/0405007e66dcf5326511bfac12df5750.jpg?d=640xauto",
              "sub_category": 0, "category": 0, "super_category": 0, "key": "1176995"}
         ]
-        context = {"star": star, "products": product_info * 20}
-        return render(req, 'styles/detail.html',context=context)
+        context = {"star_name":star_name, 'styles': db_data, "products": product_info * 20}
+
+        return render(req, 'styles/detail.html', context)
     
    
 def test(req):

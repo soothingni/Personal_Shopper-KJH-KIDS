@@ -3,7 +3,7 @@ from .models import Star, Star_embedding
 
 # Register your models here.
 class StarAdmin(admin.ModelAdmin):
-    list_display = ('no', 'name', 'like', 'tag', 'style')
+    list_display = ('no', 'name', 'likey', 'tag', 'style')
 
 class StarEmbeddingAdmin(admin.ModelAdmin):
     list_display = ('no', 'star_embedding')

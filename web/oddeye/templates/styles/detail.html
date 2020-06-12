@@ -102,14 +102,14 @@ style-detail
             <div class="row">
                 <div class="col">
                     <div id="selected_thumbnail" class="product-details dec-img-wrap">
-                        <img id="star_thumb" class="circular--square" src='{% static "" %}step1/star_thumbnails/{{star}}.png'>
+                        <img id="star_thumb" class="circular--square" src='{% static "" %}star/{{star_name}}/thumb/{{styles.0.STYLE}}.jpg'>
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col">
                     <div class="product-details-content ml-70">
-                    <h2 style="float:left; margin-right:10px">{{star|upper}}</h2>
+                    <h2 style="float:left; margin-right:10px">{{star_name|upper}}</h2>
                     <a href="#" class=icons  data-toggle="tooltip" data-placement="bottom" title="Follow" style="font-size:18px;">
                         <i class="fa fa-heart-o icon-default fa-lg"></i>
                         <i class="fa fa-heart icon-hover fa-lg"></i>
@@ -117,9 +117,10 @@ style-detail
                         <div class="pro-details-meta">
                             <span>TAGS :</span>
                             <ul>
-                                <li><a href="#"> #오늘은</a></li>
-                                <li><a href="#"> #꼭</a></li>
-                                <li><a href="#"> #공부한다</a></li>
+                                <li><a href="#"> {{styles.0.TAG}} </a></li>
+                                <li><a href="#"> {{styles.1.TAG}} </a></li>
+                                <li><a href="#"> {{styles.2.TAG}} </a></li>
+                                <li><a href="#"> {{styles.3.TAG}} </a></li>
                             </ul>
                         </div>
 <!--                        <div class="pro-details-social">-->
@@ -135,16 +136,16 @@ style-detail
             </div>
             <div class="row other_styles mt-30 mb-30">
                 <div class="col-lg-3 col-xs-6">
-                    <a href="javascript: void(0)"><img id="01" class="circular--square" src='{% static "" %}step1/star_thumbnails/{{star}}_01.png'></a>
+                    <a href="javascript: void(0)"><img id="01" class="circular--square" src='{% static "" %}star/{{star_name}}/thumb/{{styles.0.STYLE}}.jpg'></a>
                 </div>
                 <div class="col-lg-3 col-xs-6">
-                    <a href="javascript: void(0)"><img id="02" class="circular--square" src='{% static "" %}step1/star_thumbnails/{{star}}_02.png'></a>
+                    <a href="javascript: void(0)"><img id="02" class="circular--square" src='{% static "" %}star/{{star_name}}/thumb/{{styles.1.STYLE}}.jpg'></a>
                 </div>
                 <div class="col-lg-3 col-xs-6">
-                    <a href="javascript: void(0)"><img id="03" class="circular--square" src='{% static "" %}step1/star_thumbnails/{{star}}_03.png'></a>
+                    <a href="javascript: void(0)"><img id="03" class="circular--square" src='{% static "" %}star/{{star_name}}/thumb/{{styles.2.STYLE}}.jpg'></a>
                 </div>
                 <div class="col-lg-3 col-xs-6">
-                    <a href="javascript: void(0)"><img id="04" class="circular--square" src='{% static "" %}step1/star_thumbnails/{{star}}_04.png'></a>
+                    <a href="javascript: void(0)"><img id="04" class="circular--square" src='{% static "" %}star/{{star_name}}/thumb/{{styles.3.STYLE}}.jpg'></a>
                 </div>
             </div>
         </div>
@@ -367,20 +368,19 @@ $(document).ready(function(){
     
 
     //style 마우스 오버 시 썸네일 바뀜 + 마우스 리브 시 썸네일 돌아옴 <-- 마우스리브 아직 못 함
-   $('.other_styles a img').mouseover(
-       function(){
-           var go = $(this).attr('src');
-            $('#star_thumb').attr('src', go);
-      });
+   $('.other_styles a img').mouseover(function(){
+       var go = $(this).attr('src');
+       $('#star_thumb').attr('src', go);
+   });
     
     //style 클릭 시 썸네일 바뀌는 효과
-        $('.other_styles a img').click(function(){
-        var go = $(this).attr('src')
-        $('#star_thumb').fadeOut(100, function(){
-            $('#star_thumb').attr('src', go).fadeIn(200);
-        return false;
-        });
-         });
+       $('.other_styles a img').click(function(){
+       var go = $(this).attr('src')
+       $('#star_thumb').fadeOut(100, function(){
+           $('#star_thumb').attr('src', go).fadeIn(200);
+       return false;
+       });
+   });
     
         $('.other_styles a img').click(function(){
         var star_id = $(this).attr('id');

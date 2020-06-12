@@ -4,7 +4,7 @@ from django.db import models
 class Star(models.Model):
     no = models.IntegerField(primary_key=True)
     name = models.CharField(max_length=30)
-    like = models.IntegerField()
+    likey = models.IntegerField()
     tag = models.CharField(max_length=30)
     style = models.IntegerField()
 

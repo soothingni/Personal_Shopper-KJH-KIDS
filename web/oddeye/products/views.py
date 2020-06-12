@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from django.views.generic import View
 from django.contrib.auth.models import User
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-
+import cx_Oracle
 ''' 여기는 django db (sqlite) 사용할 때 필요한 모듈?
 from django.db import connection # DB에서 데이터를 받아오기 위한 라이브러리
 from products.models import product # DB에서 필요한 table import
@@ -77,10 +77,21 @@ def modaltest(req):
 
 
 def productview(req):
-    with open('static/json/categorized_tong.json', 'r') as json_file:
-        json_data=json.load(json_file)
+
+    sql = '''
+    SELECT super_category, base_category, sub_category, product_ID,img_url, product_url,product_name ,price_original,price_discount
+    FROM Products
+    '''
+    conn = cx_Oracle.connect('oddeye/1234@15.164.247.135:1522/MODB')
+    cursor = conn.cursor()
+    cursor.execute(sql)
+    db_data = dictfetchall(cursor)
+
+    # with open('static/json/categorized_tong.json', 'r') as json_file:
+    #     json_data=json.load(json_file)
+    # num_list=[x for x in range(len(json_data))]
     page=req.GET.get("page",1)
-    p=Paginator(json_data,12)
+    p=Paginator(db_data,12)
     subs=p.page(page)
     context={'data':subs}
     return render(req,'products/json_test.html', context)

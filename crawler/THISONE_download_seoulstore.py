@@ -39,7 +39,7 @@ parser.add_argument('--filepath', default=base_path+'/categorized_tong.json',
                     help="Directory to save item info")
 
 category_dict = {
-    1002: {"super_category": 0, "category": 0, "sub_category": 0, "name": "롱슬리브"},
+#     1002: {"super_category": 0, "category": 0, "sub_category": 0, "name": "롱슬리브"},
 #     1003: {"super_category": 0, "category": 0, "sub_category": 1, "name": "숏슬리브"},
 #     1004: {"super_category": 0, "category": 0, "sub_category": 2, "name": "슬리브리스"},
 #     1005: {"super_category": 0, "category": 0, "sub_category": 3, "name": "크롭 탑"},
@@ -77,12 +77,12 @@ category_dict = {
 #     1022: {"super_category": 2, "category": 7, "sub_category": 33, "name": "미니"},
 #     1023: {"super_category": 2, "category": 7, "sub_category": 34, "name": "미디/맥시"},
 #     1273: {"super_category": 2, "category": 7, "sub_category": 35, "name": "드레스"},
-#     1045: {"super_category": 2, "category": 8, "sub_category": 36, "name": "올인원"},
+    1045: {"super_category": 2, "category": 8, "sub_category": 36, "name": "올인원"},
     1046: {"super_category": 2, "category": 8, "sub_category": 37, "name": "점프수트"}
 }
 
 def db_insert(t, count):
-    sql="insert into products values(:1,:2,:3,:4,:5,:6)"
+    sql="insert into products values(:1,:2,:3,:4,:5,:6,:7,:8,:9)"
     curs.execute(sql,t)
     print(f"Insertion executed! {count}")
     conn.commit()
@@ -111,7 +111,7 @@ def get_products1(category_dict, num, filepath):
     browser=webdriver.Chrome(path, chrome_options=options)  #드라이버 생성
     # browser = webdriver.Chrome('chromedriver')   #크롬 브라우저 실행
     wait = WebDriverWait(browser, wait_time)
-    
+    print("1")
     for cat in category_dict:
         url = 'https://www.seoulstore.com/categories/{}/regDatetime/desc'.format(str(cat))
         browser.get(url)
@@ -122,11 +122,14 @@ def get_products1(category_dict, num, filepath):
         wait.until(EC.presence_of_element_located((By.CLASS_NAME, 'products_container')))  #페이지 로딩 기다림
         time.sleep(2)
         ele_posts = browser.find_element_by_class_name('products_container').find_elements_by_class_name('image_container')
-            
+        print("ele_posts: ", ele_posts)
+        
+        print("2")
         ##########추가한 부분###########
         while len(ele_posts) < num:
             body.send_keys(Keys.PAGE_DOWN)
-            ele_posts = browser.find_element_by_class_name('products_container').find_elements_by_class_name('image_container')
+            ele_posts = browser.find_element_by_class_name('products_container').find_elements_by_class_name('ProductItem')
+            print("ele_posts2: ", ele_posts)
 
             cur_posts_count = len(ele_posts)
             if prev_posts_count == cur_posts_count:
@@ -137,7 +140,7 @@ def get_products1(category_dict, num, filepath):
 
             prev_posts_count = cur_posts_count
         ##########추가한 부분 끝##########
-       
+        print("3")
         cat_post_count = 0   #카테고리별 크롤링된 아이템 수 세기
         
         print(len(ele_posts))
@@ -149,19 +152,19 @@ def get_products1(category_dict, num, filepath):
                 try:
                     dict_post = { "product_url": product_url }
                     dict_post['product_id'] = key
+                    dict_post['product_name'] = ele.find_element_by_class_name('product_name').find_element_by_tag_name('a').text
+                    price_list_ele = ele.find_element_by_class_name('price').find_elements_by_css_selector('span')
+                    price_1 = ele.find_element_by_class_name('price').find_elements_by_css_selector('span')[-1].text
+                    dict_post['price_original'] = int(price_1.replace(',',"").split(' ')[-1])
+                    if len(price_list_ele) >= 2:
+                        price_2 = ele.find_element_by_class_name('price').find_elements_by_css_selector('span')[0].text
+                        dict_post['price_discount'] = int(price_2.replace(',',"").split(' ')[-1])
                     wait.until(EC.presence_of_element_located((By.CLASS_NAME, 'ImageLoader.ratio_1_1.loaded')))
                     ele_img = ele.find_element_by_class_name('ImageLoader.ratio_1_1.loaded')
                     dict_post["img_url"] = ele_img.get_attribute("src")
                     dict_post["sub_category"] = category_dict[cat]["sub_category"]
                     dict_post["base_category"] = category_dict[cat]["category"]
                     dict_post["super_category"] = category_dict[cat]["super_category"]
-
-                    dict_post['product_name'] = ele.find_element_by_class_name('product_name').find_element_by_tag_name('a').text
-                    price_list_ele = ele.find_element_by_class_name('price').find_elements_by_css_selector('span')
-                    dict_post['price_consumer'] = ele.find_element_by_class_name('price').find_elements_by_css_selector('span')[-1].text
-                    if len(price_list_ele) >= 2:
-                        dict_post['price_discount'] = ele.find_element_by_class_name('price').find_elements_by_css_selector('span')[0].text
-
                     product_set.add(key)
                     
                     out = json.dumps(dict_post, ensure_ascii=False)    #json 형식으로 정보 변환
@@ -171,9 +174,9 @@ def get_products1(category_dict, num, filepath):
                         f.write(out)
                     cat_post_count +=1
                     
-                    t = (dict_post['product_id'], dict_post['super_category'], dict_post["base_category"], dict_post["sub_category"], dict_post["img_url"], dict_post["product_url"])   
-                    print("Test", t)
-                    db_insert(t, cat_post_count)
+#                     t = (dict_post['product_id'], dict_post['product_name'], dict_post['price_original'], dict_post['price_discount'],  dict_post['super_category'], dict_post["base_category"], dict_post["sub_category"], dict_post["img_url"], dict_post["product_url"])   
+#                     print("Test", t)
+#                     db_insert(t, cat_post_count)
 
                 except: continue
                     
@@ -270,11 +273,18 @@ def get_products2(category_dict, filepath):
                     try:
                         dict_post = { "product_url": product_url }
                         dict_post['product_id'] = key
+                        dict_post['product_name'] = ele.find_element_by_class_name('product_name').find_element_by_tag_name('a').text
+                        price_list_ele = ele.find_element_by_class_name('price').find_elements_by_css_selector('span')
+                        price_1 = ele.find_element_by_class_name('price').find_elements_by_css_selector('span')[-1].text
+                        dict_post['price_original'] = int(price_1.replace(',',""))
+                        if len(price_list_ele) >= 2:
+                            price_2 = ele.find_element_by_class_name('price').find_elements_by_css_selector('span')[0].text
+                            dict_post['price_discount'] = int(price_2.replace(',',""))
                         ele_img = ele.find_element_by_class_name('ImageLoader.ratio_1_1.loaded')
                         dict_post["img_url"] = ele_img.get_attribute("src")
                         dict_post["sub_category"] = category_dict[cat]["sub_category"]
                         dict_post["category"] = category_dict[cat]["category"]
-                        dict_post["super_category"] = category_dict[cat]["super_category"]
+                        dict_post["super_category"] = category_dict[cat]["super_category"]    
                         product_set.add(key)
 
                         out = json.dumps(dict_post, ensure_ascii=False)    #json 형식으로 정보 변환
@@ -287,7 +297,7 @@ def get_products2(category_dict, filepath):
                                 f.write(out)
                         cat_post_count +=1
                         
-                        t = (dict_post['product_id'], dict_post['super_category'], dict_post["base_category"], dict_post["sub_category"], dict_post["img_url"], dict_post["product_url"])   
+                        t = (dict_post['product_id'], dict_post['product_name'], dict_post['price_original'], dict_post['price_discount'],  dict_post['super_category'], dict_post["base_category"], dict_post["sub_category"], dict_post["img_url"], dict_post["product_url"])   
                         print("Test", t)
                         db_insert(t, cat_post_count)
 

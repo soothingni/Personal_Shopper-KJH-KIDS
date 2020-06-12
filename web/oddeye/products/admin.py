@@ -3,7 +3,7 @@ from .models import Products, ProductsEmbedding
 
 # Register your models here.
 class ProductsAdmin(admin.ModelAdmin):
-    list_display = ('product_ID', 'super_category', 'base_category', 'sub_category', 'img_url', 'product_url')
+    list_display = ('product_ID', 'product_name', 'price_original', 'price_discount', 'super_category', 'base_category', 'sub_category', 'img_url', 'product_url')
 
 class ProductsEmbeddingAdmin(admin.ModelAdmin):
     list_display = ('product_ID', 'product_embedding')
