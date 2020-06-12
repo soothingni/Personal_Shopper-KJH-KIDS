@@ -158,9 +158,11 @@ def get_products1(category_dict, num, filepath):
 
                     dict_post['product_name'] = ele.find_element_by_class_name('product_name').find_element_by_tag_name('a').text
                     price_list_ele = ele.find_element_by_class_name('price').find_elements_by_css_selector('span')
-                    dict_post['price_consumer'] = ele.find_element_by_class_name('price').find_elements_by_css_selector('span')[-1].text
+                    price_1 = ele.find_element_by_class_name('price').find_elements_by_css_selector('span')[-1].text
+                    dict_post['price_consumer'] = int(price_1.replace(',',""))
                     if len(price_list_ele) >= 2:
-                        dict_post['price_discount'] = ele.find_element_by_class_name('price').find_elements_by_css_selector('span')[0].text
+                        price_2 = ele.find_element_by_class_name('price').find_elements_by_css_selector('span')[0].text
+                        dict_post['price_discount'] = int(price_2.replace(',',""))
 
                     product_set.add(key)
                     
