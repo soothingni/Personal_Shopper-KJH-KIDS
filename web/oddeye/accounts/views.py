@@ -3,10 +3,17 @@ from django.contrib.auth.models import User
 from django.contrib import auth
 from django.shortcuts import redirect
 # Create your views here.
+from .models import OddeyeUsers
+
 def home(req):
     return redirect('main')
 
 def login(req):
+
+
+
+
+
     if req.method=="POST":
         username=req.POST['username']
         password=req.POST['password']

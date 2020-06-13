@@ -6,8 +6,6 @@ from . import views
 app_name = 'products'
 
 urlpatterns = [
-    path('', views.ProductsList, name='products'),
-    path('modal',views.modaltest),
-    path('list',views.productview, name='prod'),
-    path('init', views.prod_init,name='init')
+    path('', views.productview, name='products'),
+    path('<pk>', views.prod_cat, name='cat')
 ]

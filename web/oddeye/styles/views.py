@@ -25,24 +25,43 @@ def main(req):
 
     return render(req, 'styles/main.html', context)
 
-def main2(req):
-    return render(req, 'styles/main2.html')
-
 def StylesList(req):
-
-    # DB 연동 후 사용할 코드
     sql = '''
-    SELECT name, style, likey
-    FROM Star
+    SELECT NAME, STYLE, LIKEY
+    FROM 
+    (
+        SELECT NAME, STYLE, LIKEY, ROW_NUMBER() OVER(PARTITION BY NAME ORDER BY LIKEY DESC) as rn
+        FROM STAR
+    )
+    WHERE rn <= 1
     '''
 
     conn = cx_Oracle.connect('oddeye/1234@15.164.247.135:1522/MODB')
     cursor = conn.cursor()
     cursor.execute(sql)
     db_data = dictfetchall(cursor)
+    # print(db_data)
 
-    context = {'stars':db_data}
-    print(context)
+    SQL = '''
+        SELECT TAG
+        FROM STAR
+    '''
+    cursor.execute(SQL)
+    result = cursor.fetchall()
+    tags = []
+
+    for r in result:
+        tags.append(r[0])
+
+    tags = set(tags)
+    # print(tags)
+
+    page = req.GET.get('page',1)
+    p = Paginator(db_data, 6)
+    sub = p.page(page)
+
+    context = {'stars':sub, 'tags':tags}
+    # print(context)
 
     return render(req, 'styles/list.html', context)
 
@@ -70,16 +89,3 @@ class StarView(View):
         context = {"star_name":star_name, 'styles': db_data, "products": product_info * 20}
 
         return render(req, 'styles/detail.html', context)
-    
-   
-def test(req):
-    stars = ['iu', 'irene', 'hyuna', 'yerin', 'sunmi', 'jennie']
-    thumbnails = os.listdir('static/step1/star_thumbnails')
-
-    context = {"stars": [stars[:3],stars[3:]], "thumbnails": thumbnails, "thumb_range": range(4, len(thumbnails), 4)}
-
-    return render(req, 'styles/test.html', context)
-
-def redirect(req):
-    
-    return redirect(req)

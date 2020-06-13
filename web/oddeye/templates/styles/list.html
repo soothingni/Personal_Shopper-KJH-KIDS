@@ -130,7 +130,8 @@ Styles List
                                                     <p class="wish"><a title="Following" href="#"><i class="pe-7s-like fa-2x" style="margin-top: 5px;"></i></a></p>
                                                 </div>
                                                 <div class="pro-same-action pro-quickview" style="margin: 0 auto 0 0;">
-                                                    <p class="wish"><a title="Quick View" href="#" data-toggle="modal" data-target="#exampleModal"><i class="pe-7s-look fa-2x" style="margin-top: 5px;"></i></a></p>
+<!--                                                    <p class="wish"><a title="Quick View" href="details/{{star_name}}" data-toggle="modal" data-target="#exampleModal"><i class="pe-7s-look fa-2x" style="margin-top: 5px;"></i></a></p>-->
+                                                    <p class="wish"><a title="Quick View" href="details/{{star.NAME}}"><i class="pe-7s-look fa-2x" style="margin-top: 5px;"></i></a></p>
                                                 </div>
                                             </div>
                                         </div>
@@ -294,14 +295,25 @@ Styles List
 <!--                            </div>-->
 <!--                        </div>-->
                     </div>
+                    {% if stars.has_other_pages %}
                     <div class="pro-pagination-style text-center mt-30">
                         <ul>
-                            <li><a class="prev" href="#"><i class="fa fa-angle-double-left"></i></a></li>
-                            <li><a class="active" href="#">1</a></li>
-                            <li><a href="#">2</a></li>
-                            <li><a class="next" href="#"><i class="fa fa-angle-double-right"></i></a></li>
+                            {% if stars.has_previous %}
+                            <li><a class="prev" href="?page={{ stars.previous_page_number }}"><i class="fa fa-angle-double-left"></i></a></li>
+                            {% endif %}
+                            {% for i in stars.paginator.page_range %}
+                                {% if stars.number == i %}
+                                <li><a class="active">{{ i }}</a></li>
+                                {% else %}
+                                <li><a href="?page={{ i }}">{{ i }}</a></li>
+                                {% endif %}
+                            {% endfor %}
+                            {% if stars.has_next %}
+                            <li><a class="next" href="?page={{ stars.next_page_number }}"><i class="fa fa-angle-double-right"></i></a></li>
+                            {%endif %}
                         </ul>
                     </div>
+                    {%endif %}
                 </div>
             </div>
             <div class="col-lg-3">
@@ -317,111 +329,113 @@ Styles List
                             </form>
                         </div>
                     </div>
-                    <div class="sidebar-widget">
-                        <h4 class="pro-sidebar-title">Refine By </h4>
-                        <div class="sidebar-widget-list mt-30">
-                            <ul>
-                                <li>
-                                    <div class="sidebar-widget-list-left">
-                                        <input type="checkbox"> <a href="#">On Sale <span>4</span> </a>
-                                        <span class="checkmark"></span>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="sidebar-widget-list-left">
-                                        <input type="checkbox" value=""> <a href="#">New <span>4</span></a>
-                                        <span class="checkmark"></span>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="sidebar-widget-list-left">
-                                        <input type="checkbox" value=""> <a href="#">In Stock <span>4</span> </a>
-                                        <span class="checkmark"></span>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="sidebar-widget mt-45">
-                        <h4 class="pro-sidebar-title">Filter By Price </h4>
-                        <div class="price-filter mt-10">
-                            <div class="price-slider-amount">
-                                <input type="text" id="amount" name="price"  placeholder="Add Your Price" />
-                            </div>
-                            <div id="slider-range"></div>
-                        </div>
-                    </div>
-                    <div class="sidebar-widget mt-50">
-                        <h4 class="pro-sidebar-title">Colour </h4>
-                        <div class="sidebar-widget-list mt-20">
-                            <ul>
-                                <li>
-                                    <div class="sidebar-widget-list-left">
-                                        <input type="checkbox" value=""> <a href="#">Green <span>4</span> </a>
-                                        <span class="checkmark"></span>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="sidebar-widget-list-left">
-                                        <input type="checkbox" value=""> <a href="#">Cream <span>4</span> </a>
-                                        <span class="checkmark"></span>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="sidebar-widget-list-left">
-                                        <input type="checkbox" value=""> <a href="#">Blue <span>4</span> </a>
-                                        <span class="checkmark"></span>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="sidebar-widget-list-left">
-                                        <input type="checkbox" value=""> <a href="#">Black <span>4</span> </a>
-                                        <span class="checkmark"></span>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="sidebar-widget mt-40">
-                        <h4 class="pro-sidebar-title">Size </h4>
-                        <div class="sidebar-widget-list mt-20">
-                            <ul>
-                                <li>
-                                    <div class="sidebar-widget-list-left">
-                                        <input type="checkbox" value=""> <a href="#">XL</a>
-                                        <span class="checkmark"></span>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="sidebar-widget-list-left">
-                                        <input type="checkbox" value=""> <a href="#">L</a>
-                                        <span class="checkmark"></span>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="sidebar-widget-list-left">
-                                        <input type="checkbox" value=""> <a href="#">SM</a>
-                                        <span class="checkmark"></span>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="sidebar-widget-list-left">
-                                        <input type="checkbox" value=""> <a href="#">XXL</a>
-                                        <span class="checkmark"></span>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
+<!--                    <div class="sidebar-widget">-->
+<!--                        <h4 class="pro-sidebar-title">Refine By </h4>-->
+<!--                        <div class="sidebar-widget-list mt-30">-->
+<!--                            <ul>-->
+<!--                                <li>-->
+<!--                                    <div class="sidebar-widget-list-left">-->
+<!--                                        <input type="checkbox"> <a href="#">On Sale <span>4</span> </a>-->
+<!--                                        <span class="checkmark"></span>-->
+<!--                                    </div>-->
+<!--                                </li>-->
+<!--                                <li>-->
+<!--                                    <div class="sidebar-widget-list-left">-->
+<!--                                        <input type="checkbox" value=""> <a href="#">New <span>4</span></a>-->
+<!--                                        <span class="checkmark"></span>-->
+<!--                                    </div>-->
+<!--                                </li>-->
+<!--                                <li>-->
+<!--                                    <div class="sidebar-widget-list-left">-->
+<!--                                        <input type="checkbox" value=""> <a href="#">In Stock <span>4</span> </a>-->
+<!--                                        <span class="checkmark"></span>-->
+<!--                                    </div>-->
+<!--                                </li>-->
+<!--                            </ul>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="sidebar-widget mt-45">-->
+<!--                        <h4 class="pro-sidebar-title">Filter By Price </h4>-->
+<!--                        <div class="price-filter mt-10">-->
+<!--                            <div class="price-slider-amount">-->
+<!--                                <input type="text" id="amount" name="price"  placeholder="Add Your Price" />-->
+<!--                            </div>-->
+<!--                            <div id="slider-range"></div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="sidebar-widget mt-50">-->
+<!--                        <h4 class="pro-sidebar-title">Colour </h4>-->
+<!--                        <div class="sidebar-widget-list mt-20">-->
+<!--                            <ul>-->
+<!--                                <li>-->
+<!--                                    <div class="sidebar-widget-list-left">-->
+<!--                                        <input type="checkbox" value=""> <a href="#">Green <span>4</span> </a>-->
+<!--                                        <span class="checkmark"></span>-->
+<!--                                    </div>-->
+<!--                                </li>-->
+<!--                                <li>-->
+<!--                                    <div class="sidebar-widget-list-left">-->
+<!--                                        <input type="checkbox" value=""> <a href="#">Cream <span>4</span> </a>-->
+<!--                                        <span class="checkmark"></span>-->
+<!--                                    </div>-->
+<!--                                </li>-->
+<!--                                <li>-->
+<!--                                    <div class="sidebar-widget-list-left">-->
+<!--                                        <input type="checkbox" value=""> <a href="#">Blue <span>4</span> </a>-->
+<!--                                        <span class="checkmark"></span>-->
+<!--                                    </div>-->
+<!--                                </li>-->
+<!--                                <li>-->
+<!--                                    <div class="sidebar-widget-list-left">-->
+<!--                                        <input type="checkbox" value=""> <a href="#">Black <span>4</span> </a>-->
+<!--                                        <span class="checkmark"></span>-->
+<!--                                    </div>-->
+<!--                                </li>-->
+<!--                            </ul>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="sidebar-widget mt-40">-->
+<!--                        <h4 class="pro-sidebar-title">Size </h4>-->
+<!--                        <div class="sidebar-widget-list mt-20">-->
+<!--                            <ul>-->
+<!--                                <li>-->
+<!--                                    <div class="sidebar-widget-list-left">-->
+<!--                                        <input type="checkbox" value=""> <a href="#">XL</a>-->
+<!--                                        <span class="checkmark"></span>-->
+<!--                                    </div>-->
+<!--                                </li>-->
+<!--                                <li>-->
+<!--                                    <div class="sidebar-widget-list-left">-->
+<!--                                        <input type="checkbox" value=""> <a href="#">L</a>-->
+<!--                                        <span class="checkmark"></span>-->
+<!--                                    </div>-->
+<!--                                </li>-->
+<!--                                <li>-->
+<!--                                    <div class="sidebar-widget-list-left">-->
+<!--                                        <input type="checkbox" value=""> <a href="#">SM</a>-->
+<!--                                        <span class="checkmark"></span>-->
+<!--                                    </div>-->
+<!--                                </li>-->
+<!--                                <li>-->
+<!--                                    <div class="sidebar-widget-list-left">-->
+<!--                                        <input type="checkbox" value=""> <a href="#">XXL</a>-->
+<!--                                        <span class="checkmark"></span>-->
+<!--                                    </div>-->
+<!--                                </li>-->
+<!--                            </ul>-->
+<!--                        </div>-->
+<!--                    </div>-->
                     <div class="sidebar-widget mt-50">
                         <h4 class="pro-sidebar-title">Tag </h4>
                         <div class="sidebar-widget-tag mt-25">
                             <ul>
-                                <li><a href="#">Clothing</a></li>
-                                <li><a href="#">Accessories</a></li>
-                                <li><a href="#">For Men</a></li>
-                                <li><a href="#">Women</a></li>
-                                <li><a href="#">Fashion</a></li>
+                                {% for tag in tags %}
+                                <li><a href="#">{{tag}}</a></li>
+<!--                                <li><a href="#">Accessories</a></li>-->
+<!--                                <li><a href="#">For Men</a></li>-->
+<!--                                <li><a href="#">Women</a></li>-->
+<!--                                <li><a href="#">Fashion</a></li>-->
+                                {% endfor %}
                             </ul>
                         </div>
                     </div>

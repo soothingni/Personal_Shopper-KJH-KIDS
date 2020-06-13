@@ -1,0 +1,296 @@
+Traceback (most recent call last):
+  File "/root/Personal_Shopper-KJH-KIDS/crawler/THISONE_download_seoulstore.py", line 30, in <module>
+    conn = cx_Oracle.connect('oddeye/1234@15.164.247.135:1522/MODB')
+cx_Oracle.DatabaseError: ORA-12541: TNS:no listener
+-------------------------------------------------------
+Starting PROCESS 1: Fetching item info
+-------------------------------------------------------
+None
+Traceback (most recent call last):
+  File "/root/Personal_Shopper-KJH-KIDS/crawler/THISONE_download_seoulstore.py", line 386, in <module>
+    new_filepath = get_products2(category_dict, args.filepath)
+  File "/root/Personal_Shopper-KJH-KIDS/crawler/THISONE_download_seoulstore.py", line 219, in get_products2
+    existing = json.load(data_file)
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/json/__init__.py", line 299, in load
+    parse_constant=parse_constant, object_pairs_hook=object_pairs_hook, **kw)
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/json/__init__.py", line 354, in loads
+    return _default_decoder.decode(s)
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/json/decoder.py", line 339, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/json/decoder.py", line 357, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+-------------------------------------------------------
+Starting PROCESS 1: Fetching item info
+-------------------------------------------------------
+None
+Traceback (most recent call last):
+  File "/root/Personal_Shopper-KJH-KIDS/crawler/THISONE_download_seoulstore.py", line 386, in <module>
+    new_filepath = get_products2(category_dict, args.filepath)
+  File "/root/Personal_Shopper-KJH-KIDS/crawler/THISONE_download_seoulstore.py", line 219, in get_products2
+    existing = json.load(data_file)
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/json/__init__.py", line 299, in load
+    parse_constant=parse_constant, object_pairs_hook=object_pairs_hook, **kw)
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/json/__init__.py", line 354, in loads
+    return _default_decoder.decode(s)
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/json/decoder.py", line 339, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/json/decoder.py", line 357, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+-------------------------------------------------------
+Starting PROCESS 1: Fetching item info
+-------------------------------------------------------
+None
+start at 2020-06-13 12:00:02 PM
+롱슬리브 is up to date
+숏슬리브 is up to date
+슬리브리스 is up to date
+크롭 탑 is up to date
+폴로 셔츠 is up to date
+후디 is up to date
+스웨트셔츠 is up to date
+new_product_IDs:  ['1218162', '1218160', '1216888', '1216887', '1216886', '1216885', '1214865', '1214611', '1214608', '1214604', '1205096', '1205095']
+True
+saved 1 new items from 집업후디 section
+Finished updating. Saved as /root/Personal_Shopper-KJH-KIDS/crawler/crawlingtest/new_only_200613_12.json
+롱 슬리브 is up to date
+숏 슬리브 is up to date
+블라우스 is up to date
+라운드넥 is up to date
+브이넥 is up to date
+터틀넥 is up to date
+베스트 is up to date
+가디건 is up to date
+미니 is up to date
+미디/롱 is up to date
+치노 is up to date
+스웨트팬츠 is up to date
+스트레이트 is up to date
+와이드 is up to date
+스키니 is up to date
+부츠컷 is up to date
+쇼츠 is up to date
+레깅스 is up to date
+스트레이트 is up to date
+와이드 is up to date
+스키니 is up to date
+부츠컷 is up to date
+크롭 is up to date
+스커트 is up to date
+쇼츠 is up to date
+미니 is up to date
+미디/맥시 is up to date
+드레스 is up to date
+올인원 is up to date
+점프수트 is up to date
+isfirst is false
+-------------------------------------------------------
+Starting PROCESS 2: Image Download
+-------------------------------------------------------
+/root/Personal_Shopper-KJH-KIDS/crawler/crawlingtest/new_only_200613_12.json
+Downloading image...
+Traceback (most recent call last):
+  File "/root/Personal_Shopper-KJH-KIDS/crawler/THISONE_download_seoulstore.py", line 395, in <module>
+    DownloadSingleFile(imgURL, key)
+  File "/root/Personal_Shopper-KJH-KIDS/crawler/THISONE_download_seoulstore.py", line 355, in DownloadSingleFile
+    os.mkdir(DIR)
+FileNotFoundError: [Errno 2] No such file or directory: './crawlingtest/img/'
+-------------------------------------------------------
+Starting PROCESS 1: Fetching item info
+-------------------------------------------------------
+None
+Traceback (most recent call last):
+  File "/root/Personal_Shopper-KJH-KIDS/crawler/THISONE_download_seoulstore.py", line 375, in <module>
+    new_filepath = get_products2(category_dict, args.filepath)
+  File "/root/Personal_Shopper-KJH-KIDS/crawler/THISONE_download_seoulstore.py", line 212, in get_products2
+    existing = json.load(data_file)
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/json/__init__.py", line 299, in load
+    parse_constant=parse_constant, object_pairs_hook=object_pairs_hook, **kw)
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/json/__init__.py", line 354, in loads
+    return _default_decoder.decode(s)
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/json/decoder.py", line 339, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/json/decoder.py", line 355, in raw_decode
+    obj, end = self.scan_once(s, idx)
+json.decoder.JSONDecodeError: Expecting property name enclosed in double quotes: line 1 column 3 (char 2)
+-------------------------------------------------------
+Starting PROCESS 1: Fetching item info
+-------------------------------------------------------
+None
+Traceback (most recent call last):
+  File "/root/Personal_Shopper-KJH-KIDS/crawler/THISONE_download_seoulstore.py", line 375, in <module>
+    new_filepath = get_products2(category_dict, args.filepath)
+  File "/root/Personal_Shopper-KJH-KIDS/crawler/THISONE_download_seoulstore.py", line 212, in get_products2
+    existing = json.load(data_file)
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/json/__init__.py", line 299, in load
+    parse_constant=parse_constant, object_pairs_hook=object_pairs_hook, **kw)
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/json/__init__.py", line 354, in loads
+    return _default_decoder.decode(s)
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/json/decoder.py", line 339, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/json/decoder.py", line 355, in raw_decode
+    obj, end = self.scan_once(s, idx)
+json.decoder.JSONDecodeError: Expecting property name enclosed in double quotes: line 1 column 3 (char 2)
+-------------------------------------------------------
+Starting PROCESS 1: Fetching item info
+-------------------------------------------------------
+None
+Traceback (most recent call last):
+  File "/root/Personal_Shopper-KJH-KIDS/crawler/THISONE_download_seoulstore.py", line 375, in <module>
+    new_filepath = get_products2(category_dict, args.filepath)
+  File "/root/Personal_Shopper-KJH-KIDS/crawler/THISONE_download_seoulstore.py", line 212, in get_products2
+    existing = json.load(data_file)
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/json/__init__.py", line 299, in load
+    parse_constant=parse_constant, object_pairs_hook=object_pairs_hook, **kw)
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/json/__init__.py", line 354, in loads
+    return _default_decoder.decode(s)
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/json/decoder.py", line 342, in decode
+    raise JSONDecodeError("Extra data", s, end)
+json.decoder.JSONDecodeError: Extra data: line 1 column 348 (char 347)
+-------------------------------------------------------
+Starting PROCESS 1: Fetching item info
+-------------------------------------------------------
+None
+Traceback (most recent call last):
+  File "/root/Personal_Shopper-KJH-KIDS/crawler/THISONE_download_seoulstore.py", line 375, in <module>
+    new_filepath = get_products2(category_dict, args.filepath)
+  File "/root/Personal_Shopper-KJH-KIDS/crawler/THISONE_download_seoulstore.py", line 212, in get_products2
+    existing = json.load(data_file)
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/json/__init__.py", line 299, in load
+    parse_constant=parse_constant, object_pairs_hook=object_pairs_hook, **kw)
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/json/__init__.py", line 354, in loads
+    return _default_decoder.decode(s)
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/json/decoder.py", line 342, in decode
+    raise JSONDecodeError("Extra data", s, end)
+json.decoder.JSONDecodeError: Extra data: line 1 column 348 (char 347)
+-------------------------------------------------------
+Starting PROCESS 1: Fetching item info
+-------------------------------------------------------
+None
+start at 2020-06-13 05:00:02 PM
+롱슬리브 is up to date
+숏슬리브 is up to date
+new_product_IDs:  ['1219748', '1219747', '1219097', '1219092', '1219091', '1218225', '1218223', '1218219', '1218202', '1218194', '1217972', '1217112']
+True
+saved 6 new items from 슬리브리스 section
+Finished updating. Saved as /root/Personal_Shopper-KJH-KIDS/crawler/json/new_only_200613_17.json
+크롭 탑 is up to date
+폴로 셔츠 is up to date
+후디 is up to date
+스웨트셔츠 is up to date
+집업후디 is up to date
+롱 슬리브 is up to date
+숏 슬리브 is up to date
+블라우스 is up to date
+라운드넥 is up to date
+브이넥 is up to date
+터틀넥 is up to date
+베스트 is up to date
+가디건 is up to date
+미니 is up to date
+미디/롱 is up to date
+치노 is up to date
+스웨트팬츠 is up to date
+스트레이트 is up to date
+와이드 is up to date
+스키니 is up to date
+부츠컷 is up to date
+쇼츠 is up to date
+레깅스 is up to date
+스트레이트 is up to date
+와이드 is up to date
+스키니 is up to date
+부츠컷 is up to date
+크롭 is up to date
+스커트 is up to date
+쇼츠 is up to date
+미니 is up to date
+미디/맥시 is up to date
+드레스 is up to date
+올인원 is up to date
+점프수트 is up to date
+isfirst is false
+-------------------------------------------------------
+Starting PROCESS 2: Image Download
+-------------------------------------------------------
+/root/Personal_Shopper-KJH-KIDS/crawler/json/new_only_200613_17.json
+Downloading image...
+Traceback (most recent call last):
+  File "/root/Personal_Shopper-KJH-KIDS/crawler/THISONE_download_seoulstore.py", line 395, in <module>
+    DownloadSingleFile(imgURL, key)
+  File "/root/Personal_Shopper-KJH-KIDS/crawler/THISONE_download_seoulstore.py", line 355, in DownloadSingleFile
+    os.mkdir(DIR)
+FileNotFoundError: [Errno 2] No such file or directory: '../web/oddeye/static/img/seoulstore_ALL'
+-------------------------------------------------------
+Starting PROCESS 1: Fetching item info
+-------------------------------------------------------
+None
+Traceback (most recent call last):
+  File "/root/Personal_Shopper-KJH-KIDS/crawler/THISONE_download_seoulstore.py", line 375, in <module>
+    new_filepath = get_products2(category_dict, args.filepath)
+  File "/root/Personal_Shopper-KJH-KIDS/crawler/THISONE_download_seoulstore.py", line 212, in get_products2
+    existing = json.load(data_file)
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/json/__init__.py", line 299, in load
+    parse_constant=parse_constant, object_pairs_hook=object_pairs_hook, **kw)
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/json/__init__.py", line 354, in loads
+    return _default_decoder.decode(s)
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/json/decoder.py", line 339, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/json/decoder.py", line 355, in raw_decode
+    obj, end = self.scan_once(s, idx)
+json.decoder.JSONDecodeError: Expecting property name enclosed in double quotes: line 1 column 3 (char 2)
+-------------------------------------------------------
+Starting PROCESS 1: Fetching item info
+-------------------------------------------------------
+None
+Traceback (most recent call last):
+  File "/root/Personal_Shopper-KJH-KIDS/crawler/THISONE_download_seoulstore.py", line 375, in <module>
+    new_filepath = get_products2(category_dict, args.filepath)
+  File "/root/Personal_Shopper-KJH-KIDS/crawler/THISONE_download_seoulstore.py", line 212, in get_products2
+    existing = json.load(data_file)
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/json/__init__.py", line 299, in load
+    parse_constant=parse_constant, object_pairs_hook=object_pairs_hook, **kw)
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/json/__init__.py", line 354, in loads
+    return _default_decoder.decode(s)
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/json/decoder.py", line 339, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/json/decoder.py", line 355, in raw_decode
+    obj, end = self.scan_once(s, idx)
+json.decoder.JSONDecodeError: Expecting property name enclosed in double quotes: line 1 column 3 (char 2)
+-------------------------------------------------------
+Starting PROCESS 1: Fetching item info
+-------------------------------------------------------
+None
+Traceback (most recent call last):
+  File "/root/Personal_Shopper-KJH-KIDS/crawler/THISONE_download_seoulstore.py", line 375, in <module>
+    new_filepath = get_products2(category_dict, args.filepath)
+  File "/root/Personal_Shopper-KJH-KIDS/crawler/THISONE_download_seoulstore.py", line 212, in get_products2
+    existing = json.load(data_file)
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/json/__init__.py", line 299, in load
+    parse_constant=parse_constant, object_pairs_hook=object_pairs_hook, **kw)
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/json/__init__.py", line 354, in loads
+    return _default_decoder.decode(s)
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/json/decoder.py", line 339, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/json/decoder.py", line 355, in raw_decode
+    obj, end = self.scan_once(s, idx)
+json.decoder.JSONDecodeError: Expecting property name enclosed in double quotes: line 1 column 3 (char 2)
+-------------------------------------------------------
+Starting PROCESS 1: Fetching item info
+-------------------------------------------------------
+None
+Traceback (most recent call last):
+  File "/root/Personal_Shopper-KJH-KIDS/crawler/THISONE_download_seoulstore.py", line 389, in <module>
+    new_filepath = get_products2(category_dict, args.filepath)
+  File "/root/Personal_Shopper-KJH-KIDS/crawler/THISONE_download_seoulstore.py", line 226, in get_products2
+    existing = json.load(data_file)
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/json/__init__.py", line 299, in load
+    parse_constant=parse_constant, object_pairs_hook=object_pairs_hook, **kw)
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/json/__init__.py", line 354, in loads
+    return _default_decoder.decode(s)
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/json/decoder.py", line 339, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/json/decoder.py", line 355, in raw_decode
+    obj, end = self.scan_once(s, idx)
+json.decoder.JSONDecodeError: Expecting property name enclosed in double quotes: line 1 column 4 (char 3)

@@ -19,65 +19,62 @@ def dictfetchall(cursor):
     desc = cursor.description
     return [ dict( zip([col[0] for col in desc], row) ) for row in cursor.fetchall()]
 
-def ProductsList(req):
-    # DB 연동 후 사용할 코드
-    '''
-    sql = """
-        SELECT img_url, product_url
-        FROM products_product
-    """
-    cursor = connection.cursor()
-    cursor.execute(sql)
-    result = dictfetchall(cursor)
-    '''
-    
-    # 임시 코드
-    result = [{'img_url': 'https://images.seoulstore.com/products/52a6ed2a1d61b21e79e0f3a5c1f03263.jpg?d=640xauto', 'product_url': 'https://www.seoulstore.com/products/955954/detail'},
-    {'img_url': 'https://images.seoulstore.com/products/c04a10c862fed49321b275886ff91596.jpg?d=640xauto', 'product_url': 'https://www.seoulstore.com/products/1178222/detail'}, 
-    {'img_url': 'https://images.seoulstore.com/products/0405007e66dcf5326511bfac12df5750.jpg?d=640xauto', 'product_url': 'https://www.seoulstore.com/products/1176995/detail'}, 
-    {'img_url': 'https://images.seoulstore.com/products/908c5394532f98d5767ab5d66dc97011.jpg?d=640xauto', 'product_url': 'https://www.seoulstore.com/products/1140124/detail'}, 
-    {'img_url': 'https://images.seoulstore.com/products/f6a009306fd662e1a625552083add81e.jpg?d=640xauto', 'product_url': 'https://www.seoulstore.com/products/1195070/detail'}, 
-    {'img_url': 'https://images.seoulstore.com/products/a637b6181f729bbe93a7a45b3e6b4d10.jpg?d=640xauto', 'product_url': 'https://www.seoulstore.com/products/1176903/detail'}, 
-    {'img_url': 'https://images.seoulstore.com/products/9fa426c6866fc5204b7843b42e4a744a.jpg?d=640xauto', 'product_url': 'https://www.seoulstore.com/products/1178231/detail'}, 
-    {'img_url': 'https://images.seoulstore.com/products/a2222fb3c79a0e1f84262dc87d15e7c7.jpg?d=640xauto', 'product_url': 'https://www.seoulstore.com/products/1164131/detail'}, 
-    {'img_url': 'https://images.seoulstore.com/products/d4457c40b02a98e88cd6de0f7118e789.jpg?d=640xauto', 'product_url': 'https://www.seoulstore.com/products/1124440/detail'}, 
-    {'img_url': 'https://images.seoulstore.com/products/abdb62faa5a63abf6554af760ca70ec1.jpg?d=640xauto', 'product_url': 'https://www.seoulstore.com/products/1090758/detail'}, 
-    {'img_url': 'https://images.seoulstore.com/products/836dc22990414b2363738e02edfc2247.jpg?d=640xauto', 'product_url': 'https://www.seoulstore.com/products/1084665/detail'}, 
-    {'img_url': 'https://images.seoulstore.com/products/e6e916b8767faf961a72431ca7e6e2ae.jpg?d=640xauto', 'product_url': 'https://www.seoulstore.com/products/1085926/detail'}, 
-    {'img_url': 'https://images.seoulstore.com/products/35842beb1ad4b6fcd5202b02333105bf.jpg?d=640xauto', 'product_url': 'https://www.seoulstore.com/products/1211852/detail'}, 
-    {'img_url': 'https://images.seoulstore.com/products/408a3a869063179cb93fca47ea8ad75e.jpg?d=640xauto', 'product_url': 'https://www.seoulstore.com/products/1211850/detail'}, 
-    {'img_url': 'https://images.seoulstore.com/products/f835cc7affe8bcb8c9387d388f2af038.jpg?d=640xauto', 'product_url': 'https://www.seoulstore.com/products/1210494/detail'}, 
-    {'img_url': 'https://images.seoulstore.com/products/ecea23edc14e8be8a928a5a35b8395b8.jpg?d=640xauto', 'product_url': 'https://www.seoulstore.com/products/1209181/detail'}, 
-    {'img_url': 'https://images.seoulstore.com/products/c9850e490c50a14d9a55a41ccadeed97.jpg?d=640xauto', 'product_url': 'https://www.seoulstore.com/products/1207956/detail'}, 
-    {'img_url': 'https://images.seoulstore.com/products/92e64c94573c3af3c874fc8f250ce65f.jpg?d=640xauto', 'product_url': 'https://www.seoulstore.com/products/1206717/detail'}, 
-    {'img_url': 'https://images.seoulstore.com/products/1b0fb2ec874d8a444df2d1ef724cb98d.jpg?d=640xauto', 'product_url': 'https://www.seoulstore.com/products/1206668/detail'}, 
-    {'img_url': 'https://images.seoulstore.com/products/db7ef21fb50b25cddeae02b3135c383e.jpg?d=640xauto', 'product_url': 'https://www.seoulstore.com/products/1206211/detail'}]
-
-    page = req.GET.get('page', 1)
-    NUMBER_OF_DATAS_PER_ONCE = 8
-    paginator = Paginator(result, NUMBER_OF_DATAS_PER_ONCE) # 한 페이지에 해당 개수만큼을 할당
-    
-    try:
-        datas = paginator.page(page)
-    except PageNotAnInteger:
-        datas = paginator.page(1)
-    except EmptyPage:
-        datas = paginator.page(paginator.num_pages)
-    
-    print(datas[0])
-
-
-    return render(req, 'products/list.html', {'datas': datas})
-
-def modaltest(req):
-    return render(req, 'products/modaltest.html')
-
-
-
-
 
 def productview(req):
+    category_name=[
+        {"category":0, "name":"티셔츠"},
+        {"category":1, "name":"후디/스웨트셔츠"},
+        {"category":2, "name":"셔츠/블라우스"},
+        {"category":3, "name":"니트웨어"},
+        {"category": 4, "name": "스커트"},
+        {"category": 5, "name": "팬츠"},
+        {"category": 6, "name": "데님"},
+        {"category": 7, "name": "원피스"},
+        {"category": 8, "name": "오버올"}
+    ]
 
+    category_dict = [
+        {"super_category": 0, "category": 0, "sub_category": 0, "name": "롱슬리브"},
+        {"super_category": 0, "category": 0, "sub_category": 1, "name": "숏슬리브"},
+        {"super_category": 0, "category": 0, "sub_category": 2, "name": "슬리브리스"},
+        {"super_category": 0, "category": 0, "sub_category": 3, "name": "크롭 탑"},
+        {"super_category": 0, "category": 0, "sub_category": 4, "name": "폴로 셔츠"},
+        {"super_category": 0, "category": 1, "sub_category": 5, "name": "후디"},
+        {"super_category": 0, "category": 1, "sub_category": 6, "name": "스웨트셔츠"},
+        {"super_category": 0, "category": 1, "sub_category": 7, "name": "집업후디"},
+        {"super_category": 0, "category": 2, "sub_category": 8, "name": "롱 슬리브"},
+        {"super_category": 0, "category": 2, "sub_category": 9, "name": "숏 슬리브"},
+        {"super_category": 0, "category": 2, "sub_category": 10, "name": "블라우스"},
+        {"super_category": 0, "category": 3, "sub_category": 11, "name": "라운드넥" },
+        {"super_category": 0, "category": 3, "sub_category": 12, "name": "브이넥"},
+        {"super_category": 0, "category": 3, "sub_category": 13, "name": "터틀넥"},
+        {"super_category": 0, "category": 3, "sub_category": 14, "name": "베스트"},
+        {"super_category": 0, "category": 3, "sub_category": 15, "name": "가디건"},
+
+        {"super_category": 1, "category": 4, "sub_category": 16, "name": "미니"},
+        {"super_category": 1, "category": 4, "sub_category": 17, "name": "미디/롱"},
+        {"super_category": 1, "category": 5, "sub_category": 18, "name": "치노"},
+        {"super_category": 1, "category": 5, "sub_category": 19, "name": "스웨트팬츠"},
+        {"super_category": 1, "category": 5, "sub_category": 20, "name": "스트레이트"},
+        {"super_category": 1, "category": 5, "sub_category": 21, "name": "와이드"},
+        {"super_category": 1, "category": 5, "sub_category": 22, "name": "스키니"},
+        {"super_category": 1, "category": 5, "sub_category": 23, "name": "부츠컷"},
+        {"super_category": 1, "category": 5, "sub_category": 24, "name": "쇼츠"},
+        {"super_category": 1, "category": 5, "sub_category": 25, "name": "레깅스"},
+        {"super_category": 1, "category": 6, "sub_category": 26, "name": "스트레이트"},
+        {"super_category": 1, "category": 6, "sub_category": 27, "name": "와이드"},
+        {"super_category": 1, "category": 6, "sub_category": 28, "name": "스키니"},
+        {"super_category": 1, "category": 6, "sub_category": 29, "name": "부츠컷"},
+        {"super_category": 1, "category": 6, "sub_category": 30, "name": "크롭"},
+        {"super_category": 1, "category": 6, "sub_category": 31, "name": "스커트"},
+        {"super_category": 1, "category": 6, "sub_category": 32, "name": "쇼츠"},
+
+        {"super_category": 2, "category": 7, "sub_category": 33, "name": "미니"},
+        {"super_category": 2, "category": 7, "sub_category": 34, "name": "미디/맥시"},
+        {"super_category": 2, "category": 7, "sub_category": 35, "name": "드레스"},
+        {"super_category": 2, "category": 8, "sub_category": 36, "name": "올인원"},
+        {"super_category": 2, "category": 8, "sub_category": 37, "name": "점프수트"}
+    ]
     sql = '''
     SELECT super_category, base_category, sub_category, product_ID,img_url, product_url,product_name ,price_original,price_discount
     FROM Products
@@ -87,22 +84,101 @@ def productview(req):
     cursor.execute(sql)
     db_data = dictfetchall(cursor)
 
-    # with open('static/json/categorized_tong.json', 'r') as json_file:
-    #     json_data=json.load(json_file)
-    # num_list=[x for x in range(len(json_data))]
+    for item in db_data:
+        item['PRICE_DISCOUNT_COMMA'] = format(item['PRICE_DISCOUNT'], ",")
+        item['PRICE_ORIGINAL_COMMA'] = format(item['PRICE_ORIGINAL'], ",")
+
+
     page=req.GET.get("page",1)
-    p=Paginator(db_data,12)
+    p=Paginator(db_data,30)
     subs=p.page(page)
-    context={'data':subs}
+
+
+
+
+    context={'data':subs, 'cat':category_name}
     return render(req,'products/json_test.html', context)
 
 
 
-def prod_init(req):
-    with open('static/json/categorized_tong.json', 'r') as json_file:
-        json_data=json.load(json_file)
-    page=req.GET.get("page",1)
-    p=Paginator(json_data,12)
-    subs=p.page(page)
-    context={'data':subs}
-    return render(req,'products/prod_in.html', context)
+def prod_cat(req, pk):
+    category_name = [
+        {"category": 0, "name": "티셔츠"},
+        {"category": 1, "name": "후디/스웨트셔츠"},
+        {"category": 2, "name": "셔츠/블라우스"},
+        {"category": 3, "name": "니트웨어"},
+        {"category": 4, "name": "스커트"},
+        {"category": 5, "name": "팬츠"},
+        {"category": 6, "name": "데님"},
+        {"category": 7, "name": "원피스"},
+        {"category": 8, "name": "오버올"}
+    ]
+
+    category_dict = [
+        {"super_category": 0, "category": 0, "sub_category": 0, "name": "롱슬리브"},
+        {"super_category": 0, "category": 0, "sub_category": 1, "name": "숏슬리브"},
+        {"super_category": 0, "category": 0, "sub_category": 2, "name": "슬리브리스"},
+        {"super_category": 0, "category": 0, "sub_category": 3, "name": "크롭 탑"},
+        {"super_category": 0, "category": 0, "sub_category": 4, "name": "폴로 셔츠"},
+        {"super_category": 0, "category": 1, "sub_category": 5, "name": "후디"},
+        {"super_category": 0, "category": 1, "sub_category": 6, "name": "스웨트셔츠"},
+        {"super_category": 0, "category": 1, "sub_category": 7, "name": "집업후디"},
+        {"super_category": 0, "category": 2, "sub_category": 8, "name": "롱 슬리브"},
+        {"super_category": 0, "category": 2, "sub_category": 9, "name": "숏 슬리브"},
+        {"super_category": 0, "category": 2, "sub_category": 10, "name": "블라우스"},
+        {"super_category": 0, "category": 3, "sub_category": 11, "name": "라운드넥"},
+        {"super_category": 0, "category": 3, "sub_category": 12, "name": "브이넥"},
+        {"super_category": 0, "category": 3, "sub_category": 13, "name": "터틀넥"},
+        {"super_category": 0, "category": 3, "sub_category": 14, "name": "베스트"},
+        {"super_category": 0, "category": 3, "sub_category": 15, "name": "가디건"},
+
+        {"super_category": 1, "category": 4, "sub_category": 16, "name": "미니"},
+        {"super_category": 1, "category": 4, "sub_category": 17, "name": "미디/롱"},
+        {"super_category": 1, "category": 5, "sub_category": 18, "name": "치노"},
+        {"super_category": 1, "category": 5, "sub_category": 19, "name": "스웨트팬츠"},
+        {"super_category": 1, "category": 5, "sub_category": 20, "name": "스트레이트"},
+        {"super_category": 1, "category": 5, "sub_category": 21, "name": "와이드"},
+        {"super_category": 1, "category": 5, "sub_category": 22, "name": "스키니"},
+        {"super_category": 1, "category": 5, "sub_category": 23, "name": "부츠컷"},
+        {"super_category": 1, "category": 5, "sub_category": 24, "name": "쇼츠"},
+        {"super_category": 1, "category": 5, "sub_category": 25, "name": "레깅스"},
+        {"super_category": 1, "category": 6, "sub_category": 26, "name": "스트레이트"},
+        {"super_category": 1, "category": 6, "sub_category": 27, "name": "와이드"},
+        {"super_category": 1, "category": 6, "sub_category": 28, "name": "스키니"},
+        {"super_category": 1, "category": 6, "sub_category": 29, "name": "부츠컷"},
+        {"super_category": 1, "category": 6, "sub_category": 30, "name": "크롭"},
+        {"super_category": 1, "category": 6, "sub_category": 31, "name": "스커트"},
+        {"super_category": 1, "category": 6, "sub_category": 32, "name": "쇼츠"},
+
+        {"super_category": 2, "category": 7, "sub_category": 33, "name": "미니"},
+        {"super_category": 2, "category": 7, "sub_category": 34, "name": "미디/맥시"},
+        {"super_category": 2, "category": 7, "sub_category": 35, "name": "드레스"},
+        {"super_category": 2, "category": 8, "sub_category": 36, "name": "올인원"},
+        {"super_category": 2, "category": 8, "sub_category": 37, "name": "점프수트"}
+    ]
+
+    sql = '''
+    SELECT super_category, base_category, sub_category, product_ID,img_url, product_url,product_name ,price_original,price_discount
+    FROM Products
+    '''
+
+    conn = cx_Oracle.connect('oddeye/1234@15.164.247.135:1522/MODB')
+    cursor = conn.cursor()
+    cursor.execute(sql)
+    db_data = dictfetchall(cursor)
+    for item in db_data:
+        item['PRICE_DISCOUNT_COMMA'] = format(item['PRICE_DISCOUNT'], ",")
+        item['PRICE_ORIGINAL_COMMA'] = format(item['PRICE_ORIGINAL'], ",")
+    new_dict=[]
+    for dt in db_data:
+        if dt['BASE_CATEGORY'] == int(pk):
+            new_dict.append(dt)
+    page = req.GET.get("page", 1)
+    p = Paginator(new_dict, 30)
+    subs = p.page(page)
+
+    context = {'data': subs, 'cat': category_name}
+    return render(req, 'products/cate.html', context)
+
+
+
