@@ -1,11 +1,11 @@
-# Personal_Shopper-KJH-KIDS-
+# oddeye by personal shopper
 <img src='./siyeon.gif'>
 
 
 
 ## Introduction
 
-<a href='15.164.247.135:8080'> oddeye</a> 👀 is a personalized style assistance service powered by deep learning AI technology. Some of the main functions oddeye offers are
+<a href='15.164.247.135:8080'> oddeye</a> 👀 is a **personalized style assistance service** powered by deep learning AI technology. Some of the main functions oddeye offers are
 
 - item recommendation based on style icons of your liking (similarity)
   - e.g. IU, Jennie of BlackPink, ...
