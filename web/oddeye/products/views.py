@@ -85,7 +85,8 @@ def productview(req):
     db_data = dictfetchall(cursor)
 
     for item in db_data:
-        item['PRICE_DISCOUNT_COMMA'] = format(item['PRICE_DISCOUNT'], ",")
+        if item['PRICE_DISCOUNT']!=None:
+            item['PRICE_DISCOUNT_COMMA'] = format(item['PRICE_DISCOUNT'], ",")
         item['PRICE_ORIGINAL_COMMA'] = format(item['PRICE_ORIGINAL'], ",")
 
 
@@ -167,8 +168,10 @@ def prod_cat(req, pk):
     cursor.execute(sql)
     db_data = dictfetchall(cursor)
     for item in db_data:
-        item['PRICE_DISCOUNT_COMMA'] = format(item['PRICE_DISCOUNT'], ",")
+        if item['PRICE_DISCOUNT'] != None:
+            item['PRICE_DISCOUNT_COMMA'] = format(item['PRICE_DISCOUNT'], ",")
         item['PRICE_ORIGINAL_COMMA'] = format(item['PRICE_ORIGINAL'], ",")
+        
     new_dict=[]
     for dt in db_data:
         if dt['BASE_CATEGORY'] == int(pk):

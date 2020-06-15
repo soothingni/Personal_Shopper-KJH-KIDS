@@ -17,6 +17,7 @@ import os
 import cv2
 import json
 import glob
+from skimage import io
 
 import cx_Oracle
 import os
@@ -29,9 +30,9 @@ curs = conn.cursor()
 parser = argparse.ArgumentParser()
 parser.add_argument('--model_dir', default='./resnet101_detectron/000001-1.6717.h5',
                     help="Model weights dir")
-parser.add_argument('--img_dir', default='../../masked_seoulstoreALL/dummie',
+parser.add_argument('--img_dir', default='/root/Personal_Shopper-KJH-KIDS/web/oddeye/static/img/seoulstore_ALL',
                     help="Images dir")
-parser.add_argument('--table',
+parser.add_argument('--table', default='products_embedding',
                     help="table to insert embedding")
 
 def lossless_triplet_loss(y_true, y_pred, N=128, beta=128, epsilon=1e-8):
@@ -132,15 +133,17 @@ def freeze_layer(base, reverse_index):
     print('traninable layers in ResNet: {}'.format(cnt))
 
 def db_insert(t, count, table):
-    sql=f"insert into {table} values(:1,:2)"
+    sql=f"insert into {table} values(:1,:2,:3)"
     curs.execute(sql,t)
 #     print(f"Insertion executed! {count}")
     conn.commit()
       
-    
 def encode_img_by_path(img_path, base_network):
-    image = cv2.imread(img_path, cv2.IMREAD_UNCHANGED)
-    image = cv2.resize(cv2.cvtColor(image, cv2.COLOR_BGR2RGB), (224, 224))
+#     image = cv2.imread(img_path, cv2.IMREAD_UNCHANGED)   #cv2.imread() 가끔 오류생겨서 아래로 바꿈
+    image = io.imread(img_path, plugin='matplotlib')
+    image = cv2.resize(image, (224, 224))
+    if image.shape[-1] == 4: #4채널일 경우 마지막 채널 제외
+        image = image[:, :, :-1]        
     image_encoding = base_network.predict(np.array([image])).tolist()
     return image_encoding
 
@@ -176,12 +179,15 @@ if __name__ == '__main__':
     cnt = 1
     from tqdm import tqdm
     
-    for i in tqdm(range(len(files[:10]))):
+    for i in tqdm(range(len(files))):
         file_name = files[i].split('/')[-1]
         product_id, _ = os.path.splitext(file_name)
+        product_id = int(product_id)
         encoding = encode_img_by_path(files[i], base)
+        np.around(encoding, 10)
+        
         encoding = str(encoding)
         cnt += 1
-        t = (product_id, encoding)
+        t = (product_id, encoding, product_id)
         
         db_insert(t, cnt, table)

@@ -90,7 +90,11 @@ Styles List
                                 <option value="">In stock</option>
                             </select>
                         </div>
-                        <p>Showing 1–6 of 12 result</p>
+                        {%  if page != 1 %}
+                        <p>Showing 7 - 12 of 12 result</p>
+                        {% else %}
+                        <p>Showing 1 - 6 of 12 result</p>
+                        {% endif %}
                     </div>
                     <div class="shop-tab nav">
                         <a class="active" href="#shop-1" data-toggle="tab">
@@ -321,7 +325,7 @@ Styles List
                     <div class="sidebar-widget">
                         <h4 class="pro-sidebar-title">Search </h4>
                         <div class="pro-sidebar-search mb-50 mt-25">
-                            <form class="pro-sidebar-search-form" action="#">
+                            <form class="pro-sidebar-search-form" action='#' >
                                 <input type="text" placeholder="Search here...">
                                 <button>
                                     <i class="pe-7s-search"></i>

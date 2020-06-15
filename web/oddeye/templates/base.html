@@ -1,6 +1,5 @@
 {% load static %}
 <!doctype html>
-<html>
 
 <head>
     <meta charset="utf-8">
@@ -59,7 +58,7 @@
                                     <li><a href="{% url 'logout' %}">Log out</a></li>
                                     {% else %}
                                     <li><a href='{% url "login"%}'>Log in</a></li><br>
-                                    <li><a href="{% url 'signup' %}">Register</a></li><br>
+                                    <li><a href="{% url 'register' %}">Register</a></li><br>
                                     <li><a href="wishlist.html">Wishlist  </a></li>
                                     {% endif %}
                                 </ul>

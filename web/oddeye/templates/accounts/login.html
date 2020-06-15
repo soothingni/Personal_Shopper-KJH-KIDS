@@ -1,21 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
 {% extends 'base.html' %}
+{% block title %}
+로그인
+{% endblock %}
+{% load static %}
 {% block content %}
 <div class="container">
     <h1>login</h1>
      <form method="POST" action="{% url 'login' %}">
         {% csrf_token %}
-        Username:
-        <br>
-        <input name="username" type="text" required minlength="3" maxlength="10">
-        <br>
-        Password:
-        <br>
-        <input name="password" type="password" required minlength="4">
-        <br><br>
-        <input type="submit" class="btn btn-primary" value="Log In">
-
+        <ul>
+            {% for field in form %}
+            <li>
+                <input type="{{ field.field.widget.input_type }}" placeholder="{{field.label}}" name="{{field.name}}">
+            </li>
+            {% endfor %}
+            <li>
+                <button type="submit" class="btn btn--primary">Sign in</button>
+            </li>
+        </ul>
     </form>
 </div>
 

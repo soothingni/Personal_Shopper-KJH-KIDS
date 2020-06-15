@@ -1,4 +1,5 @@
 from django.db import models
+from django.conf import settings
 
 # Create your models here.
 class Star(models.Model):
@@ -7,6 +8,13 @@ class Star(models.Model):
     likey = models.IntegerField()
     tag = models.CharField(max_length=30)
     style = models.IntegerField()
+    likes = models.ManyToManyField(settings.AUTH_USER_MODEL, blank=True, related_name='likes')
+    # like = models.ManyToManyField(settings.AUTH_USER_MODEL,
+    #                                        blank=True,
+    #                                        related_name='like_style')
+    @property
+    def like_count(self):
+        return self.like.count()
 
     def __str__(self):
         return self.name+'_'+str(self.style)
@@ -19,7 +27,7 @@ class Star(models.Model):
 
 class Star_embedding(models.Model):
     no = models.ForeignKey(Star, on_delete=models.CASCADE)
-    star_embedding = models.CharField(max_length=1000)
+    star_embedding = models.CharField(max_length=2000)
 
     def __str__(self):
         return self.star_embedding

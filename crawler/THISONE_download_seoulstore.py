@@ -39,62 +39,74 @@ parser.add_argument('--filepath', default=base_path+'/categorized_tong.json',
                     help="Directory to save item info")
 
 category_dict = {
-    1002: {"super_category": 0, "category": 0, "sub_category": 0, "name": "롱슬리브"},
-    1003: {"super_category": 0, "category": 0, "sub_category": 1, "name": "숏슬리브"},
-    1004: {"super_category": 0, "category": 0, "sub_category": 2, "name": "슬리브리스"},
-    1005: {"super_category": 0, "category": 0, "sub_category": 3, "name": "크롭 탑"},
-    1006: {"super_category": 0, "category": 0, "sub_category": 4, "name": "폴로 셔츠"},
-    1008: {"super_category": 0, "category": 1, "sub_category": 5, "name": "후디"},
-    1010: {"super_category": 0, "category": 1, "sub_category": 6, "name": "스웨트셔츠"},
-    1009: {"super_category": 0, "category": 1, "sub_category": 7, "name": "집업후디"},
-    1012: {"super_category": 0, "category": 2, "sub_category": 8, "name": "롱 슬리브"},
-    1013:{"super_category": 0, "category": 2, "sub_category": 9, "name": "숏 슬리브"},
-    1014: {"super_category": 0, "category": 2, "sub_category": 10, "name": "블라우스"},
-    1016: {"super_category": 0, "category": 3, "sub_category": 11, "name": "라운드넥" },
-    1017: {"super_category": 0, "category": 3, "sub_category": 12, "name": "브이넥"},
-    1018: {"super_category": 0, "category": 3, "sub_category": 13, "name": "터틀넥"},
-    1019: {"super_category": 0, "category": 3, "sub_category": 14, "name": "베스트"},
-    1020: {"super_category": 0, "category": 3, "sub_category": 15, "name": "가디건"},
+#     1002: {"super_category": 0, "category": 0, "sub_category": 0, "name": "롱슬리브"},
+#     1003: {"super_category": 0, "category": 0, "sub_category": 1, "name": "숏슬리브"},
+#     1004: {"super_category": 0, "category": 0, "sub_category": 2, "name": "슬리브리스"},
+#     1005: {"super_category": 0, "category": 0, "sub_category": 3, "name": "크롭 탑"},
+#     1006: {"super_category": 0, "category": 0, "sub_category": 4, "name": "폴로 셔츠"},
+#     1008: {"super_category": 0, "category": 1, "sub_category": 5, "name": "후디"},
+#     1010: {"super_category": 0, "category": 1, "sub_category": 6, "name": "스웨트셔츠"},
+#     1009: {"super_category": 0, "category": 1, "sub_category": 7, "name": "집업후디"},
+#     1012: {"super_category": 0, "category": 2, "sub_category": 8, "name": "롱 슬리브"},
+#     1013:{"super_category": 0, "category": 2, "sub_category": 9, "name": "숏 슬리브"},
+#     1014: {"super_category": 0, "category": 2, "sub_category": 10, "name": "블라우스"},
+#     1016: {"super_category": 0, "category": 3, "sub_category": 11, "name": "라운드넥" },
+#     1017: {"super_category": 0, "category": 3, "sub_category": 12, "name": "브이넥"},
+#     1018: {"super_category": 0, "category": 3, "sub_category": 13, "name": "터틀넥"},
+#     1019: {"super_category": 0, "category": 3, "sub_category": 14, "name": "베스트"},
+#     1020: {"super_category": 0, "category": 3, "sub_category": 15, "name": "가디건"},
     
-    1025: {"super_category": 1, "category": 4, "sub_category": 16, "name": "미니"},
-    1026: {"super_category": 1, "category": 4, "sub_category": 17, "name": "미디/롱"},
-    1028: {"super_category": 1, "category": 5, "sub_category": 18, "name": "치노"},
-    1034: {"super_category": 1, "category": 5, "sub_category": 19, "name": "스웨트팬츠"},
-    1031: {"super_category": 1, "category": 5, "sub_category": 20, "name": "스트레이트"},
-    1032: {"super_category": 1, "category": 5, "sub_category": 21, "name": "와이드"},
-    1030: {"super_category": 1, "category": 5, "sub_category": 22, "name": "스키니"},
-    1033: {"super_category": 1, "category": 5, "sub_category": 23, "name": "부츠컷"},
-    1029: {"super_category": 1, "category": 5, "sub_category": 24, "name": "쇼츠"},
-    1035: {"super_category": 1, "category": 5, "sub_category": 25, "name": "레깅스"},
-    1040: {"super_category": 1, "category": 6, "sub_category": 26, "name": "스트레이트"},
-    1041: {"super_category": 1, "category": 6, "sub_category": 27, "name": "와이드"},
-    1039: {"super_category": 1, "category": 6, "sub_category": 28, "name": "스키니"},
-    1042: {"super_category": 1, "category": 6, "sub_category": 29, "name": "부츠컷"},
-    1043: {"super_category": 1, "category": 6, "sub_category": 30, "name": "크롭"},
-    1038: {"super_category": 1, "category": 6, "sub_category": 31, "name": "스커트"},
-    1037: {"super_category": 1, "category": 6, "sub_category": 32, "name": "쇼츠"},
+#     1025: {"super_category": 1, "category": 4, "sub_category": 16, "name": "미니"},
+#     1026: {"super_category": 1, "category": 4, "sub_category": 17, "name": "미디/롱"},
+#     1028: {"super_category": 1, "category": 5, "sub_category": 18, "name": "치노"},
+#     1034: {"super_category": 1, "category": 5, "sub_category": 19, "name": "스웨트팬츠"},
+#     1031: {"super_category": 1, "category": 5, "sub_category": 20, "name": "스트레이트"},
+#     1032: {"super_category": 1, "category": 5, "sub_category": 21, "name": "와이드"},
+#     1030: {"super_category": 1, "category": 5, "sub_category": 22, "name": "스키니"},
+#     1033: {"super_category": 1, "category": 5, "sub_category": 23, "name": "부츠컷"},
+#     1029: {"super_category": 1, "category": 5, "sub_category": 24, "name": "쇼츠"},
+#     1035: {"super_category": 1, "category": 5, "sub_category": 25, "name": "레깅스"},
+#     1040: {"super_category": 1, "category": 6, "sub_category": 26, "name": "스트레이트"},
+#     1041: {"super_category": 1, "category": 6, "sub_category": 27, "name": "와이드"},
+#     1039: {"super_category": 1, "category": 6, "sub_category": 28, "name": "스키니"},
+#     1042: {"super_category": 1, "category": 6, "sub_category": 29, "name": "부츠컷"},
+#     1043: {"super_category": 1, "category": 6, "sub_category": 30, "name": "크롭"},
+#     1038: {"super_category": 1, "category": 6, "sub_category": 31, "name": "스커트"},
+#     1037: {"super_category": 1, "category": 6, "sub_category": 32, "name": "쇼츠"},
     
-    1022: {"super_category": 2, "category": 7, "sub_category": 33, "name": "미니"},
-    1023: {"super_category": 2, "category": 7, "sub_category": 34, "name": "미디/맥시"},
-    1273: {"super_category": 2, "category": 7, "sub_category": 35, "name": "드레스"},
+#     1022: {"super_category": 2, "category": 7, "sub_category": 33, "name": "미니"},
+#     1023: {"super_category": 2, "category": 7, "sub_category": 34, "name": "미디/맥시"},
+#     1273: {"super_category": 2, "category": 7, "sub_category": 35, "name": "드레스"},
     1045: {"super_category": 2, "category": 8, "sub_category": 36, "name": "올인원"},
     1046: {"super_category": 2, "category": 8, "sub_category": 37, "name": "점프수트"}
 }
 cnt = 0
 
 def db_insert(t, count):
-    sql="insert into products values(:1,:2,:3,:4,:5,:6,:7,:8,:9)"
-    curs.execute(sql,t)
-    print(cnt, "DB_INSERT1")
-    print(f"Insertion executed! {count}")
+    try:
+        print("db_insert")
+        curs.conn.cursor()
+        sql="insert into products values(:1, :2, :3, :4, :5, :6, :7, :8, :9)"
+        print("DB_INSERT1")
+        curs.execute(sql,t)
+        print("DB_INSERT2")
+        curs.close()
+        conn.commit()
+        print(f"Insertion executed! {count}")
+    except cx_Oracle.DatabaseError as e:
+        print(e)
+        
     cnt += 1
     conn.commit()
 
 def db_insert_no_sales(t, count):
-    sql="insert into Products(PRODUCT_ID,PRODUCT_NAME,PRICE_ORIGINAL, SUPER_CATEGORY, BASE_CATEGORY, SUB_CATEGORY, IMG_URL, PRODUCT_URL) values(:1,:2,:3,:4,:5,:6,:7,:8)"
+    print("2")
+    sql="insert into Products(PRODUCT_ID,PRODUCT_NAME,PRICE_ORIGINAL, SUPER_CATEGORY, BASE_CATEGORY, SUB_CATEGORY, IMG_URL, PRODUCT_URL) values(:1, :2, :4, :5, :6, :7, :8, :9)"
+    print("3")
     curs.execute(sql,t)
-    print(cnt, "DB_INSERT2")
-    print(f"Insertion executed! {count}")
+    print("4")
+    print("DB_INSERT2")
+    print(f"Insertion executed! {count}")       
     cnt += 1
     conn.commit()
 
@@ -156,9 +168,8 @@ def get_products1(category_dict, num, filepath):
             key = product_url.split('/')[-2]
             if key not in product_set:
                 try:
-                    flag_full = False
                     dict_post = { "product_url": product_url }
-                    dict_post['product_ID'] = key
+                    dict_post['product_ID'] = int(key)
                     dict_post['product_name'] = ele.find_element_by_class_name('product_name').find_element_by_tag_name('a').text
                     price_list_ele = ele.find_element_by_class_name('price').find_elements_by_css_selector('span')
                     price_1 = ele.find_element_by_class_name('price').find_elements_by_css_selector('span')[-1].text
@@ -166,7 +177,7 @@ def get_products1(category_dict, num, filepath):
                     if len(price_list_ele) >= 2:
                         price_2 = ele.find_element_by_class_name('price').find_elements_by_css_selector('span')[0].text
                         dict_post['price_discount'] = int(price_2.replace(',',"").split(' ')[-1])
-                        flag_full = True
+                        flag_full = "case2"
                     wait.until(EC.presence_of_element_located((By.CLASS_NAME, 'ImageLoader.ratio_1_1.loaded')))
                     ele_img = ele.find_element_by_class_name('ImageLoader.ratio_1_1.loaded')
                     dict_post["img_url"] = ele_img.get_attribute("src")
@@ -182,16 +193,26 @@ def get_products1(category_dict, num, filepath):
                         f.write(out)
                     cat_post_count +=1
                     
-                    if not flag_full:
-                    	t = (dict_post['product_ID'], dict_post['product_name'], dict_post['price_original'], dict_post['price_discount'],  dict_post['super_category'], dict_post["base_category"], dict_post["sub_category"], dict_post["img_url"], dict_post["product_url"])   
-                    	print("Test", t)
-                    	db_insert(t, cat_post_count)
-                    else:
+                    print(flag_full)
+                    
+                    
+                    print("test1")
+                    print("test1", dict_post['product_ID'], dict_post['product_name'], dict_post['price_original'], dict_post['price_discount'], dict_post["super_category"], dict_post["base_category"], dict_post["sub_category"], dict_post["img_url"], dict_post["product_url"])
+                    t = (dict_post['product_ID'], dict_post['product_name'], dict_post['price_original'], dict_post['price_discount'], dict_post['super_category'], dict_post["base_category"], dict_post["sub_category"], dict_post["img_url"], dict_post["product_url"])
+                    print(t)
+                    print("Test1", t)
+                    db_insert(t, cat_post_count)
+                    
+                    
+                    if flag_full == "case2":
+                        print("case2")
                         t = (dict_post['product_ID'], dict_post['product_name'], dict_post['price_original'], dict_post['super_category'], dict_post["base_category"], dict_post["sub_category"], dict_post["img_url"], dict_post["product_url"])
-                        print("Test", t)
-                        db_insert(t, cat_post_count)
+                        print("Test2", t)
+                        db_insert_no_sales(t, cat_post_count)
 
-                except: continue
+                except: 
+                    print("Exception")
+                    continue
                     
         print("saved {} items from {} section".format(cat_post_count, category_dict[cat]['name']))
    

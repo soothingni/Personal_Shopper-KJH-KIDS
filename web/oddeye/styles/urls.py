@@ -7,5 +7,5 @@ app_name = 'styles'
 
 urlpatterns = [
     path('', views.StylesList, name='styles'),
-    path('details/<star_name>', views.StarView.as_view()),
+    path('details/<star_name>', views.StarView.as_view(), name='detail_styles'),
 ]

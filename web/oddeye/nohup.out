@@ -136,3 +136,5 @@
 [W 10:35:13.979 NotebookApp] 403 GET /files/static/img/product/pro-3-1.jpg (222.107.238.15): Blocking request from unknown origin
 [W 10:35:13.980 NotebookApp] 403 GET /files/static/img/product/pro-3-1.jpg (222.107.238.15) 1.27ms referer=None
 [I 10:46:22.160 NotebookApp] Saving file at /templates/products/list.html
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader

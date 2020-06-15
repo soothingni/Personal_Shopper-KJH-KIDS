@@ -1,50 +1,52 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
-from django.contrib import auth
-from django.shortcuts import redirect
+from django.contrib.auth import authenticate, login
 # Create your views here.
 from .models import OddeyeUsers
+from .forms import RegisterForm, LoginForm
+from django.views.generic.edit import FormView
+from django.contrib.auth.hashers import make_password, check_password
+
 
 def home(req):
     return redirect('main')
 
-def login(req):
+class RegisterView(FormView):
+    template_name = "accounts/register.html"
+    form_class = RegisterForm
+    success_url = "/"
+
+    def form_valid(self, form):
+        oddeye_user = OddeyeUsers(
+            id = form.data.get('id'),
+            password = make_password(form.data.get('password')),
+        )
+        oddeye_user.save()
+
+        return super().form_valid(form)
+
+class LoginView(FormView):
+    template_name = "accounts/login.html"
+    form_class = LoginForm
+    success_url = "/"
+
+    # 세션 추가
+    def form_valid(self, form):
+        self.request.session['id'] = form.data.get('id')
 
 
+        user = authenticate(
+            id = form.data.get('id'),
+            password = form.data.get('password')
+        )
+        # user = auth.authenticate(id=form.data.get('id'), password=form.data.get('password'))
 
-
-
-    if req.method=="POST":
-        username=req.POST['username']
-        password=req.POST['password']
-        user= auth.authenticate(req, username=username, password=password)
-        if user is not None:
-            auth.login(req, user)
-            return redirect('main')
-        else:
-            return render(req, 'accounts/login.html', {'error': '아이디나 비밀번호가 일치하지 않습니다'})
-    else:
-        return render(req, 'accounts/login.html')
-
-    return render(req, 'accounts/login.html')
+        return super().form_valid(form)
 
 def logout(req):
     auth.logout(req)
     return redirect('main')
 
-def signup(req):
-    if req.method=='POST':
-        if req.POST['password1']==req.POST['password2']:
-            user=User.objects.create_user(
-                email=req.POST['email'],
-                username=req.POST['username'],
-                password=req.POST['password1']
-            )
-            auth.login(req, user, backend='django.contrib.auth.backends.ModelBackend')
-            return redirect('main')
-        return render(req, 'accounts/signup.html',{'error': '비밀번호가 일치하지 않습니다'})
-
-    return render(req, 'accounts/signup.html')
 
 def aboutus(req):
     return render(req, 'styles/aboutus.html')

@@ -112,7 +112,7 @@ style-detail
                 <div class="col">
                     <div class="product-details-content ml-70">
                     <h2 style="float:left; margin-right:10px">{{star_name|upper}}</h2>
-                    <a href="#" class=icons  data-toggle="tooltip" data-placement="bottom" title="Follow" style="font-size:18px;">
+                    <a href="#" class="icons likey"  data-toggle="tooltip" data-placement="bottom" title="Follow" style="font-size:18px;">
                         <i class="fa fa-heart-o icon-default fa-lg"></i>
                         <i class="fa fa-heart icon-hover fa-lg"></i>
                     </a>
@@ -138,16 +138,20 @@ style-detail
             </div>
             <div class="row other_styles mt-30 mb-30">
                 <div class="col-lg-3 col-xs-6">
-                    <a href="javascript: void(0)"><img id="01" class="circular--square" src='{% static "" %}star/{{star_name}}/thumb/{{styles.0.STYLE}}.jpg'></a>
+                    <a href="javascript: void(0)">
+                        <img id="01" name="{{ styles.NO }}" class="circular--square" src='{% static "" %}star/{{star_name}}/thumb/{{styles.0.STYLE}}.jpg'></a>
                 </div>
                 <div class="col-lg-3 col-xs-6">
-                    <a href="javascript: void(0)"><img id="02" class="circular--square" src='{% static "" %}star/{{star_name}}/thumb/{{styles.1.STYLE}}.jpg'></a>
+                    <a href="javascript: void(0)">
+                        <img id="02" name="{{ styles.NO }}" class="circular--square" src='{% static "" %}star/{{star_name}}/thumb/{{styles.1.STYLE}}.jpg'></a>
                 </div>
                 <div class="col-lg-3 col-xs-6">
-                    <a href="javascript: void(0)"><img id="03" class="circular--square" src='{% static "" %}star/{{star_name}}/thumb/{{styles.2.STYLE}}.jpg'></a>
+                    <a href="javascript: void(0)">
+                        <img id="03" name="{{ styles.NO }}" class="circular--square" src='{% static "" %}star/{{star_name}}/thumb/{{styles.2.STYLE}}.jpg'></a>
                 </div>
                 <div class="col-lg-3 col-xs-6">
-                    <a href="javascript: void(0)"><img id="04" class="circular--square" src='{% static "" %}star/{{star_name}}/thumb/{{styles.3.STYLE}}.jpg'></a>
+                    <a href="javascript: void(0)">
+                        <img id="04" name="{{ styles.NO }}" class="circular--square" src='{% static "" %}star/{{star_name}}/thumb/{{styles.3.STYLE}}.jpg'></a>
                 </div>
             </div>
         </div>
@@ -370,10 +374,10 @@ $(document).ready(function(){
     
 
     //style 마우스 오버 시 썸네일 바뀜 + 마우스 리브 시 썸네일 돌아옴 <-- 마우스리브 아직 못 함
-   $('.other_styles a img').mouseover(function(){
-       var go = $(this).attr('src');
-       $('#star_thumb').attr('src', go);
-   });
+   // $('.other_styles a img').mouseover(function(){
+   //     var go = $(this).attr('src');
+   //     $('#star_thumb').attr('src', go);
+   // });
     
     //style 클릭 시 썸네일 바뀌는 효과
        $('.other_styles a img').click(function(){
@@ -382,13 +386,14 @@ $(document).ready(function(){
            $('#star_thumb').attr('src', go).fadeIn(200);
        return false;
        });
-   });
+        });
     
         $('.other_styles a img').click(function(){
         var star_id = $(this).attr('id');
         var param = {star_id:star_id};
            $(".jquery_test").text(star_id)
-         });
+        $('.likey').attr('href',star_id)
+        });
 });
 
 </script>

@@ -33,10 +33,17 @@ Products List
                                                     <div class="product-title">
                                                         <h3><a href="{{item.PRODUCT_NAME}}" data-toggle="modal" data-target="#exampleModal{{item.PRODUCT_ID}}">{{item.PRODUCT_NAME}}</a></h3>
                                                     </div>
+                                                    {% if item.PRICE_DISCOUNT_COMMA != None%}
                                                     <div class="price-3">
                                                         <span>₩ {{item.PRICE_DISCOUNT_COMMA}}</span>
                                                         <span class="old">₩{{item.PRICE_ORIGINAL_COMMA}}</span>
                                                     </div>
+
+                                                      {% else %}
+                                                    <div class="price-3">
+                                                        <span>₩ {{item.PRICE_ORIGINAL_COMMA}}</span>
+                                                    </div>
+                                                    {% endif %}
                                                     <div class="product-action-3">
                                                         <a title="Add To Cart" href="#"><i class="fa fa-heart"></i></a>
                                                         <a title="Quick View" href="{{item.PRODUCT_URL}}" data-toggle="modal" data-target="#exampleModal{{item.PRODUCT_ID}}"><i class="fa fa-eye"></i></a>
@@ -143,8 +150,13 @@ Products List
                                         <div class="shop-list-content">
                                             <h3><a href="#">Products Name Here</a></h3>
                                             <div class="product-list-price">
-                                                <span>₩{{item.PRICE_DISCOUNT_COMMA}}</span>
-                                                <span class="old">₩{{PRICE_ORIGINAL_COMMA}}</span>
+                                                {% if item.PRICE_DISCOUNT_COMMA != None%}
+                                                <span>₩ {{item.PRICE_DISCOUNT_COMMA}}</span>
+                                                <span class="old">₩{{item.PRICE_ORIGINAL_COMMA}}</span>
+
+                                                {% else %}
+                                                <span>₩ {{item.PRICE_ORIGINAL_COMMA}}</span>
+                                                {% endif %}
                                             </div>
                                             <div class="rating-review">
                                                 <div class="product-list-rating">
@@ -314,8 +326,13 @@ Products List
                             <div class="product-details-content quickview-content">
                                 <h2>{{item.PRODUCT_NAME}}</h2>
                                 <div class="product-details-price">
-                                    <span>₩{{item.PRICE_DISCOUNT_COMMA}}</span>
-                                    <span class="old">₩{{item.PRICE_ORIGINAL_COMMA}} </span>
+                                    {% if item.PRICE_DISCOUNT_COMMA != None%}
+                                    <span>₩ {{item.PRICE_DISCOUNT_COMMA}}</span>
+                                    <span class="old">₩{{item.PRICE_ORIGINAL_COMMA}}</span>
+
+                                    {% else %}
+                                    <span>₩ {{item.PRICE_ORIGINAL_COMMA}}</span>
+                                    {% endif %}
                                 </div>
 
 

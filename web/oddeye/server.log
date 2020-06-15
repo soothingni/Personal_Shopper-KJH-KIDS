@@ -1,0 +1,1291 @@
+Watching for file changes with StatReloader
+[14/Jun/2020 11:52:24] "GET / HTTP/1.1" 200 20466
+[14/Jun/2020 11:52:24] "GET /static/step1/img/cart/cart-2.png HTTP/1.1" 404 1706
+[14/Jun/2020 11:52:24] "GET /static/step1/img/cart/cart-1.png HTTP/1.1" 404 1706
+[14/Jun/2020 11:52:25] "GET /static/favicon.png HTTP/1.1" 200 43138
+[14/Jun/2020 11:52:25] "GET / HTTP/1.1" 200 20466
+[14/Jun/2020 11:52:25] "GET /static/step1/img/cart/cart-1.png HTTP/1.1" 404 1706
+[14/Jun/2020 11:52:25] "GET /static/step1/img/cart/cart-2.png HTTP/1.1" 404 1706
+[14/Jun/2020 11:52:25] "GET /static/favicon.png HTTP/1.1" 200 43138
+[14/Jun/2020 11:52:25] "GET / HTTP/1.1" 200 20466
+[14/Jun/2020 11:52:25] "GET /static/step1/img/cart/cart-1.png HTTP/1.1" 404 1706
+[14/Jun/2020 11:52:25] "GET /static/step1/img/cart/cart-2.png HTTP/1.1" 404 1706
+[14/Jun/2020 11:52:26] "GET / HTTP/1.1" 200 20466
+[14/Jun/2020 11:52:26] "GET /static/step1/img/cart/cart-1.png HTTP/1.1" 404 1706
+[14/Jun/2020 11:52:26] "GET /static/step1/img/cart/cart-2.png HTTP/1.1" 404 1706
+[14/Jun/2020 11:52:26] "GET /static/favicon.png HTTP/1.1" 200 43138
+Invalid HTTP_HOST header: ''. The domain name provided is not valid according to RFC 1034/1035.
+Bad Request: /script
+[14/Jun/2020 11:56:09] "GET /script HTTP/1.1" 400 66340
+[14/Jun/2020 12:09:37] "GET / HTTP/1.1" 200 20464
+Invalid HTTP_HOST header: ''. The domain name provided is not valid according to RFC 1034/1035.
+Bad Request: /manager/html
+[14/Jun/2020 12:19:15] "GET /manager/html HTTP/1.1" 400 66403
+Invalid HTTP_HOST header: ''. The domain name provided is not valid according to RFC 1034/1035.
+Bad Request: /script
+[14/Jun/2020 12:46:06] "GET /script HTTP/1.1" 400 66340
+Invalid HTTP_HOST header: ''. The domain name provided is not valid according to RFC 1034/1035.
+Bad Request: /manager/html
+[14/Jun/2020 12:56:09] "GET /manager/html HTTP/1.1" 400 66405
+[14/Jun/2020 13:21:06] "GET / HTTP/1.1" 200 20466
+[14/Jun/2020 13:21:07] "GET /static/step1/img/cart/cart-1.png HTTP/1.1" 404 1706
+[14/Jun/2020 13:21:07] "GET /static/step1/img/cart/cart-2.png HTTP/1.1" 404 1706
+[14/Jun/2020 13:21:07] "GET /static/favicon.png HTTP/1.1" 200 43138
+[14/Jun/2020 13:21:15] "GET /styles/ HTTP/1.1" 200 63856
+[14/Jun/2020 13:21:15] "GET /static/step1/img/cart/cart-1.png HTTP/1.1" 404 1706
+[14/Jun/2020 13:21:15] "GET /static/step1/img/cart/cart-2.png HTTP/1.1" 404 1706
+[14/Jun/2020 13:21:16] "GET /static/img/product/quickview-l1.jpg HTTP/1.1" 404 1715
+[14/Jun/2020 13:21:16] "GET /static/img/product/quickview-l3.jpg HTTP/1.1" 404 1715
+[14/Jun/2020 13:21:16] "GET /static/img/product/quickview-s2.jpg HTTP/1.1" 404 1715
+[14/Jun/2020 13:21:16] "GET /static/img/product/quickview-s3.jpg HTTP/1.1" 404 1715
+[14/Jun/2020 13:21:16] "GET /static/img/product/quickview-s1.jpg HTTP/1.1" 404 1715
+[14/Jun/2020 13:21:16] "GET /static/img/product/quickview-l2.jpg HTTP/1.1" 404 1715
+[14/Jun/2020 13:21:16] "GET /products/ HTTP/1.1" 200 28036
+[14/Jun/2020 13:21:16] "GET /static/step1/img/cart/cart-1.png HTTP/1.1" 404 1706
+[14/Jun/2020 13:21:16] "GET /static/step1/img/cart/cart-2.png HTTP/1.1" 404 1706
+[14/Jun/2020 13:21:18] "GET /styles/ HTTP/1.1" 200 63856
+[14/Jun/2020 13:21:18] "GET /static/step1/img/cart/cart-2.png HTTP/1.1" 404 1706
+[14/Jun/2020 13:21:18] "GET /static/step1/img/cart/cart-1.png HTTP/1.1" 404 1706
+[14/Jun/2020 13:21:18] "GET /static/img/product/quickview-l1.jpg HTTP/1.1" 404 1715
+[14/Jun/2020 13:21:18] "GET /static/img/product/quickview-s2.jpg HTTP/1.1" 404 1715
+[14/Jun/2020 13:21:18] "GET /static/img/product/quickview-l3.jpg HTTP/1.1" 404 1715
+[14/Jun/2020 13:21:18] "GET /static/img/product/quickview-l2.jpg HTTP/1.1" 404 1715
+[14/Jun/2020 13:21:18] "GET /static/img/product/quickview-s1.jpg HTTP/1.1" 404 1715
+[14/Jun/2020 13:21:18] "GET /static/img/product/quickview-s3.jpg HTTP/1.1" 404 1715
+[14/Jun/2020 13:22:14] "GET /styles/?page=2 HTTP/1.1" 200 63843
+[14/Jun/2020 13:22:14] "GET /static/step1/img/cart/cart-1.png HTTP/1.1" 404 1706
+[14/Jun/2020 13:22:14] "GET /static/step1/img/cart/cart-2.png HTTP/1.1" 404 1706
+[14/Jun/2020 13:22:14] "GET /static/star/jennie/thumb/2.jpg HTTP/1.1" 200 42381
+[14/Jun/2020 13:22:14] "GET /static/star/suzy/thumb/4.jpg HTTP/1.1" 200 246376
+[14/Jun/2020 13:22:14] "GET /static/star/joy/thumb/3.jpg HTTP/1.1" 200 229153
+[14/Jun/2020 13:22:14] "GET /static/star/soojin/thumb/2.jpg HTTP/1.1" 200 290868
+[14/Jun/2020 13:22:14] "GET /static/img/product/quickview-l1.jpg HTTP/1.1" 404 1715
+[14/Jun/2020 13:22:14] "GET /static/star/seulgi/thumb/3.jpg HTTP/1.1" 200 328674
+[14/Jun/2020 13:22:14] "GET /static/img/product/quickview-l2.jpg HTTP/1.1" 404 1715
+[14/Jun/2020 13:22:14] "GET /static/img/product/quickview-l3.jpg HTTP/1.1" 404 1715
+[14/Jun/2020 13:22:14] "GET /static/img/product/quickview-s1.jpg HTTP/1.1" 404 1715
+[14/Jun/2020 13:22:14] "GET /static/img/product/quickview-s2.jpg HTTP/1.1" 404 1715
+[14/Jun/2020 13:22:14] "GET /static/img/product/quickview-s3.jpg HTTP/1.1" 404 1715
+[14/Jun/2020 13:22:15] "GET /static/star/iu/thumb/1.jpg HTTP/1.1" 200 4283637
+[14/Jun/2020 13:22:30] "GET /styles/details/irene HTTP/1.1" 200 142605
+[14/Jun/2020 13:22:30] "GET /static/step1/img/cart/cart-1.png HTTP/1.1" 404 1706
+[14/Jun/2020 13:22:30] "GET /static/step1/img/cart/cart-2.png HTTP/1.1" 404 1706
+[14/Jun/2020 13:22:30] "GET /static/star/irene/thumb/1.jpg HTTP/1.1" 200 71479
+[14/Jun/2020 13:22:30] "GET /static/star/irene/thumb/2.jpg HTTP/1.1" 200 137967
+Not Found: /styles/details/assets/img/product/quickview-l1.jpg
+[14/Jun/2020 13:22:30] "GET /styles/details/assets/img/product/quickview-l1.jpg HTTP/1.1" 404 2897
+Not Found: /styles/details/assets/img/product/quickview-l3.jpg
+[14/Jun/2020 13:22:30] "GET /styles/details/assets/img/product/quickview-l3.jpg HTTP/1.1" 404 2897
+Not Found: /styles/details/assets/img/product/quickview-s1.jpg
+[14/Jun/2020 13:22:30] "GET /static/star/irene/thumb/4.jpg HTTP/1.1" 200 75475
+[14/Jun/2020 13:22:30] "GET /styles/details/assets/img/product/quickview-s1.jpg HTTP/1.1" 404 2897
+Not Found: /styles/details/assets/img/product/quickview-l2.jpg
+[14/Jun/2020 13:22:30] "GET /styles/details/assets/img/product/quickview-l2.jpg HTTP/1.1" 404 2897
+Not Found: /styles/details/assets/img/product/quickview-s2.jpg
+[14/Jun/2020 13:22:30] "GET /styles/details/assets/img/product/quickview-s2.jpg HTTP/1.1" 404 2897
+Not Found: /styles/details/assets/img/product/quickview-s3.jpg
+[14/Jun/2020 13:22:30] "GET /styles/details/assets/img/product/quickview-s3.jpg HTTP/1.1" 404 2897
+Invalid HTTP_HOST header: ''. The domain name provided is not valid according to RFC 1034/1035.
+Bad Request: /script
+[14/Jun/2020 13:33:21] "GET /script HTTP/1.1" 400 66340
+Traceback (most recent call last):
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/wsgiref/handlers.py", line 138, in run
+    self.finish_response()
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/wsgiref/handlers.py", line 180, in finish_response
+    self.write(data)
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/wsgiref/handlers.py", line 279, in write
+    self._write(data)
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/wsgiref/handlers.py", line 453, in _write
+    result = self.stdout.write(data)
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/socketserver.py", line 775, in write
+    self._sock.sendall(b)
+ConnectionResetError: [Errno 104] Connection reset by peer
+[14/Jun/2020 13:33:21] "GET /script HTTP/1.1" 500 59
+----------------------------------------
+Exception happened during processing of request from ('205.185.123.189', 45872)
+Traceback (most recent call last):
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/wsgiref/handlers.py", line 138, in run
+    self.finish_response()
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/wsgiref/handlers.py", line 180, in finish_response
+    self.write(data)
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/wsgiref/handlers.py", line 279, in write
+    self._write(data)
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/wsgiref/handlers.py", line 453, in _write
+    result = self.stdout.write(data)
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/socketserver.py", line 775, in write
+    self._sock.sendall(b)
+ConnectionResetError: [Errno 104] Connection reset by peer
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/wsgiref/handlers.py", line 141, in run
+    self.handle_error()
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/site-packages/django/core/servers/basehttp.py", line 119, in handle_error
+    super().handle_error()
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/wsgiref/handlers.py", line 368, in handle_error
+    self.finish_response()
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/wsgiref/handlers.py", line 180, in finish_response
+    self.write(data)
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/wsgiref/handlers.py", line 274, in write
+    self.send_headers()
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/wsgiref/handlers.py", line 331, in send_headers
+    if not self.origin_server or self.client_is_modern():
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/wsgiref/handlers.py", line 344, in client_is_modern
+    return self.environ['SERVER_PROTOCOL'].upper() != 'HTTP/0.9'
+TypeError: 'NoneType' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/socketserver.py", line 639, in process_request_thread
+    self.finish_request(request, client_address)
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/socketserver.py", line 361, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/socketserver.py", line 696, in __init__
+    self.handle()
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/site-packages/django/core/servers/basehttp.py", line 172, in handle
+    self.handle_one_request()
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/site-packages/django/core/servers/basehttp.py", line 197, in handle_one_request
+    handler.run(self.server.get_app())
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/wsgiref/handlers.py", line 144, in run
+    self.close()
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/site-packages/django/core/servers/basehttp.py", line 114, in close
+    super().close()
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/wsgiref/simple_server.py", line 35, in close
+    self.status.split(' ',1)[0], self.bytes_sent
+AttributeError: 'NoneType' object has no attribute 'split'
+----------------------------------------
+Invalid HTTP_HOST header: ''. The domain name provided is not valid according to RFC 1034/1035.
+Bad Request: /manager/html
+[14/Jun/2020 13:45:48] "GET /manager/html HTTP/1.1" 400 66403
+[14/Jun/2020 14:09:13] "GET / HTTP/1.1" 200 20464
+[14/Jun/2020 14:09:13] "GET /static/css/icons.min.css HTTP/1.1" 200 37273
+[14/Jun/2020 14:09:13] "GET /static/css/plugins.css HTTP/1.1" 200 57778
+[14/Jun/2020 14:09:13] "GET /static/js/vendor/modernizr-2.8.3.min.js HTTP/1.1" 200 15514
+[14/Jun/2020 14:09:13] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 159515
+[14/Jun/2020 14:09:13] "GET /static/js/vendor/jquery-v3.4.1.min.js HTTP/1.1" 200 88145
+[14/Jun/2020 14:09:13] "GET /static/js/popper.min.js HTTP/1.1" 200 18994
+[14/Jun/2020 14:09:13] "GET /static/css/style.css HTTP/1.1" 200 359125
+[14/Jun/2020 14:09:13] "GET /static/js/bootstrap.min.js HTTP/1.1" 200 60010
+[14/Jun/2020 14:09:13] "GET /static/js/ajax-mail.js HTTP/1.1" 200 1201
+[14/Jun/2020 14:09:13] "GET /static/js/main.js HTTP/1.1" 200 20635
+[14/Jun/2020 14:09:13] "GET /static/js/jquery.simplyscroll.js HTTP/1.1" 200 14476
+[14/Jun/2020 14:09:13] "GET /static/css/jquery.simplyscroll.css HTTP/1.1" 200 4792
+[14/Jun/2020 14:09:13] "GET /static/js/plugins.js HTTP/1.1" 200 339212
+[14/Jun/2020 14:09:13] "GET /static/step1/img/cart/cart-1.png HTTP/1.1" 404 1706
+[14/Jun/2020 14:09:13] "GET /static/logo_long.png HTTP/1.1" 200 82935
+[14/Jun/2020 14:09:13] "GET /static/step1/img/cart/cart-2.png HTTP/1.1" 404 1706
+[14/Jun/2020 14:09:13] "GET /static/step1/hyuna.png HTTP/1.1" 200 168977
+[14/Jun/2020 14:09:13] "GET /static/step1/yerin.png HTTP/1.1" 200 322190
+[14/Jun/2020 14:09:13] "GET /static/step1/iu.png HTTP/1.1" 200 198481
+[14/Jun/2020 14:09:13] "GET /static/step1/irene.png HTTP/1.1" 200 120803
+[14/Jun/2020 14:09:13] "GET /static/step1/sunmi.png HTTP/1.1" 200 244983
+[14/Jun/2020 14:09:14] "GET /static/step1/star_thumbnails/irene_01.png HTTP/1.1" 200 105286
+[14/Jun/2020 14:09:14] "GET /static/step1/jennie.png HTTP/1.1" 200 244670
+[14/Jun/2020 14:09:14] "GET /static/step1/star_thumbnails/iu_01.png HTTP/1.1" 200 387526
+[14/Jun/2020 14:09:14] "GET /static/step1/star_thumbnails/sunmi_01.png HTTP/1.1" 200 300366
+[14/Jun/2020 14:09:14] "GET /static/step1/star_thumbnails/junhee_01.png HTTP/1.1" 200 323062
+[14/Jun/2020 14:09:14] "GET /static/step1/star_thumbnails/iu_02.png HTTP/1.1" 200 57377
+[14/Jun/2020 14:09:14] "GET /static/step1/star_thumbnails/hyuna_01.png HTTP/1.1" 200 266880
+[14/Jun/2020 14:09:14] "GET /static/step1/star_thumbnails/iu_04.png HTTP/1.1" 200 145339
+[14/Jun/2020 14:09:14] "GET /static/step1/star_thumbnails/jennie_01.png HTTP/1.1" 200 332198
+[14/Jun/2020 14:09:14] "GET /static/step1/star_thumbnails/iu_03.png HTTP/1.1" 200 488512
+[14/Jun/2020 14:09:14] "GET /static/step1/star_thumbnails/suzy_01.png HTTP/1.1" 200 159284
+[14/Jun/2020 14:09:14] "GET /static/step1/star_thumbnails/joy_01.png HTTP/1.1" 200 268009
+[14/Jun/2020 14:09:14] "GET /static/step1/star_thumbnails/iu_05.png HTTP/1.1" 200 387526
+[14/Jun/2020 14:09:14] "GET /static/logo_final.png HTTP/1.1" 200 79765
+[14/Jun/2020 14:09:14] "GET /static/step1/img/cart/cart-2.png HTTP/1.1" 404 1706
+[14/Jun/2020 14:09:14] "GET /static/step1/img/cart/cart-1.png HTTP/1.1" 404 1706
+[14/Jun/2020 14:09:14] "GET /static/step1/star_thumbnails/seoulgi_01.png HTTP/1.1" 200 842615
+[14/Jun/2020 14:09:14] "GET /static/fonts/fontawesome-webfont.woff2?v=4.5.0 HTTP/1.1" 200 66624
+[14/Jun/2020 14:09:14] "GET /static/fonts/Pe-icon-7-stroke.woff?d7yf1v HTTP/1.1" 200 58556
+[14/Jun/2020 14:09:15] "GET /static/step1/star_thumbnails/yerin_01.png HTTP/1.1" 200 6224460
+[14/Jun/2020 14:09:15] "GET /static/favicon.png HTTP/1.1" 200 43138
+[14/Jun/2020 14:09:17] "GET /products/ HTTP/1.1" 200 28034
+[14/Jun/2020 14:09:17] "GET /static/step1/img/cart/cart-1.png HTTP/1.1" 404 1706
+[14/Jun/2020 14:09:17] "GET /static/step1/img/cart/cart-2.png HTTP/1.1" 404 1706
+[14/Jun/2020 14:09:17] "GET /static/img/product/pro-1-1.jpg HTTP/1.1" 404 1700
+[14/Jun/2020 14:09:17] "GET /static/img/product/pro-1.jpg HTTP/1.1" 404 1694
+[14/Jun/2020 14:09:17] "GET /static/img/product/pro-2.jpg HTTP/1.1" 404 1694
+[14/Jun/2020 14:09:17] "GET /static/img/product/pro-2-1.jpg HTTP/1.1" 404 1700
+[14/Jun/2020 14:09:18] "GET /static/img/product/pro-3-1.jpg HTTP/1.1" 404 1700
+[14/Jun/2020 14:09:18] "GET /static/img/product/pro-3.jpg HTTP/1.1" 404 1694
+[14/Jun/2020 14:09:18] "GET /static/img/product/pro-7.jpg HTTP/1.1" 404 1694
+[14/Jun/2020 14:09:18] "GET /static/img/product/pro-4-1.jpg HTTP/1.1" 404 1700
+[14/Jun/2020 14:09:23] "GET /styles/ HTTP/1.1" 200 63854
+[14/Jun/2020 14:09:23] "GET /static/step1/img/cart/cart-1.png HTTP/1.1" 404 1706
+[14/Jun/2020 14:09:23] "GET /static/star/goeun/thumb/4.jpg HTTP/1.1" 200 70381
+[14/Jun/2020 14:09:23] "GET /static/step1/img/cart/cart-2.png HTTP/1.1" 404 1706
+[14/Jun/2020 14:09:23] "GET /static/star/hyuna/thumb/1.jpg HTTP/1.1" 200 117769
+[14/Jun/2020 14:09:23] "GET /static/star/hyojin/thumb/3.jpg HTTP/1.1" 200 294656
+[14/Jun/2020 14:09:23] "GET /static/star/irene/thumb/3.jpg HTTP/1.1" 200 223812
+[14/Jun/2020 14:09:23] "GET /static/star/dahee/thumb/3.jpg HTTP/1.1" 200 501720
+[14/Jun/2020 14:09:23] "GET /static/star/hani/thumb/1.jpg HTTP/1.1" 200 386887
+[14/Jun/2020 14:09:23] "GET /static/img/product/quickview-l1.jpg HTTP/1.1" 404 1715
+[14/Jun/2020 14:09:23] "GET /static/img/product/quickview-l3.jpg HTTP/1.1" 404 1715
+[14/Jun/2020 14:09:23] "GET /static/img/product/quickview-l2.jpg HTTP/1.1" 404 1715
+[14/Jun/2020 14:09:23] "GET /static/img/product/quickview-s1.jpg HTTP/1.1" 404 1715
+[14/Jun/2020 14:09:23] "GET /static/img/product/quickview-s2.jpg HTTP/1.1" 404 1715
+[14/Jun/2020 14:09:23] "GET /static/img/icon-img/select.png HTTP/1.1" 200 128
+[14/Jun/2020 14:09:24] "GET /static/img/product/quickview-s3.jpg HTTP/1.1" 404 1715
+[14/Jun/2020 14:09:36] "GET /styles/?page=2 HTTP/1.1" 200 63841
+[14/Jun/2020 14:09:36] "GET /static/step1/img/cart/cart-1.png HTTP/1.1" 404 1706
+[14/Jun/2020 14:09:36] "GET /static/step1/img/cart/cart-2.png HTTP/1.1" 404 1706
+[14/Jun/2020 14:09:36] "GET /static/star/jennie/thumb/2.jpg HTTP/1.1" 200 42381
+[14/Jun/2020 14:09:36] "GET /static/star/joy/thumb/3.jpg HTTP/1.1" 200 229153
+[14/Jun/2020 14:09:36] "GET /static/star/soojin/thumb/2.jpg HTTP/1.1" 200 290868
+[14/Jun/2020 14:09:37] "GET /static/star/seulgi/thumb/3.jpg HTTP/1.1" 200 328674
+[14/Jun/2020 14:09:37] "GET /static/img/product/quickview-l1.jpg HTTP/1.1" 404 1715
+[14/Jun/2020 14:09:37] "GET /static/star/suzy/thumb/4.jpg HTTP/1.1" 200 246376
+[14/Jun/2020 14:09:37] "GET /static/img/product/quickview-l2.jpg HTTP/1.1" 404 1715
+[14/Jun/2020 14:09:37] "GET /static/img/product/quickview-l3.jpg HTTP/1.1" 404 1715
+[14/Jun/2020 14:09:37] "GET /static/img/product/quickview-s1.jpg HTTP/1.1" 404 1715
+[14/Jun/2020 14:09:37] "GET /static/img/product/quickview-s2.jpg HTTP/1.1" 404 1715
+[14/Jun/2020 14:09:37] "GET /static/img/product/quickview-s3.jpg HTTP/1.1" 404 1715
+[14/Jun/2020 14:09:38] "GET /static/star/iu/thumb/1.jpg HTTP/1.1" 200 4283637
+Invalid HTTP_HOST header: ''. The domain name provided is not valid according to RFC 1034/1035.
+Bad Request: /script
+[14/Jun/2020 14:23:51] "GET /script HTTP/1.1" 400 66340
+Invalid HTTP_HOST header: ''. The domain name provided is not valid according to RFC 1034/1035.
+Bad Request: /manager/html
+[14/Jun/2020 14:29:48] "GET /manager/html HTTP/1.1" 400 66405
+Invalid HTTP_HOST header: ''. The domain name provided is not valid according to RFC 1034/1035.
+Bad Request: /script
+[14/Jun/2020 14:49:27] "GET /script HTTP/1.1" 400 66337
+Invalid HTTP_HOST header: ''. The domain name provided is not valid according to RFC 1034/1035.
+Bad Request: /manager/html
+[14/Jun/2020 15:07:19] "GET /manager/html HTTP/1.1" 400 66405
+Invalid HTTP_HOST header: ''. The domain name provided is not valid according to RFC 1034/1035.
+Bad Request: /script
+[14/Jun/2020 15:12:51] "GET /script HTTP/1.1" 400 66340
+Invalid HTTP_HOST header: ''. The domain name provided is not valid according to RFC 1034/1035.
+Bad Request: /script
+[14/Jun/2020 15:30:11] "GET /script HTTP/1.1" 400 66336
+Invalid HTTP_HOST header: ''. The domain name provided is not valid according to RFC 1034/1035.
+Bad Request: /manager/html
+[14/Jun/2020 16:02:05] "GET /manager/html HTTP/1.1" 400 66405
+[14/Jun/2020 16:14:50] "GET / HTTP/1.1" 200 20464
+----------------------------------------
+Exception happened during processing of request from ('192.35.168.241', 47566)
+Traceback (most recent call last):
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/socketserver.py", line 639, in process_request_thread
+    self.finish_request(request, client_address)
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/socketserver.py", line 361, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/socketserver.py", line 696, in __init__
+    self.handle()
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/site-packages/django/core/servers/basehttp.py", line 174, in handle
+    self.handle_one_request()
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/site-packages/django/core/servers/basehttp.py", line 182, in handle_one_request
+    self.raw_requestline = self.rfile.readline(65537)
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/socket.py", line 586, in readinto
+    return self._sock.recv_into(b)
+ConnectionResetError: [Errno 104] Connection reset by peer
+----------------------------------------
+[14/Jun/2020 16:14:51] "GET / HTTP/1.1" 200 20464
+Invalid HTTP_HOST header: ''. The domain name provided is not valid according to RFC 1034/1035.
+Bad Request: /manager/html
+[14/Jun/2020 16:17:14] "GET /manager/html HTTP/1.1" 400 66403
+/root/Personal_Shopper-KJH-KIDS/web/oddeye/products/models.py changed, reloading.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 14, 2020 - 11:52:22
+Django version 3.0.6, using settings 'oddeye.settings'
+Starting development server at http://0.0.0.0:8080/
+Quit the server with CONTROL-C.
+[{'STYLE': 1, 'LIKEY': 4, 'TAG': '미니멀'}, {'STYLE': 2, 'LIKEY': 4, 'TAG': '센슈얼'}, {'STYLE': 4, 'LIKEY': 16, 'TAG': '에스닉'}, {'STYLE': 3, 'LIKEY': 47, 'TAG': '페미닌'}]
+Watching for file changes with StatReloader
+Exception in thread django-main-thread:
+Traceback (most recent call last):
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/threading.py", line 916, in _bootstrap_inner
+    self.run()
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/threading.py", line 864, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/site-packages/django/utils/autoreload.py", line 53, in wrapper
+    fn(*args, **kwargs)
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/site-packages/django/core/management/commands/runserver.py", line 109, in inner_run
+    autoreload.raise_last_exception()
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/site-packages/django/utils/autoreload.py", line 76, in raise_last_exception
+    raise _exception[1]
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/site-packages/django/core/management/__init__.py", line 357, in execute
+    autoreload.check_errors(django.setup)()
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/site-packages/django/utils/autoreload.py", line 53, in wrapper
+    fn(*args, **kwargs)
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/site-packages/django/__init__.py", line 24, in setup
+    apps.populate(settings.INSTALLED_APPS)
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/site-packages/django/apps/registry.py", line 122, in populate
+    app_config.ready()
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/site-packages/django/contrib/admin/apps.py", line 24, in ready
+    self.module.autodiscover()
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/site-packages/django/contrib/admin/__init__.py", line 26, in autodiscover
+    autodiscover_modules('admin', register_to=site)
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/site-packages/django/utils/module_loading.py", line 47, in autodiscover_modules
+    import_module('%s.%s' % (app_config.name, module_to_search))
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 955, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 665, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 678, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/root/Personal_Shopper-KJH-KIDS/web/oddeye/products/admin.py", line 2, in <module>
+    from .models import Products, ProductsEmbedding
+ImportError: cannot import name 'Products'
+
+/root/Personal_Shopper-KJH-KIDS/web/oddeye/products/admin.py changed, reloading.
+Watching for file changes with StatReloader
+/root/Personal_Shopper-KJH-KIDS/web/oddeye/products/admin.py changed, reloading.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 14, 2020 - 16:43:03
+Django version 3.0.6, using settings 'oddeye.settings'
+Starting development server at http://0.0.0.0:8080/
+Quit the server with CONTROL-C.
+Watching for file changes with StatReloader
+Exception in thread django-main-thread:
+Traceback (most recent call last):
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/threading.py", line 916, in _bootstrap_inner
+    self.run()
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/threading.py", line 864, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/site-packages/django/utils/autoreload.py", line 53, in wrapper
+    fn(*args, **kwargs)
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/site-packages/django/core/management/commands/runserver.py", line 109, in inner_run
+    autoreload.raise_last_exception()
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/site-packages/django/utils/autoreload.py", line 76, in raise_last_exception
+    raise _exception[1]
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/site-packages/django/core/management/__init__.py", line 357, in execute
+    autoreload.check_errors(django.setup)()
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/site-packages/django/utils/autoreload.py", line 53, in wrapper
+    fn(*args, **kwargs)
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/site-packages/django/__init__.py", line 24, in setup
+    apps.populate(settings.INSTALLED_APPS)
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/site-packages/django/apps/registry.py", line 122, in populate
+    app_config.ready()
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/site-packages/django/contrib/admin/apps.py", line 24, in ready
+    self.module.autodiscover()
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/site-packages/django/contrib/admin/__init__.py", line 26, in autodiscover
+    autodiscover_modules('admin', register_to=site)
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/site-packages/django/utils/module_loading.py", line 47, in autodiscover_modules
+    import_module('%s.%s' % (app_config.name, module_to_search))
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 955, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 665, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 678, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/root/Personal_Shopper-KJH-KIDS/web/oddeye/products/admin.py", line 2, in <module>
+    from .models import Products, ProductsEmbedding
+ImportError: cannot import name 'Products'
+
+/root/Personal_Shopper-KJH-KIDS/web/oddeye/products/models.py changed, reloading.
+Watching for file changes with StatReloader
+/root/Personal_Shopper-KJH-KIDS/web/oddeye/products/admin.py changed, reloading.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 14, 2020 - 16:50:04
+Django version 3.0.6, using settings 'oddeye.settings'
+Starting development server at http://0.0.0.0:8080/
+Quit the server with CONTROL-C.
+Watching for file changes with StatReloader
+/root/Personal_Shopper-KJH-KIDS/web/oddeye/products/models.py changed, reloading.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 14, 2020 - 16:57:03
+Django version 3.0.6, using settings 'oddeye.settings'
+Starting development server at http://0.0.0.0:8080/
+Quit the server with CONTROL-C.
+Watching for file changes with StatReloader
+/root/Personal_Shopper-KJH-KIDS/web/oddeye/products/models.py changed, reloading.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 14, 2020 - 16:57:09
+Django version 3.0.6, using settings 'oddeye.settings'
+Starting development server at http://0.0.0.0:8080/
+Quit the server with CONTROL-C.
+Watching for file changes with StatReloader
+/root/Personal_Shopper-KJH-KIDS/web/oddeye/products/admin.py changed, reloading.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 14, 2020 - 16:57:29
+Django version 3.0.6, using settings 'oddeye.settings'
+Starting development server at http://0.0.0.0:8080/
+Quit the server with CONTROL-C.
+Watching for file changes with StatReloader
+Invalid HTTP_HOST header: ''. The domain name provided is not valid according to RFC 1034/1035.
+Bad Request: /script
+[14/Jun/2020 17:05:34] "GET /script HTTP/1.1" 400 66340
+Invalid HTTP_HOST header: ''. The domain name provided is not valid according to RFC 1034/1035.
+Bad Request: /manager/html
+[14/Jun/2020 17:20:30] "GET /manager/html HTTP/1.1" 400 66403
+[14/Jun/2020 17:25:33] "GET / HTTP/1.0" 200 20464
+/root/Personal_Shopper-KJH-KIDS/web/oddeye/products/admin.py changed, reloading.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 14, 2020 - 16:57:33
+Django version 3.0.6, using settings 'oddeye.settings'
+Starting development server at http://0.0.0.0:8080/
+Quit the server with CONTROL-C.
+Watching for file changes with StatReloader
+/root/Personal_Shopper-KJH-KIDS/web/oddeye/products/models.py changed, reloading.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 14, 2020 - 17:40:03
+Django version 3.0.6, using settings 'oddeye.settings'
+Starting development server at http://0.0.0.0:8080/
+Quit the server with CONTROL-C.
+Watching for file changes with StatReloader
+/root/Personal_Shopper-KJH-KIDS/web/oddeye/products/models.py changed, reloading.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 14, 2020 - 17:40:06
+Django version 3.0.6, using settings 'oddeye.settings'
+Starting development server at http://0.0.0.0:8080/
+Quit the server with CONTROL-C.
+Watching for file changes with StatReloader
+/root/Personal_Shopper-KJH-KIDS/web/oddeye/products/admin.py changed, reloading.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 14, 2020 - 17:40:27
+Django version 3.0.6, using settings 'oddeye.settings'
+Starting development server at http://0.0.0.0:8080/
+Quit the server with CONTROL-C.
+Watching for file changes with StatReloader
+/root/Personal_Shopper-KJH-KIDS/web/oddeye/products/admin.py changed, reloading.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 14, 2020 - 17:40:31
+Django version 3.0.6, using settings 'oddeye.settings'
+Starting development server at http://0.0.0.0:8080/
+Quit the server with CONTROL-C.
+Watching for file changes with StatReloader
+/root/Personal_Shopper-KJH-KIDS/web/oddeye/products/models.py changed, reloading.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 14, 2020 - 17:40:34
+Django version 3.0.6, using settings 'oddeye.settings'
+Starting development server at http://0.0.0.0:8080/
+Quit the server with CONTROL-C.
+Watching for file changes with StatReloader
+Invalid HTTP_HOST header: ''. The domain name provided is not valid according to RFC 1034/1035.
+Bad Request: /script
+[14/Jun/2020 18:01:44] "GET /script HTTP/1.1" 400 66340
+Traceback (most recent call last):
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/wsgiref/handlers.py", line 138, in run
+    self.finish_response()
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/wsgiref/handlers.py", line 180, in finish_response
+    self.write(data)
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/wsgiref/handlers.py", line 279, in write
+    self._write(data)
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/wsgiref/handlers.py", line 453, in _write
+    result = self.stdout.write(data)
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/socketserver.py", line 775, in write
+    self._sock.sendall(b)
+ConnectionResetError: [Errno 104] Connection reset by peer
+[14/Jun/2020 18:01:44] "GET /script HTTP/1.1" 500 59
+----------------------------------------
+Exception happened during processing of request from ('205.185.123.189', 56074)
+Traceback (most recent call last):
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/wsgiref/handlers.py", line 138, in run
+    self.finish_response()
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/wsgiref/handlers.py", line 180, in finish_response
+    self.write(data)
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/wsgiref/handlers.py", line 279, in write
+    self._write(data)
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/wsgiref/handlers.py", line 453, in _write
+    result = self.stdout.write(data)
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/socketserver.py", line 775, in write
+    self._sock.sendall(b)
+ConnectionResetError: [Errno 104] Connection reset by peer
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/wsgiref/handlers.py", line 141, in run
+    self.handle_error()
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/site-packages/django/core/servers/basehttp.py", line 119, in handle_error
+    super().handle_error()
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/wsgiref/handlers.py", line 368, in handle_error
+    self.finish_response()
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/wsgiref/handlers.py", line 180, in finish_response
+    self.write(data)
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/wsgiref/handlers.py", line 274, in write
+    self.send_headers()
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/wsgiref/handlers.py", line 331, in send_headers
+    if not self.origin_server or self.client_is_modern():
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/wsgiref/handlers.py", line 344, in client_is_modern
+    return self.environ['SERVER_PROTOCOL'].upper() != 'HTTP/0.9'
+TypeError: 'NoneType' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/socketserver.py", line 639, in process_request_thread
+    self.finish_request(request, client_address)
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/socketserver.py", line 361, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/socketserver.py", line 696, in __init__
+    self.handle()
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/site-packages/django/core/servers/basehttp.py", line 172, in handle
+    self.handle_one_request()
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/site-packages/django/core/servers/basehttp.py", line 197, in handle_one_request
+    handler.run(self.server.get_app())
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/wsgiref/handlers.py", line 144, in run
+    self.close()
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/site-packages/django/core/servers/basehttp.py", line 114, in close
+    super().close()
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/wsgiref/simple_server.py", line 35, in close
+    self.status.split(' ',1)[0], self.bytes_sent
+AttributeError: 'NoneType' object has no attribute 'split'
+----------------------------------------
+Not Found: /TP/public/index.php
+[14/Jun/2020 18:31:43] "GET /TP/public/index.php HTTP/1.1" 404 2563
+Not Found: /TP/index.php
+[14/Jun/2020 18:31:43] "GET /TP/index.php HTTP/1.1" 404 2542
+Not Found: /thinkphp/html/public/index.php
+[14/Jun/2020 18:31:44] "GET /thinkphp/html/public/index.php HTTP/1.1" 404 2596
+Not Found: /html/public/index.php
+[14/Jun/2020 18:31:45] "GET /html/public/index.php HTTP/1.1" 404 2569
+Not Found: /public/index.php
+[14/Jun/2020 18:31:45] "GET /public/index.php HTTP/1.1" 404 2554
+Not Found: /TP/html/public/index.php
+[14/Jun/2020 18:31:45] "GET /TP/html/public/index.php HTTP/1.1" 404 2578
+Not Found: /elrekt.php
+[14/Jun/2020 18:31:46] "GET /elrekt.php HTTP/1.1" 404 2536
+Not Found: /index.php
+[14/Jun/2020 18:31:47] "GET /index.php HTTP/1.1" 404 2533
+Not Found: /users
+[14/Jun/2020 18:31:47] "POST /users?page=&size=5 HTTP/1.1" 404 2539
+[14/Jun/2020 18:31:48] "GET / HTTP/1.1" 200 20464
+[14/Jun/2020 18:53:44] code 400, message Bad request syntax ('\x16\x03\x01\x00\x7f\x01\x00\x00{\x03\x03Þ\x08Üé\x92âªÈ®@%¿Âø\r\x92ªÄ\x85k¢\x83;%\x07ôØX\x0e\x1eqú\x00\x00\x1cÀ/À+À0À,À\x13À\tÀ\x14À')
+[14/Jun/2020 18:53:44] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+Not Found: /logs
+[14/Jun/2020 18:57:07] "GET /logs HTTP/1.0" 404 2518
+Not Found: /editConfig
+[14/Jun/2020 18:57:08] "GET /editConfig?returnUrl=/ HTTP/1.0" 404 2548
+Not Found: /logs
+[14/Jun/2020 18:58:06] "GET /logs HTTP/1.0" 404 2518
+Not Found: /editConfig
+[14/Jun/2020 18:58:07] "GET /editConfig?returnUrl=/ HTTP/1.0" 404 2548
+Invalid HTTP_HOST header: ''. The domain name provided is not valid according to RFC 1034/1035.
+Bad Request: /manager/html
+[14/Jun/2020 19:40:20] "GET /manager/html HTTP/1.1" 400 66405
+Invalid HTTP_HOST header: ''. The domain name provided is not valid according to RFC 1034/1035.
+Bad Request: /script
+[14/Jun/2020 20:01:52] "GET /script HTTP/1.1" 400 66340
+Invalid HTTP_HOST header: ''. The domain name provided is not valid according to RFC 1034/1035.
+Bad Request: /manager/html
+[14/Jun/2020 20:02:25] "GET /manager/html HTTP/1.1" 400 66405
+Invalid HTTP_HOST header: ''. The domain name provided is not valid according to RFC 1034/1035.
+Bad Request: /manager/html
+[14/Jun/2020 20:02:30] "GET /manager/html HTTP/1.1" 400 66403
+[14/Jun/2020 20:25:41] "GET / HTTP/1.1" 200 20464
+Invalid HTTP_HOST header: ''. The domain name provided is not valid according to RFC 1034/1035.
+Bad Request: /script
+[14/Jun/2020 20:50:44] "GET /script HTTP/1.1" 400 66340
+[14/Jun/2020 21:08:36] "GET / HTTP/1.1" 200 20464
+Invalid HTTP_HOST header: ''. The domain name provided is not valid according to RFC 1034/1035.
+Bad Request: /manager/html
+[14/Jun/2020 21:13:17] "GET /manager/html HTTP/1.1" 400 66403
+Invalid HTTP_HOST header: ''. The domain name provided is not valid according to RFC 1034/1035.
+Bad Request: /manager/html
+[14/Jun/2020 21:38:03] "GET /manager/html HTTP/1.1" 400 66405
+Traceback (most recent call last):
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/wsgiref/handlers.py", line 138, in run
+    self.finish_response()
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/wsgiref/handlers.py", line 180, in finish_response
+    self.write(data)
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/wsgiref/handlers.py", line 279, in write
+    self._write(data)
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/wsgiref/handlers.py", line 453, in _write
+    result = self.stdout.write(data)
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/socketserver.py", line 775, in write
+    self._sock.sendall(b)
+ConnectionResetError: [Errno 104] Connection reset by peer
+[14/Jun/2020 21:38:03] "GET /manager/html HTTP/1.1" 500 59
+----------------------------------------
+Exception happened during processing of request from ('205.185.115.91', 50164)
+Traceback (most recent call last):
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/wsgiref/handlers.py", line 138, in run
+    self.finish_response()
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/wsgiref/handlers.py", line 180, in finish_response
+    self.write(data)
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/wsgiref/handlers.py", line 279, in write
+    self._write(data)
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/wsgiref/handlers.py", line 453, in _write
+    result = self.stdout.write(data)
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/socketserver.py", line 775, in write
+    self._sock.sendall(b)
+ConnectionResetError: [Errno 104] Connection reset by peer
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/wsgiref/handlers.py", line 141, in run
+    self.handle_error()
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/site-packages/django/core/servers/basehttp.py", line 119, in handle_error
+    super().handle_error()
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/wsgiref/handlers.py", line 368, in handle_error
+    self.finish_response()
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/wsgiref/handlers.py", line 180, in finish_response
+    self.write(data)
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/wsgiref/handlers.py", line 274, in write
+    self.send_headers()
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/wsgiref/handlers.py", line 331, in send_headers
+    if not self.origin_server or self.client_is_modern():
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/wsgiref/handlers.py", line 344, in client_is_modern
+    return self.environ['SERVER_PROTOCOL'].upper() != 'HTTP/0.9'
+TypeError: 'NoneType' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/socketserver.py", line 639, in process_request_thread
+    self.finish_request(request, client_address)
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/socketserver.py", line 361, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/socketserver.py", line 696, in __init__
+    self.handle()
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/site-packages/django/core/servers/basehttp.py", line 172, in handle
+    self.handle_one_request()
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/site-packages/django/core/servers/basehttp.py", line 197, in handle_one_request
+    handler.run(self.server.get_app())
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/wsgiref/handlers.py", line 144, in run
+    self.close()
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/site-packages/django/core/servers/basehttp.py", line 114, in close
+    super().close()
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/wsgiref/simple_server.py", line 35, in close
+    self.status.split(' ',1)[0], self.bytes_sent
+AttributeError: 'NoneType' object has no attribute 'split'
+----------------------------------------
+Invalid HTTP_HOST header: ''. The domain name provided is not valid according to RFC 1034/1035.
+Bad Request: /script
+[14/Jun/2020 21:40:29] "GET /script HTTP/1.1" 400 66340
+[14/Jun/2020 21:52:27] "GET /admin/ HTTP/1.1" 200 6751
+[14/Jun/2020 21:52:27] "GET /static/admin/css/base.css HTTP/1.1" 304 0
+[14/Jun/2020 21:52:27] "GET /static/admin/css/dashboard.css HTTP/1.1" 304 0
+[14/Jun/2020 21:52:27] "GET /static/admin/css/responsive.css HTTP/1.1" 304 0
+[14/Jun/2020 21:52:27] "GET /admin/ HTTP/1.1" 200 6751
+[14/Jun/2020 21:52:27] "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 304 0
+[14/Jun/2020 21:52:27] "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 304 0
+[14/Jun/2020 21:52:30] "GET /admin/products/products/ HTTP/1.1" 200 77191
+[14/Jun/2020 21:52:30] "GET /admin/jsi18n/ HTTP/1.1" 200 3223
+[14/Jun/2020 21:52:37] "GET / HTTP/1.1" 200 20464
+[14/Jun/2020 21:52:37] "GET /static/logo_long.png HTTP/1.1" 200 82935
+[14/Jun/2020 21:52:37] "GET /static/js/vendor/modernizr-2.8.3.min.js HTTP/1.1" 200 15514
+[14/Jun/2020 21:52:37] "GET /static/css/plugins.css HTTP/1.1" 200 57778
+[14/Jun/2020 21:52:37] "GET /static/css/icons.min.css HTTP/1.1" 200 37273
+[14/Jun/2020 21:52:38] "GET /static/js/vendor/jquery-v3.4.1.min.js HTTP/1.1" 200 88145
+[14/Jun/2020 21:52:38] "GET /static/js/popper.min.js HTTP/1.1" 200 18994
+[14/Jun/2020 21:52:38] "GET /static/css/style.css HTTP/1.1" 200 359125
+[14/Jun/2020 21:52:38] "GET /static/js/bootstrap.min.js HTTP/1.1" 200 60010
+[14/Jun/2020 21:52:38] "GET /static/js/ajax-mail.js HTTP/1.1" 200 1201
+[14/Jun/2020 21:52:38] "GET /static/js/plugins.js HTTP/1.1" 200 339212
+[14/Jun/2020 21:52:38] "GET /static/js/main.js HTTP/1.1" 200 20635
+[14/Jun/2020 21:52:38] "GET /static/js/jquery.simplyscroll.js HTTP/1.1" 200 14476
+[14/Jun/2020 21:52:38] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 159515
+[14/Jun/2020 21:52:38] "GET /static/css/jquery.simplyscroll.css HTTP/1.1" 200 4792
+[14/Jun/2020 21:52:38] "GET /static/step1/img/cart/cart-1.png HTTP/1.1" 404 1706
+[14/Jun/2020 21:52:38] "GET /static/step1/img/cart/cart-2.png HTTP/1.1" 404 1706
+[14/Jun/2020 21:52:38] "GET /static/step1/iu.png HTTP/1.1" 200 198481
+[14/Jun/2020 21:52:38] "GET /static/step1/yerin.png HTTP/1.1" 200 322190
+[14/Jun/2020 21:52:38] "GET /static/step1/sunmi.png HTTP/1.1" 200 244983
+[14/Jun/2020 21:52:38] "GET /static/step1/irene.png HTTP/1.1" 200 120803
+[14/Jun/2020 21:52:39] "GET /static/step1/hyuna.png HTTP/1.1" 200 168977
+[14/Jun/2020 21:52:39] "GET /static/step1/star_thumbnails/irene_01.png HTTP/1.1" 200 105286
+[14/Jun/2020 21:52:39] "GET /static/step1/star_thumbnails/sunmi_01.png HTTP/1.1" 200 300366
+[14/Jun/2020 21:52:39] "GET /static/step1/star_thumbnails/iu_01.png HTTP/1.1" 200 387526
+[14/Jun/2020 21:52:39] "GET /static/step1/star_thumbnails/junhee_01.png HTTP/1.1" 200 323062
+[14/Jun/2020 21:52:39] "GET /static/step1/star_thumbnails/hyuna_01.png HTTP/1.1" 200 266880
+[14/Jun/2020 21:52:39] "GET /static/step1/jennie.png HTTP/1.1" 200 244670
+[14/Jun/2020 21:52:39] "GET /static/step1/star_thumbnails/iu_02.png HTTP/1.1" 200 57377
+[14/Jun/2020 21:52:39] "GET /static/step1/img/cart/cart-1.png HTTP/1.1" 404 1706
+[14/Jun/2020 21:52:39] "GET /static/step1/img/cart/cart-2.png HTTP/1.1" 404 1706
+[14/Jun/2020 21:52:39] "GET /static/step1/star_thumbnails/iu_04.png HTTP/1.1" 200 145339
+[14/Jun/2020 21:52:40] "GET /static/step1/star_thumbnails/jennie_01.png HTTP/1.1" 200 332198
+[14/Jun/2020 21:52:40] "GET /static/step1/star_thumbnails/joy_01.png HTTP/1.1" 200 268009
+[14/Jun/2020 21:52:40] "GET /static/step1/star_thumbnails/suzy_01.png HTTP/1.1" 200 159284
+[14/Jun/2020 21:52:40] "GET /static/fonts/Pe-icon-7-stroke.woff?d7yf1v HTTP/1.1" 200 58556
+[14/Jun/2020 21:52:40] "GET /static/fonts/fontawesome-webfont.woff2?v=4.5.0 HTTP/1.1" 200 66624
+[14/Jun/2020 21:52:40] "GET /static/step1/star_thumbnails/iu_05.png HTTP/1.1" 200 387526
+[14/Jun/2020 21:52:40] "GET /static/logo_final.png HTTP/1.1" 200 79765
+[14/Jun/2020 21:52:40] "GET /static/step1/star_thumbnails/iu_03.png HTTP/1.1" 200 488512
+[14/Jun/2020 21:52:41] "GET /static/step1/star_thumbnails/seoulgi_01.png HTTP/1.1" 200 842615
+[14/Jun/2020 21:52:44] "GET /static/step1/star_thumbnails/yerin_01.png HTTP/1.1" 200 6224460
+[14/Jun/2020 21:52:44] "GET /static/favicon.png HTTP/1.1" 200 43138
+[14/Jun/2020 21:52:48] "GET /admin/products/products/ HTTP/1.1" 200 77060
+[14/Jun/2020 21:52:48] "GET /admin/jsi18n/ HTTP/1.1" 200 3223
+[14/Jun/2020 21:52:49] "GET /styles/ HTTP/1.1" 200 63854
+[14/Jun/2020 21:52:50] "GET /static/step1/img/cart/cart-1.png HTTP/1.1" 404 1706
+[14/Jun/2020 21:52:50] "GET /static/step1/img/cart/cart-2.png HTTP/1.1" 404 1706
+[14/Jun/2020 21:52:50] "GET /static/star/goeun/thumb/4.jpg HTTP/1.1" 200 70381
+[14/Jun/2020 21:52:50] "GET /static/star/hyuna/thumb/1.jpg HTTP/1.1" 200 117769
+[14/Jun/2020 21:52:50] "GET /static/star/hyojin/thumb/3.jpg HTTP/1.1" 200 294656
+[14/Jun/2020 21:52:50] "GET /static/star/irene/thumb/3.jpg HTTP/1.1" 200 223812
+[14/Jun/2020 21:52:50] "GET /static/img/product/quickview-l1.jpg HTTP/1.1" 404 1715
+[14/Jun/2020 21:52:50] "GET /static/star/hani/thumb/1.jpg HTTP/1.1" 200 386887
+[14/Jun/2020 21:52:50] "GET /static/img/product/quickview-l2.jpg HTTP/1.1" 404 1715
+[14/Jun/2020 21:52:50] "GET /static/img/product/quickview-l3.jpg HTTP/1.1" 404 1715
+[14/Jun/2020 21:52:50] "GET /static/img/product/quickview-s2.jpg HTTP/1.1" 404 1715
+[14/Jun/2020 21:52:50] "GET /static/img/icon-img/select.png HTTP/1.1" 200 128
+[14/Jun/2020 21:52:50] "GET /static/img/product/quickview-s1.jpg HTTP/1.1" 404 1715
+[14/Jun/2020 21:52:50] "GET /static/img/product/quickview-s3.jpg HTTP/1.1" 404 1715
+[14/Jun/2020 21:52:51] "GET /static/star/dahee/thumb/3.jpg HTTP/1.1" 200 501720
+Internal Server Error: /products/
+Traceback (most recent call last):
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/Personal_Shopper-KJH-KIDS/web/oddeye/products/views.py", line 88, in productview
+    item['PRICE_DISCOUNT_COMMA'] = format(item['PRICE_DISCOUNT'], ",")
+TypeError: unsupported format string passed to NoneType.__format__
+[14/Jun/2020 21:53:01] "GET /products/ HTTP/1.1" 500 84734
+Not Found: /favicon.ico
+[14/Jun/2020 21:53:01] "GET /favicon.ico HTTP/1.1" 404 2539
+[14/Jun/2020 21:53:07] "GET / HTTP/1.1" 200 20466
+[14/Jun/2020 21:53:07] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+[14/Jun/2020 21:53:07] "GET /static/css/plugins.css HTTP/1.1" 304 0
+[14/Jun/2020 21:53:07] "GET /static/js/vendor/modernizr-2.8.3.min.js HTTP/1.1" 304 0
+[14/Jun/2020 21:53:07] "GET /static/css/icons.min.css HTTP/1.1" 304 0
+[14/Jun/2020 21:53:07] "GET /static/css/style.css HTTP/1.1" 304 0
+[14/Jun/2020 21:53:07] "GET /static/js/vendor/jquery-v3.4.1.min.js HTTP/1.1" 304 0
+[14/Jun/2020 21:53:07] "GET /static/js/popper.min.js HTTP/1.1" 304 0
+[14/Jun/2020 21:53:07] "GET /static/js/main.js HTTP/1.1" 304 0
+[14/Jun/2020 21:53:07] "GET /static/js/bootstrap.min.js HTTP/1.1" 304 0
+[14/Jun/2020 21:53:07] "GET /static/js/plugins.js HTTP/1.1" 304 0
+[14/Jun/2020 21:53:07] "GET /static/js/ajax-mail.js HTTP/1.1" 304 0
+[14/Jun/2020 21:53:07] "GET /static/step1/hyuna.png HTTP/1.1" 304 0
+[14/Jun/2020 21:53:07] "GET /static/step1/jennie.png HTTP/1.1" 304 0
+[14/Jun/2020 21:53:07] "GET /static/fonts/Pe-icon-7-stroke.woff?d7yf1v HTTP/1.1" 304 0
+[14/Jun/2020 21:53:07] "GET /static/fonts/fontawesome-webfont.woff2?v=4.5.0 HTTP/1.1" 304 0
+[14/Jun/2020 21:53:07] "GET /static/step1/sunmi.png HTTP/1.1" 304 0
+[14/Jun/2020 21:53:07] "GET /static/step1/irene.png HTTP/1.1" 304 0
+[14/Jun/2020 21:53:07] "GET /static/logo_long.png HTTP/1.1" 304 0
+[14/Jun/2020 21:53:07] "GET /static/step1/img/cart/cart-2.png HTTP/1.1" 404 1706
+[14/Jun/2020 21:53:07] "GET /static/step1/img/cart/cart-1.png HTTP/1.1" 404 1706
+[14/Jun/2020 21:53:08] "GET /static/step1/yerin.png HTTP/1.1" 304 0
+[14/Jun/2020 21:53:08] "GET /static/step1/iu.png HTTP/1.1" 304 0
+[14/Jun/2020 21:53:08] "GET /static/js/jquery.simplyscroll.js HTTP/1.1" 304 0
+[14/Jun/2020 21:53:08] "GET /static/css/jquery.simplyscroll.css HTTP/1.1" 304 0
+[14/Jun/2020 21:53:08] "GET /static/step1/star_thumbnails/sunmi_01.png HTTP/1.1" 304 0
+[14/Jun/2020 21:53:08] "GET /static/step1/star_thumbnails/iu_01.png HTTP/1.1" 304 0
+[14/Jun/2020 21:53:08] "GET /static/step1/star_thumbnails/irene_01.png HTTP/1.1" 304 0
+[14/Jun/2020 21:53:08] "GET /static/step1/star_thumbnails/junhee_01.png HTTP/1.1" 304 0
+[14/Jun/2020 21:53:08] "GET /static/step1/star_thumbnails/hyuna_01.png HTTP/1.1" 304 0
+[14/Jun/2020 21:53:08] "GET /static/step1/star_thumbnails/iu_02.png HTTP/1.1" 304 0
+[14/Jun/2020 21:53:08] "GET /static/step1/star_thumbnails/iu_03.png HTTP/1.1" 304 0
+[14/Jun/2020 21:53:08] "GET /static/step1/star_thumbnails/jennie_01.png HTTP/1.1" 304 0
+[14/Jun/2020 21:53:08] "GET /static/step1/star_thumbnails/iu_04.png HTTP/1.1" 304 0
+[14/Jun/2020 21:53:08] "GET /static/step1/star_thumbnails/joy_01.png HTTP/1.1" 304 0
+[14/Jun/2020 21:53:08] "GET /static/step1/star_thumbnails/suzy_01.png HTTP/1.1" 304 0
+[14/Jun/2020 21:53:08] "GET /static/step1/star_thumbnails/yerin_01.png HTTP/1.1" 304 0
+[14/Jun/2020 21:53:08] "GET /static/step1/star_thumbnails/iu_05.png HTTP/1.1" 304 0
+[14/Jun/2020 21:53:08] "GET /static/step1/star_thumbnails/seoulgi_01.png HTTP/1.1" 304 0
+[14/Jun/2020 21:53:08] "GET /static/logo_final.png HTTP/1.1" 304 0
+[14/Jun/2020 21:53:08] "GET /styles/ HTTP/1.1" 200 63856
+[14/Jun/2020 21:53:08] "GET /static/step1/img/cart/cart-1.png HTTP/1.1" 404 1706
+[14/Jun/2020 21:53:08] "GET /static/step1/img/cart/cart-2.png HTTP/1.1" 404 1706
+[14/Jun/2020 21:53:08] "GET /static/star/goeun/thumb/4.jpg HTTP/1.1" 200 70381
+[14/Jun/2020 21:53:08] "GET /static/star/dahee/thumb/3.jpg HTTP/1.1" 200 501720
+[14/Jun/2020 21:53:08] "GET /static/star/hani/thumb/1.jpg HTTP/1.1" 200 386887
+[14/Jun/2020 21:53:08] "GET /static/star/hyuna/thumb/1.jpg HTTP/1.1" 200 117769
+[14/Jun/2020 21:53:08] "GET /static/img/product/quickview-l1.jpg HTTP/1.1" 404 1715
+[14/Jun/2020 21:53:08] "GET /static/img/product/quickview-l2.jpg HTTP/1.1" 404 1715
+[14/Jun/2020 21:53:08] "GET /static/star/irene/thumb/3.jpg HTTP/1.1" 200 223812
+[14/Jun/2020 21:53:08] "GET /static/star/hyojin/thumb/3.jpg HTTP/1.1" 200 294656
+[14/Jun/2020 21:53:08] "GET /static/img/product/quickview-l3.jpg HTTP/1.1" 404 1715
+[14/Jun/2020 21:53:08] "GET /static/img/product/quickview-s1.jpg HTTP/1.1" 404 1715
+[14/Jun/2020 21:53:08] "GET /static/img/product/quickview-s2.jpg HTTP/1.1" 404 1715
+[14/Jun/2020 21:53:08] "GET /static/img/product/quickview-s3.jpg HTTP/1.1" 404 1715
+[14/Jun/2020 21:53:08] "GET /static/img/icon-img/select.png HTTP/1.1" 200 128
+Internal Server Error: /products/
+Traceback (most recent call last):
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/Personal_Shopper-KJH-KIDS/web/oddeye/products/views.py", line 88, in productview
+    item['PRICE_DISCOUNT_COMMA'] = format(item['PRICE_DISCOUNT'], ",")
+TypeError: unsupported format string passed to NoneType.__format__
+[14/Jun/2020 21:53:09] "GET /products/ HTTP/1.1" 500 85035
+Internal Server Error: /products/
+Traceback (most recent call last):
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/Personal_Shopper-KJH-KIDS/web/oddeye/products/views.py", line 88, in productview
+    item['PRICE_DISCOUNT_COMMA'] = format(item['PRICE_DISCOUNT'], ",")
+TypeError: unsupported format string passed to NoneType.__format__
+[14/Jun/2020 21:53:12] "GET /products/ HTTP/1.1" 500 85035
+[14/Jun/2020 21:53:17] "GET /styles/ HTTP/1.1" 200 63856
+[14/Jun/2020 21:53:18] "GET /static/step1/img/cart/cart-1.png HTTP/1.1" 404 1706
+[14/Jun/2020 21:53:18] "GET /static/step1/img/cart/cart-2.png HTTP/1.1" 404 1706
+[14/Jun/2020 21:53:18] "GET /static/img/product/quickview-l2.jpg HTTP/1.1" 404 1715
+[14/Jun/2020 21:53:18] "GET /static/img/product/quickview-l3.jpg HTTP/1.1" 404 1715
+[14/Jun/2020 21:53:18] "GET /static/img/product/quickview-s3.jpg HTTP/1.1" 404 1715
+[14/Jun/2020 21:53:18] "GET /static/img/product/quickview-l1.jpg HTTP/1.1" 404 1715
+[14/Jun/2020 21:53:18] "GET /static/img/product/quickview-s1.jpg HTTP/1.1" 404 1715
+[14/Jun/2020 21:53:18] "GET /static/img/product/quickview-s2.jpg HTTP/1.1" 404 1715
+[14/Jun/2020 21:53:19] "GET /styles/details/goeun HTTP/1.1" 200 142599
+[14/Jun/2020 21:53:19] "GET /static/step1/img/cart/cart-1.png HTTP/1.1" 404 1706
+[14/Jun/2020 21:53:19] "GET /static/step1/img/cart/cart-2.png HTTP/1.1" 404 1706
+[14/Jun/2020 21:53:19] "GET /static/star/goeun/thumb/3.jpg HTTP/1.1" 200 55747
+[14/Jun/2020 21:53:19] "GET /static/star/goeun/thumb/1.jpg HTTP/1.1" 200 46019
+[14/Jun/2020 21:53:19] "GET /static/star/goeun/thumb/2.jpg HTTP/1.1" 200 86280
+Not Found: /styles/details/assets/img/product/quickview-l1.jpg
+[14/Jun/2020 21:53:19] "GET /styles/details/assets/img/product/quickview-l1.jpg HTTP/1.1" 404 2897
+Not Found: /styles/details/assets/img/product/quickview-l2.jpg
+Not Found: /styles/details/assets/img/product/quickview-l3.jpg
+[14/Jun/2020 21:53:19] "GET /styles/details/assets/img/product/quickview-l2.jpg HTTP/1.1" 404 2897
+[14/Jun/2020 21:53:19] "GET /styles/details/assets/img/product/quickview-l3.jpg HTTP/1.1" 404 2897
+Not Found: /styles/details/assets/img/product/quickview-s2.jpg
+Not Found: /styles/details/assets/img/product/quickview-s1.jpg
+[14/Jun/2020 21:53:19] "GET /styles/details/assets/img/product/quickview-s2.jpg HTTP/1.1" 404 2897
+[14/Jun/2020 21:53:19] "GET /styles/details/assets/img/product/quickview-s1.jpg HTTP/1.1" 404 2897
+Not Found: /styles/details/assets/img/product/quickview-s3.jpg
+[14/Jun/2020 21:53:19] "GET /styles/details/assets/img/product/quickview-s3.jpg HTTP/1.1" 404 2897
+[14/Jun/2020 21:53:22] "GET / HTTP/1.1" 200 20464
+[14/Jun/2020 21:53:23] "GET /static/step1/img/cart/cart-1.png HTTP/1.1" 404 1706
+[14/Jun/2020 21:53:23] "GET /static/step1/img/cart/cart-2.png HTTP/1.1" 404 1706
+[14/Jun/2020 21:53:23] "GET /static/step1/img/cart/cart-1.png HTTP/1.1" 404 1706
+[14/Jun/2020 21:53:23] "GET /static/step1/img/cart/cart-2.png HTTP/1.1" 404 1706
+Not Found: //admin
+[14/Jun/2020 22:01:45] "GET //admin HTTP/1.1" 404 2524
+[14/Jun/2020 22:01:50] "GET /admin/ HTTP/1.1" 200 6751
+[14/Jun/2020 22:01:50] "GET /admin/ HTTP/1.1" 200 6751
+[14/Jun/2020 22:01:53] "GET /admin/products/products/ HTTP/1.1" 200 77740
+[14/Jun/2020 22:01:53] "GET /admin/jsi18n/ HTTP/1.1" 200 3223
+/root/Personal_Shopper-KJH-KIDS/web/oddeye/products/models.py changed, reloading.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 14, 2020 - 17:40:37
+Django version 3.0.6, using settings 'oddeye.settings'
+Starting development server at http://0.0.0.0:8080/
+Quit the server with CONTROL-C.
+[{'STYLE': 3, 'LIKEY': 2, 'TAG': '러블리'}, {'STYLE': 1, 'LIKEY': 4, 'TAG': '큐트'}, {'STYLE': 2, 'LIKEY': 5, 'TAG': '포멀'}, {'STYLE': 4, 'LIKEY': 6, 'TAG': '럭셔리'}]
+Watching for file changes with StatReloader
+Exception in thread django-main-thread:
+Traceback (most recent call last):
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/threading.py", line 916, in _bootstrap_inner
+    self.run()
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/threading.py", line 864, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/site-packages/django/utils/autoreload.py", line 53, in wrapper
+    fn(*args, **kwargs)
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/site-packages/django/core/management/commands/runserver.py", line 109, in inner_run
+    autoreload.raise_last_exception()
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/site-packages/django/utils/autoreload.py", line 76, in raise_last_exception
+    raise _exception[1]
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/site-packages/django/core/management/__init__.py", line 357, in execute
+    autoreload.check_errors(django.setup)()
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/site-packages/django/utils/autoreload.py", line 53, in wrapper
+    fn(*args, **kwargs)
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/site-packages/django/__init__.py", line 24, in setup
+    apps.populate(settings.INSTALLED_APPS)
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/site-packages/django/apps/registry.py", line 122, in populate
+    app_config.ready()
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/site-packages/django/contrib/admin/apps.py", line 24, in ready
+    self.module.autodiscover()
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/site-packages/django/contrib/admin/__init__.py", line 26, in autodiscover
+    autodiscover_modules('admin', register_to=site)
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/site-packages/django/utils/module_loading.py", line 47, in autodiscover_modules
+    import_module('%s.%s' % (app_config.name, module_to_search))
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 955, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 665, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 678, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/root/Personal_Shopper-KJH-KIDS/web/oddeye/products/admin.py", line 2, in <module>
+    from .models import Products, ProductsEmbedding
+ImportError: cannot import name 'Products'
+
+/root/Personal_Shopper-KJH-KIDS/web/oddeye/products/admin.py changed, reloading.
+Watching for file changes with StatReloader
+/root/Personal_Shopper-KJH-KIDS/web/oddeye/products/admin.py changed, reloading.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 14, 2020 - 22:03:18
+Django version 3.0.6, using settings 'oddeye.settings'
+Starting development server at http://0.0.0.0:8080/
+Quit the server with CONTROL-C.
+Watching for file changes with StatReloader
+Exception in thread django-main-thread:
+Traceback (most recent call last):
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/threading.py", line 916, in _bootstrap_inner
+    self.run()
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/threading.py", line 864, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/site-packages/django/utils/autoreload.py", line 53, in wrapper
+    fn(*args, **kwargs)
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/site-packages/django/core/management/commands/runserver.py", line 109, in inner_run
+    autoreload.raise_last_exception()
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/site-packages/django/utils/autoreload.py", line 76, in raise_last_exception
+    raise _exception[1]
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/site-packages/django/core/management/__init__.py", line 357, in execute
+    autoreload.check_errors(django.setup)()
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/site-packages/django/utils/autoreload.py", line 53, in wrapper
+    fn(*args, **kwargs)
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/site-packages/django/__init__.py", line 24, in setup
+    apps.populate(settings.INSTALLED_APPS)
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/site-packages/django/apps/registry.py", line 122, in populate
+    app_config.ready()
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/site-packages/django/contrib/admin/apps.py", line 24, in ready
+    self.module.autodiscover()
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/site-packages/django/contrib/admin/__init__.py", line 26, in autodiscover
+    autodiscover_modules('admin', register_to=site)
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/site-packages/django/utils/module_loading.py", line 47, in autodiscover_modules
+    import_module('%s.%s' % (app_config.name, module_to_search))
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 955, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 665, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 678, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/root/Personal_Shopper-KJH-KIDS/web/oddeye/products/admin.py", line 2, in <module>
+    from .models import Products, ProductsEmbedding
+ImportError: cannot import name 'Products'
+
+/root/Personal_Shopper-KJH-KIDS/web/oddeye/products/models.py changed, reloading.
+Watching for file changes with StatReloader
+Invalid HTTP_HOST header: ''. The domain name provided is not valid according to RFC 1034/1035.
+Bad Request: /script
+[14/Jun/2020 22:36:35] "GET /script HTTP/1.1" 400 66340
+[14/Jun/2020 22:52:08] "GET /admin/products/products/ HTTP/1.1" 200 77905
+[14/Jun/2020 22:52:08] "GET /admin/jsi18n/ HTTP/1.1" 200 3223
+[14/Jun/2020 22:52:22] "GET /admin/products/products/?p=82 HTTP/1.1" 200 11077
+[14/Jun/2020 22:52:22] "GET /admin/jsi18n/ HTTP/1.1" 200 3223
+[14/Jun/2020 22:52:24] "GET /admin/products/products/?p=79 HTTP/1.1" 200 80215
+[14/Jun/2020 22:52:24] "GET /admin/jsi18n/ HTTP/1.1" 200 3223
+[14/Jun/2020 22:52:29] "GET /admin/products/products/?p=77 HTTP/1.1" 200 80110
+[14/Jun/2020 22:52:29] "GET /admin/jsi18n/ HTTP/1.1" 200 3223
+[14/Jun/2020 22:52:33] "GET /admin/products/products/?p=74 HTTP/1.1" 200 79823
+[14/Jun/2020 22:52:33] "GET /admin/jsi18n/ HTTP/1.1" 200 3223
+Internal Server Error: /products/
+Traceback (most recent call last):
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/Personal_Shopper-KJH-KIDS/web/oddeye/products/views.py", line 88, in productview
+    item['PRICE_DISCOUNT_COMMA'] = format(item['PRICE_DISCOUNT'], ",")
+TypeError: unsupported format string passed to NoneType.__format__
+[14/Jun/2020 22:52:45] "GET /products/ HTTP/1.1" 500 85238
+Not Found: /http:/example.com/
+[14/Jun/2020 22:56:51] "GET http://example.com/ HTTP/1.1" 404 1665
+Not Found: /http:/169.254.169.254/
+[14/Jun/2020 22:56:52] "GET http://169.254.169.254/ HTTP/1.1" 404 1681
+Not Found: /http:/[::ffff:a9fe:a9fe]/
+[14/Jun/2020 22:56:52] "GET http://[::ffff:a9fe:a9fe]/ HTTP/1.1" 404 1697
+Not Found: /http:/169.254.169.254/latest/dynamic/instance-identity/document
+[14/Jun/2020 22:56:53] "GET http://169.254.169.254/latest/dynamic/instance-identity/document HTTP/1.1" 404 1804
+Not Found: /http:/[::ffff:a9fe:a9fe]/latest/dynamic/instance-identity/document
+[14/Jun/2020 22:56:53] "GET http://[::ffff:a9fe:a9fe]/latest/dynamic/instance-identity/document HTTP/1.1" 404 1820
+[14/Jun/2020 22:56:53] "GET / HTTP/1.1" 200 20464
+[14/Jun/2020 22:56:54] "GET / HTTP/1.1" 200 20464
+[14/Jun/2020 22:56:54] "GET / HTTP/1.1" 200 20464
+Not Found: /latest/dynamic/instance-identity/document
+[14/Jun/2020 22:56:54] "GET /latest/dynamic/instance-identity/document HTTP/1.1" 404 2625
+Not Found: /latest/dynamic/instance-identity/document
+[14/Jun/2020 22:56:55] "GET /latest/dynamic/instance-identity/document HTTP/1.1" 404 2628
+Not Found: /15.164.247.135:8080
+[14/Jun/2020 22:56:55] "CONNECT 15.164.247.135:8080 HTTP/1.0" 404 1712
+Not Found: /15.164.247.135:8080
+[14/Jun/2020 22:56:56] "CONNECT 15.164.247.135:8080 HTTP/1.0" 404 1712
+Not Found: /15.164.247.135:8080
+[14/Jun/2020 22:56:56] "CONNECT 15.164.247.135:8080 HTTP/1.0" 404 1712
+Not Found: /15.164.247.135:8080
+[14/Jun/2020 22:56:57] "CONNECT 15.164.247.135:8080 HTTP/1.0" 404 1712
+Not Found: /15.164.247.135:8080
+[14/Jun/2020 22:56:57] "CONNECT 15.164.247.135:8080 HTTP/1.0" 404 1712
+[14/Jun/2020 22:56:57] code 400, message Bad request syntax ('\x16\x03\x01\x00Ò\x01\x00\x00Î\x03\x03à|ì\x11W\x05l\x10ÇðVëU¼')
+[14/Jun/2020 22:56:57] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[14/Jun/2020 22:56:57] code 400, message Bad HTTP/0.9 request type ("\x16\x03\x01\x00Ò\x01\x00\x00Î\x03\x03'8¡\x16éiÍÙ?zL?Ìv°~\x17ÕUìÓ2Y\x8e\x8a\x89]î\x13b`,\x00\x00bÀ0À,À/À+\x00\x9f\x00\x9eÀ2À.À1À-\x00¥\x00¡\x00¤\x00")
+[14/Jun/2020 22:56:57] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[14/Jun/2020 22:56:58] code 400, message Bad request version ('À(À$À\x14À')
+[14/Jun/2020 22:56:58] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[14/Jun/2020 22:56:58] code 400, message Bad request version ('À(À$À\x14À')
+[14/Jun/2020 22:56:58] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[14/Jun/2020 22:56:58] code 400, message Bad request version ('À(À$À\x14À')
+[14/Jun/2020 22:56:58] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[14/Jun/2020 23:16:58] "GET /styles/details/goeun HTTP/1.1" 200 142599
+[14/Jun/2020 23:16:58] "GET /static/step1/img/cart/cart-1.png HTTP/1.1" 404 1706
+[14/Jun/2020 23:16:58] "GET /static/step1/img/cart/cart-2.png HTTP/1.1" 404 1706
+Not Found: /styles/details/assets/img/product/quickview-l1.jpg
+Not Found: /styles/details/assets/img/product/quickview-l2.jpg
+[14/Jun/2020 23:16:58] "GET /styles/details/assets/img/product/quickview-l2.jpg HTTP/1.1" 404 2897
+Not Found: /styles/details/assets/img/product/quickview-l3.jpg
+[14/Jun/2020 23:16:58] "GET /styles/details/assets/img/product/quickview-l1.jpg HTTP/1.1" 404 2897
+[14/Jun/2020 23:16:58] "GET /styles/details/assets/img/product/quickview-l3.jpg HTTP/1.1" 404 2897
+Not Found: /styles/details/assets/img/product/quickview-s1.jpg
+Not Found: /styles/details/assets/img/product/quickview-s2.jpg
+[14/Jun/2020 23:16:58] "GET /styles/details/assets/img/product/quickview-s1.jpg HTTP/1.1" 404 2897
+[14/Jun/2020 23:16:58] "GET /styles/details/assets/img/product/quickview-s2.jpg HTTP/1.1" 404 2897
+Not Found: /styles/details/assets/img/product/quickview-s3.jpg
+[14/Jun/2020 23:16:58] "GET /styles/details/assets/img/product/quickview-s3.jpg HTTP/1.1" 404 2897
+[14/Jun/2020 23:16:59] "GET /static/favicon.png HTTP/1.1" 200 43138
+Invalid HTTP_HOST header: ''. The domain name provided is not valid according to RFC 1034/1035.
+Bad Request: /manager/html
+[14/Jun/2020 23:17:30] "GET /manager/html HTTP/1.1" 400 66405
+Invalid HTTP_HOST header: ''. The domain name provided is not valid according to RFC 1034/1035.
+Bad Request: /script
+[14/Jun/2020 23:30:16] "GET /script HTTP/1.1" 400 66340
+Invalid HTTP_HOST header: ''. The domain name provided is not valid according to RFC 1034/1035.
+Bad Request: /manager/html
+[14/Jun/2020 23:40:38] "GET /manager/html HTTP/1.1" 400 66405
+[14/Jun/2020 23:45:28] "GET /admin/products/products/?p=74 HTTP/1.1" 200 80347
+[14/Jun/2020 23:45:28] "GET /admin/jsi18n/ HTTP/1.1" 200 3223
+Invalid HTTP_HOST header: ''. The domain name provided is not valid according to RFC 1034/1035.
+Bad Request: /manager/html
+[15/Jun/2020 00:01:55] "GET /manager/html HTTP/1.1" 400 66403
+[15/Jun/2020 00:05:13] "GET /admin/products/products/?p=74 HTTP/1.1" 200 80389
+[15/Jun/2020 00:05:13] "GET /admin/jsi18n/ HTTP/1.1" 200 3223
+[15/Jun/2020 00:05:20] "GET /admin/products/products/?p=222 HTTP/1.1" 200 16133
+[15/Jun/2020 00:05:20] "GET /admin/jsi18n/ HTTP/1.1" 200 3223
+[15/Jun/2020 00:16:12] "GET /admin/products/products/?p=222 HTTP/1.1" 200 79915
+[15/Jun/2020 00:16:12] "GET /admin/jsi18n/ HTTP/1.1" 200 3223
+Invalid HTTP_HOST header: ''. The domain name provided is not valid according to RFC 1034/1035.
+Bad Request: /script
+[15/Jun/2020 00:18:27] "GET /script HTTP/1.1" 400 66340
+Traceback (most recent call last):
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/wsgiref/handlers.py", line 138, in run
+    self.finish_response()
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/wsgiref/handlers.py", line 180, in finish_response
+    self.write(data)
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/wsgiref/handlers.py", line 279, in write
+    self._write(data)
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/wsgiref/handlers.py", line 453, in _write
+    result = self.stdout.write(data)
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/socketserver.py", line 775, in write
+    self._sock.sendall(b)
+ConnectionResetError: [Errno 104] Connection reset by peer
+[15/Jun/2020 00:18:27] "GET /script HTTP/1.1" 500 59
+----------------------------------------
+Exception happened during processing of request from ('205.185.123.189', 48666)
+Traceback (most recent call last):
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/wsgiref/handlers.py", line 138, in run
+    self.finish_response()
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/wsgiref/handlers.py", line 180, in finish_response
+    self.write(data)
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/wsgiref/handlers.py", line 279, in write
+    self._write(data)
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/wsgiref/handlers.py", line 453, in _write
+    result = self.stdout.write(data)
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/socketserver.py", line 775, in write
+    self._sock.sendall(b)
+ConnectionResetError: [Errno 104] Connection reset by peer
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/wsgiref/handlers.py", line 141, in run
+    self.handle_error()
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/site-packages/django/core/servers/basehttp.py", line 119, in handle_error
+    super().handle_error()
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/wsgiref/handlers.py", line 368, in handle_error
+    self.finish_response()
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/wsgiref/handlers.py", line 180, in finish_response
+    self.write(data)
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/wsgiref/handlers.py", line 274, in write
+    self.send_headers()
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/wsgiref/handlers.py", line 331, in send_headers
+    if not self.origin_server or self.client_is_modern():
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/wsgiref/handlers.py", line 344, in client_is_modern
+    return self.environ['SERVER_PROTOCOL'].upper() != 'HTTP/0.9'
+TypeError: 'NoneType' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/socketserver.py", line 639, in process_request_thread
+    self.finish_request(request, client_address)
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/socketserver.py", line 361, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/socketserver.py", line 696, in __init__
+    self.handle()
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/site-packages/django/core/servers/basehttp.py", line 172, in handle
+    self.handle_one_request()
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/site-packages/django/core/servers/basehttp.py", line 197, in handle_one_request
+    handler.run(self.server.get_app())
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/wsgiref/handlers.py", line 144, in run
+    self.close()
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/site-packages/django/core/servers/basehttp.py", line 114, in close
+    super().close()
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/wsgiref/simple_server.py", line 35, in close
+    self.status.split(' ',1)[0], self.bytes_sent
+AttributeError: 'NoneType' object has no attribute 'split'
+----------------------------------------
+[15/Jun/2020 00:20:00] "GET /styles/details/wishlist.html HTTP/1.1" 200 142612
+[15/Jun/2020 00:20:00] "GET /static/step1/img/cart/cart-1.png HTTP/1.1" 404 1706
+[15/Jun/2020 00:20:00] "GET /static/step1/img/cart/cart-2.png HTTP/1.1" 404 1706
+[15/Jun/2020 00:20:00] "GET /static/star/wishlist.html/thumb/.jpg HTTP/1.1" 404 1718
+Not Found: /styles/details/assets/img/product/quickview-l1.jpg
+[15/Jun/2020 00:20:00] "GET /styles/details/assets/img/product/quickview-l1.jpg HTTP/1.1" 404 2897
+Not Found: /styles/details/assets/img/product/quickview-l2.jpg
+[15/Jun/2020 00:20:01] "GET /styles/details/assets/img/product/quickview-l2.jpg HTTP/1.1" 404 2897
+Not Found: /styles/details/assets/img/product/quickview-l3.jpg
+Not Found: /styles/details/assets/img/product/quickview-s3.jpg
+[15/Jun/2020 00:20:01] "GET /styles/details/assets/img/product/quickview-l3.jpg HTTP/1.1" 404 2897
+[15/Jun/2020 00:20:01] "GET /styles/details/assets/img/product/quickview-s3.jpg HTTP/1.1" 404 2897
+Not Found: /styles/details/assets/img/product/quickview-s2.jpg
+Not Found: /styles/details/assets/img/product/quickview-s1.jpg
+[15/Jun/2020 00:20:01] "GET /styles/details/assets/img/product/quickview-s2.jpg HTTP/1.1" 404 2897
+[15/Jun/2020 00:20:01] "GET /styles/details/assets/img/product/quickview-s1.jpg HTTP/1.1" 404 2897
+[15/Jun/2020 00:20:10] "GET /accounts/logout/ HTTP/1.1" 302 0
+[15/Jun/2020 00:20:10] "GET / HTTP/1.1" 200 20464
+[15/Jun/2020 00:20:10] "GET /static/step1/img/cart/cart-1.png HTTP/1.1" 404 1706
+[15/Jun/2020 00:20:10] "GET /static/step1/img/cart/cart-2.png HTTP/1.1" 404 1706
+[15/Jun/2020 00:20:12] "GET /accounts/login/ HTTP/1.1" 200 12666
+[15/Jun/2020 00:20:12] "GET /static/step1/img/cart/cart-1.png HTTP/1.1" 404 1706
+[15/Jun/2020 00:20:12] "GET /static/step1/img/cart/cart-2.png HTTP/1.1" 404 1706
+[15/Jun/2020 00:20:16] "GET /accounts/signup/ HTTP/1.1" 200 12889
+[15/Jun/2020 00:20:16] "GET /static/step1/img/cart/cart-1.png HTTP/1.1" 404 1706
+[15/Jun/2020 00:20:16] "GET /static/step1/img/cart/cart-2.png HTTP/1.1" 404 1706
+[15/Jun/2020 00:40:12] "GET /admin/products/products/?p=222 HTTP/1.1" 302 0
+[15/Jun/2020 00:40:12] "GET /admin/login/?next=/admin/products/products/%3Fp%3D222 HTTP/1.1" 200 1969
+[15/Jun/2020 00:40:12] "GET /static/admin/css/login.css HTTP/1.1" 200 1233
+/root/Personal_Shopper-KJH-KIDS/web/oddeye/accounts/views.py changed, reloading.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+June 14, 2020 - 22:03:32
+Django version 3.0.6, using settings 'oddeye.settings'
+Starting development server at http://0.0.0.0:8080/
+Quit the server with CONTROL-C.
+[{'STYLE': 3, 'LIKEY': 2, 'TAG': '러블리'}, {'STYLE': 1, 'LIKEY': 4, 'TAG': '큐트'}, {'STYLE': 2, 'LIKEY': 5, 'TAG': '포멀'}, {'STYLE': 4, 'LIKEY': 6, 'TAG': '럭셔리'}]
+[]
+Watching for file changes with StatReloader
+Exception in thread django-main-thread:
+Traceback (most recent call last):
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/threading.py", line 916, in _bootstrap_inner
+    self.run()
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/threading.py", line 864, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/site-packages/django/utils/autoreload.py", line 53, in wrapper
+    fn(*args, **kwargs)
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/site-packages/django/core/management/commands/runserver.py", line 117, in inner_run
+    self.check(display_num_errors=True)
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/site-packages/django/core/management/base.py", line 395, in check
+    include_deployment_checks=include_deployment_checks,
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/site-packages/django/core/management/base.py", line 382, in _run_checks
+    return checks.run_checks(**kwargs)
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/site-packages/django/core/checks/registry.py", line 72, in run_checks
+    new_errors = check(app_configs=app_configs)
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/site-packages/django/core/checks/urls.py", line 40, in check_url_namespaces_unique
+    all_namespaces = _load_all_namespaces(resolver)
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/site-packages/django/core/checks/urls.py", line 57, in _load_all_namespaces
+    url_patterns = getattr(resolver, 'url_patterns', [])
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/site-packages/django/utils/functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/site-packages/django/urls/resolvers.py", line 588, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/site-packages/django/utils/functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/site-packages/django/urls/resolvers.py", line 581, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 955, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 665, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 678, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/root/Personal_Shopper-KJH-KIDS/web/oddeye/oddeye/urls.py", line 4, in <module>
+    import accounts.views
+  File "/root/Personal_Shopper-KJH-KIDS/web/oddeye/accounts/views.py", line 15
+    def login(req):
+      ^
+IndentationError: expected an indented block
+
+/root/Personal_Shopper-KJH-KIDS/web/oddeye/accounts/views.py changed, reloading.
+Performing system checks...
+
+Watching for file changes with StatReloader
+Exception in thread django-main-thread:
+Traceback (most recent call last):
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/threading.py", line 916, in _bootstrap_inner
+    self.run()
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/threading.py", line 864, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/site-packages/django/utils/autoreload.py", line 53, in wrapper
+    fn(*args, **kwargs)
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/site-packages/django/core/management/commands/runserver.py", line 117, in inner_run
+    self.check(display_num_errors=True)
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/site-packages/django/core/management/base.py", line 395, in check
+    include_deployment_checks=include_deployment_checks,
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/site-packages/django/core/management/base.py", line 382, in _run_checks
+    return checks.run_checks(**kwargs)
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/site-packages/django/core/checks/registry.py", line 72, in run_checks
+    new_errors = check(app_configs=app_configs)
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/site-packages/django/core/checks/urls.py", line 40, in check_url_namespaces_unique
+    all_namespaces = _load_all_namespaces(resolver)
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/site-packages/django/core/checks/urls.py", line 57, in _load_all_namespaces
+    url_patterns = getattr(resolver, 'url_patterns', [])
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/site-packages/django/utils/functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/site-packages/django/urls/resolvers.py", line 588, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/site-packages/django/utils/functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/site-packages/django/urls/resolvers.py", line 581, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 955, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 665, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 678, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/root/Personal_Shopper-KJH-KIDS/web/oddeye/oddeye/urls.py", line 4, in <module>
+    import accounts.views
+  File "/root/Personal_Shopper-KJH-KIDS/web/oddeye/accounts/views.py", line 7, in <module>
+    from .forms import RegisterForm
+  File "/root/Personal_Shopper-KJH-KIDS/web/oddeye/accounts/forms.py", line 4, in <module>
+    class RegisterForm(forms.Form):
+  File "/root/Personal_Shopper-KJH-KIDS/web/oddeye/accounts/forms.py", line 7, in RegisterForm
+    re_password = forms.CharField(error_messages={'requried': '비밀번호 확인란을 입력해주세요.'}, widget=froms.PassswordInput, label="비밀번호 확인")
+NameError: name 'froms' is not defined
+
+/root/Personal_Shopper-KJH-KIDS/web/oddeye/accounts/forms.py changed, reloading.
+Performing system checks...
+

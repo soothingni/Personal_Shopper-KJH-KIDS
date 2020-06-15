@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block title %}
+main
+{% endblock title %}
+
+{% load static %}
+{% block content %}
+<div class="container">
+    <h1>signup</h1>
+    <form method="POST" action="{% url 'register' %}">
+        {% csrf_token %}
+        <ul>
+            {% for field in form %}
+            <li>
+                <input type="{{field.field.widget.input_type}}" placeholder="{{field.label}}" name="{{field.name}}">
+            </li>
+            {% endfor %}}
+            <li>
+                <button type="submit" class="btn btn--primary">회원가입</button>
+                <p class="caption">클릭하시면 회원가입 신청이 완료됩니다.</p>
+            </li>
+        </ul>
+    </form>
+</div>
+{% endblock %}
+</html>
