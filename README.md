@@ -5,7 +5,7 @@
 
 ## Introduction
 
-<a href='15.164.247.135:8080'> oddeye</a> 👀 is a **personalized style assistance service** powered by deep learning AI technology. Some of the main functions oddeye offers are
+<a href='http://15.164.247.135:8080'> oddeye</a> 👀 is a **personalized style assistance service** powered by deep learning AI technology. Some of the main functions oddeye offers are
 
 - item recommendation based on style icons of your liking (similarity)
   - e.g. IU, Jennie of BlackPink, ...

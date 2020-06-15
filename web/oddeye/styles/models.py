@@ -9,12 +9,12 @@ class Star(models.Model):
     tag = models.CharField(max_length=30)
     style = models.IntegerField()
     likes = models.ManyToManyField(settings.AUTH_USER_MODEL, blank=True, related_name='likes')
-    # like = models.ManyToManyField(settings.AUTH_USER_MODEL,
+    # likes = models.ManyToManyField(settings.AUTH_USER_MODEL,
     #                                        blank=True,
     #                                        related_name='like_style')
     @property
     def like_count(self):
-        return self.like.count()
+        return self.likes.count()
 
     def __str__(self):
         return self.name+'_'+str(self.style)
