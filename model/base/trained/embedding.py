@@ -18,6 +18,8 @@ import cv2
 import json
 import glob
 from skimage import io
+from tqdm import tqdm
+
 
 import cx_Oracle
 import os
@@ -137,6 +139,14 @@ def db_insert(t, count, table):
     curs.execute(sql,t)
 #     print(f"Insertion executed! {count}")
     conn.commit()
+    
+def get_style_num(star, num):
+    sql = f'''
+    SELECT no FROM Star WHERE name = '{star}' AND style = '{num}'
+    '''
+    curs.execute(sql)
+    style_num = dictfetchall(cursor)
+    return style_num
       
 def encode_img_by_path(img_path, base_network):
 #     image = cv2.imread(img_path, cv2.IMREAD_UNCHANGED)   #cv2.imread() 가끔 오류생겨서 아래로 바꿈
@@ -144,7 +154,9 @@ def encode_img_by_path(img_path, base_network):
     image = cv2.resize(image, (224, 224))
     if image.shape[-1] == 4: #4채널일 경우 마지막 채널 제외
         image = image[:, :, :-1]        
-    image_encoding = base_network.predict(np.array([image])).tolist()
+    image_encoding = base_network.predict(np.array([image]))
+    image_encoding = np.around(image_encoding, 10)    #소숫점 아래 10째자리까지 라운드
+    image_encoding = image_encoding.tolist()
     return image_encoding
 
 if __name__ == '__main__':
@@ -170,24 +182,31 @@ if __name__ == '__main__':
     print('Starting PROCESS 2: Started embedding items')
     print('-------------------------------------------------------')
     
-    data_path = os.path.join(img_dir,'*g')
-    files = glob.glob(data_path)
-    file_count = len(files)
+#     data_path = os.path.join(img_dir,'*g')
+#     files = glob.glob(data_path)
+#     file_count = len(files)
     
-    print("Found {} images from {}".format(file_count, img_dir))
+#     print("Found {} images from {}".format(file_count, img_dir))
+
+    stars = os.listdir(img_dir)
+    print(f"Found {len(stars)}")
     
-    cnt = 1
-    from tqdm import tqdm
+    cnt = 0
     
-    for i in tqdm(range(len(files))):
-        file_name = files[i].split('/')[-1]
-        product_id, _ = os.path.splitext(file_name)
-        product_id = int(product_id)
-        encoding = encode_img_by_path(files[i], base)
-        np.around(encoding, 10)
+    for star in stars:
+        star_name = star.split('/')[-1]
+        files = os.listdir(img_dir + '/' + star)
         
-        encoding = str(encoding)
-        cnt += 1
-        t = (product_id, encoding, product_id)
-        
-        db_insert(t, cnt, table)
+        for i in tqdm(range(len(files))):
+            file_name = files[i].split('/')[-1]
+            file_name, _ = os.path.splitext(file_name)
+            
+            style_num = get_style_num(star_name, file_name)
+
+            encoding = encode_img_by_path(files[i], base)
+            encoding = str(encoding)
+
+            cnt += 1
+            t = (style_num, encoding, style_num)
+
+            db_insert(t, cnt, table)

@@ -57,7 +57,7 @@ main
 
 <!--SECTION1: LOOKBOOK-->
 <div class="lookbook">
-    <!-- 메인 안내글 -->
+    {{tag_dict}}
     <div class="slider-area">
        <div class="slider-active owl-carousel nav-style-1">
 
@@ -94,9 +94,9 @@ main
     <!-- 스타일 스크롤러 -->
     <div class="lookbook_scroller">
         <ul id="scroller">
-            {% for star in  stars %}
+            {% for datum in  data %}
             <li class="bottom">
-                <a href="styles/details/{{star}} "><img src= '{{star}}' ></a>
+                <a href="styles/details/{{datum.name}} "><img src= '{{datum.img}}' ></a>
             </li>
             {% endfor %} 
         </ul>
@@ -110,10 +110,10 @@ main
             <div class="col"></div>
             <div class="col-xl-8">
                 <div class="style-carousel owl-carousel nav-style-1">
-                    {% for thumbnail in thumbnails %}
+                    {% for datum in data %}
                     <div class="item">
-                        <a href="styles/details/{{thumbnail|slice:':-7'}}">
-                            <img class="circular--square" src='{% static "" %}step1/star_thumbnails/{{thumbnail}}'>
+                        <a href="styles/details/{{datum.name}}">
+                            <img class="circular--square" src='{{datum.thumb}}'>
                         </a>
                     </div>
                     {% endfor %}

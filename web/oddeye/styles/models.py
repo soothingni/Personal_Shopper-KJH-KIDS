@@ -8,13 +8,16 @@ class Star(models.Model):
     likey = models.IntegerField()
     tag = models.CharField(max_length=30)
     style = models.IntegerField()
-    likes = models.ManyToManyField(settings.AUTH_USER_MODEL, blank=True, related_name='likes')
+#    likes = models.ManyToManyField(settings.AUTH_USER_MODEL, blank=True, related_name='likes')
+    # @property
+    # def like_count(self):
+    #     return self.likes.count()
+
+
+    
     # likes = models.ManyToManyField(settings.AUTH_USER_MODEL,
     #                                        blank=True,
     #                                        related_name='like_style')
-    @property
-    def like_count(self):
-        return self.likes.count()
 
     def __str__(self):
         return self.name+'_'+str(self.style)

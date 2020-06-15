@@ -112,7 +112,7 @@ style-detail
                 <div class="col">
                     <div class="product-details-content ml-70">
                     <h2 style="float:left; margin-right:10px">{{star_name|upper}}</h2>
-                    <a href="#" class="icons likey"  data-toggle="tooltip" data-placement="bottom" title="Follow" style="font-size:18px;">
+                    <a href="#" id="01" name="17" class="icons likey"  data-toggle="tooltip" data-placement="bottom" title="Follow" style="font-size:18px;">
                         <i class="fa fa-heart-o icon-default fa-lg"></i>
                         <i class="fa fa-heart icon-hover fa-lg"></i>
                     </a>
@@ -394,6 +394,30 @@ $(document).ready(function(){
            $(".jquery_test").text(star_id)
         $('.likey').attr('href',star_id)
         });
+
+        $('.likey').click(function(){
+            var pk = $(this).attr('name');
+            var js_style = $(this).attr('id');
+            var star_name = '{{star_name}}';
+            var test = '{{test}}';
+            $.ajax({
+                type: "POST",
+                url: "{% url 'styles:detail_styles' star_name  %}",
+                data: {'pk': pk, 'star_name':star_name, 'style':js_style, 'csrfmiddlewaretoken': '{{ csrf_token }}'},
+                // data: {'pk': pk, 'csrfmiddlewaretoken': '{{ csrf_token }}'},
+                dataType: "json",
+
+                success: function (response) {
+                    // id = $(this).attr('name');
+                    // $('#count'+ pk).html("count : "+ response.likes_count);
+                    alert("좋아요수 :" + response.likes_count);
+                    // alert(response.message);
+                },
+                error: function (request, status, error, test) {
+                    console.log("code:" + request.status + "\n" + "message:" + request.responseText + "\n" + "error:" + error + "\n" + "test:"+test)
+                }
+            });
+        })
 });
 
 </script>

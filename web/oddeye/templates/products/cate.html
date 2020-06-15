@@ -33,10 +33,17 @@ Products List
                                                     <div class="product-title">
                                                         <h3><a href="{{item.PRODUCT_NAME}}" data-toggle="modal" data-target="#exampleModal{{item.PRODUCT_ID}}">{{item.PRODUCT_NAME}}</a></h3>
                                                     </div>
+                                                    {% if item.PRICE_DISCOUNT_COMMA != None%}
                                                     <div class="price-3">
                                                         <span>₩ {{item.PRICE_DISCOUNT_COMMA}}</span>
                                                         <span class="old">₩{{item.PRICE_ORIGINAL_COMMA}}</span>
                                                     </div>
+
+                                                      {% else %}
+                                                    <div class="price-3">
+                                                        <span>₩ {{item.PRICE_ORIGINAL_COMMA}}</span>
+                                                    </div>
+                                                    {% endif %}
                                                     <div class="product-action-3">
                                                         <a title="Add To Cart" href="#"><i class="fa fa-heart"></i></a>
                                                         <a title="Quick View" href="{{item.PRODUCT_URL}}" data-toggle="modal" data-target="#exampleModal{{item.PRODUCT_ID}}"><i class="fa fa-eye"></i></a>
@@ -275,7 +282,7 @@ Products List
         <li><a class="prev" href="?page={{ data.previous_page_number }}"><i class="fa fa-angle-double-left"></i></a></li>
         {% endif %}
 
-        {% for i in data.paginator.page_range %}
+        {% for i in p_range %}
         {% if data.number == i %}
         <li><a class="active">{{ i }}</a></li>
         {% else %}

@@ -1,12 +1,13 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
+from django.contrib import auth
 # Create your views here.
 from .models import OddeyeUsers
 from .forms import RegisterForm, LoginForm
 from django.views.generic.edit import FormView
 from django.contrib.auth.hashers import make_password, check_password
-
+from django.contrib.auth.models import User
 
 def home(req):
     return redirect('main')
@@ -18,10 +19,14 @@ class RegisterView(FormView):
 
     def form_valid(self, form):
         oddeye_user = OddeyeUsers(
-            id = form.data.get('id'),
+            username = form.data.get('username'),
             password = make_password(form.data.get('password')),
         )
         oddeye_user.save()
+
+        # Create user and save to the database
+        user_main = User.objects.create_user(form.data.get('username'), '', form.data.get('password'))
+        user_main.save()
 
         return super().form_valid(form)
 
@@ -32,16 +37,42 @@ class LoginView(FormView):
 
     # 세션 추가
     def form_valid(self, form):
-        self.request.session['id'] = form.data.get('id')
+        self.request.session['username'] = form.data.get('username')
 
-
-        user = authenticate(
-            id = form.data.get('id'),
-            password = form.data.get('password')
+        username = form.cleaned_data["username"]
+        password = form.cleaned_data["password"]
+        print(username)
+        print(password)
+        user = auth.authenticate(
+            username=username,
+            password=password
         )
-        # user = auth.authenticate(id=form.data.get('id'), password=form.data.get('password'))
+        print(user)
+
+        if user is not None:
+            auth.login(self.request, user)
 
         return super().form_valid(form)
+
+# def login(req):
+#     if req.method == "POST":
+#         form = LoginForm(req.POST)
+#         username = req.POST['username']
+#         password = req.POST['password']
+#
+#         user = auth.authenticate(req, username=username, password=password)
+#         print(user)
+#         if user is not None:
+#             auth.login(req, user)
+#
+#         if form.is_valid():
+#             req.session['user'] = form.user_id
+#             return redirect('/')
+#     else:
+#         form = LoginForm()
+#
+#     return render(req, 'accounts/login.html', {'form': form})
+
 
 def logout(req):
     auth.logout(req)

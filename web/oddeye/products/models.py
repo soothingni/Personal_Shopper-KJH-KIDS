@@ -20,6 +20,7 @@ class Products(models.Model):
         verbose_name = "상품"
         verbose_name_plural = "상품"
 
+
 class ProductsEmbedding(models.Model):
     product_ID = models.ForeignKey(Products, on_delete=models.CASCADE, verbose_name="상품 ID")
     product_embedding = models.CharField(max_length=2000, verbose_name="상품 임베딩값")

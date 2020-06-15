@@ -7,5 +7,7 @@ app_name = 'products'
 
 urlpatterns = [
     path('', views.productview, name='products'),
-    path('<pk>', views.prod_cat, name='cat')
+    path('embed/<int:pk>', views.prod_embeding),
+    path('<int:pk>', views.prod_cat, name='cat'),
+
 ]
