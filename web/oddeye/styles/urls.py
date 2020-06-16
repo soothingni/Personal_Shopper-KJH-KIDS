@@ -6,7 +6,8 @@ from . import views
 app_name = 'styles'
 
 urlpatterns = [
-    path('', views.StylesList, name='styles'),
-    path('<cat_no>', views.style_filter, name='styles_filter'),
-    path('details/<star_name>', views.StarView.as_view(), name='detail_styles'),
+    path('<cat_no>', views.StylesList, name='list'),
+    path('', views.redirectlist, name='styles'),
+    path('details/<star_name>/', views.StarView.as_view(), name='detail_styles'),
+    path('details/<star_name>/<int:pk>', views.StarView.as_view()),
 ]

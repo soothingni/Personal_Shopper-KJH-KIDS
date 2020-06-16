@@ -13,7 +13,6 @@ Products List
 </style>
 
 
-
 <div class="shop-area pt-50 pb-100">
     <div class="container">
         <div class="row">
@@ -44,8 +43,8 @@ Products List
                                                         <span>₩ {{item.PRICE_ORIGINAL_COMMA}}</span>
                                                     </div>
                                                     {% endif %}
-                                                    <div class="product-action-3">
-                                                        <a title="Add To Cart" href="#"><i class="fa fa-heart"></i></a>
+                                                    <div class="product-action-3 wishlist" name="{{item.PRODUCT_ID}}">
+                                                        <a title="Add To Wishlist" href="#"><i class="fa fa-heart"></i></a>
                                                         <a title="Quick View" href="{{item.PRODUCT_URL}}" data-toggle="modal" data-target="#exampleModal{{item.PRODUCT_ID}}"><i class="fa fa-eye"></i></a>
                                                     </div>
                                                 </div>
@@ -268,8 +267,11 @@ Products List
                         <div class="sidebar-widget-tag mt-25">
                             <ul>
                                 {% for ct in cat %}
+                                {% if ct.category == 9 %}
+                                <li><a href="{{ct.category}}">{{ct.name}}</a></li><br>
+                                {% else %}
                                 <li><a href="{{ct.category}}">{{ct.name}}</a></li>
-
+                                {% endif %}
                                 {% endfor %}
                             </ul>
                         </div>
@@ -404,7 +406,7 @@ Products List
                                                         <a title="Wishlist" href="#"><i class="pe-7s-like"></i></a>
                                                     </div>
                                                     <div class="pro-same-action pro-cart">
-                                                        <a title="Add To Cart" href="#"><i class="pe-7s-cart"></i> Add to cart</a>
+                                                        <a title="Add To Wishlist" href="#"><i class="pe-7s-cart"></i> Add to cart</a>
                                                     </div>
                                                     <div class="pro-same-action pro-quickview">
                                                         <a title="Quick View" href="#" data-toggle="modal" data-target="#exampleModal"><i class="pe-7s-look"></i></a>
@@ -548,4 +550,31 @@ Products List
 
 {% block jsfooter %}
 <!--<script src="https://code.jquery.com/jquery-latest.js"></script>-->
+<script>
+$(document).ready(function(){
+    $('.wishlist').click(function(){
+        var getpk = $(this).attr('name');
+
+        $.ajax({
+            type: "POST",
+            url: "/products/"+getpk,
+            data: {'pk': getpk, 'csrfmiddlewaretoken': '{{ csrf_token }}'},
+            dataType: "json",
+
+            success: function (response) {
+                // id = $(this).attr('name');
+                // $('#count'+ pk).html("count : "+ response.likes_count);
+                // alert("좋아요수 :" + response.likes_count);
+                // alert(response.message);
+                location.reload();
+            },
+            error: function (request, status, error) {
+                console.log("code:" + request.status + "\n" + "message:" + request.responseText + "\n" + "error:" + error + "\n")
+            }
+        });
+    })
+});
+
+</script>
+}
 {% endblock %}

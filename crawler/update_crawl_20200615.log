@@ -394,3 +394,7 @@ Traceback (most recent call last):
   File "/home/ubuntu/anaconda3/envs/tensorflow2_p36/lib/python3.6/json/decoder.py", line 355, in raw_decode
     obj, end = self.scan_once(s, idx)
 json.decoder.JSONDecodeError: Expecting property name enclosed in double quotes: line 1 column 6 (char 5)
+Traceback (most recent call last):
+  File "/root/Personal_Shopper-KJH-KIDS/crawler/THISONE_download_seoulstore.py", line 30, in <module>
+    conn = cx_Oracle.connect('oddeye/1234@15.164.247.135:1522/MODB')
+cx_Oracle.DatabaseError: ORA-12541: TNS:no listener

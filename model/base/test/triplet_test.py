@@ -137,7 +137,11 @@ def res_base_network(in_dims, out_dims, res_ver):
          model.add(ResNet101(
     include_top=False, weights='imagenet', input_shape=in_dims, pooling='avg', classes=1000))
 
-    model.add(Dense(1024, activation = 'relu'))
+#     model.add(Dense(1024, activation = 'relu'))
+
+    model.add(Dense(1024))
+    model.add(BatchNormalization())
+    model.add(Activation('relu'))
     model.add(Dense(out_dims, activation = 'sigmoid'))
 
     return model
@@ -212,8 +216,8 @@ def create_res_model(res_ver):
 
     # Define the trainable model
     model = Model(inputs=[anchor_in, pos_in, neg_in], outputs=merged_vector)
-    model.compile(optimizer=Adam(learning_rate=0.0001),
-                  loss=lossless_triplet_loss)
+#     model.compile(optimizer=Adam(learning_rate=0.0001),
+#                   loss=lossless_triplet_loss)
     
     return base_network, model
 
@@ -377,7 +381,7 @@ def show_similar_items_by_designated_pi(designated_pi, encoding_file, origin_img
                 if (dist < thresh) and (dist != 0):
                     sim.append(img)
 
-            sorted_distance = sorted(distance_dict.items(), key=(lambda x: x[1]))   #거리순으로 정렬
+            sorted_distance = sorted(distance_dict.items(), key=(lambda x: x[1]))   #거리순으로 정렬s
             sorted_distance = sorted_distance[1:]       # 동일 이미지 제거
 
             plt.figure(figsize=(display_num*3, 3))

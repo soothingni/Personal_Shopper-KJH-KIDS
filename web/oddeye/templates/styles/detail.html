@@ -94,7 +94,6 @@ style-detail
 {% load static %}
 
 {% block content %}
-
 <div class="container">
     <div class="shop-area pb-50 row">
         <!-- 선택된 이미지 크게 -->
@@ -103,7 +102,7 @@ style-detail
                 <div class="col"></div>
                 <div class="col">
                     <div id="selected_thumbnail" class="product-details">
-                        <img width="300px" id="star_thumb" class="circular--square" src='{% static "" %}star/{{star_name}}/thumb/{{styles.0.STYLE}}.jpg'>
+                        <img width="300px" id="star_thumb" class="circular--square" src='{% static "" %}star/{{star_name}}/thumb/{{pk}}.jpg'>
                     </div>
                 </div>
                 <div class="col"></div>
@@ -112,11 +111,16 @@ style-detail
                 <div class="col">
                     <div class="product-details-content ml-70">
                     <h2 style="float:left; margin-right:10px">{{star_name|upper}}</h2>
-                    <a href="#" id="01" name="17" class="icons likey"  data-toggle="tooltip" data-placement="bottom" title="Follow" style="font-size:18px;">
+                    <a href="#" id="1" name="17" class="icons likey"  data-toggle="tooltip" data-placement="bottom" title="Follow" style="font-size:18px;float:left;margin-top:3px">
+                        {% if cklike == True %}
+                        <i class="fa fa-heart fa-lg"></i>
+                        {% else %}
                         <i class="fa fa-heart-o icon-default fa-lg"></i>
                         <i class="fa fa-heart icon-hover fa-lg"></i>
+                        {% endif %}
                     </a>
-                        <div class="pro-details-meta">
+                        <div>{{ cnt }}</div>
+                        <div class="pro-details-meta" style="clear:both">
                             <span>TAGS :</span>
                             <ul>
                                 <li><a href="#"> {{styles.0.TAG}} </a></li>
@@ -138,19 +142,19 @@ style-detail
             </div>
             <div class="row other_styles mt-30 mb-30">
                 <div class="col-lg-3 col-xs-6">
-                    <a href="javascript: void(0)">
+                    <a href="/styles/details/{{star_name}}/{{styles.0.STYLE}}">
                         <img id="01" name="{{ styles.NO }}" class="circular--square" src='{% static "" %}star/{{star_name}}/thumb/{{styles.0.STYLE}}.jpg'></a>
                 </div>
                 <div class="col-lg-3 col-xs-6">
-                    <a href="javascript: void(0)">
+                    <a href="/styles/details/{{star_name}}/{{styles.1.STYLE}}">
                         <img id="02" name="{{ styles.NO }}" class="circular--square" src='{% static "" %}star/{{star_name}}/thumb/{{styles.1.STYLE}}.jpg'></a>
                 </div>
                 <div class="col-lg-3 col-xs-6">
-                    <a href="javascript: void(0)">
+                    <a href="/styles/details/{{star_name}}/{{styles.2.STYLE}}">
                         <img id="03" name="{{ styles.NO }}" class="circular--square" src='{% static "" %}star/{{star_name}}/thumb/{{styles.2.STYLE}}.jpg'></a>
                 </div>
                 <div class="col-lg-3 col-xs-6">
-                    <a href="javascript: void(0)">
+                    <a href="/styles/details/{{star_name}}/{{styles.3.STYLE}}">
                         <img id="04" name="{{ styles.NO }}" class="circular--square" src='{% static "" %}star/{{star_name}}/thumb/{{styles.3.STYLE}}.jpg'></a>
                 </div>
             </div>
@@ -163,25 +167,32 @@ style-detail
             <div class="related-product-area pb-95">
                 <div class="section-title text-center mb-20">
                     <h2>Related products</h2> <br>
-                    <h2 class='jquery_test'> 안 바뀌네? </h2>
+<!--                    <h2 class='jquery_test'> {{style_no}}</h2>-->
                 </div>
                 <div class="product-area hm5-section-padding pt-20 pb-20">
                         <div class="row">
-                            {% for product in products %}
+                            {% for d in dist %}
                             <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12">
                                 <div class="product-wrap-3 mb-20 scroll-zoom">
                                     <div class="product-img">
-                                        <a href="product-details.html"><img src={{product.img_url}} alt=""></a>
+                                        <a href="{{d.product_url}}"><img src={{d.img_url}} alt=""></a>
                                         <span class="pink">-10%</span>
                                         <div class="product-content-3-wrap">
                                             <div class="product-content-3">
                                                 <div class="product-title">
-                                                    <h3><a href="product-details.html">Sheep Wool Sweater</a></h3>
+                                                    <h3><a href="{{d.product_url}}">{{d.product_name}}</a></h3>
                                                 </div>
+                                                {% if d.price_discount != None%}
                                                 <div class="price-3">
-                                                    <span>$ 40.00</span>
-                                                    <span class="old">$ 50.00</span>
+                                                    <span>₩ {{d.price_discount}}</span>
+                                                    <span class="old">₩{{d.price_original}}</span>
                                                 </div>
+
+                                                {% else %}
+                                                <div class="price-3">
+                                                    <span>₩ {{d.price_original}}</span>
+                                                </div>
+                                                {% endif %}
                                                 <div class="product-action-3">
                                                     <a title="Add To Cart" href="#"><i class="fa fa-shopping-cart"></i></a>
                                                     <a title="Quick View" href="#" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-eye"></i></a>
@@ -347,7 +358,6 @@ style-detail
 <script src="{% static 'js/vendor/modernizr-2.8.3.min.js' %}"></script>
 <script>
 $(document).ready(function(){
-    
     //캐로셀
     $('#style_carousel').owlCarousel({
         loop: true,
@@ -371,7 +381,8 @@ $(document).ready(function(){
             }
         }
     });
-    
+    //현재 style num 가져오기
+
 
     //style 마우스 오버 시 썸네일 바뀜 + 마우스 리브 시 썸네일 돌아옴 <-- 마우스리브 아직 못 함
    // $('.other_styles a img').mouseover(function(){
@@ -386,35 +397,38 @@ $(document).ready(function(){
            $('#star_thumb').attr('src', go).fadeIn(200);
        return false;
        });
+
+       // var myurl = '/details/' + {{star.NAME}} + {{star.STYLE}};
+       // $(location).attr('href',myurl);
         });
     
         $('.other_styles a img').click(function(){
         var star_id = $(this).attr('id');
         var param = {star_id:star_id};
-           $(".jquery_test").text(star_id)
-        $('.likey').attr('href',star_id)
+           $(".jquery_test").text(star_id);
         });
 
         $('.likey').click(function(){
-            var pk = $(this).attr('name');
-            var js_style = $(this).attr('id');
+            // var pk = $(this).attr('name');
+            var pk={{pk}}
+            var style_num = $(this).attr('id');
             var star_name = '{{star_name}}';
-            var test = '{{test}}';
+
             $.ajax({
                 type: "POST",
                 url: "{% url 'styles:detail_styles' star_name  %}",
-                data: {'pk': pk, 'star_name':star_name, 'style':js_style, 'csrfmiddlewaretoken': '{{ csrf_token }}'},
-                // data: {'pk': pk, 'csrfmiddlewaretoken': '{{ csrf_token }}'},
+                data: {'pk': pk, 'star_name':star_name, 'style':style_num, 'csrfmiddlewaretoken': '{{ csrf_token }}'},
                 dataType: "json",
 
                 success: function (response) {
                     // id = $(this).attr('name');
                     // $('#count'+ pk).html("count : "+ response.likes_count);
-                    alert("좋아요수 :" + response.likes_count);
+                    // alert("좋아요수 :" + response.likes_count);
                     // alert(response.message);
+                    location.reload();
                 },
-                error: function (request, status, error, test) {
-                    console.log("code:" + request.status + "\n" + "message:" + request.responseText + "\n" + "error:" + error + "\n" + "test:"+test)
+                error: function (request, status, error) {
+                    console.log("code:" + request.status + "\n" + "message:" + request.responseText + "\n" + "error:" + error + "\n")
                 }
             });
         })

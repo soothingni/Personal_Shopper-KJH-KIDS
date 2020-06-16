@@ -1,27 +1,46 @@
 {% extends 'base.html' %}
 {% block title %}
-로그인
-{% endblock %}
+main
+{% endblock title %}
+
 {% load static %}
 {% block content %}
-<div class="container">
-    <h1>login</h1>
-     <form method="POST" action="{% url 'login' %}">
-        {% csrf_token %}
-        <ul>
-            {% for field in form %}
-            <li>
-                <input type="{{ field.field.widget.input_type }}" placeholder="{{field.label}}" name="{{field.name}}">
-            </li>
-            {% endfor %}
-            <li>
-                <button type="submit" class="btn btn--primary">Sign in</button>
-            </li>
-        </ul>
-    </form>
+
+<div class="login-register-area pt-30 pb-100">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-7 col-md-12 ml-auto mr-auto">
+                <div class="login-register-wrapper">
+                    <div class="login-register-tab-list nav">
+                        <a href="{% url 'register' %}">
+                            <h4> 회원가입 </h4>
+                        </a>
+                        <a class="active" data-toggle="tab" href="{% url 'login' %}">
+                            <h4> 로그인 </h4>
+                        </a>
+                    </div>
+                    <div class="tab-content">
+                        <div id="lg1" class="tab-pane active">
+                            <div class="login-form-container">
+                                <div class="login-register-form">
+                                    <form method="post" action="{% url 'login' %}">
+                                        {% csrf_token %}
+                                        {% for field in form %}
+                                        <input type="{{ field.field.widget.input_type }}" name="{{field.name}}" placeholder="{{field.label}}">
+                                        {% endfor %}
+                                        <div class="button-box button-box-bold">
+                                            <div class ="text-center">
+                                                <button type="submit" style="font-weight: bold;"><span>로그인</span></button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-
-
 {% endblock %}
-
-</html>

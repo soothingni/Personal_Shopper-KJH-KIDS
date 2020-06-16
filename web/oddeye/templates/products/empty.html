@@ -1,6 +1,16 @@
+
+
 <div>
+
+    <img src='/static/star/{{star_name}}/style/{{style_no}}.jpg' width="250">
+    <p>{{star_name}}_{{style_no}}</p>
+
+
     {%for d in dist%}
+
     <div  style="float:left">
+
+
         <a href="{{d.product_url}}"><img src="{{d.img_url}}" width="250"></a>
         {% if d.distance == 0 %}
         <p><center>원본이미지</center></p>

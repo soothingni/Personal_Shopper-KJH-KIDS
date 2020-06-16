@@ -33,44 +33,44 @@ class SeoulStoreCrawler():
         self.browser = webdriver.Chrome(os.path.dirname(os.path.abspath( __file__ ))+'/chromedriver', chrome_options=options)
         self.browser.implicitly_wait(2)
         self.category_dict = {
-            1002: {"super_category": 0, "category": 0, "sub_category": 0, "name": "롱슬리브"},
-            1003: {"super_category": 0, "category": 0, "sub_category": 1, "name": "숏슬리브"},
-            1004: {"super_category": 0, "category": 0, "sub_category": 2, "name": "슬리브리스"},
-            1005: {"super_category": 0, "category": 0, "sub_category": 3, "name": "크롭 탑"},
-            1006: {"super_category": 0, "category": 0, "sub_category": 4, "name": "폴로 셔츠"},
-            1008: {"super_category": 0, "category": 1, "sub_category": 5, "name": "후디"},
-            1010: {"super_category": 0, "category": 1, "sub_category": 6, "name": "스웨트셔츠"},
-            1009: {"super_category": 0, "category": 1, "sub_category": 7, "name": "집업후디"},
-            1012: {"super_category": 0, "category": 2, "sub_category": 8, "name": "롱 슬리브"},
-            1013: {"super_category": 0, "category": 2, "sub_category": 9, "name": "숏 슬리브"},
-            1014: {"super_category": 0, "category": 2, "sub_category": 10, "name": "블라우스"},
-            1016: {"super_category": 0, "category": 3, "sub_category": 11, "name": "라운드넥" },
-            1017: {"super_category": 0, "category": 3, "sub_category": 12, "name": "브이넥"},
-            1018: {"super_category": 0, "category": 3, "sub_category": 13, "name": "터틀넥"},
-            1019: {"super_category": 0, "category": 3, "sub_category": 14, "name": "베스트"},
-            1020: {"super_category": 0, "category": 3, "sub_category": 15, "name": "가디건"},
+#             1002: {"super_category": 0, "category": 0, "sub_category": 0, "name": "롱슬리브"},
+#             1003: {"super_category": 0, "category": 0, "sub_category": 1, "name": "숏슬리브"},
+#             1004: {"super_category": 0, "category": 0, "sub_category": 2, "name": "슬리브리스"},
+#             1005: {"super_category": 0, "category": 0, "sub_category": 3, "name": "크롭 탑"},
+#             1006: {"super_category": 0, "category": 0, "sub_category": 4, "name": "폴로 셔츠"},
+#             1008: {"super_category": 0, "category": 1, "sub_category": 5, "name": "후디"},
+#             1010: {"super_category": 0, "category": 1, "sub_category": 6, "name": "스웨트셔츠"},
+#             1009: {"super_category": 0, "category": 1, "sub_category": 7, "name": "집업후디"},
+#             1012: {"super_category": 0, "category": 2, "sub_category": 8, "name": "롱 슬리브"},
+#             1013: {"super_category": 0, "category": 2, "sub_category": 9, "name": "숏 슬리브"},
+#             1014: {"super_category": 0, "category": 2, "sub_category": 10, "name": "블라우스"},
+#             1016: {"super_category": 0, "category": 3, "sub_category": 11, "name": "라운드넥" },
+#             1017: {"super_category": 0, "category": 3, "sub_category": 12, "name": "브이넥"},
+#             1018: {"super_category": 0, "category": 3, "sub_category": 13, "name": "터틀넥"},
+#             1019: {"super_category": 0, "category": 3, "sub_category": 14, "name": "베스트"},
+#             1020: {"super_category": 0, "category": 3, "sub_category": 15, "name": "가디건"},
             
-            1025: {"super_category": 1, "category": 4, "sub_category": 16, "name": "미니"},
-            1026: {"super_category": 1, "category": 4, "sub_category": 17, "name": "미디/롱"},
-            1028: {"super_category": 1, "category": 5, "sub_category": 18, "name": "치노"},
-            1034: {"super_category": 1, "category": 5, "sub_category": 19, "name": "스웨트팬츠"},
-            1031: {"super_category": 1, "category": 5, "sub_category": 20, "name": "스트레이트"},
-            1032: {"super_category": 1, "category": 5, "sub_category": 21, "name": "와이드"},
-            1030: {"super_category": 1, "category": 5, "sub_category": 22, "name": "스키니"},
-            1033: {"super_category": 1, "category": 5, "sub_category": 23, "name": "부츠컷"},
-            1029: {"super_category": 1, "category": 5, "sub_category": 24, "name": "쇼츠"},
-            1035: {"super_category": 1, "category": 5, "sub_category": 25, "name": "레깅스"},
-            1040: {"super_category": 1, "category": 6, "sub_category": 26, "name": "스트레이트"},
-            1041: {"super_category": 1, "category": 6, "sub_category": 27, "name": "와이드"},
-            1039: {"super_category": 1, "category": 6, "sub_category": 28, "name": "스키니"},
-            1042: {"super_category": 1, "category": 6, "sub_category": 29, "name": "부츠컷"},
-            1043: {"super_category": 1, "category": 6, "sub_category": 30, "name": "크롭"},
-            1038: {"super_category": 1, "category": 6, "sub_category": 31, "name": "스커트"},
-            1037: {"super_category": 1, "category": 6, "sub_category": 32, "name": "쇼츠"},
+#             1025: {"super_category": 1, "category": 4, "sub_category": 16, "name": "미니"},
+#             1026: {"super_category": 1, "category": 4, "sub_category": 17, "name": "미디/롱"},
+#             1028: {"super_category": 1, "category": 5, "sub_category": 18, "name": "치노"},
+#             1034: {"super_category": 1, "category": 5, "sub_category": 19, "name": "스웨트팬츠"},
+#             1031: {"super_category": 1, "category": 5, "sub_category": 20, "name": "스트레이트"},
+#             1032: {"super_category": 1, "category": 5, "sub_category": 21, "name": "와이드"},
+#             1030: {"super_category": 1, "category": 5, "sub_category": 22, "name": "스키니"},
+#             1033: {"super_category": 1, "category": 5, "sub_category": 23, "name": "부츠컷"},
+#             1029: {"super_category": 1, "category": 5, "sub_category": 24, "name": "쇼츠"},
+#             1035: {"super_category": 1, "category": 5, "sub_category": 25, "name": "레깅스"},
+#             1040: {"super_category": 1, "category": 6, "sub_category": 26, "name": "스트레이트"},
+#             1041: {"super_category": 1, "category": 6, "sub_category": 27, "name": "와이드"},
+#             1039: {"super_category": 1, "category": 6, "sub_category": 28, "name": "스키니"},
+#             1042: {"super_category": 1, "category": 6, "sub_category": 29, "name": "부츠컷"},
+#             1043: {"super_category": 1, "category": 6, "sub_category": 30, "name": "크롭"},
+#             1038: {"super_category": 1, "category": 6, "sub_category": 31, "name": "스커트"},
+#             1037: {"super_category": 1, "category": 6, "sub_category": 32, "name": "쇼츠"},
             
-            1022: {"super_category": 2, "category": 7, "sub_category": 33, "name": "미니"},
-            1023: {"super_category": 2, "category": 7, "sub_category": 34, "name": "미디/맥시"},
-            1273: {"super_category": 2, "category": 7, "sub_category": 35, "name": "드레스"},
+#             1022: {"super_category": 2, "category": 7, "sub_category": 33, "name": "미니"},
+#             1023: {"super_category": 2, "category": 7, "sub_category": 34, "name": "미디/맥시"},
+#             1273: {"super_category": 2, "category": 7, "sub_category": 35, "name": "드레스"},
             1045: {"super_category": 2, "category": 8, "sub_category": 36, "name": "올인원"},
             1046: {"super_category": 2, "category": 8, "sub_category": 37, "name": "점프수트"}
         }
@@ -83,9 +83,14 @@ class SeoulStoreCrawler():
         기능: DB Insert를 처리 시, '제품 할인가'가 포함된다.
         '''
         sql = "insert into products values(:1,:2,:3,:4,:5,:6,:7,:8,:9)"
-        self.curs.execute(sql, row)
-        print("DB_INSERTED :", row)
-        self.conn.commit()
+        try:
+            print("DB_INSERT:", row)
+            self.curs.execute(sql, row)
+            print("DB_INSERTEDED")
+            self.conn.commit()
+            return 1
+        except:
+            return 0
 
     def db_insert_with_no_saleprice(self, row):
         '''
@@ -93,9 +98,14 @@ class SeoulStoreCrawler():
         '''
         sql = "insert into products(PRODUCT_ID,PRODUCT_NAME,PRICE_ORIGINAL, SUPER_CATEGORY, BASE_CATEGORY, SUB_CATEGORY, IMG_URL, PRODUCT_URL) \
              values(:1, :2, :3, :4, :5, :6, :7, :8)"
-        self.curs.execute(sql, row)
-        print("DB_INSERTED :", row)
-        self.conn.commit()
+        try:
+            print("DB_INSERT :", row)
+            self.curs.execute(sql, row)
+            print("DB_INSERTED")
+            self.conn.commit()
+            return 1
+        except:
+            return 0
 
     def webdriver_close(self):
         '''
@@ -178,11 +188,9 @@ class SeoulStoreCrawler():
                     # 크롤링 내용 Oracle DB에 저장
                     if flag_discount_exists:
                         t = (dict_post['product_ID'], dict_post['product_name'], dict_post['price_original'], dict_post['price_discount'], dict_post['super_category'], dict_post["base_category"], dict_post["sub_category"], dict_post["img_url"], dict_post["product_url"])
-                        print(t)
                         self.db_insert_with_saleprice(t)                        
                     else:
                         t = (dict_post['product_ID'], dict_post['product_name'], dict_post['price_original'], dict_post['super_category'], dict_post["base_category"], dict_post["sub_category"], dict_post["img_url"], dict_post["product_url"])
-                        print("Test2", t)
                         self.db_insert_with_no_saleprice(t)
 
             print("saved {} items from {} section".format(cat_post_count, category_dict[cat]['name']))
@@ -210,7 +218,7 @@ class SeoulStoreCrawler():
 
             product_set = set(current_cat_product_IDs)
             newest_product_ID = sorted(current_cat_product_IDs, key=lambda x: str(x), reverse=True)[0]   #기존 파일에서 가장 최신 상품의 product_ID
-
+            newest_product_ID = str(newest_product_ID)
             
             url = 'https://www.seoulstore.com/categories/{}/regDatetime/desc'.format(str(cat))
             self.browser.get(url)
@@ -231,7 +239,6 @@ class SeoulStoreCrawler():
                     ele_posts = self.browser.find_element_by_class_name('products_container').find_elements_by_class_name('ProductItem')
                     new_product_IDs = [e.find_element_by_tag_name('a').get_attribute('href').split('/')[-2] for e in ele_posts]
                     print("new_product_IDs: ", new_product_IDs)
-                    print(newest_product_ID in new_product_IDs)
 
                     # 기존 상품이 보일 시
                     if newest_product_ID in new_product_IDs:
@@ -248,7 +255,7 @@ class SeoulStoreCrawler():
                         if key not in product_set:
                             flag_discount_exists = False
                             dict_post = { "product_url": product_url }
-                            dict_post['product_ID'] = key
+                            dict_post['product_ID'] = int(key)
                             dict_post['product_name'] = ele.find_element_by_class_name('product_name').find_element_by_tag_name('a').text
                             price_list_ele = ele.find_element_by_class_name('price').find_elements_by_css_selector('span')
                             price_1 = ele.find_element_by_class_name('price').find_elements_by_css_selector('span')[-1].text
@@ -262,23 +269,29 @@ class SeoulStoreCrawler():
                             dict_post["img_url"] = ele_img.get_attribute("src")
 
                             dict_post["sub_category"] = category_dict[cat]["sub_category"]
-                            dict_post["category"] = category_dict[cat]["category"]
+                            dict_post["base_category"] = category_dict[cat]["category"]
                             dict_post["super_category"] = category_dict[cat]["super_category"]   
 
-                            cat_post_count +=1
-                            product_set.add(key)
-                            
-                            self.write_add_json(dict_post, filepath)
                             
                             # 크롤링 내용 Oracle DB에 저장
-                            # if flag_discount_exists:
-                            #     t = (dict_post['product_ID'], dict_post['product_name'], dict_post['price_original'], dict_post['price_discount'], dict_post['super_category'], dict_post["base_category"], dict_post["sub_category"], dict_post["img_url"], dict_post["product_url"])
-                            #     print(t)
-                            #     self.db_insert_with_saleprice(t)                        
-                            # else:
-                            #     t = (dict_post['product_ID'], dict_post['product_name'], dict_post['price_original'], dict_post['super_category'], dict_post["base_category"], dict_post["sub_category"], dict_post["img_url"], dict_post["product_url"])
-                            #     print("Test2", t)
-                            #     self.db_insert_with_no_saleprice(t)  
+                            if flag_discount_exists:
+                                t = (dict_post['product_ID'], dict_post['product_name'], dict_post['price_original'], dict_post['price_discount'], dict_post['super_category'], dict_post["base_category"], dict_post["sub_category"], dict_post["img_url"], dict_post["product_url"])
+                                flag_inserted = self.db_insert_with_saleprice(t)                        
+                            else:
+                                t = (dict_post['product_ID'], dict_post['product_name'], dict_post['price_original'], dict_post['super_category'], dict_post["base_category"], dict_post["sub_category"], dict_post["img_url"], dict_post["product_url"])
+                                flag_inserted = self.db_insert_with_no_saleprice(t)  
+                             
+                            if flag_inserted == 1:
+                                cat_post_count +=1
+                                product_set.add(key)
+                                print("flag1")
+                                self.write_add_json(dict_post, filepath)
+                                
+                            else:
+                                print("flag2")
+                                continue
+                                
+                            
                                             
         self.webdriver_close()
 
@@ -339,7 +352,7 @@ class SeoulStoreCrawler():
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('--isFirst', default="True",
+    parser.add_argument('--isFirst', default="False",
                         help="Crawling for the first time or not")
     parser.add_argument('--num', default=1000,
                         help="Number of items to fetch per category")
@@ -349,18 +362,18 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     crawler = SeoulStoreCrawler()
-#     print('-------------------------------------------------------')
-#     print('Starting PROCESS 1: Fetching item info')
-#     print('-------------------------------------------------------')
+    print('-------------------------------------------------------')
+    print('Starting PROCESS 1: Fetching item info')
+    print('-------------------------------------------------------')
 
-#     mode = args.isFirst
+    mode = args.isFirst
     
-#     if mode == "True":
-#         print("Initial Save Starts!")
-#         crawler.crawling_first(crawler.category_dict, int(args.num), args.filepath)
-#     else:
-#         print("Update Starts!")
-#         crawler.crawling_update(crawler.category_dict, args.filepath)
+    if mode == "True":
+        print("Initial Save Starts!")
+        crawler.crawling_first(crawler.category_dict, int(args.num), args.filepath)
+    else:
+        print("Update Starts!")
+        crawler.crawling_update(crawler.category_dict, args.filepath)
        
 
     print('-------------------------------------------------------')

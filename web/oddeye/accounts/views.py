@@ -28,6 +28,15 @@ class RegisterView(FormView):
         user_main = User.objects.create_user(form.data.get('username'), '', form.data.get('password'))
         user_main.save()
 
+        username = form.cleaned_data["username"]
+        password = form.cleaned_data["password"]
+        user = auth.authenticate(
+            username=username,
+            password=password
+        )
+
+        auth.login(self.request, user)
+
         return super().form_valid(form)
 
 class LoginView(FormView):
@@ -53,25 +62,6 @@ class LoginView(FormView):
             auth.login(self.request, user)
 
         return super().form_valid(form)
-
-# def login(req):
-#     if req.method == "POST":
-#         form = LoginForm(req.POST)
-#         username = req.POST['username']
-#         password = req.POST['password']
-#
-#         user = auth.authenticate(req, username=username, password=password)
-#         print(user)
-#         if user is not None:
-#             auth.login(req, user)
-#
-#         if form.is_valid():
-#             req.session['user'] = form.user_id
-#             return redirect('/')
-#     else:
-#         form = LoginForm()
-#
-#     return render(req, 'accounts/login.html', {'form': form})
 
 
 def logout(req):

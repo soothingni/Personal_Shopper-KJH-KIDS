@@ -1,29 +1,190 @@
-{% extends 'base.html' %}
-{% block content %}
+{% load static %}
+<!doctype html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>{% block title %}{% endblock title %}</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="../../static/favicon.png">
+
+    <!-- CSS
+	============================================ -->
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/icons.min.css">
+    <link rel="stylesheet" href="/static/css/plugins.css">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <script src="/static/js/vendor/modernizr-2.8.3.min.js"></script>
+    <script src="http://code.jquery.com/jquery-3.1.0.min.js"></script>
+</head>
+
+
+<body>
+<header class="header-area clearfix header-hm9 transparent-bar bg-white">
+    <div class="container">
+        <div class="header-top-area">
+            <div class="row">
+                <div class="col-lg-5 col-md-8 col-12">
+                </div>
+                <div class="col-lg-2 d-none d-lg-block">
+                    <div class="logo-hm9 text-center">
+                        <a href="{% url 'main' %}">
+                            <img alt="" src="/static/logo_long.png" width=150px>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-5 col-md-4 col-12">
+                    <div class="header-right-wrap">
+
+
+                        <div class="same-style header-search">
+                            <a class="search-active" href="#"><i class="pe-7s-search"></i></a>
+                            <div class="search-content">
+                                <form action="#">
+                                    <input type="text" placeholder="Search" />
+                                    <button class="button-search"><i class="pe-7s-search"></i></button>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="same-style account-satting">
+                            <a class="account-satting-active" href="#"><i class="pe-7s-user-female"></i></a>
+                            <div class="account-dropdown">
+                                <ul>
+                                    {% if user.is_authenticated %}
+                                    <li><a href="wishlist.html">Wishlist  </a></li><br>
+                                    <li><a href="my-account.html">My account</a></li><br>
+                                    <li><a href="{% url 'logout' %}">Log out</a></li>
+                                    {% else %}
+                                    <li><a href='{% url "login"%}'>Log in</a></li><br>
+                                    <li><a href="{% url 'register' %}">Register</a></li><br>
+                                    <li><a href="wishlist.html">Wishlist  </a></li>
+                                    {% endif %}
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="same-style header-wishlist">
+                            <a href="wishlist.html"><i class="pe-7s-like"></i></a>
+                        </div>
+                        <div class="same-style cart-wrap">
+                            <button class="icon-cart">
+                                <i class="pe-7s-shopbag"></i>
+                                <span class="count-style">02</span>
+                            </button>
+                            <div class="shopping-cart-content">
+                                <ul>
+                                    <li class="single-shopping-cart">
+                                        <div class="shopping-cart-img">
+                                            <a href="#"><img alt="" src="/static/step1/img/cart/cart-1.png"></a>
+                                        </div>
+                                        <div class="shopping-cart-title">
+                                            <h4><a href="#">T- Shart & Jeans </a></h4>
+                                            <h6>Qty: 02</h6>
+                                            <span>$260.00</span>
+                                        </div>
+                                        <div class="shopping-cart-delete">
+                                            <a href="#"><i class="fa fa-times-circle"></i></a>
+                                        </div>
+                                    </li>
+                                    <li class="single-shopping-cart">
+                                        <div class="shopping-cart-img">
+                                            <a href="#"><img alt="" src="/static/step1/img/cart/cart-2.png"></a>
+                                        </div>
+                                        <div class="shopping-cart-title">
+                                            <h4><a href="#">T- Shart & Jeans </a></h4>
+                                            <h6>Qty: 02</h6>
+                                            <span>$260.00</span>
+                                        </div>
+                                        <div class="shopping-cart-delete">
+                                            <a href="#"><i class="fa fa-times-circle"></i></a>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <div class="shopping-cart-total">
+                                    <h4>Shipping : <span>$20.00</span></h4>
+                                    <h4>Total : <span class="shop-total">$260.00</span></h4>
+                                </div>
+                                <div class="shopping-cart-btn btn-hover text-center">
+                                    <a class="default-btn" href="cart-page.html">view cart</a>
+                                    <a class="default-btn" href="checkout.html">checkout</a>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="header-bottom sticky-bar header-res-padding header-padding-2">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 d-block d-lg-none">
+                    <div class="logo">
+                        <a href='{% url "main" %}'>
+                            <img alt="" src="/static/logo_long.png" width=150>
+
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-xl-12 col-lg-12 d-none d-lg-block">
+                    <div class="main-menu">
+                        <nav>
+                            <ul>
+                                <li><a href="{% url 'main' %}">HOME</a></li>
+                                <li><a href="{% url 'styles:styles' %}">인물정보</a></li>
+                                <li><a href="{% url 'products:products' %}">상품정보</a></li>
+                                <li><a href="{% url 'aboutus' %}">About us</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <div class="mobile-menu-area">
+                <div class="mobile-menu">
+                    <nav id="mobile-menu-active">
+                        <ul class="menu-overflow">
+                            <li><a href="{% url 'main' %}">HOME</a></li>
+                            <li><a href="{% url 'styles:styles' %}">인물정보</a></li>
+                            <li><a href="{% url 'products:products' %}">상품정보</a></li>
+                            <li><a href="{% url 'aboutus' %}">About us</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+<!-- ABOUT US START -->
+
+
 <style>
-    header{
-        position:absolute !important;
-    }
     .team-area .row .col-lg-2 {flex:0 0 20%; max-width:20%;}
+
 </style>
 
 <div class="full-page-area bg-purple-2">
     <div id="fullpage">
         <div class="slider-section flone-fp-section active" id="section1">
-            <div class="container">
+            <div class="container" style="height: 300px;">
                 <div class="row fullpage-slider-wrap-mrg">
-                    <div class="col-lg-6 col-md-6 col-sm-6 col-12 d-flex align-items-center">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-12 d-flex align-items-center" >
                         <div class="slider-content-11 slider-animated-1 fullpage-slider-mrg fullpage-content">
-                            <h3 class="animated">2020 Fashion For Womens</h3>
-                            <h1 class="animated">-40% Spring <br>Shirts & Tops</h1>
+                            <h3 class="animated">CEO 인사말</h3>
+                            <h1 class="animated">내일까지<br>가능하시죠?</h1>
                             <div class="slider-btn-11 btn-hover">
-                                <a class="animated" href="shop.html">SHOP NOW</a>
+                                <a class="animated" href="https://github.com/soothingni/Personal_Shopper-KJH-KIDS">Github</a>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-6 col-12">
                         <div class="slider12-img-1 slider-animated-1">
-                            <img class="animated" alt="" src="../../static/img/slider/hm-11-1.png">
+                            <img class="animated" alt="" src="https://avatars1.githubusercontent.com/u/51011476?s=460&u=d8c3650d8427b64301210ae1e648d4e093e59a1f&v=4">
                         </div>
                     </div>
                 </div>
@@ -34,16 +195,16 @@
                 <div class="row d-flex align-items-center fullpage-slider-mrg-2">
                     <div class="col-lg-6 col-md-6 col-sm-6 col-12">
                         <div class="slider-content-11 slider-animated-1 fullpage-content">
-                            <h3 class="animated">2020 Fashion For Womens</h3>
-                            <h1 class="animated">-40% Spring <br>Shirts & Tops</h1>
+                            <h3 class="animated">내가 좋아하는</h3><br>
+                            <h1 class="animated">연예인의 옷장<br>살펴보기</h1>
                             <div class="slider-btn-11 btn-hover">
-                                <a class="animated" href="shop.html">SHOP NOW</a>
+                                <a class="animated" href="/styles">인물정보 바로 가기</a>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-6 col-12">
                         <div class="slider12-img-2 slider-animated-1">
-                            <img class="animated" alt="" src="../../static/img/slider/hm-11-2.png">
+                            <img class="animated" alt="" src="https://media3.giphy.com/media/3o6wriWV0p2aSsET7O/giphy.gif">
                         </div>
                     </div>
                 </div>
@@ -54,16 +215,16 @@
                 <div class="row fullpage-slider-wrap-mrg">
                     <div class="col-lg-6 col-md-6 col-sm-6 col-12 d-flex align-items-center fullpage-slider-mrg">
                         <div class="slider-content-11 slider-animated-1 fullpage-content">
-                            <h3 class="animated">2020 Fashion For Womens</h3>
-                            <h1 class="animated">-40% Spring <br>Shirts & Tops</h1>
+                            <h3 class="animated">내가 고른 옷을</h3>
+                            <h1 class="animated">아이유는 <br>어떻게 입었을까?</h1>
                             <div class="slider-btn-11 btn-hover">
-                                <a class="animated" href="shop.html">SHOP NOW</a>
+                                <a class="animated" href="/products">상품정보 바로가기</a>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-6 col-12">
                         <div class="slider12-img-1 slider-animated-1">
-                            <img class="animated" alt="" src="../../static/img/slider/hm-11-1.png">
+                            <img class="animated" alt="여기는 같은 옷을 입은 스타 여러명을 하나로 합친 사진?" src="../../static/img/slider/hm-11-1.png">
                         </div>
                     </div>
                 </div>
@@ -295,10 +456,17 @@
 
 
 
+<script src="/static/js/vendor/jquery-v3.4.1.min.js"></script>
+<script src="/static/js/popper.min.js"></script>
+<script src="/static/js/bootstrap.min.js"></script>
+<script src="/static/js/plugins.js"></script>
+<script src="/static/js/ajax-mail.js"></script>
+<script src="/static/js/main.js"></script>
+{% block jsfooter %}
+{% endblock jsfooter %}
 
+<a id="scrollUp" href="#top" style="position: fixed; z-index: 2147483647;"><i class="fa fa-angle-double-up"></i></a>
 
+</body>
+</html>
 
-
-
-
-    {% endblock %}
