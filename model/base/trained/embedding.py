@@ -1,7 +1,7 @@
 import tensorflow as tf
 
 from tensorflow.keras import backend as K
-from tensorflow.keras.layers import Input, BatchNormalization, LSTM, Dense, concatenate, Conv2D, MaxPooling2D, Flatten, GlobalAveragePooling2D
+from tensorflow.keras.layers import Input, BatchNormalization, LSTM, Dense, concatenate, Conv2D, MaxPooling2D, Flatten, GlobalAveragePooling2D, Activation
 from tensorflow.keras.optimizers import Adam, SGD
 from tensorflow.keras.models import Model, Sequential
 from tensorflow.keras.callbacks import EarlyStopping, ModelCheckpoint
@@ -25,17 +25,21 @@ import cx_Oracle
 import os
 os.environ["NLS_LANG"] = ".AL32UTF8"
 
+#/root/Personal_Shopper-KJH-KIDS/web/oddeye/static/star
+
 # db connection
 conn = cx_Oracle.connect('oddeye/1234@15.164.247.135:1522/MODB')
 curs = conn.cursor()
 
 parser = argparse.ArgumentParser()
-parser.add_argument('--model_dir', default='./resnet101_detectron/000001-1.6717.h5',
+parser.add_argument('--model_dir', default=  './plain_triplet_bn/000001-0.3124-0.1947.h5',  #./resnet101_detectron/000001-1.6717.h5',
                     help="Model weights dir")
 parser.add_argument('--img_dir', default='/root/Personal_Shopper-KJH-KIDS/web/oddeye/static/img/seoulstore_ALL',
                     help="Images dir")
 parser.add_argument('--table', default= 'star_embedding',    #'products_embedding',
                     help="table to insert embedding")
+parser.add_argument('--pors', default= 'product',    #'products_embedding',
+                    help="products or star")
 
 def lossless_triplet_loss(y_true, y_pred, N=128, beta=128, epsilon=1e-8):
     """
@@ -92,7 +96,9 @@ def res_base_network(in_dims, out_dims, res_ver):
          model.add(ResNet101(
     include_top=False, weights='imagenet', input_shape=in_dims, pooling='avg', classes=1000))
 
-    model.add(Dense(1024, activation = 'relu'))
+    model.add(Dense(1024))
+    model.add(BatchNormalization())
+    model.add(Activation('relu'))
     model.add(Dense(out_dims, activation = 'sigmoid'))
 
     return model        
@@ -167,6 +173,7 @@ if __name__ == '__main__':
     model_dir = args.model_dir
     img_dir = args.img_dir
     table = args.table
+    pors = args.pors
     
     print('-------------------------------------------------------')
     print('Starting PROCESS 1: Creating model...')
@@ -185,42 +192,64 @@ if __name__ == '__main__':
     print('Starting PROCESS 2: Started embedding items')
     print('-------------------------------------------------------')
     
-#     data_path = os.path.join(img_dir,'*g')
-#     files = glob.glob(data_path)
-#     file_count = len(files)
-    
-#     print("Found {} images from {}".format(file_count, img_dir))
 
-    stars = os.listdir(img_dir)
-    print(f"Found {len(stars)} stars")
     
     cnt = 0
     
-    for star in stars:
-        star_name = star.split('/')[-1]
-        files = os.listdir(os.path.join(img_dir,star, 'style'))
+    if pors == "product":
         
+        data_path = os.path.join(img_dir,'*g')
+        files = glob.glob(data_path)
+        file_count = len(files)
+        print("Found {} images from {}".format(file_count, img_dir))
+
         for i in tqdm(range(len(files))):
             file_name = files[i].split('/')[-1]
-            file_name, _ = os.path.splitext(file_name)
             
             if file_name == '.ipynb_checkpoints':
-                continue
-                
-            if star == 'removed_bg':
-                continue
-                
-            style_num = get_style_num(star_name, file_name, curs)
+                    continue
             
-            file_path = os.path.join(img_dir, star, 'style', files[i])
+            product_id, _ = os.path.splitext(file_name)
+            product_id = int(product_id)
             
-            encoding = encode_img_by_path(file_path, base)
+            encoding = encode_img_by_path(files[i], base)
             encoding = np.around(encoding, 10)    #소숫점 아래 10째자리까지 라운드
             encoding = encoding.tolist()
             encoding = str(encoding)
-
             cnt += 1
-            t = (style_num, encoding, style_num)
+            t = (product_id,  product_id, encoding)
 
             db_insert(t, cnt, table)
-           
+
+    
+    if pors == "star":
+        stars = os.listdir(img_dir)
+        print(f"Found {len(stars)} stars")
+    
+        for star in stars:
+            star_name = star.split('/')[-1]
+            files = os.listdir(os.path.join(img_dir,star, 'style'))
+
+            for i in tqdm(range(len(files))):
+                file_name = files[i].split('/')[-1]
+                file_name, _ = os.path.splitext(file_name)
+
+                if file_name == '.ipynb_checkpoints':
+                    continue
+
+                if star == 'removed_bg':
+                    continue
+
+                style_num = get_style_num(star_name, file_name, curs)
+
+                file_path = os.path.join(img_dir, star, 'style', files[i])
+
+                encoding = encode_img_by_path(file_path, base)
+                encoding = np.around(encoding, 10)    #소숫점 아래 10째자리까지 라운드
+                encoding = encoding.tolist()
+                encoding = str(encoding)
+
+                cnt += 1
+                t = (style_num, style_num, encoding)
+
+                db_insert(t, cnt, table)

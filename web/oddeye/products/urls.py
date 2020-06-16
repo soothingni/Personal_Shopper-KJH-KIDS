@@ -10,5 +10,5 @@ urlpatterns = [
     path('sembed/<int:pk>', views.star_embedding),
     path('pembed/<int:pk>',views.prod_embedding),
     path('<int:pk>', views.prod_list.as_view(), name='prod_list'),
-
+    path('clientinput',views.ClientInput),
 ]

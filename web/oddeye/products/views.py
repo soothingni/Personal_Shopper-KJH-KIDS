@@ -37,6 +37,21 @@ class prod_list(View):
         cursor = conn.cursor()
         cursor.execute(sql)
         db_data = dictfetchall(cursor)
+
+        sql = '''
+                SELECT STAR_EMBEDDING.STAR_EMBEDDING, STAR.NAME, STAR.STYLE, STAR.CATEGORY
+                FROM STAR_EMBEDDING
+                JOIN STAR ON STAR.NO=STAR_EMBEDDING.ID
+
+                '''
+        cursor.execute(sql)
+        star_data = dictfetchall(cursor)
+
+
+
+
+
+
         for item in db_data:
             if item['PRICE_DISCOUNT'] != None:
                 item['PRICE_DISCOUNT_COMMA'] = format(item['PRICE_DISCOUNT'], ",")
@@ -242,3 +257,12 @@ category_dict = [
         {"super_category": 2, "category": 8, "sub_category": 36, "name": "올인원"},
         {"super_category": 2, "category": 8, "sub_category": 37, "name": "점프수트"}
     ]
+
+def ClientInput(req):
+    # static에 저장
+    file = req.GET.get('filename')
+    filename = file._name
+    fp = open(settings.BASE_DIR + f"/static/ClientInput/" + filename, "wb")
+    for chunk in file.chunks():
+        fp.write(chunk)
+    fp.close()

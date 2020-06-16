@@ -40,3 +40,27 @@ class Star_embedding(models.Model):
         db_table = 'star_embedding'
         verbose_name = '스타 임베딩'
         verbose_name_plural = '스타 임베딩'
+
+class Star_embedding1(models.Model):
+    no = models.IntegerField()
+    star_embedding = models.CharField(max_length=2000)
+
+    def __str__(self):
+        return self.star_embedding
+
+    class Meta:
+        db_table = 'star_embedding1'
+        verbose_name = '스타 임베딩1'
+        verbose_name_plural = '스타 임베딩1'
+
+class Star_embedding2(models.Model):
+    no = models.IntegerField()
+    star_embedding = models.CharField(max_length=2000)
+
+    def __str__(self):
+        return self.star_embedding
+
+    class Meta:
+        db_table = 'star_embedding2'
+        verbose_name = '스타 임베딩2'
+        verbose_name_plural = '스타 임베딩2'
