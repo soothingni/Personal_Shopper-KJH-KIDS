@@ -1,50 +1,3 @@
-<style>
-    .lookbook {
-        padding : 50px 0px 0px 0px;
-        background-color: #FBFADB;
-    }
-
-    .lookbook .owl-carousel {
-        position:absolute;
-        z-index:1;
-    }
-
-    .lookbook_scroller {
-        margin-top:100px;
-    }
-
-    
-    .bottom {
-        width: 200px;
-    }
-
-    .circular--square {
-        border-radius: 3000px;
-        width: 130px;
-        height: 130px;
-        justify-content: center;
-        align-items: center;
-                    }
-    
-    header {
-    background-color: #d9e8f3
-    }
-
-
-    .style_carousel_wrap {
-        text-align: center;
-        padding-top:50px;
-    }
-    .style-carousel {margin:20px 0 50px 0;}
-    .style-carousel .item {margin:10px}
-    .style-carousel .item img {width:150px !important; height:150px}
-
-    .products_wrap {
-        text-align: center;
-        padding:50px 0 50px 0;
-    }
-</style>
-
 {% extends "base.html" %}
 
 {% block title %}
@@ -54,6 +7,7 @@ main
 {% load static %}
 
 {% block content %}
+
 <!--SECTION1: LOOKBOOK-->
 <div class="lookbook">
     {{tag_dict}}
@@ -63,9 +17,9 @@ main
            <div class="container">
                <div class="row">
                    <div class="col-xl-12 col-lg-12 col-md-12 col-12">
-                       <div class="slider-content-7 slider-animated-1">
+                       <div class="section--title slider-content-7 slider-animated-1">
                            <h3 class="animated"> 당신만의 </h3>
-                           <h1 class="animated"> 스타일 어시스턴트 : odd eye </h1>
+                           <h1 class="animated"> 스타일 어시스턴트 : oddeye </h1>
                            <div class="slider-btn-9 btn-hover">
                                <a class="animated" href="aboutus"> 더 알아보기 </a>
                            </div>
@@ -76,7 +30,7 @@ main
            <div class="container">
                <div class="row">
                    <div class="col-xl-6 col-lg-6 col-md-7 ml-auto">
-                       <div class="slider-content-7 slider-animated-1">
+                       <div class="slider-content-7 slider-animated-1 font_main">
                            <h3 class="animated"> oddeye가 </h3>
                            <h1 class="animated"> 당신의 스타일을 찾아드립니다</h1>
                            <div class="slider-btn-9 btn-hover">
@@ -97,7 +51,7 @@ main
             <li class="bottom">
                 <a href="styles/details/{{datum.name}} "><img src= '{{datum.img}}' ></a>
             </li>
-            {% endfor %} 
+            {% endfor %}
         </ul>
     </div>
 </div>
@@ -106,8 +60,18 @@ main
 <div class="style_carousel_wrap">
     <div class="container">
         <div class="row">
-            <div class="col"></div>
-            <div class="col-xl-8">
+            <div class="col-xl-12">
+                <div class="star">
+                    <h2 class="star__title">
+                        인플루언서 기반 스타일 추천
+                    </h2>
+                    <p class="star__description">
+                        창조적 따라입기를 통해 당신의 스타일을 완성시키세요!
+                    </p>
+                </div>
+                <div class="options">
+                    <a href="/styles/0">전체보기 +</a>
+                </div>
                 <div class="style-carousel owl-carousel nav-style-1">
                     {% for datum in data %}
                     <div class="item">
@@ -123,17 +87,330 @@ main
     </div>
 </div>
 
-<div class="products_wrap">
+<!--FEATURE-->
+<div class="recommendation">
     <div class="container">
         <div class="row">
-            <div class="col">
-                <h2>test</h2>
+            <div class="col-xl-12">
+                <h2 class="recommendation__title">
+                    오늘의 추천 : 아이린
+                </h2>
+                <p class="recommendation__description">
+                    아이린 스타일 : {{styles.0.TAG}}, {{styles.1.TAG}}, {{styles.2.TAG}}, {{styles.3.TAG}}
+                </p>
+                <div class="options">
+                    <a href="/products/9">전체보기 +</a>
+                </div>
+                <div class="shop-area row">
+        <!-- 선택된 이미지 크게 -->
+        <div class="selected col-lg-4">
+            <div class="row">
+                <div class="col"></div>
+                <div class="col">
+                    <div id="selected_thumbnail" class="product-details pt-20">
+                        <img width="300px" id="star_thumb" class="circular--square star_large400" src='{% static "" %}star/{{star_name}}/thumb/{{pk}}.jpg'>
+                    </div>
+                </div>
+                <div class="col"></div>
+            </div>
+            <div class="row">
+                <div class="col pt-30">
+                    <div class="product-details-content" style="width: 100%;text-align: center;">
+                    <h2>{{star_name|upper}}</h2>
+                    <a href="#" id="1" name="17" class="icons likey"  data-toggle="tooltip" data-placement="bottom" title="Follow" style="display: inline-block;">
+                        {% if cklike == True %}
+                        <i class="fa fa-heart fa-lg"></i>
+                        {% else %}
+                        <i class="fa fa-heart-o icon-default fa-lg"></i>
+                        <i class="fa fa-heart icon-hover fa-lg"></i>
+                        {% endif %}
+                    </a>
+                        <div class="inline_block_count">{{ cnt }}</div><br>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col"></div>
+        <div class="col-lg-7 pt-20">
+            <!--SECTION2: Related Products -->
+            <div class="related-product-area">
+                <div class="product-area hm5-section-padding">
+                        <div class="row">
+                            {% for d in dist %}
+                            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12">
+                                <div class="product-wrap-3 mb-20 scroll-zoom">
+                                    <div class="product-img">
+                                        <a href="{{d.product_url}}">
+                                            <img src={{d.img_url}} class="mb-20" alt=""></a>
+                                        {% if d.discounts %}
+                                        <span class="pink">-{{d.discounts}}%</span>
+                                        {% endif %}
+                                        <div class="product-content-3-wrap" style="height:81% !important;">
+                                            <div class="product-content-3">
+                                                <div class="product-title">
+                                                    <h3><a href="{{d.product_url}}">{{d.product_name}}</a></h3>
+                                                </div>
+                                                {% if d.price_discount != None%}
+                                                <div class="price-3">
+                                                    <span>₩ {{d.price_discount}}</span>
+                                                    <span class="old">₩{{d.price_original}}</span>
+                                                </div>
+
+                                                {% else %}
+                                                <div class="price-3">
+                                                    <span>₩ {{d.price_original}}</span>
+                                                </div>
+                                                {% endif %}
+                                                <div class="product-action-3">
+                                                    <a title="Add To Cart" href="#"><i class="fa fa-shopping-cart"></i></a>
+                                                    <a title="Quick View" href="#" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-eye"></i></a>
+                                                    <a title="Wish" href="#"><i class="fa fa-heart"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
             </div>
         </div>
     </div>
 </div>
 
 
+<!--FEATURE-->
+<div class="store">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-12">
+                <h2 class="store__title">
+                    쇼핑 상품 리스트
+                </h2>
+                <p class="store__description">
+                    당신이 필요한 패션을 완성시켜줄 상품들입니다.
+                </p>
+                <div class="options">
+                    <a href="/products/9">전체보기 +</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="shop-area pt-20">
+        <div class="container">
+            <div class="row">
+                 <div class="col-lg-12">
+                        <div class="tab-content jump">
+                            <div id="shop-1" class="tab-pane active">
+                                <div class="row">
+                                    {% for item in datas %}
+                                    <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-16">
+                                        <div class="product-wrap-3 mb-20 scroll-zoom">
+                                            <div class="product-img">
+                                                <a href="#" data-toggle="modal" data-target="#exampleModal{{item.PRODUCT_ID}}" ><img src="{{item.IMG_URL}}"></a>
+                                                {% if item.discounts %}
+                                                <span class="pink">-{{item.discounts}}%</span>
+                                                {% endif %}
+                                                <div class="product-content-3-wrap">
+                                                    <div class="product-content-3">
+                                                        <div class="product-title">
+                                                            <h3><a href="{{item.PRODUCT_NAME}}" data-toggle="modal" data-target="#exampleModal{{item.PRODUCT_ID}}">{{item.PRODUCT_NAME}}</a></h3>
+                                                        </div>
+                                                        {% if item.PRICE_DISCOUNT_COMMA != None%}
+                                                        <div class="price-3">
+                                                            <span>₩ {{item.PRICE_DISCOUNT_COMMA}}</span>
+                                                            <span class="old">₩{{item.PRICE_ORIGINAL_COMMA}}</span>
+                                                        </div>
+
+                                                          {% else %}
+                                                        <div class="price-3">
+                                                            <span>₩ {{item.PRICE_ORIGINAL_COMMA}}</span>
+                                                        </div>
+                                                        {% endif %}
+                                                        <div class="product-action-3 wishlist" name="{{item.PRODUCT_ID}}">
+                                                            <a title="Add To Wishlist" href="#"><i class="fa fa-heart"></i></a>
+                                                            <a title="Quick View" href="#" data-toggle="modal" data-target="#exampleModal{{item.PRODUCT_ID}}"><i class="fa fa-eye"></i></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+
+                            <div id="shop-2" class="tab-pane">
+                                <div class="shop-list-wrap mb-30 scroll-zoom">
+                                    <div class="row">
+                                        <div class="col-xl-4 col-lg-5 col-md-5 col-sm-6">
+                                            <div class="product-wrap">
+                                                <div class="product-img">
+                                                    <a href="#">
+                                                        <img class="default-img" src="../../static/img/product/pro-1.jpg" alt="">
+                                                        <img class="hover-img" src="../../static/img/product/pro-1-1.jpg" alt="">
+                                                    </a>
+                                                    <span class="pink">-10%</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-8 col-lg-7 col-md-7 col-sm-6">
+                                            <div class="shop-list-content">
+                                                <h3><a href="#">Products Name Here</a></h3>
+                                                <div class="product-list-price">
+                                                    <span>$ 60.00</span>
+                                                    <span class="old">$ 90.00</span>
+                                                </div>
+                                                <div class="rating-review">
+                                                    <div class="product-list-rating">
+                                                        <i class="fa fa-star-o yellow"></i>
+                                                        <i class="fa fa-star-o yellow"></i>
+                                                        <i class="fa fa-star-o yellow"></i>
+                                                        <i class="fa fa-star-o"></i>
+                                                        <i class="fa fa-star-o"></i>
+                                                    </div>
+                                                    <a href="#">3 Reviews</a>
+                                                </div>
+                                                <p>Lorem ipsum dolor sit amet, consecteto adipisic elit eiusm tempor incidid ut labore et dolore magna aliqua Ut enim ad minim </p>
+                                                <div class="shop-list-btn btn-hover">
+                                                    <a href="#">ADD TO CART</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="shop-list-wrap mb-30 scroll-zoom">
+                                    <div class="row">
+                                        <div class="col-xl-4 col-lg-5 col-md-5 col-sm-6">
+                                            <div class="product-wrap">
+                                                <div class="product-img">
+                                                    <a href="#">
+                                                        <img class="default-img" src="../../static/img/product/pro-2.jpg" alt="">
+                                                        <img class="hover-img" src="../../static/img/product/pro-2-1.jpg" alt="">
+                                                    </a>
+                                                    <span class="purple">New</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-8 col-lg-7 col-md-7 col-sm-6">
+                                            <div class="shop-list-content">
+                                                <h3><a href="#">Products Name Here</a></h3>
+                                                <div class="product-list-price">
+                                                    <span>$ 60.00</span>
+                                                </div>
+                                                <div class="rating-review">
+                                                    <div class="product-list-rating">
+                                                        <i class="fa fa-star-o yellow"></i>
+                                                        <i class="fa fa-star-o yellow"></i>
+                                                        <i class="fa fa-star-o yellow"></i>
+                                                        <i class="fa fa-star-o"></i>
+                                                        <i class="fa fa-star-o"></i>
+                                                    </div>
+                                                    <a href="#">3 Reviews</a>
+                                                </div>
+                                                <p>Lorem ipsum dolor sit amet, consecteto adipisic elit eiusm tempor incidid ut labore et dolore magna aliqua Ut enim ad minim </p>
+                                                <div class="shop-list-btn btn-hover">
+                                                    <a href="#">ADD TO CART</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="shop-list-wrap mb-30 scroll-zoom">
+                                    <div class="row">
+                                        <div class="col-xl-4 col-lg-5 col-md-5 col-sm-6">
+                                            <div class="product-wrap">
+                                                <div class="product-img">
+                                                    <a href="#">
+                                                        <img class="default-img" src="../../static/img/product/pro-3.jpg" alt="">
+                                                        <img class="hover-img" src="../../static/img/product/pro-3-1.jpg" alt="">
+                                                    </a>
+                                                    <span class="pink">-20%</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-8 col-lg-7 col-md-7 col-sm-6">
+                                            <div class="shop-list-content">
+                                                <h3><a href="#">Products Name Here</a></h3>
+                                                <div class="product-list-price">
+                                                    {% if item.PRICE_DISCOUNT_COMMA != None%}
+                                                    <span>₩ {{item.PRICE_DISCOUNT_COMMA}}</span>
+                                                    <span class="old">₩{{item.PRICE_ORIGINAL_COMMA}}</span>
+
+                                                    {% else %}
+                                                    <span>₩ {{item.PRICE_ORIGINAL_COMMA}}</span>
+                                                    {% endif %}
+                                                </div>
+                                                <div class="rating-review">
+                                                    <div class="product-list-rating">
+                                                        <i class="fa fa-star-o yellow"></i>
+                                                        <i class="fa fa-star-o yellow"></i>
+                                                        <i class="fa fa-star-o yellow"></i>
+                                                        <i class="fa fa-star-o"></i>
+                                                        <i class="fa fa-star-o"></i>
+                                                    </div>
+                                                    <a href="#">3 Reviews</a>
+                                                </div>
+                                                <p>Lorem ipsum dolor sit amet, consecteto adipisic elit eiusm tempor incidid ut labore et dolore magna aliqua Ut enim ad minim </p>
+                                                <div class="shop-list-btn btn-hover">
+                                                    <a href="#">ADD TO CART</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="shop-list-wrap mb-30 scroll-zoom">
+                                    <div class="row">
+                                        <div class="col-xl-4 col-lg-5 col-md-5 col-sm-6">
+                                            <div class="product-wrap">
+                                                <div class="product-img">
+                                                    <a href="#">
+                                                        <img class="default-img" src="../../static/img/product/pro-7.jpg" alt="">
+                                                        <img class="hover-img" src="../../static/img/product/pro-4-1.jpg" alt="">
+                                                    </a>
+                                                    <span class="purple">New</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-8 col-lg-7 col-md-7 col-sm-6">
+                                            <div class="shop-list-content">
+                                                <h3><a href="#">Products Name Here</a></h3>
+                                                <div class="product-list-price">
+                                                    <span>$ 70.00</span>
+                                                </div>
+                                                <div class="rating-review">
+                                                    <div class="product-list-rating">
+                                                        <i class="fa fa-star-o yellow"></i>
+                                                        <i class="fa fa-star-o yellow"></i>
+                                                        <i class="fa fa-star-o yellow"></i>
+                                                        <i class="fa fa-star-o"></i>
+                                                        <i class="fa fa-star-o"></i>
+                                                    </div>
+                                                    <a href="#">3 Reviews</a>
+                                                </div>
+                                                <p>Lorem ipsum dolor sit amet, consecteto adipisic elit eiusm tempor incidid ut labore et dolore magna aliqua Ut enim ad minim </p>
+                                                <div class="shop-list-btn btn-hover">
+                                                    <a href="#">ADD TO CART</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                 </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 
@@ -153,6 +430,40 @@ main
             });
     });
  })(jQuery);
+
+$(document).ready(function(){    
+    $('.other_styles a img').click(function(){
+    var star_id = $(this).attr('id');
+    var param = {star_id:star_id};
+       $(".jquery_test").text(star_id);
+    });
+
+    $('.likey').click(function(){
+        // var pk = $(this).attr('name');
+        var pk={{pk}}
+        var style_num = $(this).attr('id');
+        var star_name = '{{star_name}}';
+
+        $.ajax({
+            type: "POST",
+            url: "{% url 'styles:detail_styles' star_name  %}",
+            data: {'pk': pk, 'star_name':star_name, 'style':style_num, 'csrfmiddlewaretoken': '{{ csrf_token }}'},
+            dataType: "json",
+
+            success: function (response) {
+                // id = $(this).attr('name');
+                // $('#count'+ pk).html("count : "+ response.likes_count);
+                // alert("좋아요수 :" + response.likes_count);
+                // alert(response.message);
+                location.reload();
+            },
+            error: function (request, status, error) {
+                console.log("code:" + request.status + "\n" + "message:" + request.responseText + "\n" + "error:" + error + "\n")
+            }
+        });
+    })
+});
+
 </script>
 
 {% endblock jsfooter %}

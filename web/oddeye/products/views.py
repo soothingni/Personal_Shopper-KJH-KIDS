@@ -1,43 +1,52 @@
+# django
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse, JsonResponse
 from django.views.generic import View
 from django.contrib.auth.models import User
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-import cx_Oracle
 from accounts.models import OddeyeUsers
-''' 여기는 django db (sqlite) 사용할 때 필요한 모듈?
-from django.db import connection # DB에서 데이터를 받아오기 위한 라이브러리
-from products.models import product # DB에서 필요한 table import
-'''
+from . import embedding
+
+# db
+import cx_Oracle
+
+# 사용할 모듈
 import math
 import os
 import json
 import random
 import numpy as np
-# Create your views here.
 
 
-# DB에서 불러온 데이터를 field명(img_url, product_url)과 결합하기 위한 함수. 수업 내용 확인
+# DB 출력
 def dictfetchall(cursor):
     desc = cursor.description
     return [ dict( zip([col[0] for col in desc], row) ) for row in cursor.fetchall()]
 
+# list redirect
 def productview(req):
     return redirect('products:prod_list','9')
 
+# Product List
 class prod_list(View):
     def get(self, req, pk):
         global category_name
         global category_dict
-        sql = '''
-        SELECT super_category, base_category, sub_category, product_ID,img_url, product_url,product_name ,price_original,price_discount
-        FROM Products
-        '''
+
+        # DB 연동
         conn = cx_Oracle.connect('oddeye/1234@15.164.247.135:1522/MODB')
         cursor = conn.cursor()
-        cursor.execute(sql)
-        db_data = dictfetchall(cursor)
 
+        # Product Data 가져오기
+        sql = '''
+        SELECT PRODUCTS.super_category, PRODUCTS.base_category, PRODUCTS.sub_category, PRODUCTS.product_ID, PRODUCTS.img_url, PRODUCTS.product_url, PRODUCTS.product_name , PRODUCTS.price_original,PRODUCTS.price_discount,PRODUCTS_EMBEDDING.PRODUCT_EMBEDDING
+        FROM Products
+        JOIN PRODUCTS_EMBEDDING ON PRODUCTS_EMBEDDING.ID = PRODUCTS.PRODUCT_ID
+        '''
+        cursor.execute(sql)
+        prod_data = dictfetchall(cursor)
+
+        # Star style Data 가져오기
         sql = '''
                 SELECT STAR_EMBEDDING.STAR_EMBEDDING, STAR.NAME, STAR.STYLE, STAR.CATEGORY
                 FROM STAR_EMBEDDING
@@ -47,39 +56,50 @@ class prod_list(View):
         cursor.execute(sql)
         star_data = dictfetchall(cursor)
 
-
-
-
-
-
-        for item in db_data:
+        # Price Data에 Comma 삽입
+        for item in prod_data:
             if item['PRICE_DISCOUNT'] != None:
                 item['PRICE_DISCOUNT_COMMA'] = format(item['PRICE_DISCOUNT'], ",")
+                item['discounts'] =int( (item['PRICE_ORIGINAL']-item["PRICE_DISCOUNT"])/item['PRICE_ORIGINAL']*100)
             item['PRICE_ORIGINAL_COMMA'] = format(item['PRICE_ORIGINAL'], ",")
         new_dict=[]
-        if int(pk)==9:
-            new_dict=db_data
-        else:
-            for dt in db_data:
 
+        if int(pk)==9:  #전체 상품
+            new_dict=prod_data
+        else:       #카테고리로 필터링된 상품
+            for dt in prod_data:
                 if dt['BASE_CATEGORY'] == int(pk):
                     new_dict.append(dt)
-        random.shuffle(new_dict)
+        random.shuffle(new_dict) #랜덤한 상품 보여주기
+        # Pagination
         paginator = Paginator(new_dict, 30)
         page = req.GET.get("page", 1)
         subs = paginator.get_page(page)
-        page_range = 5
 
+        # 한번에 5개의 페이지씩 보여주기
+        page_range = 5
         current_block = math.ceil(int(page) / page_range)
         start_block = (current_block - 1) * page_range
         end_block = start_block + page_range
         p_range = paginator.page_range[start_block:end_block]
 
-        context = {'data': subs, 'cat': category_name, 'p_range': p_range}
+        # 상품과 인물 스타일간 거리 계산
+        emb = {}
+        for p in subs:
+            emb[p['PRODUCT_ID']] = {s['NAME'] + '/thumb/' + str(s['STYLE']): compute_linalg_dist(np.array(list(map(float,(p['PRODUCT_EMBEDDING'][2:-2].split(','))))), np.array(list(map(float,(s['STAR_EMBEDDING'][2:-2].split(',')))))) for s in star_data}
+        sorted_Emb = {}
+        for e in emb:
+            sorted_Emb[e] = sorted(emb[e].items(), key=lambda x: x[1])[:3]
+            sorted_Emb[e] = [style_dist_pair[0] for style_dist_pair in sorted_Emb[e]]
+        sorted_list = [{"product_id": product, "likely": sorted_Emb[product]} for product in sorted_Emb]
+
+        # html로 보낼 데이
+        context = {'data': subs, 'cat': category_name, 'p_range': p_range, 'emb':sorted_list}
 
         return render(req, 'products/list.html', context)
+
+
     def post(self, req, pk):
-#        prod_id = req.POST.get('pk', None)
         prod_id = pk
 
         current_user = req.session['username']
@@ -107,98 +127,6 @@ class prod_list(View):
                    # 'message':message,
                    }
         return JsonResponse(context)
-
-
-def prod_embedding(req, pk):
-    sql = '''
-        SELECT PRODUCTS_EMBEDDING.id, PRODUCTS_EMBEDDING.product_embedding, PRODUCTS.img_url, PRODUCTS.product_url, PRODUCTS.SUPER_CATEGORY
-        FROM PRODUCTS_EMBEDDING
-        JOIN PRODUCTS ON PRODUCTS_EMBEDDING.ID = PRODUCTS.PRODUCT_ID
-        '''
-    conn = cx_Oracle.connect('oddeye/1234@15.164.247.135:1522/MODB')
-    cursor = conn.cursor()
-    cursor.execute(sql)
-    db_data = dictfetchall(cursor)
-    dist=[]
-
-    sup_cat=db_data[pk]['SUPER_CATEGORY']
-
-    for i in db_data:
-        if i['SUPER_CATEGORY']==sup_cat:
-            dist.append(
-                {
-                    'product_id':i['ID'],
-                    'distance':compute_linalg_dist(np.array(list(map(float,(db_data[pk]['PRODUCT_EMBEDDING'][2:-2].split(','))))),
-                                                   np.array(list(map(float,(i['PRODUCT_EMBEDDING'][2:-2].split(',')))))),
-                    'img_url':i['IMG_URL'],
-                    'product_url':i['PRODUCT_URL']
-                }
-            )
-    dist=sorted(dist, key=lambda x : (x['distance'], x['product_id']))
-
-    if len(dist)>5:
-        context = {"dist": dist[:5]}
-    else:
-        context={"dist":dist}
-
-    return render(req, 'products/empty2.html', context)
-
-def star_embedding(req, pk):
-
-    conn = cx_Oracle.connect('oddeye/1234@15.164.247.135:1522/MODB')
-    cursor = conn.cursor()
-
-    sql = '''
-            SELECT PRODUCTS_EMBEDDING.id, PRODUCTS_EMBEDDING.product_embedding, PRODUCTS.img_url, PRODUCTS.product_url, PRODUCTS.SUPER_CATEGORY, PRODUCTS.BASE_CATEGORY
-            FROM PRODUCTS_EMBEDDING
-            JOIN PRODUCTS ON PRODUCTS_EMBEDDING.ID = PRODUCTS.PRODUCT_ID
-            '''
-
-    cursor.execute(sql)
-    prod_data = dictfetchall(cursor)
-
-    sql='''
-    SELECT STAR_EMBEDDING.STAR_EMBEDDING, STAR.NAME, STAR.STYLE, STAR.CATEGORY
-    FROM STAR_EMBEDDING
-    JOIN STAR ON STAR.NO=STAR_EMBEDDING.ID
-    
-    '''
-
-    cursor.execute(sql)
-    star_data = dictfetchall(cursor)
-
-
-    star_cat = list(map(int,star_data[pk]['CATEGORY'].split(',')))
-    print('************', star_cat)
-    star_name = star_data[pk]['NAME']
-    style_no = star_data[pk]['STYLE']
-    # emb=np.array(list(map(float, (star_data[pk]['STAR_EMBEDDING'][2:-2].split(',')))))
-    # emb2=np.array(list(map(float, (prod_data[0]['PRODUCT_EMBEDDING'][2:-2].split(',')))))
-
-    dist = []
-    for i in prod_data:
-        if int(i['BASE_CATEGORY']) in star_cat:
-            dist.append(
-                {
-                    'product_id': i['ID'],
-                    'distance': compute_linalg_dist(
-                        np.array(list(map(float, (star_data[pk]['STAR_EMBEDDING'][2:-2].split(','))))),
-                        np.array(list(map(float, (i['PRODUCT_EMBEDDING'][2:-2].split(',')))))),
-                    'img_url': i['IMG_URL'],
-                    'product_url': i['PRODUCT_URL']
-                }
-            )
-    dist = sorted(dist, key=lambda x: (x['distance'], x['product_id']))
-
-    if len(dist) > 5:
-        context = {"dist": dist[:5], 'star_name': star_name, 'style_no': style_no}
-    else:
-        context = {"dist": dist, 'star_name': star_name, 'style_no': style_no}
-
-    return render(req, 'products/empty.html', context)
-
-
-
 
 def compute_linalg_dist(img1, img2):
     dist=np.linalg.norm(img1-img2)
@@ -258,11 +186,68 @@ category_dict = [
         {"super_category": 2, "category": 8, "sub_category": 37, "name": "점프수트"}
     ]
 
-def ClientInput(req):
-    # static에 저장
-    file = req.GET.get('filename')
-    filename = file._name
-    fp = open(settings.BASE_DIR + f"/static/ClientInput/" + filename, "wb")
-    for chunk in file.chunks():
-        fp.write(chunk)
-    fp.close()
+class ClientInput(View):
+    def get(self, req):
+        # cwd = os.getcwd()
+        # return render(req, "products/ClientInput.html", {'cwd':cwd})
+        return render(req, "products/ClientInput.html")
+
+    def post(self, req):
+        file = req.FILES['file1']
+        filename = file._name
+        fp = open("./static/ClientInput/" + filename, "wb")
+        for chunk in file.chunks():
+            fp.write(chunk)
+        fp.close()
+
+        amumu = embedding.embedding(img_dir='./static/ClientInput/{}'.format(filename))
+
+        conn = cx_Oracle.connect('oddeye/1234@15.164.247.135:1522/MODB')
+        cursor = conn.cursor()
+        sql = '''
+        SELECT PRODUCTS_EMBEDDING.id, PRODUCTS_EMBEDDING.product_embedding, PRODUCTS.img_url, PRODUCTS.product_url, PRODUCTS.SUPER_CATEGORY, PRODUCTS.BASE_CATEGORY, PRODUCTS.product_name ,PRODUCTS.price_original,PRODUCTS.price_discount
+        FROM PRODUCTS_EMBEDDING
+        JOIN PRODUCTS ON PRODUCTS_EMBEDDING.ID = PRODUCTS.PRODUCT_ID
+        '''
+        cursor.execute(sql)
+        prod_data = dictfetchall(cursor)
+
+        dist = []
+        for i in prod_data:
+            if i['PRICE_DISCOUNT']:
+                i['discounts'] = int( (i['PRICE_ORIGINAL'] - i["PRICE_DISCOUNT"]) / i['PRICE_ORIGINAL'] * 100 )
+                i['PRICE_DISCOUNT'] = format(i['PRICE_DISCOUNT'], ",")
+
+                dist.append(
+                    {
+                        'product_name': i['PRODUCT_NAME'],
+                        'product_id': i['ID'],
+                        'distance': compute_linalg_dist(
+                            np.array(list(map(float, (amumu[2:-2].split(','))))),
+                            np.array(list(map(float, (i['PRODUCT_EMBEDDING'][2:-2].split(',')))))),
+                        'img_url': i['IMG_URL'],
+                        'product_url': i['PRODUCT_URL'],
+                        'price_discount': i['PRICE_DISCOUNT'],
+                        'price_original': format(i['PRICE_ORIGINAL'], ","),
+                        'discounts': i['discounts']
+                    }
+                )
+
+            else:
+                dist.append(
+                    {
+                        'product_name': i['PRODUCT_NAME'],
+                        'product_id': i['ID'],
+                        'distance': compute_linalg_dist(
+                            np.array(list(map(float, (amumu[2:-2].split(','))))),
+                            np.array(list(map(float, (i['PRODUCT_EMBEDDING'][2:-2].split(',')))))),
+                        'img_url': i['IMG_URL'],
+                        'product_url': i['PRODUCT_URL'],
+                        'price_discount': i['PRICE_DISCOUNT'],
+                        'price_original': format(i['PRICE_ORIGINAL'], ","),
+                    }
+                )
+
+        dist = sorted(dist, key=lambda x: (x['distance'], x['product_id']))
+
+        return render(req, 'products/ClientInputResult.html', {'filename':filename, 'dist':dist[:30], 'amumu':amumu})

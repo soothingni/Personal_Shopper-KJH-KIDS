@@ -29,7 +29,7 @@ class Star(models.Model):
         verbose_name_plural = '스타'
 
 
-class Star_embedding(models.Model):
+class Star_embedding3(models.Model):
     no = models.ForeignKey(Star, on_delete=models.CASCADE)
     star_embedding = models.CharField(max_length=2000)
 
@@ -37,11 +37,11 @@ class Star_embedding(models.Model):
         return self.star_embedding
 
     class Meta:
-        db_table = 'star_embedding'
-        verbose_name = '스타 임베딩'
-        verbose_name_plural = '스타 임베딩'
+        db_table = 'star_embedding3'
+        verbose_name = '스타 임베딩3'
+        verbose_name_plural = '스타 임베딩3'
 
-class Star_embedding1(models.Model):
+class Star_embedding(models.Model):
     no = models.IntegerField()
     star_embedding = models.CharField(max_length=2000)
 
@@ -49,7 +49,7 @@ class Star_embedding1(models.Model):
         return self.star_embedding
 
     class Meta:
-        db_table = 'star_embedding1'
+        db_table = 'star_embedding'
         verbose_name = '스타 임베딩1'
         verbose_name_plural = '스타 임베딩1'
 

@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="/static/css/icons.min.css">
     <link rel="stylesheet" href="/static/css/plugins.css">
     <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/main.css">
     <script src="/static/js/vendor/modernizr-2.8.3.min.js"></script>
     <script src="http://code.jquery.com/jquery-3.1.0.min.js"></script>
 </head>
@@ -40,10 +41,10 @@
 
 
                         <div class="same-style header-search">
-                            <a class="search-active" href="#"><i class="pe-7s-search"></i></a>
+                            <a class="search-active" href="#"><i class="pe-7s-camera"></i></a>
                             <div class="search-content">
                                 <form action="#">
-                                    <input type="text" placeholder="Search" />
+                                    <input type="file" id="upload" />
                                     <button class="button-search"><i class="pe-7s-search"></i></button>
                                 </form>
                             </div>
@@ -53,65 +54,14 @@
                             <div class="account-dropdown">
                                 <ul>
                                     {% if user.is_authenticated %}
-                                    <li><a href="wishlist.html">Wishlist  </a></li><br>
-                                    <li><a href="my-account.html">My account</a></li><br>
+                                    <li><a href="{% url 'myaccounts' %}">My account</a></li><br>
                                     <li><a href="{% url 'logout' %}">Log out</a></li>
                                     {% else %}
                                     <li><a href='{% url "login"%}'>Log in</a></li><br>
                                     <li><a href="{% url 'register' %}">Register</a></li><br>
-                                    <li><a href="wishlist.html">Wishlist  </a></li>
                                     {% endif %}
                                 </ul>
                             </div>
-                        </div>
-                        <div class="same-style header-wishlist">
-                            <a href="wishlist.html"><i class="pe-7s-like"></i></a>
-                        </div>
-                        <div class="same-style cart-wrap">
-                            <button class="icon-cart">
-                                <i class="pe-7s-shopbag"></i>
-                                <span class="count-style">02</span>
-                            </button>
-                            <div class="shopping-cart-content">
-                                <ul>
-                                    <li class="single-shopping-cart">
-                                        <div class="shopping-cart-img">
-                                            <a href="#"><img alt="" src="/static/step1/img/cart/cart-1.png"></a>
-                                        </div>
-                                        <div class="shopping-cart-title">
-                                            <h4><a href="#">T- Shart & Jeans </a></h4>
-                                            <h6>Qty: 02</h6>
-                                            <span>$260.00</span>
-                                        </div>
-                                        <div class="shopping-cart-delete">
-                                            <a href="#"><i class="fa fa-times-circle"></i></a>
-                                        </div>
-                                    </li>
-                                    <li class="single-shopping-cart">
-                                        <div class="shopping-cart-img">
-                                            <a href="#"><img alt="" src="/static/step1/img/cart/cart-2.png"></a>
-                                        </div>
-                                        <div class="shopping-cart-title">
-                                            <h4><a href="#">T- Shart & Jeans </a></h4>
-                                            <h6>Qty: 02</h6>
-                                            <span>$260.00</span>
-                                        </div>
-                                        <div class="shopping-cart-delete">
-                                            <a href="#"><i class="fa fa-times-circle"></i></a>
-                                        </div>
-                                    </li>
-                                </ul>
-                                <div class="shopping-cart-total">
-                                    <h4>Shipping : <span>$20.00</span></h4>
-                                    <h4>Total : <span class="shop-total">$260.00</span></h4>
-                                </div>
-                                <div class="shopping-cart-btn btn-hover text-center">
-                                    <a class="default-btn" href="cart-page.html">view cart</a>
-                                    <a class="default-btn" href="checkout.html">checkout</a>
-                                </div>
-                                
-                            </div>
-
                         </div>
                     </div>
                 </div>
@@ -131,7 +81,7 @@
                 </div>
 
                 <div class="col-xl-12 col-lg-12 d-none d-lg-block">
-                    <div class="main-menu">
+                    <div class="main-menu div_center">
                         <nav>
                             <ul>
                                 <li><a href="{% url 'main' %}">HOME</a></li>
@@ -161,8 +111,8 @@
 </header>
 
 
+<div class="container" style="height:165px"></div>
 
-<div class="container" style="height:166px"></div>
 {% block content %}
 {% endblock %}
 

@@ -21,24 +21,24 @@ from skimage import io
 from tqdm import tqdm
 
 
-import cx_Oracle
+# import cx_Oracle
 import os
 os.environ["NLS_LANG"] = ".AL32UTF8"
 
 #/root/Personal_Shopper-KJH-KIDS/web/oddeye/static/star
 
 # db connection
-conn = cx_Oracle.connect('oddeye/1234@15.164.247.135:1522/MODB')
-curs = conn.cursor()
+# conn = cx_Oracle.connect('oddeye/1234@15.164.247.135:1522/MODB')
+# curs = conn.cursor()
 
 parser = argparse.ArgumentParser()
-parser.add_argument('--model_dir', default=  './plain_triplet_bn/000001-0.3124-0.1947.h5',  #./resnet101_detectron/000001-1.6717.h5',
+parser.add_argument('--model_dir', default=  './000001-0.3124-0.1947.h5',  #./resnet101_detectron/000001-1.6717.h5',
                     help="Model weights dir")
-parser.add_argument('--img_dir', default='/root/Personal_Shopper-KJH-KIDS/web/oddeye/static/img/seoulstore_ALL',
+parser.add_argument('--img_dir', default='../static/ClientInput/soothingni.jpg',
                     help="Images dir")
-parser.add_argument('--table', default= 'star_embedding',    #'products_embedding',
-                    help="table to insert embedding")
-parser.add_argument('--pors', default= 'product',    #'products_embedding',
+# parser.add_argument('--table', default= 'star_embedding',    #'products_embedding',
+#                     help="table to insert embedding")
+parser.add_argument('--pors', default= 'star',    #'products_embedding',
                     help="products or star")
 
 def lossless_triplet_loss(y_true, y_pred, N=128, beta=128, epsilon=1e-8):
@@ -140,24 +140,24 @@ def freeze_layer(base, reverse_index):
         if layer.trainable: cnt +=1
     print('traninable layers in ResNet: {}'.format(cnt))
 
-def db_insert(t, count, table):
-    sql=f"insert into {table} values(:1,:2,:3)"
-    curs.execute(sql,t)
-#     print(f"Insertion executed! {count}")
-    conn.commit()
+# def db_insert(t, count, table):
+#     sql=f"insert into {table} values(:1,:2,:3)"
+#     curs.execute(sql,t)
+# #     print(f"Insertion executed! {count}")
+#     conn.commit()
     
-def dictfetchall(cursor):
-    desc = cursor.description
-    return [dict(zip([col[0] for col in desc], row)) for row in cursor.fetchall()]
+# def dictfetchall(cursor):
+#     desc = cursor.description
+#     return [dict(zip([col[0] for col in desc], row)) for row in cursor.fetchall()]
     
-def get_style_num(star, num, cursor):
-    sql = f'''
-    SELECT no FROM Star WHERE name = '{star}' AND style = {num}
-    '''
-    curs.execute(sql)
-    style_num_list = dictfetchall(cursor)
-    style_num = style_num_list[0]['NO']
-    return style_num
+# def get_style_num(star, num, cursor):
+#     sql = f'''
+#     SELECT no FROM Star WHERE name = '{star}' AND style = {num}
+#     '''
+#     curs.execute(sql)
+#     style_num_list = dictfetchall(cursor)
+#     style_num = style_num_list[0]['NO']
+#     return style_num
       
 def encode_img_by_path(img_path, base_network):
 #     image = cv2.imread(img_path, cv2.IMREAD_UNCHANGED)   #cv2.imread() 가끔 오류생겨서 아래로 바꿈
@@ -172,7 +172,7 @@ if __name__ == '__main__':
     args = parser.parse_args()
     model_dir = args.model_dir
     img_dir = args.img_dir
-    table = args.table
+    # table = args.table
     pors = args.pors
     
     print('-------------------------------------------------------')
@@ -228,10 +228,10 @@ if __name__ == '__main__':
         encoding = np.around(encoding, 10)    #소숫점 아래 10째자리까지 라운드
         encoding = encoding.tolist()
         encoding = str(encoding)
-        style_num = 26
-        cnt = 1
-        t = (style_num, encoding , style_num)
-        db_insert(t, cnt, table)
+        # style_num = 26
+        # cnt = 1
+        # t = (style_num, encoding , style_num)
+        # db_insert(t, cnt, table)
         
         
 #         stars = os.listdir(img_dir)

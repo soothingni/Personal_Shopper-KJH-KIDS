@@ -32,68 +32,20 @@ def predict(img, savepath):
     im=cv2.imread(img)
     output=model()(im)
     mask=output['instances'].pred_masks.cpu().data.numpy()
-    if mask.shape[0]==1:
-      base=np.zeros((mask.shape[1],mask.shape[2],3))
-      for i in range(3):
-        for j in range(mask.shape[1]):
-          for k in range(mask.shape[2]):
-            if mask[0][j][k]==True:
-              base[j][k][i]=im[j][k][i]
+    if mask.shape[0] != 0:
+        base = np.zeros((mask.shape[1], mask.shape[2], 3))
+        for m in range(mask.shape[0]):
+            for i in range(3):
+                for j in range(mask.shape[1]):
+                    for k in range(mask.shape[2]):
+                        if mask[m][j][k]==True:
+                            base[j][k][i]=im[j][k][i]
 
-      img_rgb=transparent_back(base)
-      img_rgb.save(savepath[:-3]+'png')
-
-    elif mask.shape[0]==2:
-      base=np.zeros((mask.shape[1],mask.shape[2],3))
-      for i in range(3):
-        for j in range(mask.shape[1]):
-          for k in range(mask.shape[2]):
-            if mask[0][j][k]==True:
-              base[j][k][i]=im[j][k][i]
-            if mask[1][j][k]==True:
-              base[j][k][i]=im[j][k][i]     
-      img_rgb=transparent_back(base)
-      img_rgb.save(savepath[:-3]+'png')
-
-    elif mask.shape[0]==3:
-      base=np.zeros((mask.shape[1],mask.shape[2],3))
-      for i in range(3):
-        for j in range(mask.shape[1]):
-          for k in range(mask.shape[2]):
-            if mask[0][j][k]==True:
-              base[j][k][i]=im[j][k][i]
-            if mask[1][j][k]==True:
-              base[j][k][i]=im[j][k][i]
-            if mask[2][j][k]==True:
-              base[j][k][i]=im[j][k][i]     
-      img_rgb=transparent_back(base)
-      img_rgb.save(savepath[:-3]+'png')
-
-    elif mask.shape[0]==4:
-      base=np.zeros((mask.shape[1],mask.shape[2],3))
-      for i in range(3):
-        for j in range(mask.shape[1]):
-          for k in range(mask.shape[2]):
-            if mask[0][j][k]==True:
-              base[j][k][i]=im[j][k][i]
-            if mask[1][j][k]==True:
-              base[j][k][i]=im[j][k][i]
-            if mask[2][j][k]==True:
-              base[j][k][i]=im[j][k][i]  
-            if mask[3][j][k]==True:
-              base[j][k][i]=im[j][k][i]    
-      img_rgb=transparent_back(base)
-      img_rgb.save(savepath[:-3]+'png')
-
-    else:
-      pass
+    img_rgb=transparent_back(base)
+    img_rgb.save(savepath[:-3]+'png')
 
 
 
-    
-    
-    
-    
 def transparent_back(image):
     img=cv2.cvtColor(image.astype('uint8'),cv2.COLOR_BGR2RGB)
     image=Image.fromarray(img)

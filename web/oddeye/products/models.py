@@ -21,8 +21,20 @@ class Products(models.Model):
         verbose_name_plural = "상품"
 
 
-class ProductsEmbedding(models.Model):
+class ProductsEmbedding3(models.Model):
     product_ID = models.ForeignKey(Products, on_delete=models.CASCADE, verbose_name="상품 ID")
+    product_embedding = models.CharField(max_length=2000, verbose_name="상품 임베딩값")
+
+    def __str__(self):
+        return self.product_ID
+
+    class Meta:
+        db_table = "products_embedding3"
+        verbose_name = "상품 임베딩3"
+        verbose_name_plural = "상품 임베딩3"
+
+class ProductsEmbedding(models.Model):
+    product_ID = models.IntegerField()
     product_embedding = models.CharField(max_length=2000, verbose_name="상품 임베딩값")
 
     def __str__(self):
@@ -32,18 +44,6 @@ class ProductsEmbedding(models.Model):
         db_table = "products_embedding"
         verbose_name = "상품 임베딩"
         verbose_name_plural = "상품 임베딩"
-
-class ProductsEmbedding1(models.Model):
-    product_ID = models.IntegerField()
-    product_embedding = models.CharField(max_length=2000, verbose_name="상품 임베딩값")
-
-    def __str__(self):
-        return self.product_ID
-
-    class Meta:
-        db_table = "products_embedding1"
-        verbose_name = "상품 임베딩1"
-        verbose_name_plural = "상품 임베딩1"
 
 class ProductsEmbedding2(models.Model):
     product_ID = models.IntegerField()

@@ -5,7 +5,7 @@
         height: 440;
         margin: 50 0 100 0 ;
     }
-    
+
     @media only screen and (min-width: 768px) {
         .owl-stage {
             transform: none !important;
@@ -28,7 +28,7 @@
 {% extends "base.html" %}
 
 {% block title %}
-style-detail
+Test Page for User Input
 {% endblock title %}
 
 {% load static %}
@@ -41,7 +41,7 @@ style-detail
             <div class="row">
                 <div class="col">
                     <div id="selected_thumbnail" class="product-details">
-                        <img width="300px" id="star_thumb" class="circular--square star_large" src='{% static "" %}star/{{star_name}}/thumb/{{pk}}.jpg'>
+                        <img width="300px" id="star_thumb" class="circular--square star_large" src='{% static "" %}ClientInput/{{filename}}'>
                     </div>
                 </div>
                 <div class="col"></div>
@@ -49,46 +49,8 @@ style-detail
             <div class="row">
                 <div class="col pt-30">
                     <div class="product-details-content" style="width: 100%;text-align: center;">
-                    <h2>{{star_name|upper}}</h2>
-                    <div class="icon_heart">
-                        <a href="#" id="1" name="17" class="icons likey"  data-toggle="tooltip" data-placement="bottom" title="Follow">
-                            {% if cklike == True %}
-                            <i class="fa fa-heart fa-lg"></i>
-                            {% else %}
-                            <i class="fa fa-heart-o icon-default fa-lg"></i>
-                            <i class="fa fa-heart icon-hover fa-lg"></i>
-                            {% endif %}
-                        </a>
+                    <h2>{{filename}}</h2>
                     </div>
-                        <div class="inline_block_count">{{ cnt }}</div><br>
-                        <div class="pro-details-meta inline_block_tag">
-                            <span class="inline_block">TAGS :</span>
-                            <ul class="inline_block">
-                                <li><a href="#"> {{styles.0.TAG}} </a></li>
-                                <li><a href="#"> {{styles.1.TAG}} </a></li>
-                                <li><a href="#"> {{styles.2.TAG}} </a></li>
-                                <li><a href="#"> {{styles.3.TAG}} </a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row mt-30 mb-30">
-                <div class="col-lg-3 col-xs-6">
-                    <a href="/styles/details/{{star_name}}/{{styles.0.STYLE}}">
-                        <img id="01" name="{{ styles.NO }}" class="circular--square star_small" src='{% static "" %}star/{{star_name}}/thumb/{{styles.0.STYLE}}.jpg'></a>
-                </div>
-                <div class="col-lg-3 col-xs-6">
-                    <a href="/styles/details/{{star_name}}/{{styles.1.STYLE}}">
-                        <img id="02" name="{{ styles.NO }}" class="circular--square star_small" src='{% static "" %}star/{{star_name}}/thumb/{{styles.1.STYLE}}.jpg'></a>
-                </div>
-                <div class="col-lg-3 col-xs-6">
-                    <a href="/styles/details/{{star_name}}/{{styles.2.STYLE}}">
-                        <img id="03" name="{{ styles.NO }}" class="circular--square star_small" src='{% static "" %}star/{{star_name}}/thumb/{{styles.2.STYLE}}.jpg'></a>
-                </div>
-                <div class="col-lg-3 col-xs-6">
-                    <a href="/styles/details/{{star_name}}/{{styles.3.STYLE}}">
-                        <img id="04" name="{{ styles.NO }}" class="circular--square star_small" src='{% static "" %}star/{{star_name}}/thumb/{{styles.3.STYLE}}.jpg'></a>
                 </div>
             </div>
         </div>
@@ -100,7 +62,6 @@ style-detail
             <div class="related-product-area pb-95">
                 <div class="section-title text-center mb-20">
                     <h2>Related products</h2> <br>
-<!--                    <h2 class='jquery_test'> {{style_no}}</h2>-->
                 </div>
                 <div class="product-area hm5-section-padding pt-20 pb-20">
                         <div class="row">
@@ -209,86 +170,3 @@ style-detail
 
 {% endblock %}
 
-{% block jsfooter %}
-
-<script src="{% static 'js/vendor/modernizr-2.8.3.min.js' %}"></script>
-<script>
-$(document).ready(function(){
-    //캐로셀
-    $('#style_carousel').owlCarousel({
-        loop: true,
-        nav: true,
-        autoplay: false,
-        autoplayTimeout: 5000,
-        animateOut: 'fadeOut',
-        animateIn: 'fadeIn',
-        navText: ['<i class="fa fa-chevron-left"></i>', '<i class="fa fa-chevron-right"></i>'],
-        item: 4,
-        margin: 30,
-        responsive: {
-            0: {
-                items: 1
-            },
-            768: {
-                items: 2
-            },
-            1000: {
-                items: 4
-            }
-        }
-    });
-    //현재 style num 가져오기
-
-
-    //style 마우스 오버 시 썸네일 바뀜 + 마우스 리브 시 썸네일 돌아옴 <-- 마우스리브 아직 못 함
-   // $('.other_styles a img').mouseover(function(){
-   //     var go = $(this).attr('src');
-   //     $('#star_thumb').attr('src', go);
-   // });
-    
-    //style 클릭 시 썸네일 바뀌는 효과
-       $('.other_styles a img').click(function(){
-       var go = $(this).attr('src')
-       $('#star_thumb').fadeOut(100, function(){
-           $('#star_thumb').attr('src', go).fadeIn(200);
-       return false;
-       });
-
-       // var myurl = '/details/' + {{star.NAME}} + {{star.STYLE}};
-       // $(location).attr('href',myurl);
-        });
-    
-        $('.other_styles a img').click(function(){
-        var star_id = $(this).attr('id');
-        var param = {star_id:star_id};
-           $(".jquery_test").text(star_id);
-        });
-
-        $('.likey').click(function(){
-            // var pk = $(this).attr('name');
-            var pk={{pk}}
-            var style_num = $(this).attr('id');
-            var star_name = '{{star_name}}';
-
-            $.ajax({
-                type: "POST",
-                url: "{% url 'styles:detail_styles' star_name  %}",
-                data: {'pk': pk, 'star_name':star_name, 'style':style_num, 'csrfmiddlewaretoken': '{{ csrf_token }}'},
-                dataType: "json",
-
-                success: function (response) {
-                    // id = $(this).attr('name');
-                    // $('#count'+ pk).html("count : "+ response.likes_count);
-                    // alert("좋아요수 :" + response.likes_count);
-                    // alert(response.message);
-                    location.reload();
-                },
-                error: function (request, status, error) {
-                    console.log("code:" + request.status + "\n" + "message:" + request.responseText + "\n" + "error:" + error + "\n")
-                }
-            });
-        })
-});
-
-</script>
-{% endblock jsfooter %}
