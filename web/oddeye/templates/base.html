@@ -41,24 +41,18 @@
 
 
                         <div class="same-style header-search">
-                            <a class="search-active" href="#"><i class="pe-7s-camera"></i></a>
-                            <div class="search-content">
-                                <form action="#">
-                                    <input type="file" id="upload" />
-                                    <button class="button-search"><i class="pe-7s-search"></i></button>
-                                </form>
-                            </div>
+                            <a href="/products/clientinput"><i class="pe-7s-camera"></i></a>
                         </div>
                         <div class="same-style account-satting">
                             <a class="account-satting-active" href="#"><i class="pe-7s-user-female"></i></a>
                             <div class="account-dropdown">
                                 <ul>
                                     {% if user.is_authenticated %}
-                                    <li><a href="{% url 'myaccounts' %}">My account</a></li><br>
-                                    <li><a href="{% url 'logout' %}">Log out</a></li>
+                                    <li><a href="{% url 'myaccounts' %}">마이 페이지</a></li>
+                                    <li><a href="{% url 'logout' %}">로그아웃</a></li>
                                     {% else %}
-                                    <li><a href='{% url "login"%}'>Log in</a></li><br>
-                                    <li><a href="{% url 'register' %}">Register</a></li><br>
+                                    <li><a href='{% url "login"%}'>로그인</a></li>
+                                    <li><a href="{% url 'register' %}">회원가입</a></li>
                                     {% endif %}
                                 </ul>
                             </div>

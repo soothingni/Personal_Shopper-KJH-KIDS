@@ -1,0 +1,14 @@
+[I 13:58:45.183 NotebookApp] Serving notebooks from local directory: /root/Personal_Shopper-KJH-KIDS
+[I 13:58:45.183 NotebookApp] The Jupyter Notebook is running at:
+[I 13:58:45.183 NotebookApp] http://ip-172-31-40-147:8892/
+[I 13:58:45.183 NotebookApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+[W 13:58:45.187 NotebookApp] No web browser found: could not locate runnable browser.
+[I 13:59:17.651 NotebookApp] Serving notebooks from local directory: /root/Personal_Shopper-KJH-KIDS
+[I 13:59:17.651 NotebookApp] The Jupyter Notebook is running at:
+[I 13:59:17.651 NotebookApp] http://ip-172-31-40-147:8893/
+[I 13:59:17.651 NotebookApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+[W 13:59:17.653 NotebookApp] No web browser found: could not locate runnable browser.
+[I 13:59:33.279 NotebookApp] 302 GET / (222.107.238.125) 0.59ms
+[I 14:01:10.216 NotebookApp] Uploading file to /web/oddeye/static/aboutus_1.gif
+[W 14:01:18.922 NotebookApp] delete /web/oddeye/static/ClientInput/1.jpg
+[W 14:01:18.941 NotebookApp] delete /web/oddeye/static/ClientInput/sh_onepiece.jpeg

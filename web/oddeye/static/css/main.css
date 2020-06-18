@@ -42,9 +42,9 @@
     height: 350px;
 }
 
-.star_large400 {
-    width: 400px;
-    height: 400px;
+.star_large350 {
+    width: 350px;
+    height: 350px;
 }
 
 .star_small {
@@ -380,7 +380,7 @@ a {
 .inline_block_count {
     display: inline-block;
     font-size: 23px;
-    margin-top: 18px;
+    margin-top: 0px;
 }
 
 .inline_block_tag {

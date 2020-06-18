@@ -6,7 +6,7 @@ Products List
 {% block content%}
 {% load static %}
 <!--content-->
-<div class="shop-area pt-50 pb-100">
+<div class="shop-area pt-50">
     <div class="container">
         <div class="row">
             <div class="col-lg-9">
@@ -24,7 +24,7 @@ Products List
                                         <div class="product-content-3-wrap">
                                             <div class="product-content-3">
                                                 <div class="product-title">
-                                                    <h3><a href="{{item.PRODUCT_NAME}}" data-toggle="modal" data-target="#exampleModal{{item.PRODUCT_ID}}">{{item.PRODUCT_NAME}}</a></h3>
+                                                    <h3><a class="prod_ele" href="{{item.PRODUCT_NAME}}" data-toggle="modal" data-target="#exampleModal{{item.PRODUCT_ID}}" name="{{item.PRODUCT_ID}}">{{item.PRODUCT_NAME}}</a></h3>
                                                 </div>
                                                 {% if item.PRICE_DISCOUNT_COMMA != None%}
                                                 <div class="price-3">
@@ -49,6 +49,26 @@ Products List
                         </div>
                     </div>
                 </div>
+                <!--pagination-->
+                <div class="pro-pagination-style text-center mt-30 mb-50">
+                    <ul>
+                        {% if data.has_previous %}
+                        <li><a class="prev" href="?page={{ data.previous_page_number }}"><i class="fa fa-angle-double-left"></i></a></li>
+                        {% endif %}
+
+                        {% for i in p_range %}
+                        {% if data.number == i %}
+                        <li><a class="active">{{ i }}</a></li>
+                        {% else %}
+                        <li><a href="?page={{ i }}">{{ i }}</a></li>
+                        {% endif %}
+                        {% endfor %}
+
+                        {% if data.has_next %}
+                        <li><a class="next" href="?page={{ data.next_page_number }}"><i class="fa fa-angle-double-right"></i></a></li>
+                        {%endif %}
+                    </ul>
+                </div>                    
             </div>
             <div class="col-lg-3">
                 <div class="sidebar-style ml-30">
@@ -74,27 +94,6 @@ Products List
             </div>
         </div>
     </div>
-</div>
-
-<!--pagination-->
-<div class="pro-pagination-style text-center mt-30">
-    <ul>
-        {% if data.has_previous %}
-        <li><a class="prev" href="?page={{ data.previous_page_number }}"><i class="fa fa-angle-double-left"></i></a></li>
-        {% endif %}
-
-        {% for i in p_range %}
-        {% if data.number == i %}
-        <li><a class="active">{{ i }}</a></li>
-        {% else %}
-        <li><a href="?page={{ i }}">{{ i }}</a></li>
-        {% endif %}
-        {% endfor %}
-
-        {% if data.has_next %}
-        <li><a class="next" href="?page={{ data.next_page_number }}"><i class="fa fa-angle-double-right"></i></a></li>
-        {%endif %}
-    </ul>
 </div>
 
 <!--modal start-->
@@ -134,9 +133,6 @@ Products List
                                     <div class="pro-details-cart btn-hover">
                                         <a href="{{item.PRODUCT_URL}}">구매하러가기</a>
                                     </div>
-                                    <div class="pro-details-wishlist">
-                                        <a href="#"><i class="fa fa-heart-o"></i></a>
-                                    </div>
                                 </div>
                                 <div class="pro-details-meta">
                                     <span>Tag :</span>
@@ -148,14 +144,35 @@ Products List
                         </div>
                     </div>
                     <div class="row prod_to_style">
-                        {% for e in emb %}
+                        {% for e in semb %}
                         {% if item.PRODUCT_ID == e.product_id %}
-                        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-16"><img src="/static/star/{{e.likely.0}}.jpg" width="200px" class="circular--square"></div>
-                        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-16"><img src="/static/star/{{e.likely.1}}.jpg" width="200px" class="circular--square"></div>
-                        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-16"><img src="/static/star/{{e.likely.2}}.jpg" width="200px" class="circular--square"></div>
+                        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-16">
+                            <a href="/styles/details/{{e.likely.0|slice:':-2'}}/{{e.likely.0|slice:'-1:'}}">
+                                <img src="/static/star/{{e.likely.0|slice:':-2'}}/thumb/{{e.likely.0|slice:'-1:'}}.jpg" width="200px" class="circular--square">
+                            </a>
+                        </div>
+                        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-16">
+                            <a href="/styles/details/{{e.likely.1|slice:':-2'}}/{{e.likely.1|slice:'-1:'}}">
+                                <img src="/static/star/{{e.likely.1|slice:':-2'}}/thumb/{{e.likely.1|slice:'-1:'}}.jpg" width="200px" class="circular--square">
+                            </a>
+                        </div>
+                        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-16">
+                            <a href="/styles/details/{{e.likely.2|slice:':-2'}}/{{e.likely.2|slice:'-1:'}}">
+                                <img src="/static/star/{{e.likely.2|slice:':-2'}}/thumb/{{e.likely.2|slice:'-1:'}}.jpg" width="200px" class="circular--square">
+                            </a>
+                        </div>
+                    <div>
+                    </div>
                         {% endif %}
                         {% endfor %}
                     </div>
+                    <div class="row prod_to_prod">
+                        <h2 class="dlrpehlfRk"> </h2>
+                        <img src="">
+                        <img src="">
+                        <img src="">
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -191,6 +208,17 @@ Products List
             });
         })
     });
+
+     $(".prod_ele").click( function() {
+
+         var param = {prod_id: $(this).attr("name")};
+         $.get("/products/prod2prod", param, function (data) {
+             alert(JSON.stringify(data));
+             console.log(JSON.stringify(data));
+             $(".dlrpehlfRk").html(data.nearest_prod);
+         });
+     });
+
 
 </script>
 {% endblock %}

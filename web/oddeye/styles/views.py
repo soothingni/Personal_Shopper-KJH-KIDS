@@ -4,6 +4,8 @@ from django.http import HttpResponse,JsonResponse
 from django.views.generic import View
 from django.contrib.auth.models import User
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+
+from django.db.models import Sum
 from styles.models import Star
 from accounts.models import OddeyeUsers
 
@@ -107,16 +109,6 @@ def main(req):
         cnt = int(mystyle.likey)
 
         fo = star_name + '_' + str(style_num)
-
-        current_user = req.session['username']
-        myuser = OddeyeUsers.objects.get(username=current_user)
-        myfo = myuser.following
-
-        myfo_set = set(myfo.split(','))
-        if fo in myfo_set:
-            cklike = True
-        else:
-            cklike = False
         # 상품 리스트
         sql = '''
                 SELECT super_category, base_category, sub_category, product_ID,img_url, product_url,product_name ,price_original,price_discount
@@ -129,22 +121,46 @@ def main(req):
 
         for item in db_data:
             if item['PRICE_DISCOUNT']:
-                item['discounts'] = int((item['PRICE_ORIGINAL'] - item["PRICE_DISCOUNT"]) / item['PRICE_ORIGINAL'] * 100)
+                item['discounts'] = int(
+                    (item['PRICE_ORIGINAL'] - item["PRICE_DISCOUNT"]) / item['PRICE_ORIGINAL'] * 100)
                 item['PRICE_DISCOUNT_COMMA'] = format(item['PRICE_DISCOUNT'], ",")
             item['PRICE_ORIGINAL_COMMA'] = format(item['PRICE_ORIGINAL'], ",")
+        random.shuffle(db_data)
+        if req.user.is_authenticated == True:
+            current_user = req.session['username']
+            myuser = OddeyeUsers.objects.get(username=current_user)
+            myfo = myuser.following
+
+            myfo_set = set(myfo.split(','))
+            if fo in myfo_set:
+                cklike = True
+            else:
+                cklike = False
 
 
-        context = {
-            "data": imgs,
-            'datas': db_data,
-            "star_name": star_name,
-            'styles': db_data_star,
-            "cnt": cnt,
-            "cklike": cklike,
-            "dist": dist[:6],
-            'pk': pk,
-            'style_no': pk
-        }
+
+            context = {
+                "data": imgs,
+                'datas': db_data,
+                "star_name": star_name,
+                'styles': db_data_star,
+                "cnt": cnt,
+                "cklike": cklike,
+                "dist": dist[:6],
+                'pk': pk,
+                'style_no': pk
+            }
+        else:
+            context={
+                "data":imgs,
+                "star_name":star_name,
+                "styles":db_data_star,
+                "pk":pk,
+                "style_no":pk,
+                "dist":dist[:6],
+                "datas":db_data,
+                "cnt":cnt
+            }
         return render(req, 'styles/main.html', context)
 
     if req.method == "POST":
@@ -155,29 +171,30 @@ def main(req):
 
         cnt = int(mystyle.likey)
         fo = mystyle.name + '_' + str(mystyle.style)
-        current_user = request.session['username']
-        myuser = OddeyeUsers.objects.get(username=current_user)
-        myfo = myuser.following
-        myfo_set = set(myfo.split(','))
-        if fo in myfo_set:
-            cnt -= 1
-            myfo_set.discard(fo)
-            print('delete {}'.format(fo))
-        else:
-            cnt += 1
-            myfo_set.add(fo)
-            print('add {}'.format(fo))
-        mystyle.likey = cnt
-        mystyle.save()
+        if req.user.is_authenticated == True:
+            current_user = request.session['username']
+            myuser = OddeyeUsers.objects.get(username=current_user)
+            myfo = myuser.following
+            myfo_set = set(myfo.split(','))
+            if fo in myfo_set:
+                cnt -= 1
+                myfo_set.discard(fo)
+                print('delete {}'.format(fo))
+            else:
+                cnt += 1
+                myfo_set.add(fo)
+                print('add {}'.format(fo))
+            mystyle.likey = cnt
+            mystyle.save()
 
-        myfo_set.discard('')  # 빈칸을 element로 갖는 경우가 있어서.
-        myfo_set_str = str(myfo_set)
-        if len(myfo_set) == 0: myfo_set_str = ''  # 빈칸을 set()으로 문자 그대로 넣어서.
-        myuser.following = myfo_set_str.replace('{', "").replace('}', "").replace("'", "").replace('"', "").replace(" ",
-                                                                                                                    "").strip(
-            ',')
-        myuser.save()
-        context = {'likes_count': cnt}
+            myfo_set.discard('')  # 빈칸을 element로 갖는 경우가 있어서.
+            myfo_set_str = str(myfo_set)
+            if len(myfo_set) == 0: myfo_set_str = ''  # 빈칸을 set()으로 문자 그대로 넣어서.
+            myuser.following = myfo_set_str.replace('{', "").replace('}', "").replace("'", "").replace('"', "").replace(" ",',')
+            myuser.save()
+            context = {'likes_count': cnt}
+        else:
+            context={}
         return JsonResponse(context)
 
 
@@ -327,61 +344,72 @@ class StarView(View):
         dist = sorted(dist, key=lambda x: (x['distance'], x['product_id']))
 
         style_num = pk
-        mystyle = Star.objects.all().filter(name=star_name).filter(style=style_num).first()
+        mystyle = Star.objects.all().filter(name=star_name,style=style_num).first()
         cnt = int(mystyle.likey)
+        total_cnt = Star.objects.all().filter(name=star_name).aggregate(likey_sum=Sum('likey'))['likey_sum']
+
 
         fo = star_name + '_' + str(style_num)
+        if req.user.is_authenticated == True:
+            current_user = req.session['username']
+            myuser = OddeyeUsers.objects.get(username=current_user)
+            myfo = myuser.following
 
-        current_user = req.session['username']
-        myuser = OddeyeUsers.objects.get(username=current_user)
-        myfo = myuser.following
+            myfo_set = set(myfo.split(','))
+            if fo in myfo_set:
+                cklike = True
+            else:
+                cklike = False
 
-        myfo_set = set(myfo.split(','))
-        if fo in myfo_set:
-            cklike = True
+            context = {"star_name":star_name, 'styles': db_data, "cnt":cnt, "total_cnt": total_cnt, "cklike":cklike, "dist": dist[:30],'pk':pk,'style_no': style_no}
+
         else:
-            cklike = False
-
-        context = {"star_name":star_name, 'styles': db_data, "cnt":cnt, "cklike":cklike, "dist": dist[:30],'pk':pk,'style_no': style_no}
+            context = {"star_name": star_name, 'styles': db_data, "cnt": cnt, "total_cnt": total_cnt,
+                       "dist": dist[:30], 'pk': pk, 'style_no': style_no}
         return render(req, 'styles/detail.html', context)
 
 
-    def post(self, request, star_name):
-        styles = Star.objects.all()
-        style_num = request.POST.get('pk',None)
-        mystyle = styles.filter(name=star_name).filter(style=style_num).first()
+    def post(self, req, star_name):
+        if req.user.is_authenticated == True:
+            styles = Star.objects.all()
+            style_num = req.POST.get('pk',None)
+            mystyle = styles.filter(name=star_name).filter(style=style_num).first()
 
-        cnt = int(mystyle.likey)
+            cnt = int(mystyle.likey)
 
-        fo = mystyle.name + '_' + str(mystyle.style)
-        current_user = request.session['username']
-        myuser = OddeyeUsers.objects.get(username=current_user)
-        myfo = myuser.following
-        myfo_set = set(myfo.split(','))
-        if fo in myfo_set:
-            cnt -= 1
-            myfo_set.discard(fo)
-            print('delete {}'.format(fo))
+            fo = mystyle.name + '_' + str(mystyle.style)
+            current_user = req.session['username']
+            myuser = OddeyeUsers.objects.get(username=current_user)
+            myfo = myuser.following
+            myfo_set = set(myfo.split(','))
+            if fo in myfo_set:
+                cnt -= 1
+                myfo_set.discard(fo)
+                print('delete {}'.format(fo))
+            else:
+                cnt += 1
+                myfo_set.add(fo)
+                print('add {}'.format(fo))
+            mystyle.likey = cnt
+            mystyle.save()
+
+            myfo_set.discard('')            #빈칸을 element로 갖는 경우가 있어서.
+            myfo_set_str = str(myfo_set)
+            if len(myfo_set)==0 : myfo_set_str = ''     #빈칸을 set()으로 문자 그대로 넣어서.
+            myuser.following = myfo_set_str.replace('{',"").replace('}',"").replace("'","").replace('"',"").replace(" ","").strip(',')
+            myuser.save()
+            context = {'likes_count':cnt }
         else:
-            cnt += 1
-            myfo_set.add(fo)
-            print('add {}'.format(fo))
-        mystyle.likey = cnt
-        mystyle.save()
-
-        myfo_set.discard('')            #빈칸을 element로 갖는 경우가 있어서.
-        myfo_set_str = str(myfo_set)
-        if len(myfo_set)==0 : myfo_set_str = ''     #빈칸을 set()으로 문자 그대로 넣어서.
-        myuser.following = myfo_set_str.replace('{',"").replace('}',"").replace("'","").replace('"',"").replace(" ","").strip(',')
-        myuser.save()
-        context = {'likes_count':cnt }
+            context = {}
         return JsonResponse(context)
 
 def compute_linalg_dist(img1, img2):
     dist=np.linalg.norm(img1-img2)
     return dist
 
-
+# 1 : 내추럴, 2 : 데일리, 3 : 러블리, 4 : 럭셔리, 5 : 레트로, 6 : 미니멀,
+# 7 : 빈티지, 8 : 센슈얼, 9 : 스포티, 10 : 시크, 11 : 어반, 12 : 에스닉,
+# 13 : 애슬레져, 14 : 큐트, 15 : 페미닌, 16 : 포멀, 17 : 하이틴, 18 : 힙, 19 : 힙합
 tagged_star=[
     {'name': 'soojin', 'tag': [3,12,8,17]},
     {'name': 'goeun', 'tag': [4,3,16,14]},

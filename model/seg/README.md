@@ -1,8 +1,8 @@
 # Fashion Image segmentation with Detectron2
 
-![sampleimage1](imgs/sample1.jpg)
+![sampleimage1](imgs/mask.gif)
 
-![sampleimage2](imgs/sample2.jpg)
+
 
 ## Requirement
 

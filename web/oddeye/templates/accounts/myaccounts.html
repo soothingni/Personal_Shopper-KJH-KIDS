@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block title %}
-Products List
+My Page
 {% endblock title %}
 
 {% block content%}
@@ -21,8 +21,9 @@ Products List
             <div class="col-lg-9">
                 <div class="tab-content jump">
                     <div id="shop-1" class="tab-pane active">
+                        <h2>{{username}}님의 MY PAGE</h2>
+                        <h3 class="pro-sidebar-title mt-50">WISH LIST </h3>
                         <div class="row">
-                            <h2>{{username}}님의 MY PAGE</h2>
                             {% for item in data %}
                             <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-16">
                                 <div class="product-wrap-3 mb-20 scroll-zoom">
@@ -66,12 +67,13 @@ Products List
                     </div>
                     <div class="sidebar-widget">
                         <div class="sidebar-widget mt-50">
-                            <h4 class="pro-sidebar-title">Tag </h4>
+                            <h3 class="pro-sidebar-title">FOLLOWING </h3>
                             <div class="sidebar-widget-tag mt-25">
                                 <ul>
                                     {%for f in follow %}
-                                    <img src='/static/star/{{f|slice:":-2"}}/thumb/{{f|slice:"-1:"}}.jpg' width="200">
-
+                                    <a href="/styles/details/{{f|slice:':-2'}}/{{f|slice:'-1:'}}">
+                                        <img class="circular--square" src='/static/star/{{f|slice:":-2"}}/thumb/{{f|slice:"-1:"}}.jpg' width="200px">
+                                    </a>
                                     {% endfor %}
                                 </ul>
                             </div>
@@ -81,27 +83,6 @@ Products List
             </div>
         </div>
     </div>
-</div>
-
-<!--pagination-->
-<div class="pro-pagination-style text-center mt-30">
-    <ul>
-        {% if data.has_previous %}
-        <li><a class="prev" href="?page={{ data.previous_page_number }}"><i class="fa fa-angle-double-left"></i></a></li>
-        {% endif %}
-
-        {% for i in p_range %}
-        {% if data.number == i %}
-        <li><a class="active">{{ i }}</a></li>
-        {% else %}
-        <li><a href="?page={{ i }}">{{ i }}</a></li>
-        {% endif %}
-        {% endfor %}
-
-        {% if data.has_next %}
-        <li><a class="next" href="?page={{ data.next_page_number }}"><i class="fa fa-angle-double-right"></i></a></li>
-        {%endif %}
-    </ul>
 </div>
 
 <!--modal start-->
@@ -157,9 +138,9 @@ Products List
                     <div class="row prod_to_style">
                         {% for e in emb %}
                         {% if item.PRODUCT_ID == e.product_id %}
-                        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-16"><img src="/static/star/{{e.likely.0}}.jpg" width="200px" class="circular--square"></div>
-                        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-16"><img src="/static/star/{{e.likely.1}}.jpg" width="200px" class="circular--square"></div>
-                        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-16"><img src="/static/star/{{e.likely.2}}.jpg" width="200px" class="circular--square"></div>
+                        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-16"><img class="circular--square" src="/static/star/{{e.likely.0}}.jpg" width="200px"></div>
+                        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-16"><img class="circular--square" src="/static/star/{{e.likely.1}}.jpg" width="200px"></div>
+                        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-16"><img class="circular--square" src="/static/star/{{e.likely.2}}.jpg" width="200px"></div>
                         {% endif %}
                         {% endfor %}
                     </div>

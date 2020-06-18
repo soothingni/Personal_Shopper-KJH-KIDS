@@ -2,14 +2,17 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import auth
-# Create your views here.
-from .models import OddeyeUsers
-from .forms import RegisterForm, LoginForm
 from django.views.generic.edit import FormView
 from django.contrib.auth.hashers import make_password, check_password
-from django.contrib.auth.models import User
+
+
 # db
 import cx_Oracle
+
+
+from .models import OddeyeUsers
+from .forms import RegisterForm, LoginForm
+
 
 # 사용할 모듈
 import math

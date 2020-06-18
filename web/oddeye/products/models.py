@@ -38,7 +38,7 @@ class ProductsEmbedding(models.Model):
     product_embedding = models.CharField(max_length=2000, verbose_name="상품 임베딩값")
 
     def __str__(self):
-        return self.product_ID
+        return str(self.product_ID)
 
     class Meta:
         db_table = "products_embedding"

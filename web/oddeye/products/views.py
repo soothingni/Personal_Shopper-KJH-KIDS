@@ -6,6 +6,8 @@ from django.contrib.auth.models import User
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from accounts.models import OddeyeUsers
 from . import embedding
+from products.models import ProductsEmbedding
+from styles.models import Star_embedding
 
 # db
 import cx_Oracle
@@ -30,7 +32,7 @@ def productview(req):
 # Product List
 class prod_list(View):
     def get(self, req, pk):
-        global category_name
+        global base_category_name
         global category_dict
 
         # DB 연동
@@ -86,15 +88,32 @@ class prod_list(View):
         # 상품과 인물 스타일간 거리 계산
         emb = {}
         for p in subs:
-            emb[p['PRODUCT_ID']] = {s['NAME'] + '/thumb/' + str(s['STYLE']): compute_linalg_dist(np.array(list(map(float,(p['PRODUCT_EMBEDDING'][2:-2].split(','))))), np.array(list(map(float,(s['STAR_EMBEDDING'][2:-2].split(',')))))) for s in star_data}
+            emb[p['PRODUCT_ID']] = {
+                s['NAME'] +'_'+ str(s['STYLE']) : compute_linalg_dist(np.array(list(map(float,(p['PRODUCT_EMBEDDING'][2:-2].split(','))))), np.array(list(map(float,(s['STAR_EMBEDDING'][2:-2].split(',')))))) for s in star_data}
         sorted_Emb = {}
         for e in emb:
             sorted_Emb[e] = sorted(emb[e].items(), key=lambda x: x[1])[:3]
             sorted_Emb[e] = [style_dist_pair[0] for style_dist_pair in sorted_Emb[e]]
-        sorted_list = [{"product_id": product, "likely": sorted_Emb[product]} for product in sorted_Emb]
+        sorted_s_emb = [{"product_id": product, "likely": sorted_Emb[product]} for product in sorted_Emb]
 
-        # html로 보낼 데이
-        context = {'data': subs, 'cat': category_name, 'p_range': p_range, 'emb':sorted_list}
+        #상품 to 상품
+        products=[]
+        for p in subs:
+            for d in prod_data:
+                if p['SUB_CATEGORY'] == d['SUB_CATEGORY']:
+                    products.append(
+                        {
+                            'id1': p['PRODUCT_ID'],
+                            'id2':d['PRODUCT_ID'],
+                            'dist':compute_linalg_dist(
+                                np.array(list(map(float,(p['PRODUCT_EMBEDDING'][2:-2].split(','))))),
+                                np.array(list(map(float,(d['PRODUCT_EMBEDDING'][2:-2].split(','))))))
+                        }
+                    )
+        products=sorted(products, key=lambda x: (x['id1'], x['dist']))
+
+        #html로 보낼 데이터
+        context = {'data': subs, 'cat': base_category_name, 'p_range': p_range, 'semb':sorted_s_emb}
 
         return render(req, 'products/list.html', context)
 
@@ -128,11 +147,70 @@ class prod_list(View):
                    }
         return JsonResponse(context)
 
+
+def __str__(self):
+    return str(self.nom_asentamiento)
+
+def get_prod_embedding(prod_id):
+    prod_id = int(prod_id)
+    getem = ProductsEmbedding.objects.filter(product_ID=prod_id).first()
+    return getem
+
+def dist_btw_embeddings(emb1, emb2):
+    dist = compute_linalg_dist(np.array(list(map(float, (emb1[2:-2].split(','))))),
+                        np.array(list(map(float, (emb2[2:-2].split(','))))))
+    return dist
+
+def prod2prod(this_prod_embedding, total_prod_data):
+    prod_dist = []
+    for other_prod in total_prod_data:
+        dist_dict = {'product_ID': other_prod.product_ID,
+                     'dist': dist_btw_embeddings(this_prod_embedding, other_prod.product_embedding)}
+        prod_dist.append(dist_dict)
+
+    print(prod_dist)
+    # prod_dist = [{'product_ID': other_prod.product_ID,
+    #               'dist': dist_btw_embeddings(this_prod_embedding, other_prod.product_embedding)} for other_prod in total_prod_data]
+    prod_dist = sorted(prod_dist, key=lambda x: x['dist'])
+    nearest_prod = prod_dist[:3]
+    return nearest_prod
+
+def prod2star(this_prod_embedding, total_star_data):
+    star_dist = [{'no': star['no'],
+                  'dist': dist_btw_embeddings(this_prod_embedding, star['product_embedding'])} for star in
+                 total_star_data]
+    star_dist = sorted(star_dist, key=lambda x: x['dist'])
+    star_prod = star_dist[:3]
+    return nearest_star
+
+def modal_star_and_prod(req):
+    prod_id = req.GET['prod_id']
+    print(prod_id)
+    this_prod_embedding = get_prod_embedding(prod_id)
+    print(this_prod_embedding)
+    total_prod_data = ProductsEmbedding.objects.all()
+    total_star_data = Star_embedding.objects.all()
+
+    nearest_prod = prod2prod(this_prod_embedding, total_prod_data)
+    nearest_star = prod2star(this_prod_embedding, total_star_data)
+
+    print(nearest_prod)
+    print(nearest_star)
+
+    return JsonResponse({'error': 0, 'nearest_prod': nearest_prod, 'nearest_star': nearest_star})
+
+
 def compute_linalg_dist(img1, img2):
     dist=np.linalg.norm(img1-img2)
     return dist
+super_category_name=[
+    {'category':0, "name":"상의"},
+    {'category':1, "name":"상의"},
+    {'category':2, "name":"상의"}
+]
 
-category_name = [
+
+base_category_name = [
         {"category": 9, "name": "전체보기"} ,
         {"category": 0, "name": "티셔츠"},
         {"category": 1, "name": "후디/스웨트셔츠"},
@@ -205,7 +283,7 @@ class ClientInput(View):
         conn = cx_Oracle.connect('oddeye/1234@15.164.247.135:1522/MODB')
         cursor = conn.cursor()
         sql = '''
-        SELECT PRODUCTS_EMBEDDING.id, PRODUCTS_EMBEDDING.product_embedding, PRODUCTS.img_url, PRODUCTS.product_url, PRODUCTS.SUPER_CATEGORY, PRODUCTS.BASE_CATEGORY, PRODUCTS.product_name ,PRODUCTS.price_original,PRODUCTS.price_discount
+        SELECT PRODUCTS_EMBEDDING.id, PRODUCTS_EMBEDDING.product_embedding, PRODUCTS.img_url, PRODUCTS.product_url, PRODUCTS.SUPER_CATEGORY, PRODUCTS.BASE_CATEGORY, PRODUCTS.SUB_CATEGORY, PRODUCTS.product_name ,PRODUCTS.price_original,PRODUCTS.price_discount
         FROM PRODUCTS_EMBEDDING
         JOIN PRODUCTS ON PRODUCTS_EMBEDDING.ID = PRODUCTS.PRODUCT_ID
         '''
