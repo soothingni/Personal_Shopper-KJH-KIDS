@@ -6770,9 +6770,9 @@ a.default-btn {
 }
 .product-details-content h2 {
 	color:#010101;
-	font-size:30px;
+	font-size:28px;
 	margin:-10px 0 0px;
-	line-height:1.3;
+	line-height:1.5;
 }
 .product-details-content .product-details-price {
 	display:-webkit-box;
@@ -14095,10 +14095,11 @@ h3.cart-page-title {
 .login-register-wrapper .login-form-container {
 	background:transparent none repeat scroll 0 0;
 	-webkit-box-shadow:0 0 6px rgba(0,0,0,0.1);
-	box-shadow:0 0 6px rgba(0,0,0,0.1);
+	box-shadow:0 0 6px rgba(0,0,0,0.25);
 	border-radius: 5px;
 	padding:80px;
 	text-align:left;
+	border: 2px solid #78D2DC;
 }
 @media only screen and (min-width:992px) and (max-width:1199px) {
 	.login-register-wrapper .login-form-container {
@@ -14112,7 +14113,7 @@ h3.cart-page-title {
 }
 .login-register-wrapper .login-form-container .login-register-form form input {
 	background-color:transparent;
-	border:1px solid #ebebeb;
+	border:1px solid #78D2DC;
 	border-radius: 5px;
 	color:#333;
 	font-size:14px;

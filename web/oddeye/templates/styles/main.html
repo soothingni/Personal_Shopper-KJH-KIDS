@@ -10,7 +10,6 @@ main
 
 <!--SECTION1: LOOKBOOK-->
 <div class="lookbook">
-    {{tag_dict}}
     <div class="slider-area">
         <div class="slider-active owl-carousel nav-style-1">
             <div class="container">
@@ -104,10 +103,11 @@ main
                     <!-- 선택된 이미지 크게 -->
                     <div class="selected col-lg-4">
                         <div class="row">
-                            <div class="col"></div>
                             <div class="col">
                                 <div id="selected_thumbnail" class="product-details pt-20">
-                                    <img width="300px" id="star_thumb" class="circular--square star_large380" src='{% static "" %}star/{{star_name}}/thumb/{{pk}}.jpg'>
+                                    <a href="/styles/details/irene/4">
+                                        <img width="300px" id="star_thumb" class="circular--square star_large380" src='{% static "" %}star/{{star_name}}/thumb/{{pk}}.jpg'>
+                                    </a>
                                 </div>
                             </div>
                             <div class="col"></div>
@@ -129,8 +129,6 @@ main
                             </div>
                         </div>
                     </div>
-
-
                     <div class="col"></div>
                     <div class="col-lg-7 pt-20">
                         <!--SECTION2: Related Products -->
@@ -141,7 +139,7 @@ main
                                     <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12">
                                         <div class="product-wrap-3 mb-20 scroll-zoom">
                                             <div class="product-img">
-                                                <a href="{{d.product_url}}">
+                                                <a href="#" data-toggle="modal" data-target="#exampleModal{{d.product_id}}">
                                                     <img src={{d.img_url}} class="mb-20" alt=""></a>
                                                 {% if d.discounts %}
                                                 <span class="pink">-{{d.discounts}}%</span>
@@ -149,7 +147,7 @@ main
                                                 <div class="product-content-3-wrap" style="height:81% !important;">
                                                     <div class="product-content-3">
                                                         <div class="product-title">
-                                                            <h3><a href="{{d.product_url}}">{{d.product_name}}</a></h3>
+                                                            <h3><a href="#" data-toggle="modal" data-target="#exampleModal{{d.product_id}}">{{d.product_name}}</a></h3>
                                                         </div>
                                                         {% if d.price_discount != None%}
                                                         <div class="price-3">
@@ -163,8 +161,7 @@ main
                                                         </div>
                                                         {% endif %}
                                                         <div class="product-action-3">
-                                                            <a title="Add To Cart" href="#"><i class="fa fa-shopping-cart"></i></a>
-                                                            <a title="Quick View" href="#" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-eye"></i></a>
+                                                            <a title="Quick View" href="#" data-toggle="modal" data-target="#exampleModal{{d.product_id}}"><i class="fa fa-eye"></i></a>
                                                             <a title="Wish" href="#"><i class="fa fa-heart"></i></a>
                                                         </div>
                                                     </div>
@@ -252,6 +249,74 @@ main
         </div>
     </div>
 </div>
+
+
+{% for d in dist %}
+<div class="modal fade" id="exampleModal{{d.product_id}}" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span>상품 상세보기</span>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">x</span></button>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6 col-sm-12 col-xs-12">
+                            <div class="tab-content quickview-big-img">
+                                <div id="pro-2" class="tab-pane fade show active">
+                                    <img src="{{ d.img_url}}" alt="">
+                                </div>
+                            </div>
+                            <!-- Thumbnail Large Image End -->
+                            <!-- Thumbnail Image End -->
+                        </div>
+                        <div class="col-md-6 col-sm-12 col-xs-12">
+                            <div class="product-details-content quickview-content height_280">
+                                <h2>{{d.product_name}}</h2>
+                                <div class="product-details-price">
+
+                                    {% if d.price_discount != None%}
+
+                                        <span>₩ {{d.price_discount}}</span>
+                                        <span class="old">₩{{d.price_original}}</span>
+
+                                    {% else %}
+                                        <span>₩ {{d.price_original}}</span>
+                                    {% endif %}
+                                </div>
+                                <div class="pro-details-quality">
+                                    <div class="pro-details-cart btn-hover">
+                                        <a href="{{d.product_url}}">구매하러가기</a>
+                                    </div>
+                                    <div class="pro-details-wishlist">
+                                        <a href="#"><i class="fa fa-heart-o"></i></a>
+                                    </div>
+                                </div>
+                                <div class="pro-details-meta">
+                                    <span>Tag :</span>
+                                    <ul>
+                                        <li><a href="#"># Fashion </a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row prod_to_style">
+                        {% for e in emb %}
+                        {% if item.PRODUCT_ID == e.product_id %}
+                        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-16"><img src="/static/star/{{e.likely.0}}.jpg" width="200px" class="circular--square"></div>
+                        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-16"><img src="/static/star/{{e.likely.1}}.jpg" width="200px" class="circular--square"></div>
+                        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-16"><img src="/static/star/{{e.likely.2}}.jpg" width="200px" class="circular--square"></div>
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
 
 
 {% for item in datas %}

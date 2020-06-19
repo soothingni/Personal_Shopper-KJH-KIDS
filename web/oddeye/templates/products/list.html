@@ -108,7 +108,7 @@ Products List
             <div class="modal-body">
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-6 col-sm-12 col-xs-12">
+                        <div class="col-md-6 col-sm-12 col-xs-12 height_400">
                             <div class="tab-content quickview-big-img">
                                 <div id="pro-2" class="tab-pane fade show active">
                                     <img src="{{ item.IMG_URL }}" alt="">
@@ -134,43 +134,63 @@ Products List
                                         <a href="{{item.PRODUCT_URL}}">구매하러가기</a>
                                     </div>
                                 </div>
-                                <div class="pro-details-meta">
-                                    <span>Tag :</span>
-                                    <ul>
-                                        <li><a href="#"># Fashion </a></li>
-                                    </ul>
+                            </div>
+                            <div class="row prod_to_style">
+                                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-16" id="likely1">
+                                    <a href="">
+                                        <img src="" width="100%" class="circular--square">
+                                    </a>
+                                </div>
+                                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-16" id="likely2">
+                                    <a href="">
+                                        <img src="" width="100%" class="circular--square">
+                                    </a>
+                                </div>
+                                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-16" id="likely3">
+                                    <a href="">
+                                        <img src="" width="100%" class="circular--square">
+                                    </a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="row prod_to_style">
-                        {% for e in semb %}
-                        {% if item.PRODUCT_ID == e.product_id %}
-                        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-16">
-                            <a href="/styles/details/{{e.likely.0|slice:':-2'}}/{{e.likely.0|slice:'-1:'}}">
-                                <img src="/static/star/{{e.likely.0|slice:':-2'}}/thumb/{{e.likely.0|slice:'-1:'}}.jpg" width="200px" class="circular--square">
+                    <div class="row prod_to_prod mt-30">
+                        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-16" id="nearest_prod1">
+                            <a href="">
+                                <img src="" width="200px">
+                                <div class="product-details-content quickview-content">
+                                    상품
+                                </div>
+                                <div class="product-details-price">
+                                    <span> </span>
+                                    <span class="old"> </span>
+                                </div>
                             </a>
                         </div>
-                        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-16">
-                            <a href="/styles/details/{{e.likely.1|slice:':-2'}}/{{e.likely.1|slice:'-1:'}}">
-                                <img src="/static/star/{{e.likely.1|slice:':-2'}}/thumb/{{e.likely.1|slice:'-1:'}}.jpg" width="200px" class="circular--square">
+                        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-16" id="nearest_prod2">
+                            <a href="">
+                                <img src="" width="200px">
+                                <div class="product-details-content quickview-content">
+                                    상품
+                                </div>
+                                <div class="product-details-price">
+                                    <span> </span>
+                                    <span class="old"> </span>
+                                </div>
                             </a>
                         </div>
-                        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-16">
-                            <a href="/styles/details/{{e.likely.2|slice:':-2'}}/{{e.likely.2|slice:'-1:'}}">
-                                <img src="/static/star/{{e.likely.2|slice:':-2'}}/thumb/{{e.likely.2|slice:'-1:'}}.jpg" width="200px" class="circular--square">
+                        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-16" id="nearest_prod3">
+                            <a href="">
+                                <img src="" width="200px">
+                                <div class="product-details-content quickview-content">
+                                    상품
+                                </div>
+                                <div class="product-details-price">
+                                    <span> </span>
+                                    <span class="old"> </span>
+                                </div>
                             </a>
                         </div>
-                    <div>
-                    </div>
-                        {% endif %}
-                        {% endfor %}
-                    </div>
-                    <div class="row prod_to_prod">
-                        <h2 class="dlrpehlfRk"> </h2>
-                        <img src="">
-                        <img src="">
-                        <img src="">
                     </div>
 
                 </div>
@@ -212,10 +232,50 @@ Products List
      $(".prod_ele").click( function() {
 
          var param = {prod_id: $(this).attr("name")};
+         var star_root_url = "/styles/details/";
+         var star_img_root_url = "/static/star/";
+
+         // var likely1 = $("#likely1")     //한번만 찾기 위해 변수 지정//
+         // var likely2 = $("#likely2")
+         // var likely3 = $("#likely3")
+         //
+         // var nearest_prod1 = $("#nearest_prod1")
+         // var nearest_prod2 = $("#nearest_prod2")
+         // var nearest_prod3 = $("#nearest_prod3")
+
          $.get("/products/prod2prod", param, function (data) {
-             alert(JSON.stringify(data));
+             // alert(JSON.stringify(data));
              console.log(JSON.stringify(data));
-             $(".dlrpehlfRk").html(data.nearest_prod);
+             $ ("#likely1 a").attr("href", star_root_url + data.nearest_star[0].NAME + '/' + data.nearest_star[0].STYLE);   /* nearest star page link */
+             $ ("#likely2 a").attr("href", star_root_url + data.nearest_star[1].NAME + '/' + data.nearest_star[1].STYLE);
+             $ ("#likely3 a").attr("href", star_root_url + data.nearest_star[2].NAME + '/' + data.nearest_star[2].STYLE);
+
+             $ ("#likely1 img").attr("src", star_img_root_url + data.nearest_star[0].NAME + "/thumb/" + data.nearest_star[0].STYLE + '.jpg');   /* nearest star image path */
+             $ ("#likely2 img").attr("src", star_img_root_url + data.nearest_star[1].NAME + "/thumb/" + data.nearest_star[1].STYLE + '.jpg');
+             $ ("#likely3 img").attr("src", star_img_root_url + data.nearest_star[2].NAME + "/thumb/" + data.nearest_star[2].STYLE + '.jpg');
+
+             $ ("#nearest_prod1 a").attr("href", data.nearest_prod[0].PRODUCT_URL);   /* nearest product buy link */
+             $ ("#nearest_prod2 a").attr("href", data.nearest_prod[1].PRODUCT_URL);
+             $ ("#nearest_prod3 a").attr("href", data.nearest_prod[2].PRODUCT_URL);
+
+             $ ("#nearest_prod1 img").attr("src", data.nearest_prod[0].IMG_URL);   /* nearest product image path */
+             $ ("#nearest_prod2 img").attr("src", data.nearest_prod[1].IMG_URL);
+             $ ("#nearest_prod3 img").attr("src", data.nearest_prod[2].IMG_URL);
+
+             $ ("#nearest_prod1 .product-details-content").html(data.nearest_prod[0].PRODUCT_NAME);   /* nearest product name */
+             $ ("#nearest_prod2 .product-details-content").html(data.nearest_prod[1].PRODUCT_NAME);
+             $ ("#nearest_prod3 .product-details-content").html(data.nearest_prod[2].PRODUCT_NAME);
+
+             // $ ("#nearest_prod1 .product-details-price").html(data.nearest_prod[0].PRICE_DISCOUNT);   /* nearest product price */
+             // $ ("#nearest_prod2 .product-details-price").html(data.nearest_prod[1].PRICE_DISCOUNT);
+             // $ ("#nearest_prod3 .product-details-price").html(data.nearest_prod[2].PRICE_DISCOUNT);
+             //
+             // $ ("#nearest_prod1 .old").html(data.nearest_prod[0].PRICE_ORIGINAL);   /* nearest product price */
+             // $ ("#nearest_prod2 .old").html(data.nearest_prod[1].PRICE_ORIGINAL);
+             // $ ("#nearest_prod3 .old").html(data.nearest_prod[2].PRICE_ORIGINAL);
+
+
+
          });
      });
 
