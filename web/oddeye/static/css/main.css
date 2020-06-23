@@ -137,7 +137,7 @@ background-color: #d9e8f3
 .products_list .hover-img{border-radius: 1000px;}
 .modal-dialog{margin: 2% auto ;}
 .products_list .item {float: left; width: 30%; margin-left:10px; margin-right:10px;}
-.prod_to_style {margin:24px 00px 20px 0px;}
+.prod_to_style {margin:24px 00px 0px 0px;}
 .prod_to_style div { margin-bottom:20px;}
 
 /* product_detail */
@@ -390,13 +390,24 @@ a {
 }
 
 .height_400 {
-    height: 400px
+    height: 400px;
 }
 
-height_280 {
-    height: 280px
+.height_280 {
+    height: 280px;
 }
 
 .button_center {
-    margin: 0px auto
+    margin: 0px auto;
+}
+
+.text_center {
+    text-align: center;
+}
+
+.product_title {
+    max-width: 200px;
+    margin: 0 auto;
+    margin-top: 10px;
+    font-size: 16px;
 }

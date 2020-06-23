@@ -67,12 +67,12 @@ My Page
                     </div>
                     <div class="sidebar-widget">
                         <div class="sidebar-widget mt-50">
-                            <h3 class="pro-sidebar-title">FOLLOWING </h3>
-                            <div class="sidebar-widget-tag mt-25">
+                            <h3 class="pro-sidebar-title text-center">FOLLOWING </h3>
+                            <div class="sidebar-widget-tag mt-20">
                                 <ul>
                                     {%for f in follow %}
                                     <a href="/styles/details/{{f|slice:':-2'}}/{{f|slice:'-1:'}}">
-                                        <img class="circular--square" src='/static/star/{{f|slice:":-2"}}/thumb/{{f|slice:"-1:"}}.jpg' width="200px">
+                                        <img class="circular--square mt-20" src='/static/star/{{f|slice:":-2"}}/thumb/{{f|slice:"-1:"}}.jpg' width="200px">
                                     </a>
                                     {% endfor %}
                                 </ul>

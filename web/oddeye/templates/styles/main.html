@@ -30,7 +30,7 @@ main
                     <div class="col-xl-6 col-lg-6 col-md-7 ml-auto">
                         <div class="slider-content-7 slider-animated-1 font_main">
                             <h3 class="animated"> odd eye가 </h3>
-                            <h1 class="animated"> 당신의 스타일을 찾아드립니다</h1>
+                            <h1 class="animated">당신의 스타일을<br> 찾아드립니다</h1>
                             <div class="slider-btn-9 btn-hover">
                                 <a class="animated" href="aboutus"> 더 알아보기 </a>
                             </div>
@@ -139,30 +139,29 @@ main
                                     <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12">
                                         <div class="product-wrap-3 mb-20 scroll-zoom">
                                             <div class="product-img">
-                                                <a href="#" data-toggle="modal" data-target="#exampleModal{{d.product_id}}">
-                                                    <img src={{d.img_url}} class="mb-20" alt=""></a>
+                                                <a class="prod_ele" href="#" data-toggle="modal" data-target="#exampleModal{{d.PRODUCT_ID}}">
+                                                    <img src={{d.IMG_URL}} class="mb-20" alt=""></a>
                                                 {% if d.discounts %}
                                                 <span class="pink">-{{d.discounts}}%</span>
                                                 {% endif %}
                                                 <div class="product-content-3-wrap" style="height:81% !important;">
                                                     <div class="product-content-3">
                                                         <div class="product-title">
-                                                            <h3><a href="#" data-toggle="modal" data-target="#exampleModal{{d.product_id}}">{{d.product_name}}</a></h3>
+                                                            <h3><a href="{{d.PRODUCT_NAME}}" data-toggle="modal" data-target="#exampleModal{{d.PRODUCT_ID}}" name="{{d.PRODUCT_ID}}">{{d.PRODUCT_NAME}}</a></h3>
                                                         </div>
                                                         {% if d.price_discount != None%}
                                                         <div class="price-3">
-                                                            <span>₩ {{d.price_discount}}</span>
-                                                            <span class="old">₩{{d.price_original}}</span>
+                                                            <span>₩ {{d.PRICE_DISCOUNT}}</span>
+                                                            <span class="old">₩{{d.PRICE_ORIGINAL}}</span>
                                                         </div>
 
                                                         {% else %}
                                                         <div class="price-3">
-                                                            <span>₩ {{d.price_original}}</span>
+                                                            <span>₩ {{d.PRICE_ORIGINAL}}</span>
                                                         </div>
                                                         {% endif %}
-                                                        <div class="product-action-3">
-                                                            <a title="Quick View" href="#" data-toggle="modal" data-target="#exampleModal{{d.product_id}}"><i class="fa fa-eye"></i></a>
-                                                            <a title="Wish" href="#"><i class="fa fa-heart"></i></a>
+                                                        <div class="product-action-3 wishlist" name="{{d.PRODUCT_ID}}">
+                                                            <a title="Add To Wishlist" href="#"><i class="fa fa-heart"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -250,9 +249,9 @@ main
     </div>
 </div>
 
-
-{% for d in dist %}
-<div class="modal fade" id="exampleModal{{d.product_id}}" tabindex="-1" role="dialog">
+<!--추천 모달-->
+{% for item in dist %}
+<div class="modal fade" id="exampleModal{{item.PRODUCT_ID}}" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -262,10 +261,10 @@ main
             <div class="modal-body">
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-6 col-sm-12 col-xs-12">
+                        <div class="col-md-6 col-sm-12 col-xs-12 height_400">
                             <div class="tab-content quickview-big-img">
                                 <div id="pro-2" class="tab-pane fade show active">
-                                    <img src="{{ d.img_url}}" alt="">
+                                    <img src="{{ item.IMG_URL }}" alt="">
                                 </div>
                             </div>
                             <!-- Thumbnail Large Image End -->
@@ -273,44 +272,80 @@ main
                         </div>
                         <div class="col-md-6 col-sm-12 col-xs-12">
                             <div class="product-details-content quickview-content height_280">
-                                <h2>{{d.product_name}}</h2>
+                                <h2>{{item.PRODUCT_NAME}}</h2>
                                 <div class="product-details-price">
-
-                                    {% if d.price_discount != None%}
-
-                                        <span>₩ {{d.price_discount}}</span>
-                                        <span class="old">₩{{d.price_original}}</span>
+                                    {% if item.PRICE_DISCOUNT != None%}
+                                    <span>₩ {{item.PRICE_DISCOUNT}}</span>
+                                    <span class="old">₩{{item.PRICE_ORIGINAL}}</span>
 
                                     {% else %}
-                                        <span>₩ {{d.price_original}}</span>
+                                    <span>₩ {{item.PRICE_ORIGINAL}}</span>
                                     {% endif %}
                                 </div>
                                 <div class="pro-details-quality">
                                     <div class="pro-details-cart btn-hover">
-                                        <a href="{{d.product_url}}">구매하러가기</a>
-                                    </div>
-                                    <div class="pro-details-wishlist">
-                                        <a href="#"><i class="fa fa-heart-o"></i></a>
+                                        <a href="{{item.PRODUCT_URL}}">구매하러가기</a>
                                     </div>
                                 </div>
-                                <div class="pro-details-meta">
-                                    <span>Tag :</span>
-                                    <ul>
-                                        <li><a href="#"># Fashion </a></li>
-                                    </ul>
+                            </div>
+                            <div class="row prod_to_style">
+                                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-16" id="likely1">
+                                    <a href="">
+                                        <img src="" width="100%" class="circular--square">
+                                    </a>
+                                </div>
+                                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-16" id="likely2">
+                                    <a href="">
+                                        <img src="" width="100%" class="circular--square">
+                                    </a>
+                                </div>
+                                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-16" id="likely3">
+                                    <a href="">
+                                        <img src="" width="100%" class="circular--square">
+                                    </a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="row prod_to_style">
-                        {% for e in emb %}
-                        {% if item.PRODUCT_ID == e.product_id %}
-                        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-16"><img src="/static/star/{{e.likely.0}}.jpg" width="200px" class="circular--square"></div>
-                        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-16"><img src="/static/star/{{e.likely.1}}.jpg" width="200px" class="circular--square"></div>
-                        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-16"><img src="/static/star/{{e.likely.2}}.jpg" width="200px" class="circular--square"></div>
-                        {% endif %}
-                        {% endfor %}
+                    <div class="row prod_to_prod mt-30">
+                        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-16 text_center" id="nearest_prod1">
+                            <a href="">
+                                <img src="" width="200px">
+                                <div class="product-details-content quickview-contente product_title">
+                                    상품
+                                </div>
+                                <div class="product-details-price">
+                                    <span> </span>
+                                    <span class="old"> </span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-16 text_center" id="nearest_prod2">
+                            <a href="">
+                                <img src="" width="200px">
+                                <div class="product-details-content quickview-content product_title">
+                                    상품
+                                </div>
+                                <div class="product-details-price">
+                                    <span> </span>
+                                    <span class="old"> </span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-16 text_center" id="nearest_prod3">
+                            <a href="">
+                                <img src="" width="200px">
+                                <div class="product-details-content quickview-content product_title">
+                                    상품
+                                </div>
+                                <div class="product-details-price">
+                                    <span> </span>
+                                    <span class="old"> </span>
+                                </div>
+                            </a>
+                        </div>
                     </div>
+
                 </div>
             </div>
         </div>
@@ -318,7 +353,7 @@ main
 </div>
 {% endfor %}
 
-
+<!-- 상품 추천 Modal -->
 {% for item in datas %}
 <div class="modal fade" id="exampleModal{{item.PRODUCT_ID}}" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
@@ -330,7 +365,7 @@ main
             <div class="modal-body">
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-6 col-sm-12 col-xs-12">
+                        <div class="col-md-6 col-sm-12 col-xs-12 height_400">
                             <div class="tab-content quickview-big-img">
                                 <div id="pro-2" class="tab-pane fade show active">
                                     <img src="{{ item.IMG_URL }}" alt="">
@@ -340,7 +375,7 @@ main
                             <!-- Thumbnail Image End -->
                         </div>
                         <div class="col-md-6 col-sm-12 col-xs-12">
-                            <div class="product-details-content quickview-content">
+                            <div class="product-details-content quickview-content height_280">
                                 <h2>{{item.PRODUCT_NAME}}</h2>
                                 <div class="product-details-price">
                                     {% if item.PRICE_DISCOUNT_COMMA != None%}
@@ -355,28 +390,66 @@ main
                                     <div class="pro-details-cart btn-hover">
                                         <a href="{{item.PRODUCT_URL}}">구매하러가기</a>
                                     </div>
-                                    <div class="pro-details-wishlist">
-                                        <a href="#"><i class="fa fa-heart-o"></i></a>
-                                    </div>
                                 </div>
-                                <div class="pro-details-meta">
-                                    <span>Tag :</span>
-                                    <ul>
-                                        <li><a href="#"># Fashion </a></li>
-                                    </ul>
+                            </div>
+                            <div class="row prod_to_style">
+                                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-16" id="likely1">
+                                    <a href="">
+                                        <img src="" width="100%" class="circular--square">
+                                    </a>
+                                </div>
+                                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-16" id="likely2">
+                                    <a href="">
+                                        <img src="" width="100%" class="circular--square">
+                                    </a>
+                                </div>
+                                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-16" id="likely3">
+                                    <a href="">
+                                        <img src="" width="100%" class="circular--square">
+                                    </a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="row prod_to_style">
-                        {% for e in emb %}
-                        {% if item.PRODUCT_ID == e.product_id %}
-                        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-16"><img src="/static/star/{{e.likely.0}}.jpg" width="200px" class="circular--square"></div>
-                        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-16"><img src="/static/star/{{e.likely.1}}.jpg" width="200px" class="circular--square"></div>
-                        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-16"><img src="/static/star/{{e.likely.2}}.jpg" width="200px" class="circular--square"></div>
-                        {% endif %}
-                        {% endfor %}
+                    <div class="row prod_to_prod mt-30">
+                        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-16 text_center" id="nearest_prod1">
+                            <a href="">
+                                <img src="" width="200px">
+                                <div class="product-details-content quickview-contente product_title">
+                                    상품
+                                </div>
+                                <div class="product-details-price">
+                                    <span> </span>
+                                    <span class="old"> </span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-16 text_center" id="nearest_prod2">
+                            <a href="">
+                                <img src="" width="200px">
+                                <div class="product-details-content quickview-content product_title">
+                                    상품
+                                </div>
+                                <div class="product-details-price">
+                                    <span> </span>
+                                    <span class="old"> </span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-16 text_center" id="nearest_prod3">
+                            <a href="">
+                                <img src="" width="200px">
+                                <div class="product-details-content quickview-content product_title">
+                                    상품
+                                </div>
+                                <div class="product-details-price">
+                                    <span> </span>
+                                    <span class="old"> </span>
+                                </div>
+                            </a>
+                        </div>
                     </div>
+
                 </div>
             </div>
         </div>
@@ -433,6 +506,55 @@ main
                 }
             });
         })
+    });
+
+    $(".prod_ele").click( function() {
+        console.log("Hello")
+        // var param = {prod_id: $(this).attr("name")};
+        // var star_root_url = "/styles/details/";
+        // var star_img_root_url = "/static/star/";
+        //
+        // // var likely1 = $("#likely1")     //한번만 찾기 위해 변수 지정//
+        // // var likely2 = $("#likely2")
+        // // var likely3 = $("#likely3")
+        // //
+        // // var nearest_prod1 = $("#nearest_prod1")
+        // // var nearest_prod2 = $("#nearest_prod2")
+        // // var nearest_prod3 = $("#nearest_prod3")
+        //
+        // $.get("/products/prod2prod", param, function (data) {
+        //     // alert(JSON.stringify(data));
+        //     console.log(JSON.stringify(data));
+        //     $("#likely1 a").attr("href", star_root_url + data.nearest_star[0].NAME + '/' + data.nearest_star[0].STYLE);   /* nearest star page link */
+        //     $("#likely2 a").attr("href", star_root_url + data.nearest_star[1].NAME + '/' + data.nearest_star[1].STYLE);
+        //     $("#likely3 a").attr("href", star_root_url + data.nearest_star[2].NAME + '/' + data.nearest_star[2].STYLE);
+        //
+        //     $("#likely1 img").attr("src", star_img_root_url + data.nearest_star[0].NAME + "/thumb/" + data.nearest_star[0].STYLE + '.jpg');   /* nearest star image path */
+        //     $("#likely2 img").attr("src", star_img_root_url + data.nearest_star[1].NAME + "/thumb/" + data.nearest_star[1].STYLE + '.jpg');
+        //     $("#likely3 img").attr("src", star_img_root_url + data.nearest_star[2].NAME + "/thumb/" + data.nearest_star[2].STYLE + '.jpg');
+        //
+        //     $("#nearest_prod1 a").attr("href", data.nearest_prod[0].PRODUCT_URL);   /* nearest product buy link */
+        //     $("#nearest_prod2 a").attr("href", data.nearest_prod[1].PRODUCT_URL);
+        //     $("#nearest_prod3 a").attr("href", data.nearest_prod[2].PRODUCT_URL);
+        //
+        //     $("#nearest_prod1 img").attr("src", data.nearest_prod[0].IMG_URL);   /* nearest product image path */
+        //     $("#nearest_prod2 img").attr("src", data.nearest_prod[1].IMG_URL);
+        //     $("#nearest_prod3 img").attr("src", data.nearest_prod[2].IMG_URL);
+        //
+        //     $("#nearest_prod1 .product-details-content").html(data.nearest_prod[0].PRODUCT_NAME);   /* nearest product name */
+        //     $("#nearest_prod2 .product-details-content").html(data.nearest_prod[1].PRODUCT_NAME);
+        //     $("#nearest_prod3 .product-details-content").html(data.nearest_prod[2].PRODUCT_NAME);
+        //
+        //     // $ ("#nearest_prod1 .product-details-price").html(data.nearest_prod[0].PRICE_DISCOUNT);   /* nearest product price */
+        //     // $ ("#nearest_prod2 .product-details-price").html(data.nearest_prod[1].PRICE_DISCOUNT);
+        //     // $ ("#nearest_prod3 .product-details-price").html(data.nearest_prod[2].PRICE_DISCOUNT);
+        //     //
+        //     // $ ("#nearest_prod1 .old").html(data.nearest_prod[0].PRICE_ORIGINAL);   /* nearest product price */
+        //     // $ ("#nearest_prod2 .old").html(data.nearest_prod[1].PRICE_ORIGINAL);
+        //     // $ ("#nearest_prod3 .old").html(data.nearest_prod[2].PRICE_ORIGINAL);
+        //
+        //
+        // });
     });
 
 </script>

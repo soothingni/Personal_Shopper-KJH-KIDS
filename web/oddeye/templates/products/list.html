@@ -118,7 +118,7 @@ Products List
                             <!-- Thumbnail Image End -->
                         </div>
                         <div class="col-md-6 col-sm-12 col-xs-12">
-                            <div class="product-details-content quickview-content">
+                            <div class="product-details-content quickview-content height_280">
                                 <h2>{{item.PRODUCT_NAME}}</h2>
                                 <div class="product-details-price">
                                     {% if item.PRICE_DISCOUNT_COMMA != None%}
@@ -155,10 +155,10 @@ Products List
                         </div>
                     </div>
                     <div class="row prod_to_prod mt-30">
-                        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-16" id="nearest_prod1">
+                        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-16 text_center" id="nearest_prod1">
                             <a href="">
                                 <img src="" width="200px">
-                                <div class="product-details-content quickview-content">
+                                <div class="product-details-content quickview-contente product_title">
                                     상품
                                 </div>
                                 <div class="product-details-price">
@@ -167,10 +167,10 @@ Products List
                                 </div>
                             </a>
                         </div>
-                        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-16" id="nearest_prod2">
+                        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-16 text_center" id="nearest_prod2">
                             <a href="">
                                 <img src="" width="200px">
-                                <div class="product-details-content quickview-content">
+                                <div class="product-details-content quickview-content product_title">
                                     상품
                                 </div>
                                 <div class="product-details-price">
@@ -179,10 +179,10 @@ Products List
                                 </div>
                             </a>
                         </div>
-                        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-16" id="nearest_prod3">
+                        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-16 text_center" id="nearest_prod3">
                             <a href="">
                                 <img src="" width="200px">
-                                <div class="product-details-content quickview-content">
+                                <div class="product-details-content quickview-content product_title">
                                     상품
                                 </div>
                                 <div class="product-details-price">
@@ -230,7 +230,6 @@ Products List
     });
 
      $(".prod_ele").click( function() {
-
          var param = {prod_id: $(this).attr("name")};
          var star_root_url = "/styles/details/";
          var star_img_root_url = "/static/star/";
@@ -273,9 +272,6 @@ Products List
              // $ ("#nearest_prod1 .old").html(data.nearest_prod[0].PRICE_ORIGINAL);   /* nearest product price */
              // $ ("#nearest_prod2 .old").html(data.nearest_prod[1].PRICE_ORIGINAL);
              // $ ("#nearest_prod3 .old").html(data.nearest_prod[2].PRICE_ORIGINAL);
-
-
-
          });
      });
 

@@ -1,0 +1,45 @@
+import torch, torchvision
+# You may need to restart your runtime prior to this, to let your installation take effect
+# Some basic setup
+# Setup detectron2 logger
+import detectron2
+from detectron2.utils.logger import setup_logger
+setup_logger()
+
+# import some common libraries
+import matplotlib.pyplot as plt
+import numpy as np
+import cv2
+from google.colab.patches import cv2_imshow
+
+# import some common detectron2 utilities
+from detectron2.engine import DefaultPredictor
+from detectron2.config import get_cfg
+from detectron2.utils.visualizer import Visualizer
+from detectron2.data import MetadataCatalog, DatasetCatalog
+
+from detectron2.data.datasets import register_coco_instances
+register_coco_instances("deep_fashion", {}, "/home/lab24/tutorials/datasets/deepfashion2_train_100k_2.json", "/home/lab24/tutorials/datasets/fashion/train_100k_2/image")
+
+deep_fashion_metadata = MetadataCatalog.get("deep_fashion")
+dataset_dicts = DatasetCatalog.get("deep_fashion")
+
+from detectron2.engine import DefaultTrainer
+from detectron2.config import get_cfg
+import os
+
+cfg = get_cfg()
+cfg.merge_from_file("./detectron2_repo/configs/COCO-InstanceSegmentation/mask_rcnn_R_50_FPN_3x.yaml")
+cfg.DATASETS.TRAIN = ("deep_fashion",)
+cfg.DATASETS.TEST = ()   # no metrics implemented for this dataset
+cfg.DATALOADER.NUM_WORKERS = 16
+cfg.MODEL.WEIGHTS = "/home/lab24/Detectron2/output/final/model_final_0.272_lr0.0001.pth"  # initialize from model zoo
+cfg.SOLVER.IMS_PER_BATCH = 8
+cfg.SOLVER.BASE_LR = 0.0001
+cfg.SOLVER.MAX_ITER = 12500    # 300 iterations seems good enough, but you can certainly train longer
+cfg.MODEL.ROI_HEADS.NUM_CLASSES = 13  # 3 classes (data, fig, hazelnut)
+
+os.makedirs(cfg.OUTPUT_DIR, exist_ok=True)
+trainer = DefaultTrainer(cfg)
+trainer.resume_or_load(resume=False)
+trainer.train()

@@ -73,15 +73,15 @@ def main(req):
                 if i["PRICE_DISCOUNT"]:
                     dist.append(
                         {
-                            'product_name': i['PRODUCT_NAME'],
-                            'product_id': i['ID'],
+                            'PRODUCT_NAME': i['PRODUCT_NAME'],
+                            'PRODUCT_ID': i['ID'],
                             'distance': compute_linalg_dist(
                                 np.array(list(map(float, (star_dict['STAR_EMBEDDING'][2:-2].split(','))))),
                                 np.array(list(map(float, (i['PRODUCT_EMBEDDING'][2:-2].split(',')))))),
-                            'img_url': i['IMG_URL'],
-                            'product_url': i['PRODUCT_URL'],
-                            'price_discount': i['PRICE_DISCOUNT'],
-                            'price_original': format(i['PRICE_ORIGINAL'], ","),
+                            'IMG_URL': i['IMG_URL'],
+                            'PRODUCT_URL': i['PRODUCT_URL'],
+                            'PRICE_DISCOUNT': i['PRICE_DISCOUNT'],
+                            'PRICE_ORIGINAL': format(i['PRICE_ORIGINAL'], ","),
                             'discounts': i['discounts']
 
                         }
@@ -89,20 +89,20 @@ def main(req):
                 else:
                     dist.append(
                         {
-                            'product_name': i['PRODUCT_NAME'],
-                            'product_id': i['ID'],
+                            'PRODUCT_NAME': i['PRODUCT_NAME'],
+                            'PRODUCT_ID': i['ID'],
                             'distance': compute_linalg_dist(
                                 np.array(list(map(float, (star_dict['STAR_EMBEDDING'][2:-2].split(','))))),
                                 np.array(list(map(float, (i['PRODUCT_EMBEDDING'][2:-2].split(',')))))),
-                            'img_url': i['IMG_URL'],
-                            'product_url': i['PRODUCT_URL'],
-                            'price_discount': i['PRICE_DISCOUNT'],
-                            'price_original': format(i['PRICE_ORIGINAL'], ","),
+                            'IMG_URL': i['IMG_URL'],
+                            'PRODUCT_URL': i['PRODUCT_URL'],
+                            'PRICE_DISCOUNT': i['PRICE_DISCOUNT'],
+                            'PRICE_ORIGINAL': format(i['PRICE_ORIGINAL'], ","),
 
                         }
                     )
 
-        dist = sorted(dist, key=lambda x: (x['distance'], x['product_id']))
+        dist = sorted(dist, key=lambda x: (x['distance'], x['PRODUCT_ID']))
 
         style_num = pk
         mystyle = Star.objects.all().filter(name=star_name).filter(style=style_num).first()

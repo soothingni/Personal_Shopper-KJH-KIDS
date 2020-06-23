@@ -6773,6 +6773,7 @@ a.default-btn {
 	font-size:28px;
 	margin:-10px 0 0px;
 	line-height:1.5;
+	margin-top: -7px
 }
 .product-details-content .product-details-price {
 	display:-webkit-box;
